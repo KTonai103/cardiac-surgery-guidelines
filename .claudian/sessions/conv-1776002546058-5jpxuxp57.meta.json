@@ -1,0 +1,24 @@
+{
+  "id": "conv-1776002546058-5jpxuxp57",
+  "providerId": "claude",
+  "title": "Verify Japan guideline 50mm expert facility rule",
+  "titleGenerationStatus": "success",
+  "createdAt": 1776002546058,
+  "updatedAt": 1776003840349,
+  "lastResponseAt": 1776003840349,
+  "sessionId": "90d014eb-ebdf-4309-a87f-7319f4371a95",
+  "providerState": {
+    "providerSessionId": "90d014eb-ebdf-4309-a87f-7319f4371a95"
+  },
+  "currentNote": "Ascending Aorta/Ascending_Aorta_Surgery_Indications_Guideline_Comparison.md",
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 631,
+    "cacheReadInputTokens": 86144,
+    "contextWindow": 200000,
+    "contextTokens": 86776,
+    "percentage": 43,
+    "contextWindowIsAuthoritative": true
+  }
+}
