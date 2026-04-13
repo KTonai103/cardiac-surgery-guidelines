@@ -150,6 +150,10 @@ mark {
 .callout ul, .callout ol { margin: 4px 0 4px 16px; }
 .callout table { font-size: 0.8rem; }
 
+/* Table wrapper for mobile horizontal scroll */
+.table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 12px 0 20px; }
+.table-wrapper table { margin: 0; }
+
 /* Print */
 @media print {
   body { max-width: 100%; padding: 20px; }
@@ -158,9 +162,23 @@ mark {
 }
 
 @media (max-width: 768px) {
-  body { padding: 20px 16px 60px; font-size: 13px; }
-  h1 { font-size: 1.3rem; }
-  table { font-size: 0.75rem; }
+  body { padding: 16px 12px 60px; font-size: 13px; }
+  h1 { font-size: 1.2rem; }
+  h2 { font-size: 1.05rem; }
+  h3 { font-size: 0.95rem; }
+  h4 { font-size: 0.88rem; }
+  table { font-size: 0.72rem; }
+  thead th { padding: 8px 8px; font-size: 0.72rem; }
+  tbody td { padding: 6px 8px; }
+  div[style*="border-left"] { padding: 8px 10px !important; }
+}
+@media (max-width: 480px) {
+  body { padding: 12px 10px 48px; font-size: 12px; }
+  h1 { font-size: 1.1rem; }
+  h2 { font-size: 1.0rem; }
+  table { font-size: 0.68rem; min-width: 480px; }
+  thead th { padding: 6px 6px; font-size: 0.68rem; }
+  tbody td { padding: 5px 6px; }
 }
 </style>
 </head>
@@ -174,7 +192,7 @@ mark {
 <p><strong>関連ドキュメント：</strong> AS/AVRガイドライン比較 · 僧帽弁狭窄症ガイドライン比較 · 上行大動脈手術適応比較</p>
 <hr />
 <h2 id="略語定義">略語・定義</h2>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>略語</th>
@@ -255,7 +273,7 @@ mark {
 <td>Randomized（RCT）/ B-NR：Non-Randomized / C-EO：Expert Opinion</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">廃用語（ACC/AHA 2023 Table 4 明示）</div>
 <p>Chronic AF・Lone AF・Valvular/Nonvalvular AF は国際的に廃用。詳細は <a href="#i-af分類の用語地域差最新update">セクション I</a> 参照。</p>
@@ -269,7 +287,7 @@ mark {
 <strong>発行：</strong> Society of Thoracic Surgeons（米国胸部外科学会）、2023年<br />
 <strong>特徴：</strong> 外科的AF治療に特化した最新かつ最もsurgery-specificな文書。LAA閉鎖を全外科的AF治療患者に<strong>Class I, A</strong>で推奨</p>
 <h4 id="1-1-弁手術合併時">1-1. 弁手術合併時</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -292,9 +310,9 @@ mark {
 <td>Surgical valve repair/replacement with concomitant ablation and LAA exclusion is reasonable over isolated TAVR alone</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="1-2-単独外科的af治療stand-alone">1-2. 単独外科的AF治療（Stand-alone）</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -323,9 +341,9 @@ mark {
 <td>May be considered in LSPersAF with LA &gt;4.5 cm or ≥moderate MR, high stroke risk, AAD failure/contraindication</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="1-3-laa管理チーム医療">1-3. LAA管理・チーム医療</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -345,7 +363,7 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="1-4-full-cox-maze-vs-la-maze">1-4. Full Cox-Maze vs LA Maze</h4>
 <ul>
 <li><strong>単独手術：</strong> Cox-Maze III/IV（biatrial, Full Maze）を<strong>preferred procedure</strong>として推奨</li>
@@ -359,7 +377,7 @@ mark {
 <strong>発行：</strong> Heart Rhythm 2017; 14(10):e275-e444<br />
 <strong>特徴：</strong> カテーテル・外科的AF治療双方を扱う最も包括的な国際コンセンサス。Full Maze vs LA Mazeのlesion set定義・成功率データを詳述</p>
 <h4 id="2-1-外科的af治療の推奨">2-1. 外科的AF治療の推奨</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -388,7 +406,7 @@ mark {
 <td>Concomitant surgical ablation of AF may be considered in patients with AF undergoing CABG</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Info</div>
 <p>HRS/EHRA 2017は2017年時点のコンセンサスであり、STS 2023・ESC/EACTS 2024より推奨が全体的に<strong>控えめ</strong>。僧帽弁手術でもClass IIaに留まる（STS 2023・ESC/EACTS 2024のClass Iより低い）。</p>
@@ -396,7 +414,7 @@ mark {
 
 <h4 id="2-2-full-cox-maze-vs-la-maze最小病変セットminimum-lesion-set">2-2. Full Cox-Maze vs LA Maze：最小病変セット（Minimum Lesion Set）</h4>
 <p><strong>最小病変セット（全ての外科的AF治療で必須）：</strong></p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>構成要素</th>
@@ -421,7 +439,7 @@ mark {
 <td>切除・縫合・クリップいずれかによる完全除外</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>Full Cox-Maze III/IVの追加病変（右房成分）：</strong></p>
 <ul>
 <li>右房切開・縫合（cavotricuspid isthmus ablation）</li>
@@ -429,7 +447,7 @@ mark {
 <li>上下大静脈間の連結ライン</li>
 </ul>
 <h4 id="2-3-術式別成功率洞調律維持率1年">2-3. 術式別成功率（洞調律維持率；1年）</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>AF type</th>
@@ -458,14 +476,14 @@ mark {
 <td>最も差が大きい</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">結論</div>
 <p>PAFでは術式による差は小さいが、<mark>LSPersAFでは右房病変を含むFull Mazeが有意に有利</mark>。</p>
 </div>
 
 <h4 id="2-4-術中確認基準pvi-confirmation">2-4. 術中確認基準（PVI Confirmation）</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>確認項目</th>
@@ -486,7 +504,7 @@ mark {
 <td>両方の確認が外科的PVIの成功基準（最低限Entrance blockが必須）</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="2-5-laa閉鎖抗凝固療法に関する特記事項">2-5. LAA閉鎖・抗凝固療法に関する特記事項</h4>
 <ul>
 <li>CHA₂DS₂-VASc ≥2の患者では外科的AF治療時にLAA除外を推奨</li>
@@ -500,7 +518,7 @@ mark {
 <p><strong>発行：</strong> ACC・AHA・HRS、2023年<br />
 <strong>特徴：</strong> AF管理の包括ガイドライン。外科的治療への推奨はSTS 2023・ESC/EACTS 2024より控えめ。単独外科的AF治療はClass 2bに留まる</p>
 <h4 id="3-1-外科的af治療の推奨section-86">3-1. 外科的AF治療の推奨（Section 8.6）</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -529,9 +547,9 @@ mark {
 <td>Stand-alone surgical ablation might be reasonable for symptomatic paroxysmal AF</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="3-2-術後心房細動poaf予防section-108-合併mazeとは別概念">3-2. 術後心房細動（POAF）予防（Section 10.8）—— 合併Mazeとは別概念</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -551,13 +569,13 @@ mark {
 <td><strong>B-R</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <h3 id="4-esceacts-2024-af-guidelines">4. ESC/EACTS 2024 AF Guidelines</h3>
 <p><strong>発行：</strong> ESC・EACTS、2024年<br />
 <strong>特徴：</strong> 外科的AF治療に最も強い推奨を付与（僧帽弁手術でClass I, B）。「リズムコントロール戦略に適合するAF」の概念を前提条件とする</p>
 <h4 id="4-1-外科的af治療の推奨">4-1. 外科的AF治療の推奨</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -592,7 +610,7 @@ mark {
 <td>Intraoperative TEE for LA thrombus detection is recommended</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <h3 id="5-jcsjhrs-202420212020-不整脈ガイドライン群">5. JCS/JHRS 2024・2021・2020 不整脈ガイドライン群</h3>
 
@@ -600,7 +618,7 @@ mark {
 <p>以下のJCS/JHRS不整脈ガイドライン（3本）はすべて内科的・デバイス的管理を対象とするものであり、<strong>外科的AF治療（Maze手術・合併手術適応・外科的LAA閉鎖）に関する記載を含まない</strong>。</p>
 </div>
 
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>ガイドライン</th>
@@ -630,14 +648,14 @@ mark {
 <td><strong>なし</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>日本における外科的AF治療の推奨は、<strong>JCS/JATS/JSVS/JSCS 2020 弁膜症治療ガイドライン</strong>（後述）を唯一の参照文書とする。</p>
 <hr />
 <h3 id="6-accaha-2020-valvular-heart-disease-guidelines">6. ACC/AHA 2020 Valvular Heart Disease Guidelines</h3>
 <p><strong>発行：</strong> ACC・AHA、2020年（合併AF手術の視点）<br />
 <strong>特記：</strong> AF非存在下でのLAA閉鎖を<strong>Class 3: Harm</strong>（有害）と明示</p>
 <h4 id="6-1-弁手術時の合併外科的af治療">6-1. 弁手術時の合併外科的AF治療</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -660,9 +678,9 @@ mark {
 <td>Intraoperative catheter ablation may be beneficial for symptomatic paroxysmal or persistent AF during valvular or CABG surgery</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="6-2-laa管理">6-2. LAA管理</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -682,11 +700,11 @@ mark {
 <td><strong>B-NR</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <h3 id="7-esceacts-2025-valvular-heart-disease-guidelines">7. ESC/EACTS 2025 Valvular Heart Disease Guidelines</h3>
 <p><strong>発行：</strong> ESC・EACTS、2025年（合併AF手術の視点）</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -715,7 +733,7 @@ mark {
 <td>Concomitant surgical ablation should be considered in non-MV surgery with AF suitable for rhythm control</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Info</div>
 <p>僧帽弁手術時の合併外科的アブレーション推奨はESC/EACTS 2024 AF（Class I, B）に委ねられており、本VHDガイドラインは非僧帽弁手術に焦点を当てる。</p>
@@ -726,7 +744,7 @@ mark {
 <p><strong>発行：</strong> JCS・JATS・JSVS・JSCS、2020年<br />
 <strong>重要性：</strong> 日本で外科的AF治療の推奨を含む<strong>唯一</strong>の主要参照文書</p>
 <h4 id="8-1-弁手術時のmaze手術laa閉鎖の推奨表52">8-1. 弁手術時のMaze手術・LAA閉鎖の推奨（表52）</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -761,7 +779,7 @@ mark {
 <td>考慮してよい</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JCS 2020の特異点</div>
 <p>JCS 2020は「発作性AF」と「慢性/持続性AF」を明確に分けており、<mark>発作性のみがClass IIbと低い推奨に留まる</mark>点が他ガイドラインとの主な相違。「永続性AF（リズムコントロール断念）」への手術推奨は推奨表（表52）に独立した行として存在しない。</p>
@@ -779,7 +797,7 @@ mark {
 <h2 id="part-iiガイドライン横断比較表テーマ分析">Part II：ガイドライン横断比較表・テーマ分析</h2>
 <hr />
 <h3 id="a-単独外科的af治療primary-stand-alone-surgical-ablation比較">A. 単独外科的AF治療（Primary Stand-alone Surgical Ablation）比較</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨項目</th>
@@ -826,7 +844,7 @@ mark {
 <td>合併手術中心</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">解説</div>
 <p>HRS/EHRA 2017（Class IIb, C）とSTS 2023（Class IIa, B-NR）の間に推奨の差があることに注目。2017年から2023年にかけてエビデンスが蓄積し、推奨が格上げされた経緯を反映する。</p>
@@ -835,7 +853,7 @@ mark {
 <hr />
 <h3 id="b-弁手術合併時の適応比較">B. 弁手術合併時の適応比較</h3>
 <h4 id="b-1-僧帽弁手術合併時">B-1. 僧帽弁手術合併時</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>ガイドライン</th>
@@ -882,14 +900,14 @@ mark {
 <td>AF typeで推奨が二分；発作性はClass IIbと欧米より大幅に控えめ</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">要点</div>
 <p>STS 2023・ESC/EACTS 2024・ACC/AHA 2020 VHDは<mark>Class I</mark>を付与。HRS/EHRA 2017・ACC/AHA/HRS 2023はClass IIa。<mark>日本JCS 2020のみ発作性AFでClass IIb, C</mark>と明示的に低く、AF typeで推奨が分かれる唯一のガイドライン。</p>
 </div>
 
 <h4 id="b-2-大動脈弁その他の弁手術合併時">B-2. 大動脈弁・その他の弁手術合併時</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>ガイドライン</th>
@@ -930,10 +948,10 @@ mark {
 <td>症候性AF合併弁手術（弁種不問）</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <h3 id="c-cabg合併時の適応比較">C. CABG合併時の適応比較</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>ガイドライン</th>
@@ -980,7 +998,7 @@ mark {
 <td>CABG合併時の記載なし</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">解説</div>
 <p>CABG合併時のMaze手術は全ガイドラインを通じて<mark>最も推奨が弱い領域</mark>。HRS/EHRA 2017はIIb, Cと最も保守的。弁手術合併との比較でエビデンスが明らかに劣る。</p>
@@ -989,7 +1007,7 @@ mark {
 <hr />
 <h3 id="d-la-maze-vs-full-cox-maze-比較重点項目">D. LA Maze vs Full Cox-Maze 比較（重点項目）</h3>
 <h4 id="d-1-定義病変セット">D-1. 定義・病変セット</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>比較項目</th>
@@ -1024,9 +1042,9 @@ mark {
 <td>RF・cryo・切開縫合（cut-and-sew）</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="d-2-af-typeごとの術式別成功率1年洞調律維持率hrsehra-2017データ">D-2. AF typeごとの術式別成功率（1年洞調律維持率；HRS/EHRA 2017データ）</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>AF type</th>
@@ -1059,9 +1077,9 @@ mark {
 <td><strong>Full Maze strongly preferred</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="d-3-各ガイドラインの立場">D-3. 各ガイドラインの立場</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>ガイドライン</th>
@@ -1102,7 +1120,7 @@ mark {
 <td>術式は術者判断</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="d-4-現時点のコンセンサス">D-4. 現時点のコンセンサス</h4>
 <ol type="1">
 <li><strong>最小要件：</strong> HRS/EHRA 2017が定義する4要素（両側PVI＋屋根線＋僧帽弁峡部線＋LAA閉鎖）が最小標準</li>
@@ -1113,7 +1131,7 @@ mark {
 <hr />
 <h3 id="e-laa閉鎖術の適応方法比較">E. LAA閉鎖術の適応・方法比較</h3>
 <h4 id="e-1-各ガイドラインの適応推奨">E-1. 各ガイドラインの適応推奨</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>ガイドライン</th>
@@ -1167,9 +1185,9 @@ mark {
 <td>—</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="e-2-laa閉鎖の方法と特徴">E-2. LAA閉鎖の方法と特徴</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>方法</th>
@@ -1204,7 +1222,7 @@ mark {
 <td>HRS/EHRA 2017が方法として列挙</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="e-3-抗凝固療法との関係">E-3. 抗凝固療法との関係</h4>
 <ul>
 <li><strong>全ガイドライン共通：</strong> LAA閉鎖はOACの補助（adjunct）であり代替ではない</li>
@@ -1214,7 +1232,7 @@ mark {
 <hr />
 <h3 id="f-患者選択基準-ガイドライン横断比較">F. 患者選択基準 ガイドライン横断比較</h3>
 <h4 id="f-1-af-typeによる推奨強度と術式選択">F-1. AF typeによる推奨強度と術式選択</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>AF type</th>
@@ -1254,9 +1272,9 @@ mark {
 <td>—</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="f-2-患者背景因子の影響">F-2. 患者背景因子の影響</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>因子</th>
@@ -1309,10 +1327,10 @@ mark {
 <td>—</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <h3 id="g-成功率の定義と基準hrsehra-2017">G. 成功率の定義と基準（HRS/EHRA 2017）</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>評価基準</th>
@@ -1349,10 +1367,10 @@ mark {
 <td>最低12ヶ月のイベントモニター / 植込みデバイス（Holter 24–72hは不十分）</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <h3 id="h-術後管理抗凝固療法">H. 術後管理・抗凝固療法</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>管理項目</th>
@@ -1413,12 +1431,12 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <h3 id="i-af分類の用語地域差最新update">I. AF分類の用語・地域差・最新Update</h3>
 <h4 id="i-1-時間的4型分類の変遷と現行定義">I-1. 時間的4型分類の変遷と現行定義</h4>
 <p>AF分類は長年「Chronic AF（慢性AF）」対「Paroxysmal AF（発作性AF）」という二分法が主流だったが、<strong>2006年 ACC/AHA/ESC ガイドライン</strong>以降、持続時間に基づく4型分類が国際標準となった。各ガイドラインの現行定義は以下の通り。</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>分類</th>
@@ -1458,7 +1476,7 @@ mark {
 <td>永続性AF（類似概念）</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">重要</div>
 <p>Persistent AFに上限期間はない。12ヶ月を超えた場合はLong-standing Persistentと呼ばれるが、これはPersistent AFの中の亜分類であり別カテゴリではない。<mark>Permanent AFは「永久に治らない」を意味するのではなく、リズムコントロール戦略を再開した時点で再分類される</mark>。</p>
@@ -1466,7 +1484,7 @@ mark {
 
 <h4 id="i-2-accaha-2023の最大変更点stage-ad-分類の新設figure-4">I-2. ACC/AHA 2023の最大変更点：Stage A–D 分類の新設（Figure 4）</h4>
 <p>ACC/AHA 2023は従来の時間的4型分類に加え、AFを**連続する疾患経過（Disease Continuum）**として捉えるStage分類を新規導入。AF予防・スクリーニング段階（Stage 1–2）を含む点が最大の特徴。</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Stage</th>
@@ -1511,7 +1529,7 @@ mark {
 <td>患者・医師合意によりリズムコントロール断念</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Note</div>
 <p>ESC 2024はこのStage分類を採用していない（4型時間的分類＋新概念Table 6の独自体系を維持）。</p>
@@ -1519,7 +1537,7 @@ mark {
 
 <h4 id="i-3-esc-2024の新概念table-6">I-3. ESC 2024の新概念（Table 6）</h4>
 <p>ESC 2024は時間的4型分類を維持しつつ、臨床管理に有用な新概念を<strong>Table 6</strong>として独立定義した。これらは時間的分類とは直交する概念。</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>新概念</th>
@@ -1559,10 +1577,10 @@ mark {
 <td>術後洞調律維持率や長期予後に関与</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="i-4-廃用語一覧accaha-2023-table-4-明示">I-4. 廃用語一覧（ACC/AHA 2023 Table 4 明示）</h4>
 <p>以下の用語はACC/AHA 2023 Table 4において**廃用（"Terms considered obsolete"）**と明記。ESC 2024も使用していない。</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>廃用語</th>
@@ -1587,9 +1605,9 @@ mark {
 <td>使用しない。弁膜症の種類・重症度・手術歴を個別に記載</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4 id="i-5-地域別ガイドライン別-用語比較まとめ">I-5. 地域別・ガイドライン別 用語比較まとめ</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>項目</th>
@@ -1650,7 +1668,7 @@ mark {
 <td>廃用</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">外科的観点での実務上の注意</div>
 <p>JCS 2020弁膜症ガイドライン（表52）の「慢性/持続性AF」は、国際標準ではPersistent AF ＋ Long-standing Persistent AFに相当すると解釈するが、定義が曖昧であることに注意。同ガイドラインを参照する際は<mark>「慢性/持続性AF」≈「Persistent AF全般（≥7日）」</mark>と読み替えるのが妥当。</p>

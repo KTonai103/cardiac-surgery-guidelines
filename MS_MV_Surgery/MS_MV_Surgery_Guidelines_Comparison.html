@@ -157,10 +157,27 @@ mark {
   h2 { break-after: avoid; }
 }
 
+.table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 12px 0 20px; }
+.table-wrapper table { margin: 0; }
+
 @media (max-width: 768px) {
-  body { padding: 20px 16px 60px; font-size: 13px; }
-  h1 { font-size: 1.3rem; }
-  table { font-size: 0.75rem; }
+  body { padding: 16px 12px 60px; font-size: 13px; }
+  h1 { font-size: 1.2rem; }
+  h2 { font-size: 1.05rem; }
+  h3 { font-size: 0.95rem; }
+  h4 { font-size: 0.88rem; }
+  table { font-size: 0.72rem; }
+  thead th { padding: 8px 8px; font-size: 0.72rem; }
+  tbody td { padding: 6px 8px; }
+  div[style*="border-left"] { padding: 8px 10px !important; }
+}
+@media (max-width: 480px) {
+  body { padding: 12px 10px 48px; font-size: 12px; }
+  h1 { font-size: 1.1rem; }
+  h2 { font-size: 1.0rem; }
+  table { font-size: 0.68rem; min-width: 480px; }
+  thead th { padding: 6px 6px; font-size: 0.68rem; }
+  tbody td { padding: 5px 6px; }
 }
 </style>
 </head>
@@ -193,7 +210,7 @@ mark {
 <h3 id="1-1-血行動態的重症度分類">1-1. 血行動態的重症度分類</h3>
 <h4 id="jcs-2020日本の定義">JCS 2020（日本）の定義</h4>
 <p>JCS 2020ガイドラインでは、従来通りの3段階分類（軽症・中等症・重症）を維持している。</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>重症度</th>
@@ -222,7 +239,7 @@ mark {
 <td>&gt;220 ms</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">重要</div>
 <p><em>mPGおよびPHTは心拍数・血流量・左房/左室コンプライアンスの影響を受けるため、あくまで参考指標。</em> JCSは「重症」基準をMVA <mark><strong>&lt;1.0 cm²</strong></mark> と定義するが、**臨床的に有意なMS（介入検討の目安）はMVA <mark>≦1.5 cm²</mark>（中等症以上）**とされている。</p>
@@ -235,7 +252,7 @@ mark {
 </ul>
 <h4 id="esceacts-2025欧州の定義">ESC/EACTS 2025（欧州）の定義</h4>
 <p>ESC/EACTS 2025では、<strong>MVA ≦1.5 cm²</strong> を「臨床的に重症な MS」の統一閾値として定義している。</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>区分</th>
@@ -264,7 +281,7 @@ mark {
 <td>管理困難な特殊病態</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">注目</div>
 <p><mark>SPAP &gt;50 mmHg</mark> は安静時に高リスクの指標として無症候性患者でも介入トリガーとなる。</p>
@@ -276,7 +293,7 @@ mark {
 
 <h4 id="accaha-2020米国のステージ分類ad">ACC/AHA 2020（米国）のステージ分類（A〜D）</h4>
 <p>ACC/AHA 2020は独自のアルファベットステージ分類を採用している。</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>ステージ</th>
@@ -321,14 +338,14 @@ mark {
 <td><strong>あり</strong>（労作時呼吸困難等）</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">MVA <1.0 cm² の無症候性患者では年1回のエコー検査が推奨される。</div>
 <p>ACC/AHAは「重症」の定義をMVA <strong>≦1.5 cm²</strong>（ESCと同様）とし、JCSの&lt;1.0 cm²とは異なる。</p>
 </div>
 
 <h3 id="1-2-重症度定義における3ガイドライン間の相違">1-2. 重症度定義における3ガイドライン間の相違</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>基準</th>
@@ -369,7 +386,7 @@ mark {
 <td>ステージ分類内に明示なし</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">差異ポイント①</div>
 <p>JCSのみが「重症」をMVA <mark>&lt;1.0 cm²</mark> と厳格に定義している。一方で臨床的介入閾値（MVA ≦1.5）は3ガイドライン共通。</p>
@@ -379,7 +396,7 @@ mark {
 <h2 id="2-弁形態評価wilkinsスコアcormierスコア">2. 弁形態評価（Wilkinsスコア・Cormierスコア）</h2>
 <h3 id="2-1-wilkinsスコアecho-score">2-1. Wilkinsスコア（Echo Score）</h3>
 <p>PTMC/PMCの適応判断に使用するWilkinsスコアの評価項目（各1〜4点、合計16点満点）：</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>評価項目</th>
@@ -409,8 +426,8 @@ mark {
 <td>乳頭筋まで及ぶ全腱索の肥厚・短縮</td>
 </tr>
 </tbody>
-</table>
-<table>
+</table></div>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>スコア</th>
@@ -430,7 +447,7 @@ mark {
 <td>外科的手術を優先検討</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">3ガイドライン共通</div>
 <p>Wilkinsスコア <mark>≦8</mark> を PTMC/PMC/PMBC の形態的適合基準とする。</p>
@@ -438,7 +455,7 @@ mark {
 
 <h3 id="2-2-cormierスコアesceacts-2025のみ">2-2. Cormierスコア（ESC/EACTS 2025のみ）</h3>
 <p>ESC/EACTS 2025ではWilkinsスコアに加えてCormierスコア（蛍光透視による石灰化評価）を使用：</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Cormier スコア</th>
@@ -463,7 +480,7 @@ mark {
 <td><strong>不良（PMC不適）</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="2-3-pmcの形態的禁忌">2-3. PMCの形態的禁忌</h3>
 <p>3ガイドラインに共通して、以下はPTMC/PMC/PMBCの絶対的禁忌または大きな障害：</p>
 <ul>
@@ -474,7 +491,7 @@ mark {
 <hr />
 <h2 id="3-症候性msへのptmcpmcpmbc適応">3. 症候性MSへのPTMC/PMC/PMBC適応</h2>
 <h3 id="3-1-症候性ms形態良好例">3-1. 症候性MS（形態良好例）</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨事項</th>
@@ -497,9 +514,9 @@ mark {
 <td>左房血栓なし、MR ≦1+、良好な形態</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="3-2-症候性ms形態不良例高外科的リスク例">3-2. 症候性MS（形態不良例・高外科的リスク例）</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨事項</th>
@@ -522,9 +539,9 @@ mark {
 <td>—</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="3-3-軽症msmva-15-cm²への介入">3-3. 軽症MS（MVA &gt;1.5 cm²）への介入</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨事項</th>
@@ -541,7 +558,7 @@ mark {
 <td>ステージBは介入の推奨なし</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">差異ポイント②</div>
 <p>JCSは軽症MS（MVA &gt;1.5 cm²）でも運動負荷試験陽性であれば介入を考慮するが（<mark>Class IIb</mark>）、ESC/EACTSとACC/AHAは基本的にMVA ≦1.5 cm²を介入対象とする。</p>
@@ -550,7 +567,7 @@ mark {
 <hr />
 <h2 id="4-症候性msへの外科的介入適応">4. 症候性MSへの外科的介入適応</h2>
 <h3 id="4-1-外科的介入全般の適応">4-1. 外科的介入全般の適応</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨事項</th>
@@ -567,9 +584,9 @@ mark {
 <td><strong>Class I, Level B-NR</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="4-2-外科的形成術omcdirect-commissurotomy--mitral-valve-repair">4-2. 外科的形成術（OMC：Direct Commissurotomy / Mitral Valve Repair）</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>項目</th>
@@ -604,9 +621,9 @@ mark {
 <td>—</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="4-3-外科的弁置換術mvrの適応">4-3. 外科的弁置換術（MVR）の適応</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>適応状況</th>
@@ -647,11 +664,11 @@ mark {
 <td>個別リスク評価</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <h2 id="5-無症候性msへの介入適応">5. 無症候性MSへの介入適応</h2>
 <h3 id="5-1-肺高血圧を伴う無症候性重症ms">5-1. 肺高血圧を伴う無症候性重症MS</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>肺動脈圧条件</th>
@@ -680,9 +697,9 @@ mark {
 <td>明示なし</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="5-2-心房細動afを伴う無症候性重症ms">5-2. 心房細動（AF）を伴う無症候性重症MS</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>AF関連状況</th>
@@ -717,14 +734,14 @@ mark {
 <td>—</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">差���ポイント③</div>
 <p>ESC/EACTSは新規発症AFや塞栓症リスクを<mark><strong>Class IIa</strong></mark>として明示しているが、JCSは<mark><strong>Class IIb</strong></mark>（弱い推奨）にとどま���。</p>
 </div>
 
 <h3 id="5-3-塞栓症リスクに関わる無症候性ms">5-3. 塞栓症リスクに関わる無症候性MS</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>状況</th>
@@ -747,9 +764,9 @@ mark {
 <td>記載なし</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="5-4-非心臓外科手術前の無症候性ms">5-4. 非心臓外科手術前の無症候性MS</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>状況</th>
@@ -766,11 +783,11 @@ mark {
 <td>術前に評価・検討</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <h2 id="6-低流量低圧較差msの管理">6. 低流量・低圧較差MSの管理</h2>
 <h3 id="6-1-定義と特徴">6-1. 定義と特徴</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>項目</th>
@@ -799,7 +816,7 @@ mark {
 <td>—</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">差異ポイント④</div>
 <p>ESC/EACTS 2025のみ���「低圧較差重症MS」を明示的に定義し管理の複雑性を記載している。JCSおよびACC/AHAはこの病態の独立した分類を設けていない���</p>
@@ -808,7 +825,7 @@ mark {
 <hr />
 <h2 id="7-特殊状況における管理">7. 特殊状況における管理</h2>
 <h3 id="7-1-妊娠合併ms">7-1. 妊娠合併MS</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨事項</th>
@@ -837,14 +854,14 @@ mark {
 <td>症候性で PMBC 不適の場合のみ考慮</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">共通認識</div>
 <p>3ガイ���ライン共通して<mark>妊娠前に僧帽弁狭窄症の治療を完了すること</mark>が最善とされる。妊娠中の外科手術は胎児リスクが高く原則回避。</p>
 </div>
 
 <h3 id="7-2-左心房血栓を伴うms">7-2. 左心房血栓を伴うMS</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨事項</th>
@@ -873,9 +890,9 @@ mark {
 <td>外科手術</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="7-3-非リウマチ性ms僧帽弁輪石灰化mac">7-3. 非リウマチ性MS（僧帽弁輪石灰化：MAC）</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>項目</th>
@@ -904,7 +921,7 @@ mark {
 <td>高リスク患者で経カテーテル手技を考慮</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">差異ポイン��⑤</div>
 <p>ESC/EACTS 2025はMACに対するTMVI（経カテーテル的僧帽弁植え込み）を<mark>Class IIb</mark>として初めて明示している。</p>
@@ -915,7 +932,7 @@ mark {
 <hr />
 <h2 id="8-弁置換術における人工弁選択">8. 弁置換術における人工弁選択</h2>
 <h3 id="8-1-機械弁-vs-生体弁の選択基準">8-1. 機械弁 vs 生体弁の選択基準</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>選択基準</th>
@@ -956,7 +973,7 @@ mark {
 <td>生体弁</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">注意</div>
 <p>僧帽弁位の機械弁は大動脈弁位より<mark>血栓塞栓リスクが高い</mark>ため、抗凝固管理がより重要。</p>
@@ -965,7 +982,7 @@ mark {
 <hr />
 <h2 id="9-各地域の相違点-比較表">9. 各地域の相違点 比較表</h2>
 <h3 id="9-1-主要な相違点サマリー">9-1. 主要な相違点サマリー</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>相違ポイント</th>
@@ -1060,9 +1077,9 @@ mark {
 <td>推奨</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="9-2-症候性ms形態良好例への介入比較">9-2. 症候性MS（形態良好例）への介入比較</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>推奨事項</th>
@@ -1097,9 +1114,9 @@ mark {
 <td><strong>可能な場合に優先（IIa / C-EO）</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="9-3-無症候性msstage-c--中等症以上無症候性への介入比較">9-3. 無症候性MS（Stage C / 中等症以上無症候性）への介入比較</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>トリガー条件</th>
@@ -1152,7 +1169,7 @@ mark {
 <td>術前評価・検討</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <h2 id="10-まとめ総括">10. まとめ・総括</h2>
 <h3 id="共通事項">共通事項</h3>
@@ -1171,7 +1188,7 @@ mark {
 </div>
 
 <h3 id="主要な相違点まとめ">主要な相違点まとめ</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>#</th>
@@ -1231,7 +1248,7 @@ mark {
 <td>ACC/AHAのみがA〜Dのアルファベットステージ分類を採用（日欧は軽症/中等症/重症の数値基準）</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="臨床的含意">臨床的含意</h3>
 
 <div class="callout" style="background:#e1f5fe;border-left:4px solid #00b0ff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00b0ff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">地域別アプローチの特徴</div>

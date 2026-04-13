@@ -1,0 +1,6 @@
+.DS_Store
+**/.DS_Store
+.obsidian/
+.claudian/
+__pycache__/
+*.pyc

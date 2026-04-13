@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>心臓外科ガイドライン比較ライブラリ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --header-bg: #2c3e50;
+      --accent-jp: #c0392b;
+      --accent-us: #2980b9;
+      --accent-eu: #27ae60;
+      --bg: #f4f6f8;
+      --card-bg: #ffffff;
+      --text-primary: #1a1a2e;
+      --text-secondary: #555e6d;
+      --border: #dde3ea;
+      --shadow: rgba(44, 62, 80, 0.10);
+      --shadow-hover: rgba(44, 62, 80, 0.18);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      background-color: var(--header-bg);
+      color: #ffffff;
+      padding: 2.5rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    header .site-title {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+
+    header .site-subtitle {
+      margin-top: 0.6rem;
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.72);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Main ── */
+    main {
+      flex: 1;
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* ── Card ── */
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      box-shadow: 0 2px 8px var(--shadow);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--shadow-hover);
+      outline: none;
+    }
+
+    .card:focus-visible {
+      outline: 3px solid var(--accent-us);
+      outline-offset: 2px;
+    }
+
+    .card-title {
+      font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+      font-weight: 700;
+      color: var(--header-bg);
+      line-height: 1.45;
+    }
+
+    .card-description {
+      font-size: clamp(0.8rem, 1.8vw, 0.875rem);
+      color: var(--text-secondary);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    /* ── Badges ── */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-jp {
+      background-color: rgba(192, 57, 43, 0.10);
+      color: var(--accent-jp);
+      border: 1px solid rgba(192, 57, 43, 0.25);
+    }
+
+    .badge-us {
+      background-color: rgba(41, 128, 185, 0.10);
+      color: var(--accent-us);
+      border: 1px solid rgba(41, 128, 185, 0.25);
+    }
+
+    .badge-eu {
+      background-color: rgba(39, 174, 96, 0.10);
+      color: var(--accent-eu);
+      border: 1px solid rgba(39, 174, 96, 0.25);
+    }
+
+    /* ── Open link ── */
+    .card-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--accent-us);
+      margin-top: 0.25rem;
+      transition: gap 0.15s ease;
+    }
+
+    .card:hover .card-action {
+      gap: 0.55rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background-color: var(--header-bg);
+      color: rgba(255, 255, 255, 0.55);
+      text-align: center;
+      padding: 1.25rem 1rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      header {
+        padding: 2rem 1rem 1.5rem;
+      }
+
+      main {
+        padding: 1.75rem 1rem 2.5rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 1.1rem;
+      }
+
+      .card {
+        padding: 1.25rem 1.25rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="site-title">心臓外科ガイドライン比較ライブラリ</div>
+    <div class="site-subtitle">国際学会ガイドラインの横断比較ドキュメント集</div>
+  </header>
+
+  <main>
+    <div class="grid">
+
+      <!-- Card 1 -->
+      <a class="card" href="AS_AVR_TAVI/AS_AVR_Guidelines_Comparison.html">
+        <div class="card-title">大動脈弁狭窄症・AVR・TAVI<br>ガイドライン比較</div>
+        <div class="card-description">ACC/AHA, ESC/EACTS, JCS各ガイドラインの手術適応・閾値比較</div>
+        <div class="badge-row">
+          <span class="badge badge-jp">🇯🇵 JCS</span>
+          <span class="badge badge-us">🇺🇸 ACC·AHA·STS</span>
+          <span class="badge badge-eu">🇪🇺 ESC·EACTS</span>
+        </div>
+        <span class="card-action">→ 開く</span>
+      </a>
+
+      <!-- Card 2 -->
+      <a class="card" href="AF_Surgery/AF_Surgery_Indications_Guideline_Comparison.html">
+        <div class="card-title">心房細動外科治療<br>ガイドライン比較</div>
+        <div class="card-description">AF外科治療の適応・術式・術後管理の国際比較</div>
+        <div class="badge-row">
+          <span class="badge badge-jp">🇯🇵 JCS</span>
+          <span class="badge badge-us">🇺🇸 ACC·AHA·STS</span>
+          <span class="badge badge-eu">🇪🇺 ESC·EACTS</span>
+        </div>
+        <span class="card-action">→ 開く</span>
+      </a>
+
+      <!-- Card 3 -->
+      <a class="card" href="MS_MV_Surgery/MS_MV_Surgery_Guidelines_Comparison.html">
+        <div class="card-title">僧帽弁狭窄症・僧帽弁手術<br>ガイドライン比較</div>
+        <div class="card-description">僧帽弁疾患の手術適応・介入閾値の国際比較</div>
+        <div class="badge-row">
+          <span class="badge badge-jp">🇯🇵 JCS</span>
+          <span class="badge badge-us">🇺🇸 ACC·AHA·STS</span>
+          <span class="badge badge-eu">🇪🇺 ESC·EACTS</span>
+        </div>
+        <span class="card-action">→ 開く</span>
+      </a>
+
+      <!-- Card 4 -->
+      <a class="card" href="Ascending%20Aorta/Ascending_Aorta_Surgery_Indications_Guideline_Comparison.html">
+        <div class="card-title">上行大動脈手術<br>ガイドライン比較</div>
+        <div class="card-description">上行大動脈手術の適応・径閾値・病態別適応の国際比較（ACC/AHA 2022, ESC 2024, JCS 2020, EACTS/STS 2024他）</div>
+        <div class="badge-row">
+          <span class="badge badge-jp">🇯🇵 JCS</span>
+          <span class="badge badge-us">🇺🇸 ACC·AHA·STS</span>
+          <span class="badge badge-eu">🇪🇺 ESC·EACTS</span>
+        </div>
+        <span class="card-action">→ 開く</span>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 心臓外科ガイドライン比較ライブラリ
+  </footer>
+
+</body>
+</html>
