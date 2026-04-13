@@ -4,3 +4,4 @@
 .claudian/
 __pycache__/
 *.pyc
+reference/
