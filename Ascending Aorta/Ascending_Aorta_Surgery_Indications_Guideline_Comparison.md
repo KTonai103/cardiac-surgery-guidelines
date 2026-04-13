@@ -16,7 +16,7 @@ aliases:
 
 # 上行大動脈拡大に対する手術適応：ガイドライン各論と横断的比較
 
-**関連ドキュメント：** [[AS_AVR_Guidelines_Comparison|AS/AVRガイドライン比較]] · [[MS_MV_Surgery_Guidelines_Comparison|僧帽弁狭窄症ガイドライン比較]] · [[AF_Surgery_Indications_Guideline_Comparison|AF手術適応比較]]
+**関連ドキュメント：** [[AS_AVR_Guidelines_Comparison|AS/AVRガイドライン比較]] · [[MS_MV_Surgery_Guidelines_Comparison|僧帽弁狭窄症ガイドライン比較]] · [[AF_Surgery_Indications_Guideline_Comparison|AF手術適応比較]] · [[Combined_VHD_Guidelines_Comparison|複合弁膜症ガイドライン比較]]
 
 ---
 

@@ -150,10 +150,6 @@ mark {
 .callout ul, .callout ol { margin: 4px 0 4px 16px; }
 .callout table { font-size: 0.8rem; }
 
-/* Table wrapper for horizontal scroll on mobile */
-.table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 12px 0 20px; }
-.table-wrapper table { margin: 0; }
-
 /* Print */
 @media print {
   body { max-width: 100%; padding: 20px; }
@@ -162,32 +158,18 @@ mark {
 }
 
 @media (max-width: 768px) {
-  body { padding: 16px 12px 60px; font-size: 13px; }
-  h1 { font-size: 1.2rem; }
-  h2 { font-size: 1.05rem; }
-  h3 { font-size: 0.95rem; }
-  h4 { font-size: 0.88rem; }
-  table { font-size: 0.72rem; }
-  thead th { padding: 8px 8px; font-size: 0.72rem; }
-  tbody td { padding: 6px 8px; }
-  div[style*="border-left"] { padding: 8px 10px !important; }
-}
-@media (max-width: 480px) {
-  body { padding: 12px 10px 48px; font-size: 12px; }
-  h1 { font-size: 1.1rem; }
-  h2 { font-size: 1.0rem; }
-  table { font-size: 0.68rem; min-width: 480px; }
-  thead th { padding: 6px 6px; font-size: 0.68rem; }
-  tbody td { padding: 5px 6px; }
+  body { padding: 20px 16px 60px; font-size: 13px; }
+  h1 { font-size: 1.3rem; }
+  table { font-size: 0.75rem; }
 }
 </style>
 </head>
 <body>
 <h1 id="上行大動脈拡大に対する手術適応ガイドライン各論と横断的比較">上行大動脈拡大に対する手術適応：ガイドライン各論と横断的比較</h1>
-<p><strong>関連ドキュメント：</strong> AS/AVRガイドライン比較 · 僧帽弁狭窄症ガイドライン比較 · AF手術適応比較</p>
+<p><strong>関連ドキュメント：</strong> AS/AVRガイドライン比較 · 僧帽弁狭窄症ガイドライン比較 · AF手術適応比較 · 複合弁膜症ガイドライン比較</p>
 <hr />
 <h2 id="参照ガイドライン一覧">参照ガイドライン一覧</h2>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>#</th>
@@ -246,7 +228,7 @@ mark {
 <td>2021</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 
 <div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">参照上の注意</div>
 <ul>
@@ -269,7 +251,7 @@ mark {
 <li><strong>上行大動脈の位置づけ</strong>: 第5章「大動脈瘤の治療」1.2節「非破裂性胸部大動脈瘤」内に「1.2.1 大動脈基部・上行大動脈瘤」として独立小節（表12）。第8章に遺伝性大動脈疾患（1節）とBAV aortopathy（2節）を独立章で記載</li>
 </ul>
 <h3 id="推奨クラスエビデンスレベル体系">推奨クラス・エビデンスレベル体系</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>クラス</th>
@@ -294,8 +276,8 @@ mark {
 <td>有効でなく、ときに有害であるとのエビデンスがあるか、見解が広く一致</td>
 </tr>
 </tbody>
-</table></div>
-<div class="table-wrapper"><table>
+</table>
+<table>
 <thead>
 <tr>
 <th>レベル</th>
@@ -316,9 +298,9 @@ mark {
 <td>専門家の意見、小規模臨床試験、後ろ向き研究</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="上行大動脈手術適応の推奨表12">上行大動脈手術適応の推奨（表12）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -363,10 +345,10 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>*危険因子: 大動脈解離の家族歴、拡大速度 &gt;=5mm/半年、重症AR、妊娠希望</p>
 <h3 id="marfan症候群表49">Marfan症候群（表49）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -391,9 +373,9 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="bav関連大動脈症表52">BAV関連大動脈症（表52）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -418,7 +400,7 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="loeys-dietz症候群">Loeys-Dietz症候群</h3>
 <ul>
 <li>Marfan症候群より上行大動脈径が小さい値で解離・破裂が生じるとの記載（クラスIIa、レベルC）</li>
@@ -435,7 +417,14 @@ mark {
 <li><strong>低い閾値での手術考慮</strong>: リスク因子あり <strong>&gt;=45mm</strong>（IIa）、<strong>40-45mm</strong>（IIb）と、欧米より積極的に閾値引き下げを設定</li>
 <li><strong>妊娠前Marfan</strong>: <strong>&gt;=40mm</strong> でIIa推奨（欧米は &gt;=45mm がClass I）</li>
 <li><strong>施設裁量の重視</strong>: 「ガイドラインは診療内容を規定するものではなく、実際の診療はあくまで施設や医師ごとの判断に委ねられる」と明記</li>
-<li><strong>経験豊富な施設</strong>: BAV aortopathyで「大動脈治療の経験値が高い施設では50mmでも手術が推奨される」（本文記載、推奨表のClass/LOEには非反映）</li>
+<li><strong>熟練した施設と50mm閾値</strong>: 以下の2経路で推奨表に明記されている（「本文のみ」は誤り）
+<ul>
+<li><strong>表12（IIa, C）</strong>: 「大動脈解離の家族歴を有し、拡大速度≥5mm/半年、手術リスクが低い症例においては、<strong>熟練した施設で行うことを推奨し</strong>、最大径≥50mmで手術を考慮する」— 推奨クラスとして推奨表本体に記載</li>
+<li><strong>表52 BAV（IIa, C）</strong>: 危険因子あり＋上行≥50mm → 推奨表に明記</li>
+<li><strong>表52 BAV（IIb, C）</strong>: 危険因子なし＋上行50mm → 推奨表に明記</li>
+<li><strong>本文 2.2.1節</strong>: 「BAVの後ろ向き観察研究では径が53mm以上で解離・急性大動脈症候群のリスクが高まったことから、<strong>大動脈治療の経験値が高い施設での適応が可能である</strong>」（53mm hinge point文脈、"可能"という表現）</li>
+<li>⚠️ <strong>孤発性TAV（遺伝性素因なし・急速拡大なし）には非適用</strong>: PQ7推奨文が「<strong>遺伝性大動脈疾患がない場合は大動脈径≥55mm</strong>」と明記。表12 IIaの「家族歴＋急速拡大≥5mm/半年」条件は実質的にnsHTAD（家族性胸部大動脈瘤）に相当し、真の孤発性TAVとは区別される。ACC/AHA 2022がExpert施設条件のみで孤発性TAVに50mmを適用できるのと対照的な相違点</li>
+</ul></li>
 </ol>
 <h3 id="径の測定方法">径の測定方法</h3>
 <ul>
@@ -456,7 +445,7 @@ mark {
 </ul>
 <h3 id="上行大動脈手術適応の推奨表28">上行大動脈手術適応の推奨（表28）</h3>
 <h4 id="大動脈三尖弁-tav">大動脈三尖弁 (TAV)</h4>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -485,9 +474,9 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h4 id="大動脈二尖弁-bav">大動脈二尖弁 (BAV)</h4>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -522,9 +511,9 @@ mark {
 <td>—</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h4 id="marfan症候群">Marfan症候群</h4>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -553,7 +542,7 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>*危険因子: 大動脈解離の家族歴、血管解離の既往歴、重症AR/MR、妊娠希望、高血圧症、大動脈径の経時的拡大（&gt;3mm/年）</p>
 <h3 id="jcs-2020-vhd-の特徴">JCS 2020 VHD の特徴</h3>
 <ol type="1">
@@ -575,7 +564,7 @@ mark {
 <li><strong>上行大動脈関連の構成</strong>: Section 6.1（TAA原因別）、Section 6.1.2（遺伝性大動脈症）、Section 6.1.3（BAV）、Section 6.5.1（手術適応）、Section 8（妊娠）</li>
 </ul>
 <h3 id="推奨クラスエビデンスレベル体系-1">推奨クラス・エビデンスレベル体系</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>クラス</th>
@@ -600,8 +589,8 @@ mark {
 <td>No Benefit / Harm</td>
 </tr>
 </tbody>
-</table></div>
-<div class="table-wrapper"><table>
+</table>
+<table>
 <thead>
 <tr>
 <th>LOE</th>
@@ -630,9 +619,9 @@ mark {
 <td>エキスパートオピニオン</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="非遺伝性孤発性taa--tavsection-651">非遺伝性（孤発性）TAA ― TAV（Section 6.5.1）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -677,9 +666,9 @@ mark {
 <td><strong>C-LD</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="bav関連大動脈症section-6132">BAV関連大動脈症（Section 6.1.3.2）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -714,9 +703,9 @@ mark {
 <td><strong>B-NR</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="marfan症候群section-61223">Marfan症候群（Section 6.1.2.2.3）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -746,10 +735,10 @@ mark {
 <td><strong>C-LD</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>Table 10 RF: 解離の家族歴、急速拡大 &gt;0.3cm/年、びまん性拡大、椎骨動脈蛇行</p>
 <h3 id="loeys-dietz症候群--遺伝子別閾値table-11">Loeys-Dietz症候群 ― 遺伝子別閾値（Table 11）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>遺伝子</th>
@@ -810,9 +799,9 @@ mark {
 <td><strong>C-EO</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="その他の遺伝性疾患table-13">その他の遺伝性疾患（Table 13）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>遺伝子</th>
@@ -852,9 +841,9 @@ mark {
 <td><strong>C-EO</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="nshtad遺伝子未同定">nsHTAD（遺伝子未同定）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -874,9 +863,9 @@ mark {
 <td><strong>C-LD</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="turner症候群section-6125">Turner症候群（Section 6.1.2.5）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -896,9 +885,9 @@ mark {
 <td><strong>C-EO</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="妊娠前の予防的手術section-83-table-34">妊娠前の予防的手術（Section 8.3, Table 34）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>病態</th>
@@ -951,7 +940,7 @@ mark {
 <td>C-EO</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="accaha-2022-ao-の特徴">ACC/AHA 2022 Ao の特徴</h3>
 <ol type="1">
 <li><strong>最も体系的なExpert施設条件</strong>: ほぼ全ての閾値引き下げに "experienced surgeons in a Multidisciplinary Aortic Team" を条件として明記</li>
@@ -971,7 +960,7 @@ mark {
 <li><strong>スコープ</strong>: 弁膜症全般。Section 5にBAV関連大動脈症を独立記載</li>
 </ul>
 <h3 id="bav関連上行大動脈手術適応section-5121">BAV関連上行大動脈手術適応（Section 5.1.2.1）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -1001,7 +990,7 @@ mark {
 <td><strong>B-NR</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="comprehensive-valve-center-cvc-の定義table-11">Comprehensive Valve Center (CVC) の定義（Table 11）</h3>
 <p>ACC/AHA 2020 VHDは "Comprehensive Valve Center" を最も具体的に定義した唯一のガイドライン:</p>
 <ul>
@@ -1029,7 +1018,7 @@ mark {
 <h3 id="推奨クラスエビデンスレベル体系-2">推奨クラス・エビデンスレベル体系</h3>
 <p>ESC標準: Class I/IIa/IIb/III、LOE A/B/C</p>
 <h3 id="非遺伝性tavrecommendation-table-38">非遺伝性TAV（Recommendation Table 38）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -1070,11 +1059,11 @@ mark {
 <td><strong>B</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>*RF: 拡大速度 &gt;3mm/年、治療抵抗性高血圧、root phenotype、大動脈長 &gt;11cm、低身長 (&lt;1.69m)、年齢 &lt;50歳、妊娠希望、大動脈縮窄</p>
 <p><strong>"Low predicted risk" の定義</strong>: 患者個人の合併症と施設の手術経験の両方に基づく。経験豊富な施設では待機的手術の死亡率 &lt;1%</p>
 <h3 id="bav関連大動脈症recommendation-table-68">BAV関連大動脈症（Recommendation Table 68）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -1103,10 +1092,10 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p><strong>Root vs Ascending phenotype</strong>: Root phenotype（15-20%）= Valsalva洞主体拡大、より速い進行とATAADリスク上昇。Ascending phenotype（70-75%）= STJ上部管状上行大動脈主体拡大</p>
 <h3 id="marfan症候群recommendation-table-62">Marfan症候群（Recommendation Table 62）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -1135,13 +1124,13 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>VSRR technique自体はClass I, LOE Bで推奨（root手術が適応となった場合）</p>
 <p>*High-risk features: &lt;50mmでの解離の家族歴、治療抵抗性高血圧（3剤以上）、拡大速度 &gt;=3mm/年</p>
 <p>VSRR推奨: "Surgery to replace the aortic root and ascending aorta, using the valve-sparing surgery technique, is recommended in patients with MFS who have aortic root disease" (Class I, LOE B)</p>
 <h3 id="loeys-dietz症候群recommendation-table-66--figure-42">Loeys-Dietz症候群（Recommendation Table 66 / Figure 42）</h3>
 <p>推奨表としてはLDS全般で "&gt;45mm" をIIa, C推奨とするが、Figure 42にて遺伝子別スキームを提示:</p>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>遺伝子</th>
@@ -1176,14 +1165,14 @@ mark {
 <td><strong>50mm</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>TGFBR2は最も攻撃的で、R528H/C変異を持つ小柄な女性では35mmまでの引き下げも言及</p>
 <h3 id="acta2関連疾患recommendation-table-67">ACTA2関連疾患（Recommendation Table 67）</h3>
 <ul>
 <li><strong>&gt;=45mm</strong> で予防的手術、RF+ではそれ以下でも考慮（IIa, C）</li>
 </ul>
 <h3 id="turner症候群recommendation-table-58--figure-40">Turner症候群（Recommendation Table 58 / Figure 40）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -1206,9 +1195,9 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="妊娠前の予防的手術recommendation-table-63">妊娠前の予防的手術（Recommendation Table 63）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>病態</th>
@@ -1231,7 +1220,7 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="esc-2024-paad-の特徴">ESC 2024 PAAD の特徴</h3>
 <ol type="1">
 <li><strong>拡大速度はRF扱い</strong>: &gt;=3mm/年を単独適応ではなく<strong>リスク因子</strong>として位置づけ（ACC/AHA 2022との最大の相違点）</li>
@@ -1258,7 +1247,7 @@ mark {
 <li><strong>スコープ</strong>: 大動脈を "organ" として捉え、急性・慢性の全大動脈症候群を外科的視点から包括。ESC 2024 PAADと同時期に公開され、相補的関係</li>
 </ul>
 <h3 id="非遺伝性tav--bavrecommendation-table-12">非遺伝性TAV / BAV（Recommendation Table 12）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -1317,9 +1306,9 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="marfan症候群recommendation-table-16">Marfan症候群（Recommendation Table 16）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -1348,9 +1337,9 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="loeys-dietz症候群recommendation-table-16-遺伝子別">Loeys-Dietz症候群（Recommendation Table 16 遺伝子別）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>遺伝子</th>
@@ -1390,9 +1379,9 @@ mark {
 <td>C</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="非症候群性htadrecommendation-table-17">非症候群性HTAD（Recommendation Table 17）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>遺伝子</th>
@@ -1427,7 +1416,7 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="大動脈長recommendation-table-13">大動脈長（Recommendation Table 13）</h3>
 <ul>
 <li>上行大動脈長 <strong>&gt;11cm</strong> を手術のリスク因子として考慮すべき（IIa, C）</li>
@@ -1480,7 +1469,7 @@ mark {
 <li>ATAADの60%が5.5cm未満で発症 → 予防的手術閾値の限界を示唆</li>
 </ul>
 <h3 id="root置換の適応table-5">Root置換の適応（Table 5）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>推奨内容</th>
@@ -1505,7 +1494,7 @@ mark {
 <td><strong>C</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>Root置換の適応: root内のintimal tear、root動脈瘤、root径 <strong>&gt;45mm</strong>、HTAD、修復不能な弁病理</p>
 <h3 id="a型imhの高リスク基準">A型IMHの高リスク基準</h3>
 <ul>
@@ -1523,7 +1512,7 @@ mark {
 <hr />
 <h2 id="1-非遺伝性変性孤発性上行大動脈瘤--三尖弁-tav">1. 非遺伝性（変性・孤発性）上行大動脈瘤 ― 三尖弁 (TAV)</h2>
 <h3 id="1-1-単独手術弁手術の適応がない場合">1-1. 単独手術（弁手術の適応がない場合）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -1548,7 +1537,7 @@ mark {
 <td><strong>&gt;=50mm</strong> (IIa, B-NR) "experienced surgeons in a Multidisciplinary Aortic Team"</td>
 <td><strong>&gt;52mm</strong> tubular ascending (IIa, B) "low predicted risk"</td>
 <td>Root phenotype <strong>&gt;=50mm</strong> (IIa, B); Ascending <strong>&gt;52mm</strong> (IIa, C)</td>
-<td>経験豊富な施設で <strong>50mm</strong> 考慮（本文記載）</td>
+<td><strong>🚫 孤発性TAVには非適用</strong>（PQ7: 「遺伝性疾患がない場合≥55mm」と明記）。家族歴＋急速拡大≥5mm/半年＋低リスクの場合のみ熟練した施設で≥50mm (IIa, C)（表12）— 実質nsHTAD相当</td>
 <td>記載なし</td>
 </tr>
 <tr>
@@ -1568,14 +1557,14 @@ mark {
 <td><strong>&gt;=5mm/年</strong> (IIa, C)</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 
 <div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">RF (リスク因子) の定義</div>
 <p>解離の家族歴、急速拡大、難治性高血圧、大動脈縮窄、低身長、Root phenotype、大動脈長 <mark>&gt;=11cm</mark>、年齢 &lt;50歳、妊娠希望 等（ガイドラインにより定義が異なる）</p>
 </div>
 
 <h3 id="1-2-弁手術併施時tav手術-or-他の心臓手術">1-2. 弁手術併施時（TAV手術 or 他の心臓手術）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -1616,11 +1605,11 @@ mark {
 <td>--</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <hr />
 <h2 id="2-二尖弁-bav-関連大動脈症">2. 二尖弁 (BAV) 関連大動脈症</h2>
 <h3 id="2-1-単独手術弁手術の適応がない場合">2-1. 単独手術（弁手術の適応がない場合）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -1670,9 +1659,9 @@ mark {
 <td><strong>&gt;=40mm</strong> (IIb)</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="2-2-弁手術併施時">2-2. 弁手術併施時</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -1695,9 +1684,9 @@ mark {
 <td><strong>&gt;=45mm</strong> (IIa, C)</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="2-3-bavのリスク因子一覧ガイドライン別">2-3. BAVのリスク因子一覧（ガイドライン別）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>リスク因子</th>
@@ -1801,11 +1790,11 @@ mark {
 <td>Yes</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <hr />
 <h2 id="3-marfan症候群">3. Marfan症候群</h2>
 <h3 id="3-1-単独手術">3-1. 単独手術</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -1850,9 +1839,9 @@ mark {
 <td><strong>&gt;=40mm</strong> (IIb)</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="3-2-弁手術併施時">3-2. 弁手術併施時</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -1871,9 +1860,9 @@ mark {
 <td><strong>&gt;=45mm</strong> (I, C)</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="3-3-marfanのリスク因子閾値引き下げ条件">3-3. Marfanのリスク因子（閾値引き下げ条件）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>リスク因子</th>
@@ -1934,11 +1923,11 @@ mark {
 <td>Yes</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <hr />
 <h2 id="4-loeys-dietz症候群遺伝子別">4. Loeys-Dietz症候群（遺伝子別）</h2>
 <h3 id="4-1-遺伝子別の手術閾値">4-1. 遺伝子別の手術閾値</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>遺伝子</th>
@@ -2007,7 +1996,7 @@ mark {
 <td>--</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 
 <div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Note</div>
 <p>JCS 2020はLoeys-Dietzに対し遺伝子別の詳細閾値を設定していない。TGFBR1/TGFBR2変異をMarfanの閾値引き下げ因子として位置づけている。</p>
@@ -2016,7 +2005,7 @@ mark {
 <hr />
 <h2 id="5-その他の遺伝性大動脈疾患">5. その他の遺伝性大動脈疾患</h2>
 <h3 id="5-1-acta2-prkg1-等">5-1. ACTA2, PRKG1 等</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>遺伝子</th>
@@ -2070,9 +2059,9 @@ mark {
 <td>--</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="5-2-非症候群性遺伝性胸部大動脈疾患-nshtad--原因遺伝子未同定">5-2. 非症候群性遺伝性胸部大動脈疾患 (nsHTAD) ― 原因遺伝子未同定</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>条件</th>
@@ -2095,12 +2084,12 @@ mark {
 <td>--</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="5-3-血管型ehlers-danlos症候群-veds">5-3. 血管型Ehlers-Danlos症候群 (vEDS)</h3>
 <p>全ガイドラインとも<strong>予防的手術の具体的な径閾値を設定していない</strong>。組織脆弱性のため手術リスクが高く、症候性または急速拡大例に限定して個別判断とされる。</p>
 <hr />
 <h2 id="6-turner症候群">6. Turner症候群</h2>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>指標</th>
@@ -2133,7 +2122,7 @@ mark {
 <td>解離時 ASI ≈2.7 cm/m2</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 
 <div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Note</div>
 <p>Turner症候群は低身長のため絶対径ではなく<mark>indexed measurement</mark>が推奨される。</p>
@@ -2141,7 +2130,7 @@ mark {
 
 <hr />
 <h2 id="7-妊娠前の予防的手術適応">7. 妊娠前の予防的手術適応</h2>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>病態</th>
@@ -2209,7 +2198,7 @@ mark {
 <td>--</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 
 <div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><p>JCS 2020 Aoは妊娠希望を「リスク因子」として閾値引き下げに含め、Marfan <mark>&gt;=40mm</mark> での手術をIIaとしている点が特徴的。</p>
 </div>
@@ -2217,7 +2206,7 @@ mark {
 <hr />
 <h2 id="8-indexed-measurements-の比較">8. Indexed Measurements の比較</h2>
 <h3 id="8-1-断面積身長比-cross-sectional-area-to-height-ratio">8-1. 断面積/身長比 (Cross-Sectional Area to Height Ratio)</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>ガイドライン</th>
@@ -2258,14 +2247,14 @@ mark {
 <td>--</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 
 <div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">断面積/身長比の閾値乖離</div>
 <p>ACC/AHA 2022は <mark>10 cm²/m</mark> を採用（Svensson 2002に基づく）。ESC 2024とEACTS/STS 2024はより高い <mark>13 cm²/m</mark> を採用しており、閾値に大きな乖離がある。</p>
 </div>
 
 <h3 id="8-2-大動脈径指数-aortic-size-index-asi--径bsa">8-2. 大動脈径指数 (Aortic Size Index: ASI = 径/BSA)</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>ガイドライン</th>
@@ -2294,9 +2283,9 @@ mark {
 <td>--</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="8-3-大動脈身長指数-aortic-height-index-ahi--径身長">8-3. 大動脈身長指数 (Aortic Height Index: AHI = 径/身長)</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>ガイドライン</th>
@@ -2319,9 +2308,9 @@ mark {
 <td>IIa/IIb, C</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="8-4-上行大動脈長-ascending-aortic-length">8-4. 上行大動脈長 (Ascending Aortic Length)</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>ガイドライン</th>
@@ -2356,10 +2345,10 @@ mark {
 <td>--</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <hr />
 <h2 id="9-拡大速度の閾値比較">9. 拡大速度の閾値比較</h2>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>ガイドライン</th>
@@ -2399,7 +2388,7 @@ mark {
 <td><strong>&gt;3mm/年</strong></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 
 <div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">拡大速度の扱いの相違</div>
 <p>ACC/AHA 2022は拡大速度のみで手術適応 <mark>(Class I)</mark> とする唯一のガイドライン。ESC/EACTSは拡大速度をあくまでRF（閾値引き下げ因子）として扱う。</p>
@@ -2408,7 +2397,7 @@ mark {
 <hr />
 <h2 id="10-expert施設記載の詳細比較">10. 「Expert施設」記載の詳細比較</h2>
 <h3 id="10-1-各ガイドラインにおける表現と適用">10-1. 各ガイドラインにおける表現と適用</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>ガイドライン</th>
@@ -2450,9 +2439,9 @@ mark {
 </tr>
 <tr>
 <td><strong>JCS 2020 Ao</strong></td>
-<td>"経験豊富な施設", "ハイボリュームセンター"</td>
-<td><strong>あり（簡潔）</strong></td>
-<td>BAV 50mmでの手術推奨、変性瘤50mmでの手術考慮（本文記載）。推奨表のClass/LOEには組み込まれていない</td>
+<td>"熟練した施設"（表12推奨表）、"大動脈治療の経験値が高い施設"（本文）</td>
+<td><strong>あり（推奨表に明記）</strong></td>
+<td><strong>表12（IIa, C）</strong>: 家族歴＋拡大速度≥5mm/半年＋低リスク症例に「熟練した施設で行うことを推奨し、最大径≥50mmで考慮」を推奨表本体に記載。<strong>表52 BAV（IIa, C）</strong>: 危険因子あり＋≥50mm。<strong>表52 BAV（IIb, C）</strong>: 危険因子なし＋50mm。本文（2.2.1節）には53mm hinge point文脈で「経験値が高い施設での適応が可能」と記載</td>
 </tr>
 <tr>
 <td><strong>JCS 2020 VHD</strong></td>
@@ -2467,9 +2456,9 @@ mark {
 <td>予防的手術閾値の推奨なし。急性期VSRRをexperienced centersで考慮</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="10-2-expert施設による閾値引き下げ疾患別まとめ">10-2. Expert施設による閾値引き下げ：疾患別まとめ</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>疾患</th>
@@ -2504,11 +2493,11 @@ mark {
 <td>JCS 2020</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <hr />
 <h2 id="11-aats-2021-acute-type-a-aortic-dissection-consensus-からの関連情報">11. AATS 2021 Acute Type A Aortic Dissection Consensus からの関連情報</h2>
 <p>AATS 2021は急性A型解離の管理が主題であり、予防的手術の体系的推奨は含まれないが、以下の関連記載がある：</p>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>項目</th>
@@ -2537,11 +2526,11 @@ mark {
 <td>High-volume (年間&gt;13例) 死亡率10% vs low-volume 27%</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <hr />
 <h2 id="12-推奨クラスとエビデンスレベルの体系比較">12. 推奨クラスとエビデンスレベルの体系比較</h2>
 <h3 id="12-1-推奨クラスの定義ガイドライン間の対応">12-1. 推奨クラスの定義（ガイドライン間の対応）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>ACC/AHA</th>
@@ -2576,9 +2565,9 @@ mark {
 <td>推奨されない</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="12-2-エビデンスレベルの定義">12-2. エビデンスレベルの定義</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>ACC/AHA</th>
@@ -2619,7 +2608,7 @@ mark {
 <td>専門家の合意</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 
 <div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">エビデンスの限界</div>
 <p>上行大動脈瘤の予防的手術に関する推奨は、<mark><strong>全ガイドラインにおいてRCTに基づくエビデンス (Level A) は存在しない</strong></mark>。最高でもLevel B（観察研究）であり、大部分がLevel C（専門家合意）である。</p>
@@ -2628,7 +2617,7 @@ mark {
 <hr />
 <h2 id="13-ガイドライン間の主要な相違点">13. ガイドライン間の主要な相違点</h2>
 <h3 id="13-1-閾値の相違">13-1. 閾値の相違</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>論点</th>
@@ -2661,9 +2650,9 @@ mark {
 <td>JCS 2020 Ao: <strong>&gt;=40mm</strong> (IIa) で最も積極的。ACC/AHA/ESC: &gt;=45mm (I), 40-45mm (IIb)</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="13-2-expert施設記載の相違">13-2. Expert施設記載の相違</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>論点</th>
@@ -2676,17 +2665,21 @@ mark {
 <td>ACC/AHA 2022が最も体系的にExpert条件を推奨文に組み込み、ほぼ全ての閾値引き下げにおいて "experienced surgeons in a Multidisciplinary Aortic Team" を条件としている</td>
 </tr>
 <tr>
+<td><strong>孤発性TAV（変性・遺伝性素因なし）への適用</strong></td>
+<td><strong>ACC/AHA 2022</strong>: Expert施設条件のみで孤発性TAVも≥50mm可（IIa, B-NR）。<strong>ESC 2024</strong>: "low predicted risk"で&gt;52mm（施設経験が実質含まれる）。<strong>EACTS/STS 2024</strong>: Root phenotype≥50mm (I, B)、ascending+RF≥50mm (IIa, C)。<strong>JCS 2020 Ao</strong>: PQ7で「遺伝性大動脈疾患がない場合≥55mm」と明記。Expert施設条件は孤発性TAVには<strong>適用されず</strong>、家族歴＋急速拡大（実質nsHTAD）に限定。ACC/AHA 2022との最大の実臨床的相違点</td>
+</tr>
+<tr>
 <td><strong>変性瘤への適用</strong></td>
-<td>ACC/AHA 2022: Expert条件で55-&gt;50mm引き下げを明記 (IIa)。ESC 2024: "low predicted risk"が条件で&gt;52mmに引き下げ（Expert施設は直接条件としない）。EACTS/STS 2024: 変性瘤への直接適用なし。JCS: 本文で言及あるが推奨表には非反映</td>
+<td>ACC/AHA 2022: Expert条件で55-&gt;50mm引き下げを明記 (IIa)。ESC 2024: "low predicted risk"が条件で&gt;52mmに引き下げ（Expert施設は直接条件としない）。EACTS/STS 2024: 変性瘤への直接適用なし。<strong>JCS 2020 Ao: 「熟練した施設」＋≥50mmが表12推奨表（IIa, C）に明記</strong>（条件：大動脈解離の家族歴＋拡大速度≥5mm/半年＋低手術リスク）。BAVは表52に50mmがIIa・IIbとして推奨表に明記</td>
 </tr>
 <tr>
 <td><strong>施設要件の定義</strong></td>
 <td>ACC/AHA 2020 VHD: "Comprehensive Valve Center"をTable 11で詳細定義。ACC/AHA 2022 Ao: "Multidisciplinary Aortic Team"として定義。ESC/EACTS: 具体的定義なし。JCS: "経験豊富な施設"の定義なし</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="13-3-径の測定方法の相違">13-3. 径の測定方法の相違</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>ガイドライン</th>
@@ -2721,7 +2714,7 @@ mark {
 <td>明確な規定なし</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 
 <div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">測定法の不一致</div>
 <p>ESC 2024は<mark>inner-to-inner edge</mark>、EACTS/STS 2024は<mark>outer-to-outer edge</mark>を推奨しており、<strong>同時期の欧州ガイドライン間で測定法の不一致</strong>が存在する。壁厚分の差（通常<mark>2-3mm</mark>）が生じうる。</p>
@@ -2730,7 +2723,7 @@ mark {
 <hr />
 <h2 id="14-全疾患全ガイドライン統合サマリー表">14. 全疾患・全ガイドライン統合サマリー表</h2>
 <h3 id="14-1-単独手術の標準閾値弁手術適応なし">14-1. 単独手術の標準閾値（弁手術適応なし）</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>疾患</th>
@@ -2815,9 +2808,9 @@ mark {
 <td>--</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <h3 id="14-2-弁手術併施時の閾値">14-2. 弁手術併施時の閾値</h3>
-<div class="table-wrapper"><table>
+<table>
 <thead>
 <tr>
 <th>疾患</th>
@@ -2858,7 +2851,7 @@ mark {
 <td>45mm (I)</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <hr />
 <h2 id="15-臨床上の注意点">15. 臨床上の注意点</h2>
 

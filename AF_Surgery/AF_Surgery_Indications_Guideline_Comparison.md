@@ -23,7 +23,7 @@ aliases:
 **合併手術資料：** ACC/AHA 2020（VHD）、ESC/EACTS 2025（VHD）、JCS/JATS/JSVS/JSCS 2020（VHD）  
 **外科記載なし（確認済）：** JCS/JHRS 2024（JP・EN）、JCS/JHRS 2021 非薬物治療、JCS/JHRS 2020 薬物治療
 
-**関連ドキュメント：** [[AS_AVR_Guidelines_Comparison|AS/AVRガイドライン比較]] · [[MS_MV_Surgery_Guidelines_Comparison|僧帽弁狭窄症ガイドライン比較]] · [[Ascending_Aorta_Surgery_Indications_Guideline_Comparison|上行大動脈手術適応比較]]
+**関連ドキュメント：** [[AS_AVR_Guidelines_Comparison|AS/AVRガイドライン比較]] · [[MS_MV_Surgery_Guidelines_Comparison|僧帽弁狭窄症ガイドライン比較]] · [[Ascending_Aorta_Surgery_Indications_Guideline_Comparison|上行大動脈手術適応比較]] · [[Combined_VHD_Guidelines_Comparison|複合弁膜症ガイドライン比較]]
 
 ---
 
