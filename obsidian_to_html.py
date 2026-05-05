@@ -345,6 +345,8 @@ def main():
          "Ascending Aorta/Ascending_Aorta_Surgery_Indications_Guideline_Comparison.html"),
         ("Combined_VHD/Combined_VHD_Guidelines_Comparison.md",
          "Combined_VHD/Combined_VHD_Guidelines_Comparison.html"),
+        ("LVAD/LVAD_Guidelines_Comparison.md",
+         "LVAD/LVAD_Guidelines_Comparison.html"),
     ]
 
     print("Converting Obsidian MD → styled HTML:")
