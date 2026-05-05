@@ -26,7 +26,7 @@ aliases:
 - 🇪🇺 **ESC/EACTS 2025**：Guidelines for the Management of Valvular Heart Disease（欧州心臓病学会 / 欧州心臓胸部外科学会）
 - 🇺🇸 **ACC/AHA 2020**：Guideline for the Management of Patients With Valvular Heart Disease（米国心臓病学会 / 米国心臓協会）
 
-**関連ドキュメント：** [[AS_AVR_Guidelines_Comparison|AS/AVRガイドライン比較]] · [[MS_MV_Surgery_Guidelines_Comparison|僧帽弁狭窄症ガイドライン比較]] · [[AF_Surgery_Indications_Guideline_Comparison|AF手術適応比較]] · [[Ascending_Aorta_Surgery_Indications_Guideline_Comparison|上行大動脈手術適応比較]]
+**関連ドキュメント：** [[AS_AVR_Guidelines_Comparison|AS/AVRガイドライン比較]] · [[MS_MV_Surgery_Guidelines_Comparison|僧帽弁狭窄症ガイドライン比較]] · [[AF_Surgery_Indications_Guideline_Comparison|AF手術適応比較]] · [[Ascending_Aorta_Surgery_Indications_Guideline_Comparison|上行大動脈手術適応比較]] · [[Perioperative_Anticoagulation_Guidelines_Comparison|術前抗凝固管理比較]]
 
 ---
 
