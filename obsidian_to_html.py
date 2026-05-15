@@ -347,6 +347,8 @@ def main():
          "Combined_VHD/Combined_VHD_Guidelines_Comparison.html"),
         ("LVAD/LVAD_Guidelines_Comparison.md",
          "LVAD/LVAD_Guidelines_Comparison.html"),
+        ("Cardiomyopathy/Cardiomyopathy_Guidelines_Comparison.md",
+         "Cardiomyopathy/Cardiomyopathy_Guidelines_Comparison.html"),
     ]
 
     print("Converting Obsidian MD → styled HTML:")
