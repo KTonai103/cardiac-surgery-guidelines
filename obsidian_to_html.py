@@ -351,6 +351,8 @@ def main():
          "Cardiomyopathy/Cardiomyopathy_Guidelines_Comparison.html"),
         ("AR_AVR/AR_Guidelines_Comparison.md",
          "AR_AVR/AR_Guidelines_Comparison.html"),
+        ("MR_MV/MR_Guidelines_Comparison.md",
+         "MR_MV/MR_Guidelines_Comparison.html"),
     ]
 
     print("Converting Obsidian MD → styled HTML:")
