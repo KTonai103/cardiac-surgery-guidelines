@@ -1,0 +1,2984 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVCU 心臓外科術後 急変対応プロトコル</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5c5c5c;
+  --border: #d4d4d4;
+  --accent: #2c3e50;
+  --light-bg: #f7f8fa;
+  --header-bg: #2c3e50;
+  --header-fg: #ffffff;
+  --link: #34495e;
+  --jp-accent: #c0392b;
+  --us-accent: #2980b9;
+  --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
+
+body {
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+  margin: 48px 0 12px;
+}
+
+h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 28px 0 8px;
+}
+
+h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 20px 0 6px;
+}
+
+p { margin: 8px 0; font-size: 0.88rem; }
+strong { color: var(--fg); }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+ul, ol {
+  padding-left: 24px;
+  margin: 8px 0;
+  font-size: 0.88rem;
+}
+
+li { margin-bottom: 4px; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 12px 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+thead th {
+  background: var(--header-bg);
+  color: var(--header-fg);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--light-bg);
+}
+
+tbody tr:nth-child(even) td { background-color: #fafbfc; }
+tbody tr:nth-child(even) td:first-child { background-color: #f0f1f3; }
+tbody tr:hover td { background-color: #eef1f5; }
+tbody tr:hover td:first-child { background-color: #e4e8ed; }
+
+/* Blockquotes (fallback for any not converted to callouts) */
+blockquote {
+  background: var(--light-bg);
+  border-left: 3px solid var(--border);
+  padding: 10px 16px;
+  margin: 12px 0 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+blockquote strong { color: var(--fg); }
+
+/* Highlights */
+mark {
+  background: #fff3cd;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Callout overrides - already inline styled, but ensure nested elements look right */
+.callout p { margin: 4px 0; }
+.callout ul, .callout ol { margin: 4px 0 4px 16px; }
+.callout table { font-size: 0.8rem; }
+
+/* Print */
+@media print {
+  body { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
+@media (max-width: 768px) {
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
+  h1 { font-size: 1.3rem; }
+  table { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#warning-最重要原則--通常-acls-との違い">⚠️ 最重要原則 — 通常 ACLS との違い</a></li>
+      <li class="toc-l2"><a href="#clipboard-目次">📋 目次</a></li>
+      <li class="toc-l2"><a href="#1-緊急コール基準と急変フロー全体図">1. 緊急コール基準と急変フロー全体図</a></li>
+      <li class="toc-l3"><a href="#11-ナースが直ちにドクターコールする閾値">1.1 ナースが直ちにドクターコールする閾値</a></li>
+      <li class="toc-l3"><a href="#12-急変パターン別-初期対応-1枚図">1.2 急変パターン別 初期対応 1枚図</a></li>
+      <li class="toc-l3"><a href="#13-pre-arrest心停止前段階の鑑別">1.3 Pre-arrest（心停止前段階）の鑑別</a></li>
+      <li class="toc-l2"><a href="#2-心停止対応--calscsu-als-プロトコル">2. 心停止対応 — CALS/CSU-ALS プロトコル</a></li>
+      <li class="toc-l3"><a href="#21-起動基準10秒以内に判定">2.1 起動基準（10秒以内に判定）</a></li>
+      <li class="toc-l3"><a href="#22-共通初動全リズム-060秒">2.2 共通初動（全リズム）— 0〜60秒</a></li>
+      <li class="toc-l3"><a href="#23-vf--無脈性-vt-パスウェイ赤">2.3 VF / 無脈性 VT パスウェイ（赤）</a></li>
+      <li class="toc-l4"><a href="#要点上図のサマリ">要点（上図のサマリ）</a></li>
+      <li class="toc-l3"><a href="#24-asystole--高度徐脈パスウェイ黄">2.4 Asystole / 高度徐脈パスウェイ（黄）</a></li>
+      <li class="toc-l3"><a href="#25-pea-パスウェイ緑">2.5 PEA パスウェイ（緑）</a></li>
+      <li class="toc-l3"><a href="#26-再開胸が回避できる例外条件class-i-c-2">2.6 再開胸が回避できる例外条件（Class I-C [2]）</a></li>
+      <li class="toc-l2"><a href="#3-緊急胸骨再開放emergency-resternotomy">3. 緊急胸骨再開放（Emergency Resternotomy）</a></li>
+      <li class="toc-l3"><a href="#31-適応--4つの絶対条件">3.1 適応 — 4つの絶対条件</a></li>
+      <li class="toc-l3"><a href="#32-5分ルールclass-i-c-2">3.2 5分ルール（Class I-C [2]）</a></li>
+      <li class="toc-l3"><a href="#33-必要物品--emergency-resternotomy-seticucvcu-常備">3.3 必要物品 — Emergency Resternotomy Set（ICU/CVCU 常備）</a></li>
+      <li class="toc-l3"><a href="#34-手順看護師ガイド">3.4 手順（看護師ガイド）</a></li>
+      <li class="toc-l3"><a href="#35-内心臓マッサージ技法-2">3.5 内心臓マッサージ技法 [2]</a></li>
+      <li class="toc-l3"><a href="#36-抗菌薬追加投与class-iia-b-2">3.6 抗菌薬追加投与（Class IIa-B [2]）</a></li>
+      <li class="toc-l2"><a href="#4-薬剤投与プロトコル--投与量希釈経路">4. 薬剤投与プロトコル — 投与量・希釈・経路</a></li>
+      <li class="toc-l3"><a href="#41-アミオダロンamiodarone">4.1 アミオダロン（Amiodarone）</a></li>
+      <li class="toc-l3"><a href="#42-アドレナリンepinephrine--心臓術後では特殊">4.2 アドレナリン（Epinephrine） — 心臓術後では特殊</a></li>
+      <li class="toc-l3"><a href="#43-アトロピンatropine">4.3 アトロピン（Atropine）</a></li>
+      <li class="toc-l3"><a href="#44-リドカインlidocaine">4.4 リドカイン（Lidocaine）</a></li>
+      <li class="toc-l3"><a href="#45-硫酸マグネシウムmagnesium-sulfate">4.5 硫酸マグネシウム（Magnesium Sulfate）</a></li>
+      <li class="toc-l3"><a href="#46-β遮断薬vf-storm術後新規心房細動のレート調整用">4.6 β遮断薬（VF storm・術後新規心房細動のレート調整用）</a></li>
+      <li class="toc-l3"><a href="#47-補助薬">4.7 補助薬</a></li>
+      <li class="toc-l3"><a href="#48-致死性電解質補正高k血症由来心停止-投与順序-3">4.8 致死性電解質補正（高K血症由来心停止）— 投与順序 [3]</a></li>
+      <li class="toc-l2"><a href="#5-vf-storm--electrical-storm">5. VF storm / Electrical storm</a></li>
+      <li class="toc-l3"><a href="#51-定義-5">5.1 定義 [5]</a></li>
+      <li class="toc-l3"><a href="#52-段階的アプローチclass-i-推奨多数-5">5.2 段階的アプローチ（Class I 推奨多数 [5]）</a></li>
+      <li class="toc-l3"><a href="#53-iv-β-blocker-薬剤の選択">5.3 IV β-blocker 薬剤の選択</a></li>
+      <li class="toc-l3"><a href="#54-icd-関連の特殊状況-5">5.4 ICD 関連の特殊状況 [5]</a></li>
+      <li class="toc-l2"><a href="#6-torsades-de-pointes多形性vt--qt延長">6. Torsades de Pointes（多形性VT / QT延長）</a></li>
+      <li class="toc-l3"><a href="#61-即時鑑別-5">6.1 即時鑑別 [5]</a></li>
+      <li class="toc-l3"><a href="#62-急性期対応--後天性-lqt-tdp-5">6.2 急性期対応 — 後天性 LQT-TdP [5]</a></li>
+      <li class="toc-l2"><a href="#7-術後新規心房細動poaf">7. 術後新規心房細動（POAF）</a></li>
+      <li class="toc-l3"><a href="#71-疫学-6">7.1 疫学 [6]</a></li>
+      <li class="toc-l3"><a href="#72-急性期対応フロー-6">7.2 急性期対応フロー [6]</a></li>
+      <li class="toc-l3"><a href="#73-rate-control-薬剤プロトコル-6">7.3 Rate control 薬剤プロトコル [6]</a></li>
+      <li class="toc-l3"><a href="#74-rhythm-controlアミオダロン-静注プロトコル6">7.4 Rhythm control（アミオダロン 静注プロトコル）[6]</a></li>
+      <li class="toc-l3"><a href="#75-抗凝固療法-6">7.5 抗凝固療法 [6]</a></li>
+      <li class="toc-l3"><a href="#76-予防策術前術後-day-06">7.6 予防策（術前〜術後 day 0）[6]</a></li>
+      <li class="toc-l2"><a href="#8-徐脈asystoleペーシング対応">8. 徐脈・asystole（ペーシング対応）</a></li>
+      <li class="toc-l3"><a href="#81-心外膜ペーシングワイヤー設定--cvcu-必修">8.1 心外膜ペーシングワイヤー設定 — CVCU 必修</a></li>
+      <li class="toc-l4"><a href="#標準設定-2">標準設定 [2]</a></li>
+      <li class="toc-l4"><a href="#注意点-12">注意点 [1][2]</a></li>
+      <li class="toc-l3"><a href="#82-経皮ペーシング経皮ペーシング">8.2 経皮ペーシング（経皮ペーシング）</a></li>
+      <li class="toc-l3"><a href="#83-経静脈ペーシング経静脈ペーシング">8.3 経静脈ペーシング（経静脈ペーシング）</a></li>
+      <li class="toc-l2"><a href="#9-周術期-acs再灌流障害ステント血栓冠スパスム">9. 周術期 ACS（再灌流障害・ステント血栓・冠スパスム）</a></li>
+      <li class="toc-l3"><a href="#91-cvcu-での疑い基準">9.1 CVCU での疑い基準</a></li>
+      <li class="toc-l3"><a href="#92-初期対応10分以内-4">9.2 初期対応（10分以内） [4]</a></li>
+      <li class="toc-l3"><a href="#93-stemi-様所見-4">9.3 STEMI 様所見 [4]</a></li>
+      <li class="toc-l3"><a href="#94-nste-acs-4">9.4 NSTE-ACS [4]</a></li>
+      <li class="toc-l3"><a href="#95-rosc-後の-stemi-様-ecg">9.5 ROSC 後の STEMI 様 ECG</a></li>
+      <li class="toc-l2"><a href="#10-機械的循環補助va-ecmo--impella--ecpella">10. 機械的循環補助（VA-ECMO / IMPELLA / ECPELLA）</a></li>
+      <li class="toc-l3"><a href="#101-v-a-ecmopcps導入判断">10.1 V-A ECMO（PCPS）導入判断</a></li>
+      <li class="toc-l4"><a href="#ecpr蘇生中ecmo導入の適応">ECPR（蘇生中ECMO導入）の適応</a></li>
+      <li class="toc-l4"><a href="#カニュレーション">カニュレーション</a></li>
+      <li class="toc-l3"><a href="#102-抗凝固管理-7">10.2 抗凝固管理 [7]</a></li>
+      <li class="toc-l3"><a href="#103-流量循環目標-7">10.3 流量・循環目標 [7]</a></li>
+      <li class="toc-l3"><a href="#104-impella-種類別仕様-7">10.4 IMPELLA 種類別仕様 [7]</a></li>
+      <li class="toc-l3"><a href="#105-ecpellava-ecmo--impella7">10.5 ECPELLA（VA-ECMO + IMPELLA）[7]</a></li>
+      <li class="toc-l3"><a href="#106-主要合併症と看護モニタリング-7">10.6 主要合併症と看護モニタリング [7]</a></li>
+      <li class="toc-l3"><a href="#107-離脱基準-7">10.7 離脱基準 [7]</a></li>
+      <li class="toc-l3"><a href="#108-va-ecmo-中の心停止対応-7">10.8 VA-ECMO 中の心停止対応 [7]</a></li>
+      <li class="toc-l2"><a href="#11-急変予防--早期警告徴候とゼロ次予防">11. 急変予防 — 早期警告徴候とゼロ次予防</a></li>
+      <li class="toc-l3"><a href="#111-維持目標値hemodynamic--metabolic-targets8">11.1 維持目標値（Hemodynamic / Metabolic Targets）[8]</a></li>
+      <li class="toc-l3"><a href="#112-早期抜管6h-post-op8">11.2 早期抜管（&amp;lt;6h post-op）[8]</a></li>
+      <li class="toc-l3"><a href="#113-多モーダル疼痛管理オピオイド最小化8">11.3 多モーダル疼痛管理（オピオイド最小化）[8]</a></li>
+      <li class="toc-l3"><a href="#114-せん妄スクリーニング-8">11.4 せん妄スクリーニング [8]</a></li>
+      <li class="toc-l3"><a href="#115-ssi-予防バンドル-8">11.5 SSI 予防バンドル [8]</a></li>
+      <li class="toc-l3"><a href="#116-aki-予防kdigo-バンドル8">11.6 AKI 予防（KDIGO バンドル）[8]</a></li>
+      <li class="toc-l3"><a href="#117-ドレーン管理-8">11.7 ドレーン管理 [8]</a></li>
+      <li class="toc-l3"><a href="#118-機械的薬剤的-dvt-予防-8">11.8 機械的・薬剤的 DVT 予防 [8]</a></li>
+      <li class="toc-l2"><a href="#12-看護師ロールカード6人チーム">12. 看護師ロールカード（6人チーム）</a></li>
+      <li class="toc-l3"><a href="#121-各ロールの責務">12.1 各ロールの責務</a></li>
+      <li class="toc-l4"><a href="#role-1--心マッサージ担当">Role 1 — 心マッサージ担当</a></li>
+      <li class="toc-l4"><a href="#role-2--気道呼吸">Role 2 — 気道・呼吸</a></li>
+      <li class="toc-l4"><a href="#role-3--除細動ペーシング">Role 3 — 除細動・ペーシング</a></li>
+      <li class="toc-l4"><a href="#role-4--薬剤ライン">Role 4 — 薬剤・ライン</a></li>
+      <li class="toc-l4"><a href="#role-5--胸骨再開放準備">Role 5 — 胸骨再開放準備</a></li>
+      <li class="toc-l4"><a href="#role-6--チームリーダー--コーディネーター">Role 6 — チームリーダー / コーディネーター</a></li>
+      <li class="toc-l3"><a href="#122-タイマー運用推奨">12.2 タイマー運用（推奨）</a></li>
+      <li class="toc-l2"><a href="#gear-付録-a--ドラッグチートシート印刷用1枚版">⚙️ 付録 A — ドラッグ・チート・シート（印刷用1枚版）</a></li>
+      <li class="toc-l4"><a href="#vf--無脈性-vt">VF / 無脈性 VT</a></li>
+      <li class="toc-l4"><a href="#asystole--高度徐脈">Asystole / 高度徐脈</a></li>
+      <li class="toc-l4"><a href="#pea無脈性電気活動">PEA（無脈性電気活動）</a></li>
+      <li class="toc-l4"><a href="#tdp多形性心室頻拍--qt-延長">TdP（多形性心室頻拍 / QT 延長）</a></li>
+      <li class="toc-l4"><a href="#術後新規心房細動不安定">術後新規心房細動（不安定）</a></li>
+      <li class="toc-l4"><a href="#術後新規心房細動安定リズム調整">術後新規心房細動（安定・リズム調整）</a></li>
+      <li class="toc-l4"><a href="#術後新規心房細動安定レート調整">術後新規心房細動（安定・レート調整）</a></li>
+      <li class="toc-l4"><a href="#vf-storm--electrical-storm">VF storm / Electrical storm</a></li>
+      <li class="toc-l4"><a href="#v-a-ecmo">V-A ECMO</a></li>
+      <li class="toc-l2"><a href="#warning-免責--disclaimer">⚠️ 免責 / Disclaimer</a></li>
+      <li class="toc-l2"><a href="#references">References</a></li>
+      <li class="toc-l3"><a href="#心臓外科特異プロトコル">心臓外科特異プロトコル</a></li>
+      <li class="toc-l3"><a href="#acls-一般プロトコル">ACLS 一般プロトコル</a></li>
+      <li class="toc-l3"><a href="#日本固有資料">日本固有資料</a></li>
+      <li class="toc-l3"><a href="#心室性不整脈vf-storm">心室性不整脈・VF storm</a></li>
+      <li class="toc-l3"><a href="#術後心房細動">術後心房細動</a></li>
+      <li class="toc-l3"><a href="#機械的循環補助日本">機械的循環補助（日本）</a></li>
+      <li class="toc-l3"><a href="#急変予防術後icu管理ベース">急変予防・術後ICU管理ベース</a></li>
+      <li class="toc-l3"><a href="#関連学習リソース無料推奨">関連学習リソース（無料・推奨）</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
+<h1 id="cvcu-心臓外科術後-急変対応プロトコル">CVCU 心臓外科術後 急変対応プロトコル</h1>
+<blockquote>
+<p><strong>Cardiac Vascular Care Unit (CVCU) における心臓手術後患者の急変対応</strong> 医師・看護師のための行動規範ガイドライン</p>
+<p><strong>作成日</strong>: 2026-05-19 <strong>対象患者</strong>: 開心術後（CABG / 弁置換・形成 / 大動脈手術 / 心移植・LVAD 等）の患者で、ICU から CVCU（step-down unit）に移行した患者 <strong>対象スタッフ</strong>: CVCU 看護師、夜勤当直医、心臓外科レジデント、循環器内科コンサルタント <strong>出典</strong>: 8本の査読論文ガイドライン（巻末 References 参照）</p>
+</blockquote>
+<hr />
+<h2 id="warning-最重要原則--通常-acls-との違い">⚠️ 最重要原則 — 通常 ACLS との違い</h2>
+<p>心臓手術後患者の心停止対応は <strong>通常 ACLS とは異なるプロトコル（CALS / CSU-ALS）</strong> に従う。以下は <strong>CVCU 全スタッフが暗記すべき</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>通常 ACLS [3]</th>
+<th>心臓術後 CALS [1][2]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VF/pVT への初動</strong></td>
+<td>1回shock → 直ちに CPR 2分</td>
+<td><strong>3連続shock を先行</strong>（CPR より優先, Class I-B [2]）</td>
+</tr>
+<tr>
+<td><strong>アドレナリン 1mg</strong></td>
+<td>3–5分毎に投与 (Class 1-B [3])</td>
+<td><strong>ルーチン投与禁止</strong>（Class III-Harm [2]）— senior医師指示下のみ</td>
+</tr>
+<tr>
+<td><strong>胸骨再開放</strong></td>
+<td>適応外</td>
+<td>5分以内に施行（Class I-C [2]）</td>
+</tr>
+<tr>
+<td><strong>心マ深度</strong></td>
+<td>5–6 cm</td>
+<td>4–5 cm／動脈圧波形で systolic ≥60 mmHg を目標 [1]</td>
+</tr>
+<tr>
+<td><strong>アトロピン (asystole)</strong></td>
+<td>ルーチン非推奨 [3]</td>
+<td>EACTS 旧版: 3mg [1] → <strong>STS 2017: ルーチン非推奨 (Class III)</strong> [2]</td>
+</tr>
+</tbody>
+</table>
+<p>🚨 <strong>CVCU で心停止 → CALS 通報 → 6人チーム招集 → 5分以内に胸骨再開放準備</strong></p>
+<hr />
+<h2 id="clipboard-目次">📋 目次</h2>
+<ol type="1">
+<li><a href="#1-緊急コール基準と急変フロー全体図">緊急コール基準と急変フロー全体図</a></li>
+<li><a href="#2-心停止対応--calscsu-als-プロトコル">心停止対応 — CALS/CSU-ALS プロトコル</a></li>
+<li><a href="#3-緊急胸骨再開放emergency-resternotomy">緊急胸骨再開放（Emergency Resternotomy）</a></li>
+<li><a href="#4-薬剤投与プロトコル--投与量希釈経路">薬剤投与プロトコル — 投与量・希釈・経路</a></li>
+<li><a href="#5-vf-storm--electrical-storm">VF storm / Electrical storm</a></li>
+<li><a href="#6-torsades-de-pointes多形性vtqt延長">Torsades de Pointes（多形性VT/QT延長）</a></li>
+<li><a href="#7-術後新規心房細動poaf">術後新規心房細動（POAF）</a></li>
+<li><a href="#8-徐脈asystoleペーシング対応">徐脈・asystole（ペーシング対応）</a></li>
+<li><a href="#9-周術期-acs再灌流障害ステント血栓冠スパスム">周術期 ACS（再灌流障害・ステント血栓・冠スパスム）</a></li>
+<li><a href="#10-機械的循環補助va-ecmo--impella--ecpella">機械的循環補助（VA-ECMO / IMPELLA / ECPELLA）</a></li>
+<li><a href="#11-急変予防--早期警告徴候とゼロ次予防">急変予防 — 早期警告徴候とゼロ次予防</a></li>
+<li><a href="#12-看護師ロールカード6人チーム">看護師ロールカード（6人チーム）</a></li>
+<li><a href="#references">References</a></li>
+</ol>
+<hr />
+<h2 id="1-緊急コール基準と急変フロー全体図">1. 緊急コール基準と急変フロー全体図</h2>
+<h3 id="11-ナースが直ちにドクターコールする閾値">1.1 ナースが直ちにドクターコールする閾値</h3>
+<p>下記いずれか → <strong>即時 CVCU 当直医コール + バイタルチェック5分毎</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>系統</th>
+<th>閾値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>意識</strong></td>
+<td>GCS 2点以上低下、突然の不穏・意識消失</td>
+</tr>
+<tr>
+<td><strong>循環</strong></td>
+<td>SBP &lt;90 mmHg、SBP &gt;180 mmHg、HR &lt;40 または &gt;130（持続）、新規の不整脈</td>
+</tr>
+<tr>
+<td><strong>呼吸</strong></td>
+<td>SpO₂ &lt;92%（O₂投与中）、RR &lt;8 or &gt;30、新規の起座呼吸</td>
+</tr>
+<tr>
+<td><strong>腎</strong></td>
+<td>尿量 &lt;0.5 mL/kg/h × 2時間 [8]</td>
+</tr>
+<tr>
+<td><strong>出血</strong></td>
+<td>ドレーン排液 &gt;2 mL/kg/h × 2時間連続 [8]、新規血腫増大</td>
+</tr>
+<tr>
+<td><strong>代謝</strong></td>
+<td>乳酸 ≥2 mmol/L で上昇傾向、ScvO₂ &lt;70% [8]</td>
+</tr>
+<tr>
+<td><strong>その他</strong></td>
+<td>突発する胸痛、再開胸所見（縦隔拡大・胸骨動揺感）、創部からの血性排液</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-急変パターン別-初期対応-1枚図">1.2 急変パターン別 初期対応 1枚図</h3>
+<p><figure class="flowchart">
+<svg class="flowchart" role="img" aria-label="CVCU 急変発見時 初期トリアージ" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" font-family="system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#424242"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E7D32"/>
+    </marker>
+    <marker id="arrowYellow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E68A00"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B71C1C"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="1000" fill="#FAFAFA"/>
+
+  <!-- HEADER -->
+  <rect x="0" y="0" width="1400" height="90" fill="#263238"/>
+  <text x="700" y="42" font-size="30" font-weight="700" fill="#FFFFFF" text-anchor="middle">CVCU 急変発見時 初期トリアージ</text>
+  <text x="700" y="72" font-size="16" fill="#B0BEC5" text-anchor="middle">Initial Triage on Discovering Acute Deterioration</text>
+
+  <!-- START -->
+  <g filter="url(#shadow)">
+    <rect x="540" y="115" width="320" height="60" rx="30" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2"/>
+    <text x="700" y="153" font-size="20" font-weight="700" fill="#B71C1C" text-anchor="middle">⚠ 急変を発見</text>
+  </g>
+  <line x1="700" y1="175" x2="700" y2="205" stroke="#424242" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 1: Initial 10s actions -->
+  <g filter="url(#shadow)">
+    <rect x="250" y="210" width="900" height="120" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+    <rect x="250" y="210" width="900" height="34" rx="8" fill="#1565C0"/>
+    <text x="700" y="234" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">① 0–10 秒 初期評価</text>
+
+    <text x="270" y="270" font-size="14" font-weight="700" fill="#0D47A1">①</text>
+    <text x="290" y="270" font-size="14" fill="#424242">大声で「急変！」と叫び応援要請</text>
+
+    <text x="270" y="294" font-size="14" font-weight="700" fill="#0D47A1">②</text>
+    <text x="290" y="294" font-size="14" fill="#424242">緊急コール作動（Code Blue 等）</text>
+
+    <text x="270" y="318" font-size="14" font-weight="700" fill="#0D47A1">③</text>
+    <text x="290" y="318" font-size="14" fill="#424242">10 秒以内に 反応・呼吸・脈拍 を評価</text>
+  </g>
+  <line x1="700" y1="330" x2="700" y2="365" stroke="#424242" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Decision diamond -->
+  <g filter="url(#shadow)">
+    <polygon points="700,370 920,460 700,550 480,460" fill="#FFF8E1" stroke="#F57F17" stroke-width="2.5"/>
+    <text x="700" y="445" font-size="18" font-weight="700" fill="#E65100" text-anchor="middle">② 反応 / 呼吸 / 脈拍?</text>
+    <text x="700" y="475" font-size="13" fill="#424242" text-anchor="middle">ABC + 動脈圧波形</text>
+  </g>
+
+  <!-- 3 branches -->
+  <path d="M 480 460 Q 320 530 230 600" stroke="#2E7D32" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+  <path d="M 700 550 L 700 600" stroke="#E68A00" stroke-width="2" fill="none" marker-end="url(#arrowYellow)"/>
+  <path d="M 920 460 Q 1080 530 1170 600" stroke="#B71C1C" stroke-width="2" fill="none" marker-end="url(#arrowRed)"/>
+
+  <!-- ============ BRANCH A: STABLE (GREEN, LEFT) ============ -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="605" width="400" height="260" rx="10" fill="#FFFFFF" stroke="#43A047" stroke-width="2.5"/>
+    <rect x="30" y="605" width="400" height="40" rx="10" fill="#43A047"/>
+    <text x="230" y="632" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">A. 反応・呼吸・循環 安定</text>
+
+    <text x="230" y="668" font-size="15" font-weight="700" fill="#1B5E20" text-anchor="middle">📋 経過観察</text>
+
+    <text x="50" y="697" font-size="13" fill="#424242">• バイタルを 5 分毎に再評価</text>
+    <text x="50" y="720" font-size="13" fill="#424242">• 担当医にコール</text>
+    <text x="50" y="743" font-size="13" fill="#424242">• 12 誘導 ECG</text>
+    <text x="50" y="766" font-size="13" fill="#424242">• 採血（トロポニン、電解質、ABG）</text>
+    <text x="50" y="789" font-size="13" fill="#424242">• 心エコー 検討</text>
+    <text x="50" y="812" font-size="13" fill="#424242">• 胸部 X 線</text>
+
+    <text x="230" y="850" font-size="11" font-style="italic" fill="#757575" text-anchor="middle">悪化したら B または C へ</text>
+  </g>
+
+  <!-- ============ BRANCH B: PRE-ARREST (YELLOW, CENTER) ============ -->
+  <g filter="url(#shadow)">
+    <rect x="475" y="605" width="450" height="260" rx="10" fill="#FFFFFF" stroke="#F9A825" stroke-width="2.5"/>
+    <rect x="475" y="605" width="450" height="40" rx="10" fill="#F9A825"/>
+    <text x="700" y="632" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">B. 反応あり/弱・循環不安定（Pre-arrest）</text>
+
+    <text x="700" y="668" font-size="15" font-weight="700" fill="#E65100" text-anchor="middle">🚨 並行で原因鑑別 + 治療開始</text>
+
+    <text x="495" y="697" font-size="13" fill="#424242">• 心エコー（タンポナーデ評価）</text>
+    <text x="495" y="720" font-size="13" fill="#424242">• 12 誘導 ECG（虚血・不整脈）</text>
+    <text x="495" y="743" font-size="13" fill="#424242">• 動脈血液ガス + 乳酸</text>
+    <text x="495" y="766" font-size="13" fill="#424242">• ドレーン排液量確認 → タンポナーデ?</text>
+    <text x="495" y="789" font-size="13" fill="#424242">• 輸液 500 mL 急速静注 検討</text>
+    <text x="495" y="812" font-size="13" fill="#424242">• 循環器コンサル + 心臓外科オンコール</text>
+
+    <text x="700" y="850" font-size="11" font-style="italic" fill="#B71C1C" text-anchor="middle">⚠ 悪化したら直ちに C（心停止）対応へ</text>
+  </g>
+
+  <!-- ============ BRANCH C: CARDIAC ARREST (RED, RIGHT) ============ -->
+  <g filter="url(#shadow)">
+    <rect x="970" y="605" width="400" height="260" rx="10" fill="#FFFFFF" stroke="#E53935" stroke-width="2.5"/>
+    <rect x="970" y="605" width="400" height="40" rx="10" fill="#E53935"/>
+    <text x="1170" y="632" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">C. 反応なし / 呼吸停止 / 脈拍なし</text>
+
+    <text x="1170" y="668" font-size="17" font-weight="700" fill="#B71C1C" text-anchor="middle">⚡ 心停止 (Cardiac Arrest)</text>
+
+    <text x="990" y="700" font-size="13" font-weight="700" fill="#B71C1C">→ FC2 CALS Algorithm を起動</text>
+    <text x="990" y="725" font-size="13" fill="#424242">• 6 人チーム招集（FC11）</text>
+    <text x="990" y="748" font-size="13" fill="#424242">• 緊急胸骨再開放セット 展開</text>
+    <text x="990" y="771" font-size="13" fill="#424242">• 除細動器 持込 + 5 分タイマー作動</text>
+    <text x="990" y="794" font-size="13" fill="#424242">• 上級医・心臓外科 呼出</text>
+    <text x="990" y="817" font-size="13" fill="#424242">• 家族待機室へ連絡</text>
+
+    <text x="1170" y="852" font-size="11" font-style="italic" fill="#757575" text-anchor="middle">⏱ 5 分の壁 — 再開胸の判断点</text>
+  </g>
+
+  <!-- Pre-arrest causes box at bottom -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="890" width="1200" height="80" rx="8" fill="#FFFDE7" stroke="#F9A825" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <text x="120" y="918" font-size="14" font-weight="700" fill="#E65100">📝 Pre-arrest 原因鑑別チェックリスト（B分岐で必ず想起）</text>
+    <text x="120" y="942" font-size="12" fill="#424242">タンポナーデ / 緊張性気胸 / 出血性ショック / 急性右心不全・PE / VF storm 前兆（頻発PVC, TdP run） / 心筋虚血・新規ST変化 / 大動脈バルーン破損</text>
+    <text x="1280" y="962" font-size="10" font-style="italic" fill="#9E9E9E" text-anchor="end">[1][2][8]</text>
+  </g>
+</svg>
+
+</figure></p>
+<h3 id="13-pre-arrest心停止前段階の鑑別">1.3 Pre-arrest（心停止前段階）の鑑別</h3>
+<p>CVCU で「もうすぐ心停止する」サインを認めたら、原因別に並行アクション:</p>
+<table>
+<thead>
+<tr>
+<th>原因</th>
+<th>サイン</th>
+<th>即時アクション</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>タンポナーデ</strong> [1][2]</td>
+<td>CVP急上昇 / 動脈圧 narrow pulse / 心拍数↑→低血圧 / 急なドレーン排液停止</td>
+<td>心エコー、再開胸準備、輸液 500 mL bolus</td>
+</tr>
+<tr>
+<td><strong>緊張性気胸</strong> [2]</td>
+<td>片肺呼吸音低下、頸静脈怒張、皮下気腫、SpO₂ 急降下</td>
+<td>第2肋間鎖骨中線で14G穿刺、胸腔ドレーン</td>
+</tr>
+<tr>
+<td><strong>出血性ショック</strong> [8]</td>
+<td>ドレーン &gt;400–500 mL/h、Hb急低下、SBP↓、心拍↑、CVP↓</td>
+<td>輸血・凝固補正、再開胸準備（&gt;2 mL/kg/h × 2h）[8]</td>
+</tr>
+<tr>
+<td><strong>急性右心不全 / PE</strong></td>
+<td>CVP↑、肝うっ血、SpO₂↓、心エコーで RV拡大</td>
+<td>心エコー、CTPA、循環器コンサル</td>
+</tr>
+<tr>
+<td><strong>VF storm 前兆</strong> [5]</td>
+<td>頻発する PVC、TdP run、Q-T 延長</td>
+<td>§5 へ</td>
+</tr>
+<tr>
+<td><strong>心筋虚血</strong></td>
+<td>新規 ST 変化、胸痛、新規LBBB</td>
+<td>12誘導 ECG、心エコー、循環器コンサル → §9</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-心停止対応--calscsu-als-プロトコル">2. 心停止対応 — CALS/CSU-ALS プロトコル</h2>
+<blockquote>
+<p><strong>第10術後日まで適用</strong>（Class IIa-C [2]）。10日以降は senior医師が再開胸の可否を判断。</p>
+</blockquote>
+<p><figure class="flowchart">
+<svg class="flowchart" role="img" aria-label="CALS マスターアルゴリズム — 3 分岐統合" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1380" font-family="system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#424242"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B71C1C"/>
+    </marker>
+    <marker id="arrowYellow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E68A00"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E7D32"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1380" fill="#FAFAFA"/>
+
+  <!-- ========== HEADER ========== -->
+  <rect x="0" y="0" width="1600" height="100" fill="#263238"/>
+  <text x="800" y="50" font-size="34" font-weight="700" fill="#FFFFFF" text-anchor="middle">CVCU 心停止対応 — CALS / CSU-ALS マスターアルゴリズム</text>
+  <text x="800" y="82" font-size="18" fill="#B0BEC5" text-anchor="middle">Cardiac Surgery Unit Advanced Life Support  /  心臓外科術後 心停止プロトコル  [Refs 1, 2]</text>
+
+  <!-- ========== START ========== -->
+  <g filter="url(#shadow)">
+    <rect x="600" y="130" width="400" height="60" rx="30" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2.5"/>
+    <text x="800" y="168" font-size="22" font-weight="700" fill="#B71C1C" text-anchor="middle">⚠ 心停止確認 → CALS 起動</text>
+  </g>
+  <line x1="800" y1="190" x2="800" y2="220" stroke="#424242" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ========== INITIAL ACTIONS (Common) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="225" width="1200" height="200" rx="12" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+    <rect x="200" y="225" width="1200" height="36" rx="12" fill="#1565C0"/>
+    <text x="800" y="251" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">① 共通初動（全リズム共通）— 0–60秒</text>
+
+    <text x="240" y="290" font-size="16" fill="#0D47A1">• 緊急コール作動 + 6人チーム招集</text>
+    <text x="240" y="318" font-size="16" fill="#0D47A1">• FiO₂ 100% / PEEP off → 手動バッグマスク換気に切替</text>
+    <text x="240" y="346" font-size="16" fill="#0D47A1">• 両側呼吸音 聴取（気胸 除外）</text>
+    <text x="240" y="374" font-size="16" fill="#0D47A1">• 全持続点滴・シリンジポンプ 停止（鎮静のみ継続可）</text>
+    <text x="240" y="402" font-size="16" fill="#0D47A1">• 大動脈内バルーンポンピング → pressure trigger に切替</text>
+
+    <text x="860" y="290" font-size="16" fill="#0D47A1">• 動脈圧波形で 収縮期 ≥60 mmHg を目標</text>
+    <text x="860" y="318" font-size="16" fill="#0D47A1">• 動脈圧波形 + 呼気終末CO₂ で心拍動確認</text>
+    <text x="860" y="346" font-size="16" fill="#0D47A1">• 中心動脈触知は迷う時のみ</text>
+    <text x="860" y="374" font-size="16" fill="#0D47A1">• 看護リーダーは 5 分タイマー開始</text>
+    <text x="860" y="402" font-size="16" fill="#0D47A1">• 緊急胸骨再開放セット 展開準備</text>
+  </g>
+  <line x1="800" y1="425" x2="800" y2="460" stroke="#424242" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ========== RHYTHM ASSESSMENT (Diamond) ========== -->
+  <g filter="url(#shadow)">
+    <polygon points="800,465 980,540 800,615 620,540" fill="#FFF8E1" stroke="#F57F17" stroke-width="2.5"/>
+    <text x="800" y="525" font-size="18" font-weight="700" fill="#E65100" text-anchor="middle">② リズム判定</text>
+    <text x="800" y="550" font-size="14" fill="#424242" text-anchor="middle">12 誘導 ECG / 動脈圧波形 /</text>
+    <text x="800" y="568" font-size="14" fill="#424242" text-anchor="middle">呼気終末CO₂</text>
+  </g>
+
+  <!-- 3 branches arrows from diamond -->
+  <path d="M 700 600 Q 500 650 270 695" stroke="#B71C1C" stroke-width="2.5" fill="none" marker-end="url(#arrowRed)"/>
+  <path d="M 800 615 L 800 695" stroke="#E68A00" stroke-width="2.5" fill="none" marker-end="url(#arrowYellow)"/>
+  <path d="M 900 600 Q 1100 650 1330 695" stroke="#2E7D32" stroke-width="2.5" fill="none" marker-end="url(#arrowGreen)"/>
+
+  <!-- ========== COLUMN 1: VF / pVT (RED) ========== -->
+  <g filter="url(#shadow)">
+    <!-- Card -->
+    <rect x="50" y="700" width="460" height="540" rx="12" fill="#FFFFFF" stroke="#E53935" stroke-width="2.5"/>
+    <!-- Header -->
+    <rect x="50" y="700" width="460" height="44" rx="12" fill="#E53935"/>
+    <text x="280" y="730" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">⚡ VF / 無脈性 VT</text>
+
+    <!-- Step 1 -->
+    <rect x="70" y="760" width="420" height="90" rx="8" fill="#FFEBEE" stroke="#E53935" stroke-width="1.5"/>
+    <text x="280" y="788" font-size="17" font-weight="700" fill="#B71C1C" text-anchor="middle">3 連続ショック（心マッサージ介在なし）</text>
+    <text x="280" y="812" font-size="15" fill="#424242" text-anchor="middle">二相性 200 J × 3 回</text>
+    <text x="280" y="834" font-size="13" font-style="italic" fill="#757575" text-anchor="middle">Class I-B [2] — 心マッサージ開始は最大1分まで遅らせて可</text>
+
+    <line x1="280" y1="852" x2="280" y2="870" stroke="#B71C1C" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+    <!-- Step 2 -->
+    <rect x="70" y="875" width="420" height="80" rx="8" fill="#FFEBEE" stroke="#E53935" stroke-width="1.5"/>
+    <text x="280" y="903" font-size="16" font-weight="700" fill="#B71C1C" text-anchor="middle">心マッサージ + 換気</text>
+    <text x="280" y="924" font-size="14" fill="#424242" text-anchor="middle">100–120/min, 深さ 4–5 cm</text>
+    <text x="280" y="944" font-size="13" fill="#424242" text-anchor="middle">動脈圧 収縮期 ≥60 mmHg を維持</text>
+
+    <line x1="280" y1="957" x2="280" y2="975" stroke="#B71C1C" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+    <!-- Step 3 - Drug -->
+    <rect x="70" y="980" width="420" height="100" rx="8" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="1.5"/>
+    <text x="280" y="1005" font-size="16" font-weight="700" fill="#4A148C" text-anchor="middle">💊 アミオダロン 300 mg を急速静注</text>
+    <text x="280" y="1027" font-size="14" fill="#424242" text-anchor="middle">中心静脈ラインから / 5%ブドウ糖 20 mL で希釈</text>
+    <text x="280" y="1047" font-size="14" fill="#424242" text-anchor="middle">不応なら 4 回目ショック → さらに 150 mg 追加</text>
+    <text x="280" y="1067" font-size="13" fill="#424242" text-anchor="middle">継続 900 mg/24h（最初6h: 1 mg/min, 続く18h: 0.5 mg/min）</text>
+
+    <line x1="280" y1="1082" x2="280" y2="1100" stroke="#B71C1C" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+    <!-- Decision: <60 mmHg? -->
+    <rect x="70" y="1105" width="420" height="60" rx="8" fill="#FFF3E0" stroke="#FF6F00" stroke-width="2"/>
+    <text x="280" y="1130" font-size="15" font-weight="700" fill="#E65100" text-anchor="middle">⏱ 5 分経過 / 収縮期 &lt; 60 mmHg ?</text>
+    <text x="280" y="1152" font-size="14" font-weight="700" fill="#B71C1C" text-anchor="middle">→ 緊急胸骨再開放（FC6）</text>
+
+    <!-- Warning box -->
+    <rect x="70" y="1180" width="420" height="50" rx="8" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2" stroke-dasharray="6 3"/>
+    <text x="280" y="1205" font-size="15" font-weight="700" fill="#B71C1C" text-anchor="middle">⛔ アドレナリン ルーチン投与禁止</text>
+    <text x="280" y="1222" font-size="12" fill="#B71C1C" text-anchor="middle">Class III-Harm [2] — 再灌流後 hypertension → graft 破綻</text>
+  </g>
+
+  <!-- ========== COLUMN 2: Asystole / Severe Brady (YELLOW) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="570" y="700" width="460" height="540" rx="12" fill="#FFFFFF" stroke="#F9A825" stroke-width="2.5"/>
+    <rect x="570" y="700" width="460" height="44" rx="12" fill="#F9A825"/>
+    <text x="800" y="730" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">⏸ Asystole / 高度徐脈</text>
+
+    <!-- Step 1 -->
+    <rect x="590" y="760" width="420" height="120" rx="8" fill="#FFF8E1" stroke="#F9A825" stroke-width="1.5"/>
+    <text x="800" y="787" font-size="16" font-weight="700" fill="#E65100" text-anchor="middle">心外膜ペーシングワイヤー接続</text>
+    <text x="800" y="810" font-size="14" fill="#424242" text-anchor="middle">DDD モード, レート 80–100 bpm</text>
+    <text x="800" y="830" font-size="14" fill="#424242" text-anchor="middle">心房・心室出力 最大（20 mA）</text>
+    <text x="800" y="850" font-size="14" fill="#424242" text-anchor="middle">心房感度 0.5 mV, 心室感度 2 mV</text>
+    <text x="800" y="870" font-size="13" font-style="italic" fill="#757575" text-anchor="middle">Class IIa-C [2]</text>
+
+    <line x1="800" y1="883" x2="800" y2="901" stroke="#E68A00" stroke-width="2" marker-end="url(#arrowYellow)"/>
+
+    <!-- Step 2 - Note callout -->
+    <rect x="590" y="905" width="420" height="80" rx="8" fill="#FFFDE7" stroke="#FBC02D" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <text x="800" y="930" font-size="13" font-weight="700" fill="#E65100" text-anchor="middle">📝 ワイヤー注意点</text>
+    <text x="800" y="950" font-size="12" fill="#424242" text-anchor="middle">「Emergency setting」は V00 デフォルトの機種が多い</text>
+    <text x="800" y="968" font-size="12" fill="#424242" text-anchor="middle">心臓術後は心房ワイヤーのみ接続のことも → DDD/AAI 確認</text>
+
+    <line x1="800" y1="988" x2="800" y2="1006" stroke="#E68A00" stroke-width="2" marker-end="url(#arrowYellow)"/>
+
+    <!-- Step 3 - TCP -->
+    <rect x="590" y="1010" width="420" height="80" rx="8" fill="#FFF8E1" stroke="#F9A825" stroke-width="1.5"/>
+    <text x="800" y="1037" font-size="16" font-weight="700" fill="#E65100" text-anchor="middle">経皮ペーシング（TCP）</text>
+    <text x="800" y="1058" font-size="14" fill="#424242" text-anchor="middle">パッド 前-後 / レート 80 bpm / 80 mA から漸増</text>
+    <text x="800" y="1076" font-size="13" fill="#424242" text-anchor="middle">疼痛強い → 鎮痛・鎮静必須</text>
+
+    <line x1="800" y1="1093" x2="800" y2="1111" stroke="#E68A00" stroke-width="2" marker-end="url(#arrowYellow)"/>
+
+    <!-- Step 4 -->
+    <rect x="590" y="1115" width="420" height="60" rx="8" fill="#FFF3E0" stroke="#FF6F00" stroke-width="2"/>
+    <text x="800" y="1140" font-size="15" font-weight="700" fill="#E65100" text-anchor="middle">⏱ 5 分以内に 緊急胸骨再開放（FC6）</text>
+    <text x="800" y="1162" font-size="13" font-style="italic" fill="#757575" text-anchor="middle">Class I-C [2]</text>
+
+    <!-- Note: atropine -->
+    <rect x="590" y="1190" width="420" height="44" rx="8" fill="#F5F5F5" stroke="#9E9E9E" stroke-width="1" stroke-dasharray="3 2"/>
+    <text x="800" y="1212" font-size="12" font-weight="700" fill="#616161" text-anchor="middle">📝 STS 2017: アトロピン ルーチン非推奨 (Class III)</text>
+    <text x="800" y="1228" font-size="11" font-style="italic" fill="#757575" text-anchor="middle">EACTS 2009 旧版は 3 mg 単回（中心静脈経由）[1]</text>
+  </g>
+
+  <!-- ========== COLUMN 3: PEA (GREEN) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="1090" y="700" width="460" height="540" rx="12" fill="#FFFFFF" stroke="#43A047" stroke-width="2.5"/>
+    <rect x="1090" y="700" width="460" height="44" rx="12" fill="#43A047"/>
+    <text x="1320" y="730" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">📊 PEA（無脈性電気活動）</text>
+
+    <!-- Step 1 -->
+    <rect x="1110" y="760" width="420" height="80" rx="8" fill="#E8F5E9" stroke="#43A047" stroke-width="1.5"/>
+    <text x="1320" y="787" font-size="16" font-weight="700" fill="#1B5E20" text-anchor="middle">ペーシング作動中なら 一時 OFF</text>
+    <text x="1320" y="809" font-size="14" fill="#424242" text-anchor="middle">基礎リズムに VF が隠れていないか確認</text>
+    <text x="1320" y="828" font-size="13" font-style="italic" fill="#757575" text-anchor="middle">Class IIa-C [2]</text>
+
+    <line x1="1320" y1="843" x2="1320" y2="861" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+    <!-- Step 2 - 4H/4T -->
+    <rect x="1110" y="865" width="420" height="240" rx="8" fill="#E8F5E9" stroke="#43A047" stroke-width="1.5"/>
+    <text x="1320" y="890" font-size="16" font-weight="700" fill="#1B5E20" text-anchor="middle">心マッサージ継続 + 4H / 4T 鑑別</text>
+
+    <!-- 4H -->
+    <text x="1130" y="918" font-size="13" font-weight="700" fill="#2E7D32">4 H:</text>
+    <text x="1180" y="918" font-size="13" fill="#424242">Hypoxia（低酸素）</text>
+    <text x="1180" y="938" font-size="13" fill="#424242">Hypovolemia（循環血液量減少）</text>
+    <text x="1180" y="958" font-size="13" fill="#424242">Hypo/Hyperkalemia（K異常）</text>
+    <text x="1180" y="978" font-size="13" fill="#424242">Hypothermia（低体温）</text>
+
+    <!-- 4T -->
+    <text x="1130" y="1005" font-size="13" font-weight="700" fill="#2E7D32">4 T:</text>
+    <text x="1180" y="1005" font-size="13" font-weight="700" fill="#B71C1C">★ Tamponade（心タンポナーデ・最頻）</text>
+    <text x="1180" y="1025" font-size="13" fill="#424242">緊張性気胸（Tension PTX）</text>
+    <text x="1180" y="1045" font-size="13" fill="#424242">Thrombus（PE / 冠血栓）</text>
+    <text x="1180" y="1065" font-size="13" fill="#424242">Toxin（薬剤）→ 持続点滴 停止</text>
+
+    <text x="1320" y="1090" font-size="12" font-style="italic" fill="#757575" text-anchor="middle">タンポナーデ濃厚 → 直ちに再開胸</text>
+
+    <line x1="1320" y1="1110" x2="1320" y2="1128" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+    <!-- Step 3 - resternotomy -->
+    <rect x="1110" y="1132" width="420" height="60" rx="8" fill="#FFF3E0" stroke="#FF6F00" stroke-width="2"/>
+    <text x="1320" y="1157" font-size="15" font-weight="700" fill="#E65100" text-anchor="middle">⏱ 5 分以内に 緊急胸骨再開放（FC6）</text>
+    <text x="1320" y="1179" font-size="13" font-style="italic" fill="#757575" text-anchor="middle">Class I-C [2]</text>
+
+    <!-- Footnote -->
+    <text x="1320" y="1217" font-size="11" font-style="italic" fill="#757575" text-anchor="middle">※ 基礎リズムが VF と判明 → 左列（VF パスウェイ）へ移行</text>
+  </g>
+
+  <!-- ========== FOOTER: 5-min wall + warning ========== -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="1265" width="1500" height="80" rx="12" fill="#FF6F00"/>
+    <text x="800" y="1300" font-size="26" font-weight="700" fill="#FFFFFF" text-anchor="middle">⏱ 5 分の壁 — 5-Minute Wall</text>
+    <text x="800" y="1328" font-size="16" fill="#FFE0B2" text-anchor="middle">非VF/VT がペーシング・可逆原因対応に反応せず → 緊急胸骨再開放（FC6）に直行</text>
+  </g>
+
+  <!-- Citation -->
+  <text x="800" y="1370" font-size="12" fill="#9E9E9E" text-anchor="middle">References: [1] Dunning J et al. EACTS 2009 (DOI:10.1016/j.ejcts.2009.01.033) — [2] Dunning J et al. STS 2017 (DOI:10.1016/j.athoracsur.2016.11.018)</text>
+</svg>
+
+</figure></p>
+<h3 id="21-起動基準10秒以内に判定">2.1 起動基準（10秒以内に判定）</h3>
+<p><strong>Class I-C [2]</strong>: ECG が「心拍出を維持できる波形」だが、動脈圧波形・end-tidal CO₂ が「無く脈拍触知できない」場合、<strong>心停止を即時宣言</strong>する。中心動脈触知は診断に迷う時のみ。</p>
+<h3 id="22-共通初動全リズム-060秒">2.2 共通初動（全リズム）— 0〜60秒</h3>
+<blockquote>
+<p>緊急コール作動 + 6人チーム招集（§12）</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>アクション</th>
+<th>詳細</th>
+<th>出典</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>酸素化</td>
+<td>FiO₂ 100% / PEEP off → 手動バッグマスク換気に切替</td>
+<td>[2]</td>
+</tr>
+<tr>
+<td>呼吸音聴取</td>
+<td>両側を必ず確認（緊張性気胸 除外）</td>
+<td>[2]</td>
+</tr>
+<tr>
+<td>全持続点滴 停止</td>
+<td>シリンジポンプ含む。鎮静のみ継続可</td>
+<td>[1][2]</td>
+</tr>
+<tr>
+<td>大動脈内バルーン</td>
+<td>pressure trigger に切替</td>
+<td>[1][2]</td>
+</tr>
+<tr>
+<td>心マッサージ目標</td>
+<td>動脈圧 収縮期 ≥ 60 mmHg</td>
+<td>[1]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-vf--無脈性-vt-パスウェイ赤">2.3 VF / 無脈性 VT パスウェイ（赤）</h3>
+<p><figure class="flowchart">
+<svg class="flowchart" role="img" aria-label="VF / 無脈性 VT パスウェイ — タイムライン" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1500" font-family="system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B71C1C"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="1500" fill="#FAFAFA"/>
+
+  <!-- HEADER -->
+  <rect x="0" y="0" width="1400" height="100" fill="#B71C1C"/>
+  <text x="700" y="50" font-size="32" font-weight="700" fill="#FFFFFF" text-anchor="middle">VF / 無脈性 VT パスウェイ — タイムライン（0–10 分）</text>
+  <text x="700" y="80" font-size="16" fill="#FFCDD2" text-anchor="middle">心臓術後 心室細動・無脈性心室頻拍への対応</text>
+
+  <!-- TIMELINE AXIS (left) -->
+  <line x1="180" y1="140" x2="180" y2="1380" stroke="#424242" stroke-width="3"/>
+  <text x="100" y="155" font-size="14" font-weight="700" fill="#424242">時刻</text>
+
+  <!-- Time markers -->
+  <g font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">
+    <circle cx="180" cy="180" r="32" fill="#424242"/>
+    <text x="180" y="187">0:00</text>
+    <circle cx="180" cy="295" r="32" fill="#424242"/>
+    <text x="180" y="302">0:30</text>
+    <circle cx="180" cy="425" r="32" fill="#B71C1C"/>
+    <text x="180" y="432">1:00</text>
+    <circle cx="180" cy="555" r="32" fill="#B71C1C"/>
+    <text x="180" y="562">2:00</text>
+    <circle cx="180" cy="700" r="32" fill="#6A1B9A"/>
+    <text x="180" y="707">2:00</text>
+    <circle cx="180" cy="840" r="32" fill="#B71C1C"/>
+    <text x="180" y="847">3:00</text>
+    <circle cx="180" cy="970" r="32" fill="#FF6F00"/>
+    <text x="180" y="977">5:00</text>
+    <circle cx="180" cy="1100" r="32" fill="#FF6F00"/>
+    <text x="180" y="1107">7:00</text>
+    <circle cx="180" cy="1230" r="32" fill="#FF6F00"/>
+    <text x="180" y="1237">10:00</text>
+  </g>
+
+  <!-- ============ ACTION BOXES (right of timeline) ============ -->
+
+  <!-- 0:00 -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="148" width="1080" height="80" rx="8" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2"/>
+    <text x="290" y="180" font-size="18" font-weight="700" fill="#B71C1C">VF / 無脈性 VT を確認</text>
+    <text x="290" y="205" font-size="14" fill="#424242">大声で「急変！」 → 緊急コール作動 → 6 人チーム招集</text>
+    <text x="290" y="222" font-size="14" fill="#424242">FiO₂ 100% / PEEP off / 持続点滴 停止 / 大動脈内バルーンを pressure trigger へ</text>
+  </g>
+  <line x1="180" y1="212" x2="260" y2="188" stroke="#B71C1C" stroke-width="2"/>
+
+  <!-- 0:30 -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="263" width="1080" height="65" rx="8" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2"/>
+    <text x="290" y="293" font-size="18" font-weight="700" fill="#B71C1C">6 人配置完了</text>
+    <text x="290" y="316" font-size="14" fill="#424242">心マッサージ / 気道 / 除細動 / 薬剤 / 再開胸準備 / リーダー（FC11 参照）</text>
+  </g>
+  <line x1="180" y1="327" x2="260" y2="303" stroke="#B71C1C" stroke-width="2"/>
+
+  <!-- 1:00 - 3連続ショック -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="378" width="1080" height="95" rx="8" fill="#FFCDD2" stroke="#B71C1C" stroke-width="2.5"/>
+    <text x="290" y="408" font-size="20" font-weight="700" fill="#B71C1C">⚡ 3 連続ショック（心マッサージ介在なし）</text>
+    <text x="290" y="432" font-size="15" fill="#424242">二相性 200 J × 3 回（最大1分以内に完了）</text>
+    <text x="290" y="452" font-size="15" fill="#424242">  1:00 → 1回目  /  1:15 → 2回目  /  1:30 → 3回目</text>
+    <text x="290" y="470" font-size="13" font-style="italic" fill="#757575">Class I-B [2]　通常 ACLS（1ショック直後CPR）との最大の違い</text>
+  </g>
+  <line x1="180" y1="433" x2="260" y2="425" stroke="#B71C1C" stroke-width="2"/>
+
+  <!-- 2:00 - ECM start (red box) -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="508" width="540" height="95" rx="8" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2"/>
+    <text x="290" y="538" font-size="17" font-weight="700" fill="#B71C1C">心マッサージ 開始</text>
+    <text x="290" y="562" font-size="14" fill="#424242">100–120 / min, 深さ 4–5 cm</text>
+    <text x="290" y="582" font-size="14" fill="#424242">動脈圧 収縮期 ≥60 mmHg を目標</text>
+    <text x="290" y="599" font-size="13" font-style="italic" fill="#757575">2分サイクルで担当者交代</text>
+  </g>
+  <line x1="180" y1="563" x2="260" y2="555" stroke="#B71C1C" stroke-width="2"/>
+
+  <!-- 2:00 - Amiodarone (purple, parallel) -->
+  <g filter="url(#shadow)">
+    <rect x="810" y="508" width="530" height="95" rx="8" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="2"/>
+    <text x="840" y="538" font-size="17" font-weight="700" fill="#4A148C">💊 アミオダロン 300 mg を急速静注</text>
+    <text x="840" y="562" font-size="14" fill="#424242">中心静脈ラインから / 5% ブドウ糖 20 mL で希釈</text>
+    <text x="840" y="582" font-size="14" fill="#424242">生理食塩水は沈殿のため不可</text>
+    <text x="840" y="599" font-size="13" font-style="italic" fill="#757575">Class IIa-A [2]</text>
+  </g>
+  <line x1="180" y1="700" x2="820" y2="600" stroke="#6A1B9A" stroke-width="2"/>
+
+  <!-- 3:00 - 4th shock if VF persists -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="800" width="1080" height="80" rx="8" fill="#FFCDD2" stroke="#B71C1C" stroke-width="2.5"/>
+    <text x="290" y="828" font-size="18" font-weight="700" fill="#B71C1C">⚡ 4 回目ショック（依然 VF なら）</text>
+    <text x="290" y="850" font-size="14" fill="#424242">アミオダロン 150 mg を追加投与 + 持続点滴開始準備</text>
+    <text x="290" y="870" font-size="14" fill="#424242">継続: 900 mg/24h（最初 6 h: 1 mg/min, 続く 18 h: 0.5 mg/min）</text>
+  </g>
+  <line x1="180" y1="848" x2="260" y2="840" stroke="#B71C1C" stroke-width="2"/>
+
+  <!-- 5:00 - 5-min wall -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="925" width="1080" height="100" rx="8" fill="#FFF3E0" stroke="#FF6F00" stroke-width="3"/>
+    <text x="290" y="958" font-size="22" font-weight="700" fill="#E65100">⏱ 5 分の壁 — 緊急胸骨再開放 の判断点</text>
+    <text x="290" y="983" font-size="15" fill="#424242">心マッサージで 収縮期 &lt; 60 mmHg または VF 還元せず</text>
+    <text x="290" y="1003" font-size="15" font-weight="700" fill="#B71C1C">→ 胸骨再開放開始（FC6）／内心臓マッサージへ</text>
+    <text x="290" y="1020" font-size="13" font-style="italic" fill="#757575">Class I-C [2]</text>
+  </g>
+  <line x1="180" y1="983" x2="260" y2="975" stroke="#FF6F00" stroke-width="2"/>
+
+  <!-- 7:00 - refractory -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="1058" width="1080" height="80" rx="8" fill="#FFE0B2" stroke="#FF6F00" stroke-width="2"/>
+    <text x="290" y="1086" font-size="17" font-weight="700" fill="#E65100">難治性 VF（refractory VF）</text>
+    <text x="290" y="1108" font-size="14" fill="#424242">代替: リドカイン 1 mg/kg を静脈内ボーラス（追加 0.5–0.75 mg/kg）</text>
+    <text x="290" y="1128" font-size="14" fill="#424242">K ≥4.5 mmol/L, Mg ≥2.0 mmol/L 補正 / 内心臓マッサージ確立</text>
+  </g>
+  <line x1="180" y1="1108" x2="260" y2="1100" stroke="#FF6F00" stroke-width="2"/>
+
+  <!-- 10:00 - ECPR -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="1188" width="1080" height="80" rx="8" fill="#FFE0B2" stroke="#FF6F00" stroke-width="2"/>
+    <text x="290" y="1216" font-size="17" font-weight="700" fill="#E65100">体外式心肺蘇生（ECPR）検討</text>
+    <text x="290" y="1238" font-size="14" fill="#424242">VA-ECMO 導入判断 → FC10 へ（年齢・基礎疾患・no-flow time 評価）</text>
+    <text x="290" y="1258" font-size="14" fill="#424242">心エコーで可逆原因（タンポナーデ・PE）最終確認</text>
+  </g>
+  <line x1="180" y1="1238" x2="260" y2="1230" stroke="#FF6F00" stroke-width="2"/>
+
+  <!-- WARNING BANNER -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="1310" width="1300" height="80" rx="12" fill="#B71C1C"/>
+    <text x="700" y="1346" font-size="22" font-weight="700" fill="#FFFFFF" text-anchor="middle">⛔ アドレナリン ルーチン投与禁止 — Class III-Harm [2]</text>
+    <text x="700" y="1374" font-size="14" fill="#FFCDD2" text-anchor="middle">理由: 自己心拍再開直後の hypertension → グラフト破綻・縫合線出血 / 上級医指示下のみ少量ボーラス可</text>
+  </g>
+
+  <!-- Citation -->
+  <text x="700" y="1430" font-size="12" fill="#9E9E9E" text-anchor="middle">References: [1] EACTS 2009 — [2] STS 2017 — [3] AHA 2025 Part 9 — [5] ESC 2022 VA</text>
+</svg>
+
+</figure></p>
+<h4 id="要点上図のサマリ">要点（上図のサマリ）</h4>
+<ol type="1">
+<li><strong>3 連続ショック を心マッサージ介在なしで実施</strong>（Class I-B [2]）— 二相性 200 J × 3 回、心マッサージ開始は最大 1 分遅らせて可</li>
+<li><strong>心マッサージ 100–120/min, 深さ 4–5 cm</strong>、動脈圧 収縮期 ≥ 60 mmHg を目標。&lt; 60 mmHg なら即時 再開胸 (Class I-C [2])</li>
+<li><strong>アミオダロン 300 mg を中心静脈ラインから急速静注</strong> — 5% ブドウ糖 20 mL で希釈（Class IIa-A [2]）</li>
+<li>不応なら <strong>4 回目ショック → 追加 150 mg → 900 mg / 24 時間 持続点滴</strong>（最初 6 時間 1 mg/min, 続く 18 時間 0.5 mg/min）</li>
+<li>代替: <strong>リドカイン 1 mg/kg を静注</strong></li>
+<li>還元しなければ <strong>5 分以内に緊急胸骨再開放（§3）→ 内心臓マッサージ</strong></li>
+</ol>
+<blockquote>
+<p>⛔ <strong>アドレナリン ルーチン投与禁止</strong>（Class III-Harm [2]） 理由: 自己心拍再開後の血圧スパイクで縫合線出血・グラフト破綻リスク。上級医が小用量（50–100–300 µg ボーラス）を指示した場合のみ可 [1][2]。</p>
+</blockquote>
+<h3 id="24-asystole--高度徐脈パスウェイ黄">2.4 Asystole / 高度徐脈パスウェイ（黄）</h3>
+<ol type="1">
+<li><strong>心外膜ペーシングワイヤーを接続</strong>（Class IIa-C [2]）
+<ul>
+<li>DDD モード、レート <strong>80–100 bpm</strong></li>
+<li>心房・心室の出力を <strong>最大（20 mA）</strong></li>
+<li>心マッサージ開始は最大 1 分遅らせて良い [2]</li>
+</ul></li>
+<li><strong>Capture（有効ペーシング）が得られなければ経皮ペーシングへ切替</strong>
+<ul>
+<li>パッド: 前-後 または 前-側</li>
+<li>80 mA から漸増、capture まで（典型 100–140 mA）</li>
+<li>強い疼痛伴うため鎮痛・鎮静を併用</li>
+</ul></li>
+<li><strong>反応なし → 5 分以内に緊急胸骨再開放（§3）</strong>（Class I-C [2]）</li>
+</ol>
+<blockquote>
+<p>📝 アトロピンは STS 2017 ではルーチン非推奨（Class III-no benefit）[2]。 EACTS 2009 旧版では 3 mg を中心静脈ラインから単回投与 [1]。ペーシングを優先する。</p>
+</blockquote>
+<h3 id="25-pea-パスウェイ緑">2.5 PEA パスウェイ（緑）</h3>
+<ol type="1">
+<li><strong>ペーシング作動中なら一時 OFF</strong>（Class IIa-C [2]）
+<ul>
+<li>基礎リズムに VF が隠れていないかを確認</li>
+<li>基礎リズム VF → §2.3 へ移行</li>
+</ul></li>
+<li><strong>PEA 継続なら心マッサージ継続 + 可逆原因鑑別</strong>
+<ul>
+<li><strong>5H</strong>: Hypoxia / Hypovolemia / Hypo-Hyperkalemia / Hypothermia / H⁺（アシドーシス）[3]</li>
+<li><strong>4T (心臓術後特有)</strong> [1]:
+<ul>
+<li><strong>Tamponade（心タンポナーデ・最頻）</strong> → 心エコー → 再開胸</li>
+<li><strong>緊張性気胸</strong> → 14 ゲージ針を第 2 肋間 鎖骨中線に穿刺 → 胸腔ドレーン</li>
+<li><strong>Thrombus（肺塞栓・冠血栓）</strong></li>
+<li><strong>Toxin（薬剤）</strong> → 持続注入薬を全停止</li>
+</ul></li>
+</ul></li>
+<li><strong>5 分以内に緊急胸骨再開放（§3）</strong>（Class I-C [2]）</li>
+</ol>
+<h3 id="26-再開胸が回避できる例外条件class-i-c-2">2.6 再開胸が回避できる例外条件（Class I-C [2]）</h3>
+<ul>
+<li>心マッサージ で arterial systolic ≥60 mmHg を維持できる</li>
+<li>明確な可逆原因が他にあり、それで戻る見込みがある</li>
+<li>術後10日以上経過</li>
+</ul>
+<p>これら以外は <strong>5分の壁を守って再開胸</strong>。</p>
+<hr />
+<h2 id="3-緊急胸骨再開放emergency-resternotomy">3. 緊急胸骨再開放（Emergency Resternotomy）</h2>
+<h3 id="31-適応--4つの絶対条件">3.1 適応 — 4つの絶対条件</h3>
+<p>下記いずれか → 即時再開胸（Class I [2]）:</p>
+<ol type="1">
+<li>心マッサージ下で systolic &lt;60 mmHg → タンポナーデ／hypovolemia が濃厚 [2]</li>
+<li>3回shock 不成功 VF/pVT [1][2]</li>
+<li>ペーシング/atropine無効の asystole/高度徐脈 [1][2]</li>
+<li>PEA が可逆原因対応に反応せず</li>
+</ol>
+<h3 id="32-5分ルールclass-i-c-2">3.2 5分ルール（Class I-C [2]）</h3>
+<blockquote>
+<p>「VF/VT 以外で、ペーシングおよび可逆原因対応に反応しない心停止においては、<strong>5分以内に胸骨再開放を施行する</strong>」 — STS 2017 [2]</p>
+</blockquote>
+<h3 id="33-必要物品--emergency-resternotomy-seticucvcu-常備">3.3 必要物品 — Emergency Resternotomy Set（ICU/CVCU 常備）</h3>
+<p>STS 2017 [2] が推奨する <strong>必須5点</strong>:</p>
+<ol type="1">
+<li>使い捨て scalpel（セット外に貼付）</li>
+<li>ワイヤーカッター</li>
+<li>重い針把持器（heavy needle holder）— ワイヤー抜去用</li>
+<li>単一piece 胸骨開創器（single-piece sternal retractor）</li>
+<li>吸引</li>
+</ol>
+<p>通常の sternotomy セットは別途用意（追加で持参）[1]。</p>
+<h3 id="34-手順看護師ガイド">3.4 手順（看護師ガイド）</h3>
+<ol type="1">
+<li><strong>滅菌ガウン・グローブ装着</strong>: 心停止コール時点で 2–3 名が closed-glove 法で装着。手洗いは不要 [1]</li>
+<li><strong>All-in-one ドレープ準備</strong></li>
+<li><strong>心マッサージ継続のまま</strong> ドレープを施行</li>
+<li><strong>医師が scalpel で胸骨切開創をなぞる</strong>（既存縫合を全て切断）</li>
+<li><strong>ワイヤー切断 → 抜去</strong>: 看護師がワイヤーカッターで切断、別の介助者が重い針把持器で抜去（2 人作業で大幅に時間短縮）[2]</li>
+<li><strong>吸引</strong> で血液・凝塊除去</li>
+<li><strong>胸骨開創器 挿入 → 胸骨開大</strong></li>
+<li><strong>心拍出評価</strong>: 回復していなければグラフト位置を確認後、<strong>内心臓マッサージ</strong> へ</li>
+</ol>
+<h3 id="35-内心臓マッサージ技法-2">3.5 内心臓マッサージ技法 [2]</h3>
+<ul>
+<li><strong>2-handed technique 推奨</strong>（経験浅い場合）：左手で心尖を覆い、右手を心室前面に置き、両手を100–120/min で圧迫</li>
+<li><strong>片手法のリスク</strong>：薄い右室や拡張した心室は破裂しうる [2]</li>
+<li><strong>僧帽弁置換・形成後</strong>：心尖を持ち上げないこと（後壁破裂リスク）[2]</li>
+<li>目標 systolic ≥ <strong>80 mmHg</strong>（外マッサージは60 mmHg だが内マッサージはより高い）[2]</li>
+</ul>
+<h3 id="36-抗菌薬追加投与class-iia-b-2">3.6 抗菌薬追加投与（Class IIa-B [2]）</h3>
+<p>緊急再開胸後、完全な無菌操作が困難な場合 → <strong>創部洗浄 + IV抗菌薬追加</strong>。</p>
+<hr />
+<h2 id="4-薬剤投与プロトコル--投与量希釈経路">4. 薬剤投与プロトコル — 投与量・希釈・経路</h2>
+<blockquote>
+<p>⚠️ <strong>すべての投与は中心静脈ラインを優先</strong> [1][2]。末梢ラインのみの場合は最も太く近位のラインを用い、十分な後押し（生理食塩水 20 mL のフラッシュ）を [3]。</p>
+</blockquote>
+<h3 id="41-アミオダロンamiodarone">4.1 アミオダロン（Amiodarone）</h3>
+<table>
+<thead>
+<tr>
+<th>局面</th>
+<th>量</th>
+<th>希釈</th>
+<th>速度・経路</th>
+<th>エビデンス</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VF / 無脈性VT 難治例</strong></td>
+<td><strong>300 mg 静脈内ボーラス</strong></td>
+<td>5%ブドウ糖 20 mL に溶解（生食は沈殿のため不可）</td>
+<td>中心静脈ラインから急速静注</td>
+<td>Class IIa-A [2]</td>
+</tr>
+<tr>
+<td>追加</td>
+<td><strong>150 mg</strong></td>
+<td>同上</td>
+<td>同上</td>
+<td>[1][2]</td>
+</tr>
+<tr>
+<td>持続点滴</td>
+<td><strong>900 mg / 24時間</strong></td>
+<td>5%ブドウ糖 500 mL</td>
+<td><strong>最初 6時間: 1 mg/min</strong>、続く 18時間: 0.5 mg/min</td>
+<td>[1][6]</td>
+</tr>
+<tr>
+<td>VF storm</td>
+<td><strong>5 mg/kg を 20 分かけて投与</strong></td>
+<td>5%ブドウ糖</td>
+<td>24時間内 2–3回反復可、600–1200 mg/24時間 × 8–10日</td>
+<td>Class I-B [5]</td>
+</tr>
+<tr>
+<td>術後新規心房細動</td>
+<td><strong>300 mg を 10–15 分かけて投与</strong>、続いて 1 mg/min × 6時間、0.5 mg/min × 18時間</td>
+<td>5%ブドウ糖</td>
+<td>末梢可だが中心静脈推奨</td>
+<td>[6]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>観察ポイント</strong>:</p>
+<ul>
+<li>投与中の徐脈・低血圧（投与速度は 50 mg/min を超えない [5]）</li>
+<li>投与経路: 中心静脈ライン経由 [1][2]</li>
+<li>QT延長モニタリング</li>
+<li>半減期 ~55日 [6] — 数日後の徐脈にも注意</li>
+</ul>
+<h3 id="42-アドレナリンepinephrine--心臓術後では特殊">4.2 アドレナリン（Epinephrine） — <strong>心臓術後では特殊</strong></h3>
+<table>
+<thead>
+<tr>
+<th>局面</th>
+<th>量</th>
+<th>希釈・経路</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>通常ACLS</strong> [3]</td>
+<td><strong>1 mg を 3–5 分毎に静脈内 / 骨髄内投与</strong></td>
+<td>1:10,000 (0.1 mg/mL) を 1–2秒で急速静注 + 生食 20 mL でフラッシュ</td>
+</tr>
+<tr>
+<td><strong>CVCU 心停止</strong> [1][2]</td>
+<td><strong>ルーチン投与禁止 (Class III-Harm)</strong></td>
+<td>上級医の指示下のみ</td>
+</tr>
+<tr>
+<td><strong>上級医指示時</strong> [1][2]</td>
+<td><strong>50–100–300 µg の少量ボーラス</strong></td>
+<td>中心静脈、緩徐に押す</td>
+</tr>
+<tr>
+<td>持続点滴（自己心拍再開後の低血圧）</td>
+<td>0.02–0.5 µg/kg/min</td>
+<td>1 mg を生理食塩水 100 mL に希釈 → 10 µg/mL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>理由 [1][2]</strong>: 自己心拍再開直後に過度の高血圧 → グラフト破綻、縫合線出血、再開胸の原因となる。心臓術後患者は通常のACLS患者より蘇生成功率が高いため、1 mg ボーラスは過剰刺激となる。</p>
+<h3 id="43-アトロピンatropine">4.3 アトロピン（Atropine）</h3>
+<table>
+<thead>
+<tr>
+<th>適応</th>
+<th>量・経路</th>
+<th>エビデンス</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CVCU の asystole / 高度徐脈</strong></td>
+<td><strong>STS 2017 では ルーチン非推奨 (Class III-no benefit)</strong> [2] — ペーシング優先</td>
+<td></td>
+</tr>
+<tr>
+<td>EACTS 2009 旧版（参考） [1]</td>
+<td>3 mg を中心静脈ラインから単回投与</td>
+<td></td>
+</tr>
+<tr>
+<td>通常の徐脈（有脈時） [3]</td>
+<td>1 mg を 3–5 分毎に静注、最大 3 mg</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="44-リドカインlidocaine">4.4 リドカイン（Lidocaine）</h3>
+<table>
+<thead>
+<tr>
+<th>局面</th>
+<th>量</th>
+<th>速度</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VF / 無脈性VT（アミオダロン代替）</strong> [1][2]</td>
+<td>1 mg/kg を静脈内ボーラス</td>
+<td>急速静注</td>
+<td>[1][2]</td>
+</tr>
+<tr>
+<td>続次量 [3]</td>
+<td>0.5–0.75 mg/kg</td>
+<td>急速静注</td>
+<td>合計最大 3 mg/kg</td>
+</tr>
+<tr>
+<td>VF storm [5]</td>
+<td>50–200 mg ボーラス、続いて 2–4 mg/min</td>
+<td>中心静脈</td>
+<td>肝血流低下時は減量</td>
+</tr>
+</tbody>
+</table>
+<h3 id="45-硫酸マグネシウムmagnesium-sulfate">4.5 硫酸マグネシウム（Magnesium Sulfate）</h3>
+<table>
+<thead>
+<tr>
+<th>適応</th>
+<th>量</th>
+<th>希釈</th>
+<th>速度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TdP（多形性心室頻拍）</strong> [3][5]</td>
+<td><strong>1–2 g 静脈内ボーラス</strong></td>
+<td>5%ブドウ糖 または 生理食塩水 10 mL</td>
+<td>1–2 分かけて急速静注</td>
+</tr>
+<tr>
+<td>VF storm 持続時 [5]</td>
+<td>初回 400 mg、続く 24時間 600 mg</td>
+<td>5%ブドウ糖</td>
+<td>持続点滴</td>
+</tr>
+</tbody>
+</table>
+<p>K補正と併用（K ≥4.5 mmol/L 目標）[5]。</p>
+<h3 id="46-β遮断薬vf-storm術後新規心房細動のレート調整用">4.6 β遮断薬（VF storm・術後新規心房細動のレート調整用）</h3>
+<table>
+<thead>
+<tr>
+<th>薬剤</th>
+<th>初期投与（ローディング）</th>
+<th>持続点滴</th>
+<th>希釈</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>エスモロール</strong> [5]</td>
+<td><strong>100 µg/kg を 1 分かけて投与</strong></td>
+<td><strong>10–40 µg/kg/min</strong>（最大 80 µg/kg/min）</td>
+<td>10 mg/mL 製剤を生食でさらに希釈可</td>
+<td>24時間超の使用経験少</td>
+</tr>
+<tr>
+<td><strong>ランジオロール</strong> [5]</td>
+<td><strong>100 µg/kg を 1 分かけて投与</strong></td>
+<td><strong>10–40 µg/kg/min</strong></td>
+<td>同上</td>
+<td>β1選択性が高い</td>
+</tr>
+<tr>
+<td>メトプロロール（経口） [6]</td>
+<td>12.5–25 mg を手術朝に経口投与</td>
+<td>12.5–25 mg を 1日2回、術後1日目から経口</td>
+<td>—</td>
+<td>心拍数 &lt;60 または 収縮期血圧 &lt;100 → 中止 [6]</td>
+</tr>
+<tr>
+<td><strong>メトプロロール（静注）術後AF用</strong> [6]</td>
+<td>2.5–5 mg を緩徐静注、必要時反復</td>
+<td>—</td>
+<td>—</td>
+<td>心拍数・血圧を観察</td>
+</tr>
+</tbody>
+</table>
+<h3 id="47-補助薬">4.7 補助薬</h3>
+<table>
+<thead>
+<tr>
+<th>薬剤</th>
+<th>適応</th>
+<th>量・投与法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>アデノシン（規則性 上室頻拍）[3]</td>
+<td>6 mg 急速静注 + 生食フラッシュ、効果なければ 12 mg</td>
+<td>中心静脈推奨、末梢なら最も近位のライン</td>
+</tr>
+<tr>
+<td>プロカインアミド（持続性単形性心室頻拍）[5]</td>
+<td>最大 500–750 mg（投与速度 50 mg/min 上限）→ 2–6 mg/min 持続</td>
+<td>Class IIa-B（構造的心疾患合併時）[5]</td>
+</tr>
+<tr>
+<td><strong>重炭酸ナトリウム</strong></td>
+<td>通常の心肺蘇生では非推奨（Class 3-No Benefit [3]）</td>
+<td>高K血症由来の心停止など限定使用</td>
+</tr>
+<tr>
+<td><strong>カルシウム</strong></td>
+<td>高K血症由来の無脈性電気活動 / asystole に考慮（Class 2b [3]）</td>
+<td>塩化カルシウム 1 g（10%製剤 10 mL）を緩徐静注</td>
+</tr>
+<tr>
+<td><strong>イソプロテレノール</strong></td>
+<td>後天性QT延長 + TdP 反復に Class I-C [5]</td>
+<td>持続点滴で心拍数を上昇させる</td>
+</tr>
+</tbody>
+</table>
+<h3 id="48-致死性電解質補正高k血症由来心停止-投与順序-3">4.8 致死性電解質補正（高K血症由来心停止）— 投与順序 [3]</h3>
+<ol type="1">
+<li><strong>カルシウム</strong>（細胞膜安定化）: 塩化カルシウム 1 g 緩徐静注</li>
+<li><strong>インスリン + ブドウ糖</strong>: レギュラーインスリン 10 単位を静注 + 50%ブドウ糖 50 mL（25 g）</li>
+<li><strong>重炭酸ナトリウム</strong>（アシドーシス合併時）</li>
+<li><strong>β2刺激薬</strong>: サルブタモール ネブライザー吸入</li>
+<li><strong>透析</strong>（難治例）</li>
+</ol>
+<hr />
+<h2 id="5-vf-storm--electrical-storm">5. VF storm / Electrical storm</h2>
+<p><figure class="flowchart">
+<svg class="flowchart" role="img" aria-label="VF storm / Electrical storm エスカレーション" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1300" font-family="system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B71C1C"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="1300" fill="#FAFAFA"/>
+
+  <!-- HEADER -->
+  <rect x="0" y="0" width="1400" height="100" fill="#B71C1C"/>
+  <text x="700" y="50" font-size="32" font-weight="700" fill="#FFFFFF" text-anchor="middle">VF storm / Electrical storm エスカレーション</text>
+  <text x="700" y="80" font-size="16" fill="#FFCDD2" text-anchor="middle">定義: 24 時間以内に 3 回以上の sustained VA（VT/VF） [5]</text>
+
+  <!-- LEFT LANE: Reversible causes (always parallel) -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="140" width="320" height="1010" rx="10" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+    <rect x="50" y="140" width="320" height="44" rx="10" fill="#1565C0"/>
+    <text x="210" y="170" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">🔍 並行: 可逆原因 評価</text>
+
+    <text x="70" y="215" font-size="14" font-weight="700" fill="#0D47A1">電解質</text>
+    <text x="80" y="237" font-size="13" fill="#424242">✓ K ≥ 4.5 mmol/L</text>
+    <text x="80" y="257" font-size="13" fill="#424242">✓ Mg ≥ 2.0 mmol/L</text>
+    <text x="80" y="277" font-size="13" fill="#424242">✓ Ca 正常範囲</text>
+
+    <text x="70" y="312" font-size="14" font-weight="700" fill="#0D47A1">急性虚血</text>
+    <text x="80" y="334" font-size="13" fill="#424242">✓ 12 誘導 ECG（ST変化）</text>
+    <text x="80" y="354" font-size="13" fill="#424242">✓ 心エコー（壁運動）</text>
+    <text x="80" y="374" font-size="13" fill="#424242">✓ トロポニン 動向</text>
+
+    <text x="70" y="409" font-size="14" font-weight="700" fill="#0D47A1">炎症・感染</text>
+    <text x="80" y="431" font-size="13" fill="#424242">✓ 発熱・敗血症</text>
+    <text x="80" y="451" font-size="13" fill="#424242">✓ 低酸素</text>
+
+    <text x="70" y="486" font-size="14" font-weight="700" fill="#0D47A1">薬剤</text>
+    <text x="80" y="508" font-size="13" fill="#424242">✓ QT延長薬 中止</text>
+    <text x="80" y="528" font-size="13" fill="#424242">  (キノロン, マクロライド,</text>
+    <text x="80" y="544" font-size="13" fill="#424242">   抗精神病薬 等)</text>
+    <text x="80" y="564" font-size="13" fill="#424242">✓ ソタロール・ドフェチリド 中止</text>
+
+    <text x="70" y="599" font-size="14" font-weight="700" fill="#0D47A1">デバイス</text>
+    <text x="80" y="621" font-size="13" fill="#424242">✓ 植込み型除細動器 (ICD)</text>
+    <text x="80" y="641" font-size="13" fill="#424242">  繰返し作動 → magnet で停止</text>
+    <text x="80" y="661" font-size="13" fill="#424242">✓ 不適切作動の鑑別</text>
+    <text x="80" y="681" font-size="13" fill="#424242">  (AF/SVT misinterpret)</text>
+
+    <text x="70" y="716" font-size="14" font-weight="700" fill="#0D47A1">機械的・血行動態</text>
+    <text x="80" y="738" font-size="13" fill="#424242">✓ 心タンポナーデ</text>
+    <text x="80" y="758" font-size="13" fill="#424242">✓ 大動脈バルーン誤作動</text>
+    <text x="80" y="778" font-size="13" fill="#424242">✓ ECMO 異常（既装着時）</text>
+  </g>
+
+  <!-- RIGHT: 8-Step Escalation Staircase -->
+
+  <!-- Step 1 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="140" width="920" height="80" rx="8" fill="#E1F5FE" stroke="#0288D1" stroke-width="2"/>
+    <rect x="430" y="140" width="80" height="80" rx="8" fill="#0288D1"/>
+    <text x="470" y="190" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+    <text x="530" y="170" font-size="16" font-weight="700" fill="#01579B">軽度〜中等度 鎮静</text>
+    <text x="530" y="192" font-size="13" fill="#424242">デクスメデトミジン or ミダゾラム — 交感神経 tone を低下させる</text>
+    <text x="530" y="210" font-size="11" font-style="italic" fill="#757575">Class I-C [5]</text>
+  </g>
+
+  <!-- Step 2 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="240" width="920" height="120" rx="8" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="2"/>
+    <rect x="430" y="240" width="80" height="120" rx="8" fill="#6A1B9A"/>
+    <text x="470" y="310" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+    <text x="530" y="270" font-size="16" font-weight="700" fill="#4A148C">💊 β遮断薬 + アミオダロン 静注</text>
+    <text x="530" y="292" font-size="13" fill="#424242">非選択性β遮断薬 優先（プロプラノロール）</text>
+    <text x="530" y="310" font-size="13" fill="#424242">院内: エスモロール 100 µg/kg → 10–40 µg/kg/min</text>
+    <text x="530" y="328" font-size="13" fill="#424242">   or ランジオロール 100 µg/kg → 10–40 µg/kg/min</text>
+    <text x="530" y="346" font-size="13" fill="#424242">アミオダロン 5 mg/kg を 20 分で → 反復可（600–1200 mg/24h × 8–10 日）</text>
+  </g>
+  <text x="845" y="356" font-size="11" font-style="italic" fill="#757575">Class I-B [5]</text>
+
+  <!-- Step 3 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="380" width="920" height="80" rx="8" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+    <rect x="430" y="380" width="80" height="80" rx="8" fill="#E53935"/>
+    <text x="470" y="430" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+    <text x="530" y="410" font-size="16" font-weight="700" fill="#B71C1C">⚡ 同期カルジオバージョン（不安定時）</text>
+    <text x="530" y="432" font-size="13" fill="#424242">二相性 150–200 J（必要なら 360 J） — 不安定 SMVT に第一選択</text>
+    <text x="530" y="450" font-size="11" font-style="italic" fill="#757575">Class I-B [5]</text>
+  </g>
+
+  <!-- Step 4 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="480" width="920" height="100" rx="8" fill="#FFF3E0" stroke="#FF6F00" stroke-width="2"/>
+    <rect x="430" y="480" width="80" height="100" rx="8" fill="#FF6F00"/>
+    <text x="470" y="540" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">4</text>
+    <text x="530" y="510" font-size="16" font-weight="700" fill="#E65100">TdP / 多形性 VT を疑う?</text>
+    <text x="530" y="532" font-size="13" fill="#424242">→ 硫酸マグネシウム 1–2 g 静注（5% ブドウ糖 10 mL で希釈）</text>
+    <text x="530" y="550" font-size="13" fill="#424242">→ K, Ca 補正 / イソプロテレノール or ペーシングで HR↑ / FC8 参照</text>
+    <text x="530" y="571" font-size="11" font-style="italic" fill="#B71C1C">⛔ TdP にアミオダロン・ソタロール 禁忌（QT さらに延長）</text>
+  </g>
+
+  <!-- Step 5 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="600" width="920" height="80" rx="8" fill="#FFE0B2" stroke="#FF6F00" stroke-width="2"/>
+    <rect x="430" y="600" width="80" height="80" rx="8" fill="#FF6F00"/>
+    <text x="470" y="650" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">5</text>
+    <text x="530" y="630" font-size="16" font-weight="700" fill="#E65100">深鎮静・全身麻酔 + 挿管</text>
+    <text x="530" y="652" font-size="13" fill="#424242">難治性 storm（薬物治療反応せず）— 交感神経完全遮断</text>
+    <text x="530" y="670" font-size="11" font-style="italic" fill="#757575">Class IIa-C [5]</text>
+  </g>
+
+  <!-- Step 6 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="700" width="920" height="80" rx="8" fill="#FFCDD2" stroke="#B71C1C" stroke-width="2"/>
+    <rect x="430" y="700" width="80" height="80" rx="8" fill="#B71C1C"/>
+    <text x="470" y="750" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">6</text>
+    <text x="530" y="730" font-size="16" font-weight="700" fill="#B71C1C">早期カテーテルアブレーション</text>
+    <text x="530" y="752" font-size="13" fill="#424242">専門施設へ転送検討 — Trigger PVC mapping + ablation</text>
+    <text x="530" y="770" font-size="11" font-style="italic" fill="#757575">Class I-B [5]</text>
+  </g>
+
+  <!-- Step 7 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="800" width="920" height="80" rx="8" fill="#FFCDD2" stroke="#B71C1C" stroke-width="2"/>
+    <rect x="430" y="800" width="80" height="80" rx="8" fill="#B71C1C"/>
+    <text x="470" y="850" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">7</text>
+    <text x="530" y="830" font-size="16" font-weight="700" fill="#B71C1C">機械的循環補助</text>
+    <text x="530" y="852" font-size="13" fill="#424242">VA-ECMO / IMPELLA 導入 → FC10 へ</text>
+    <text x="530" y="870" font-size="11" font-style="italic" fill="#757575">Class IIb [5]</text>
+  </g>
+
+  <!-- Step 8 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="900" width="920" height="80" rx="8" fill="#F5F5F5" stroke="#9E9E9E" stroke-width="2" stroke-dasharray="4 2"/>
+    <rect x="430" y="900" width="80" height="80" rx="8" fill="#9E9E9E"/>
+    <text x="470" y="950" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">8</text>
+    <text x="530" y="930" font-size="16" font-weight="700" fill="#424242">自律神経 modulation（高度専門）</text>
+    <text x="530" y="952" font-size="13" fill="#424242">星状神経節ブロック / 左心交感神経除神経（LCSD）</text>
+    <text x="530" y="970" font-size="11" font-style="italic" fill="#757575">Class IIb [5]</text>
+  </g>
+
+  <!-- Bottom warning box -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="1010" width="920" height="100" rx="12" fill="#B71C1C"/>
+    <text x="890" y="1042" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">⚠ 重要 — アミオダロン投与速度</text>
+    <text x="890" y="1066" font-size="13" fill="#FFCDD2" text-anchor="middle">投与速度 ≤ 50 mg/min を超えない（徐脈・低血圧 risk）</text>
+    <text x="890" y="1088" font-size="13" fill="#FFCDD2" text-anchor="middle">QT 延長モニタ / 半減期 ~55 日のため数日後の徐脈に注意</text>
+  </g>
+
+  <!-- Citation -->
+  <text x="700" y="1155" font-size="12" fill="#9E9E9E" text-anchor="middle">References: [3] AHA 2025 Part 9 — [5] ESC 2022 Ventricular Arrhythmias</text>
+</svg>
+
+</figure></p>
+<h3 id="51-定義-5">5.1 定義 [5]</h3>
+<blockquote>
+<p>24時間以内に <strong>3回以上の sustained VA</strong>（VT/VF）エピソード — ESC 2022 [5]</p>
+</blockquote>
+<h3 id="52-段階的アプローチclass-i-推奨多数-5">5.2 段階的アプローチ（Class I 推奨多数 [5]）</h3>
+<p>上図（SVG）参照。各ステップの詳細:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>内容</th>
+<th>エビデンス</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>可逆原因スクリーニング</strong>（同時並行）<br>・K ≥ 4.5 / Mg ≥ 2.0 mmol/L 補正<br>・急性虚血評価 → 12 誘導 ECG、STEMI なら §9 へ<br>・発熱・敗血症・低酸素・QT 延長薬<br>・植込み型除細動器 不適切作動 → magnet で disable</td>
+<td>[5]</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>軽度〜中等度 鎮静</strong>（デクスメデトミジン or ミダゾラム）— 交感神経 tone を低下</td>
+<td>Class I-C [5]</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>β遮断薬 + アミオダロン 静注</strong><br>・非選択性 β 遮断薬 優先（プロプラノロール、ナドロール）— 院内ではエスモロール / ランジオロール<br>・アミオダロン 5 mg/kg を 20 分で投与、反復可、600–1200 mg/24時間 × 8–10 日</td>
+<td>Class I-B [5]</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>不安定 → 同期カルジオバージョン</strong>（二相性 150–200 J、必要なら 360 J）</td>
+<td>Class I-B [5]</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>TdP / 多形性 VT なら → §6 へ</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>難治性 → <strong>深鎮静・全身麻酔 + 挿管</strong></td>
+<td>Class IIa-C [5]</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>アブレーション可能施設なら <strong>早期カテーテルアブレーション</strong></td>
+<td>Class I-B [5]</td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td><strong>機械的循環補助</strong>（V-A ECMO / IMPELLA）→ §10 へ</td>
+<td>Class IIb [5]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-iv-β-blocker-薬剤の選択">5.3 IV β-blocker 薬剤の選択</h3>
+<table>
+<thead>
+<tr>
+<th>状況</th>
+<th>第一選択</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>心機能保たれ</td>
+<td>エスモロール or ランジオロール</td>
+<td>超短時間作用、調整容易</td>
+</tr>
+<tr>
+<td>心機能低下</td>
+<td>ランジオロール</td>
+<td>β1選択性、negative inotrope 影響少</td>
+</tr>
+<tr>
+<td>経口移行可</td>
+<td>プロプラノロール or ナドロール</td>
+<td>非選択性で sympatholysis 強力 [5]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="54-icd-関連の特殊状況-5">5.4 ICD 関連の特殊状況 [5]</h3>
+<ul>
+<li>ICDが繰り返しshock → magnet で disable してから治療開始（不適切作動の鑑別）</li>
+<li>AF/SVT による不適切作動を除外</li>
+<li>ICD programming 最適化が並行で必要</li>
+</ul>
+<hr />
+<h2 id="6-torsades-de-pointes多形性vt--qt延長">6. Torsades de Pointes（多形性VT / QT延長）</h2>
+<h3 id="61-即時鑑別-5">6.1 即時鑑別 [5]</h3>
+<table>
+<thead>
+<tr>
+<th>病型</th>
+<th>特徴</th>
+<th>治療の方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>後天性 LQT-TdP</strong></td>
+<td>QT延長 + 誘因薬剤 / 電解質異常 / 徐脈</td>
+<td>誘因除去 + Mg + 心拍数↑</td>
+</tr>
+<tr>
+<td><strong>先天性 LQT-TdP</strong></td>
+<td>既往あり、若年、家族歴</td>
+<td>β-blocker、ICD</td>
+</tr>
+<tr>
+<td><strong>多形性VT (正常QT)</strong></td>
+<td>急性虚血、心臓術後など</td>
+<td>虚血治療、β-blocker、アミオダロン</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-急性期対応--後天性-lqt-tdp-5">6.2 急性期対応 — 後天性 LQT-TdP [5]</h3>
+<ol type="1">
+<li><strong>誘因薬剤を中止</strong>
+<ul>
+<li>抗不整脈薬（ソタロール、ドフェチリド）</li>
+<li>抗精神病薬（ハロペリドール 等）</li>
+<li>抗菌薬（キノロン系、マクロライド系）</li>
+</ul></li>
+<li><strong>電解質補正</strong>
+<ul>
+<li>K ≥ 4.5 mmol/L（KCl）</li>
+<li>Mg ≥ 2.0 mmol/L</li>
+<li>Ca 正常範囲</li>
+</ul></li>
+<li><strong>硫酸マグネシウム 静注</strong>（Class I-C [5]）
+<ul>
+<li>1–2 g を 1–2 分で急速静注</li>
+<li>初回 400 mg、続く 24 時間 600 mg</li>
+<li>5% ブドウ糖 / 生理食塩水 10 mL で希釈</li>
+</ul></li>
+<li><strong>心拍数を上げる</strong>（Class I-C [5]）
+<ul>
+<li>イソプロテレノール 持続点滴で心拍数 80–100</li>
+<li>経皮 / 経静脈ペーシング 80–100 /min（overdrive）</li>
+</ul></li>
+<li><strong>不安定 → 非同期 high-energy shock</strong>（除細動量）[5]</li>
+</ol>
+<p>🚨 TdP に <strong>アミオダロン・ソタロール は禁忌</strong>（QT さらに延長）[5]</p>
+<hr />
+<h2 id="7-術後新規心房細動poaf">7. 術後新規心房細動（POAF）</h2>
+<p><figure class="flowchart">
+<svg class="flowchart" role="img" aria-label="術後新規心房細動 急性期対応" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1300" font-family="system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1565C0"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E7D32"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B71C1C"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="1300" fill="#FAFAFA"/>
+
+  <!-- HEADER -->
+  <rect x="0" y="0" width="1400" height="100" fill="#1565C0"/>
+  <text x="700" y="50" font-size="32" font-weight="700" fill="#FFFFFF" text-anchor="middle">術後新規心房細動（POAF）急性期対応</text>
+  <text x="700" y="80" font-size="16" fill="#BBDEFB" text-anchor="middle">Post-Operative Atrial Fibrillation Management</text>
+
+  <!-- Epidemiology Banner -->
+  <rect x="50" y="120" width="1300" height="60" rx="8" fill="#E1F5FE" stroke="#0288D1" stroke-width="1.5"/>
+  <text x="70" y="150" font-size="14" font-weight="700" fill="#01579B">📊 疫学:</text>
+  <text x="170" y="150" font-size="14" fill="#424242">CABG 20–30% / 弁手術 30–40% / 複合 40–50% に発症</text>
+  <text x="70" y="170" font-size="14" font-weight="700" fill="#01579B">⏱ 発症時期:</text>
+  <text x="170" y="170" font-size="14" fill="#424242">術後 4 日以内に 70%、7 日以内に 90% が発症 — エピソード中央値 約 4 分（多くは paroxysmal）[6]</text>
+
+  <!-- START -->
+  <g filter="url(#shadow)">
+    <rect x="540" y="210" width="320" height="60" rx="30" fill="#E3F2FD" stroke="#1565C0" stroke-width="2.5"/>
+    <text x="700" y="248" font-size="20" font-weight="700" fill="#0D47A1" text-anchor="middle">新規 POAF を確認</text>
+  </g>
+  <line x1="700" y1="270" x2="700" y2="300" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 1: ECG + Vital -->
+  <g filter="url(#shadow)">
+    <rect x="300" y="305" width="800" height="80" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+    <text x="700" y="334" font-size="17" font-weight="700" fill="#0D47A1" text-anchor="middle">① 12 誘導 ECG で診断確定</text>
+    <text x="700" y="358" font-size="14" fill="#424242" text-anchor="middle">心拍数 / 血圧 / SpO₂ / 意識レベル を 5 分以内に評価</text>
+    <text x="700" y="378" font-size="13" fill="#424242" text-anchor="middle">電解質採血（K, Mg）、トロポニン（虚血鑑別）、血液ガス</text>
+  </g>
+  <line x1="700" y1="385" x2="700" y2="415" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Decision: hemodynamic? -->
+  <g filter="url(#shadow)">
+    <polygon points="700,420 920,510 700,600 480,510" fill="#FFF8E1" stroke="#F57F17" stroke-width="2.5"/>
+    <text x="700" y="495" font-size="20" font-weight="700" fill="#E65100" text-anchor="middle">② 血行動態は?</text>
+    <text x="700" y="520" font-size="13" fill="#424242" text-anchor="middle">SBP / 意識 / 虚血所見 /</text>
+    <text x="700" y="538" font-size="13" fill="#424242" text-anchor="middle">心不全 sign</text>
+  </g>
+
+  <!-- Branches -->
+  <text x="380" y="555" font-size="16" font-weight="700" fill="#B71C1C">不安定 →</text>
+  <text x="935" y="555" font-size="16" font-weight="700" fill="#2E7D32">← 安定</text>
+
+  <!-- UNSTABLE branch (LEFT) -->
+  <path d="M 480 510 Q 350 580 250 660" stroke="#B71C1C" stroke-width="2" fill="none" marker-end="url(#arrowRed)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="665" width="400" height="180" rx="8" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2.5"/>
+    <rect x="50" y="665" width="400" height="36" rx="8" fill="#B71C1C"/>
+    <text x="250" y="691" font-size="17" font-weight="700" fill="#FFFFFF" text-anchor="middle">⚡ 同期カルジオバージョン</text>
+
+    <text x="70" y="725" font-size="15" font-weight="700" fill="#B71C1C">エネルギー</text>
+    <text x="70" y="747" font-size="14" fill="#424242">  二相性 100–200 J（必要なら段階増）</text>
+
+    <text x="70" y="775" font-size="15" font-weight="700" fill="#B71C1C">前処置</text>
+    <text x="70" y="797" font-size="14" fill="#424242">  ミダゾラム + フェンタニル</text>
+    <text x="70" y="815" font-size="14" fill="#424242">  または プロポフォール 鎮静</text>
+
+    <text x="250" y="838" font-size="12" font-style="italic" fill="#757575" text-anchor="middle">Class I-C-EO [6]</text>
+  </g>
+
+  <!-- STABLE branch (RIGHT) -->
+  <path d="M 920 510 Q 1050 580 1150 660" stroke="#2E7D32" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="500" y="665" width="850" height="60" rx="8" fill="#E8F5E9" stroke="#43A047" stroke-width="2"/>
+    <text x="925" y="692" font-size="16" font-weight="700" fill="#1B5E20" text-anchor="middle">レート調整 vs リズム調整 — どちらも妥当</text>
+    <text x="925" y="713" font-size="13" font-style="italic" fill="#757575" text-anchor="middle">Class IIb-B-NR [6] — 個別判断</text>
+  </g>
+
+  <!-- Stable - sub branches -->
+  <line x1="700" y1="725" x2="700" y2="755" stroke="#2E7D32" stroke-width="2"/>
+  <line x1="700" y1="755" x2="500" y2="755" stroke="#2E7D32" stroke-width="2"/>
+  <line x1="700" y1="755" x2="1150" y2="755" stroke="#2E7D32" stroke-width="2"/>
+  <line x1="500" y1="755" x2="500" y2="775" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="1150" y1="755" x2="1150" y2="775" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- Rate control box -->
+  <g filter="url(#shadow)">
+    <rect x="500" y="780" width="370" height="280" rx="8" fill="#FFFFFF" stroke="#43A047" stroke-width="2"/>
+    <rect x="500" y="780" width="370" height="36" rx="8" fill="#43A047"/>
+    <text x="685" y="806" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">📉 レート調整</text>
+
+    <text x="520" y="838" font-size="14" font-weight="700" fill="#1B5E20">メトプロロール（静注）</text>
+    <text x="520" y="858" font-size="13" fill="#424242">  2.5–5 mg を緩徐静注 / 必要時反復</text>
+
+    <text x="520" y="884" font-size="14" font-weight="700" fill="#1B5E20">エスモロール</text>
+    <text x="520" y="904" font-size="13" fill="#424242">  100 µg/kg を 1 分 → 10–40 µg/kg/min</text>
+
+    <text x="520" y="930" font-size="14" font-weight="700" fill="#1B5E20">ランジオロール（心機能低下例）</text>
+    <text x="520" y="950" font-size="13" fill="#424242">  100 µg/kg を 1 分 → 10–40 µg/kg/min</text>
+
+    <text x="520" y="976" font-size="14" font-weight="700" fill="#1B5E20">ジルチアゼム（β遮断薬不可時）</text>
+    <text x="520" y="996" font-size="13" fill="#424242">  0.25 mg/kg → 5–15 mg/h（LV不全注意）</text>
+
+    <rect x="520" y="1015" width="330" height="36" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+    <text x="685" y="1038" font-size="13" font-weight="700" fill="#B71C1C" text-anchor="middle">⚠ 心拍数 &lt;60 or 収縮期 &lt;100 → 中止</text>
+  </g>
+
+  <!-- Rhythm control box -->
+  <g filter="url(#shadow)">
+    <rect x="900" y="780" width="450" height="280" rx="8" fill="#FFFFFF" stroke="#6A1B9A" stroke-width="2"/>
+    <rect x="900" y="780" width="450" height="36" rx="8" fill="#6A1B9A"/>
+    <text x="1125" y="806" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">💊 リズム調整 — アミオダロン プロトコル</text>
+
+    <!-- Phase boxes -->
+    <rect x="920" y="828" width="410" height="60" rx="4" fill="#F3E5F5"/>
+    <text x="930" y="850" font-size="13" font-weight="700" fill="#4A148C">Phase 1（0–15 分）</text>
+    <text x="930" y="869" font-size="13" fill="#424242">  300 mg を 10–15 分かけて投与</text>
+    <text x="930" y="884" font-size="12" fill="#757575">  5% ブドウ糖 100 mL に溶解 / 中心静脈推奨</text>
+
+    <rect x="920" y="895" width="410" height="48" rx="4" fill="#F3E5F5"/>
+    <text x="930" y="915" font-size="13" font-weight="700" fill="#4A148C">Phase 2（15 分 – 6 時間）</text>
+    <text x="930" y="934" font-size="13" fill="#424242">  1 mg/min × 6 時間（合計 360 mg）</text>
+
+    <rect x="920" y="950" width="410" height="48" rx="4" fill="#F3E5F5"/>
+    <text x="930" y="970" font-size="13" font-weight="700" fill="#4A148C">Phase 3（6 時間 – 24 時間）</text>
+    <text x="930" y="989" font-size="13" fill="#424242">  0.5 mg/min × 18 時間（合計 540 mg）</text>
+
+    <text x="1125" y="1020" font-size="13" font-weight="700" fill="#4A148C" text-anchor="middle">24 時間合計: ~ 1200 mg</text>
+    <text x="1125" y="1042" font-size="11" font-style="italic" fill="#757575" text-anchor="middle">投与速度 ≤ 50 mg/min を超えない / 徐脈・低血圧 注意</text>
+  </g>
+
+  <!-- Anticoagulation box -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="1090" width="1200" height="120" rx="8" fill="#FFF8E1" stroke="#F9A825" stroke-width="2"/>
+    <rect x="100" y="1090" width="1200" height="32" rx="8" fill="#F9A825"/>
+    <text x="700" y="1112" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">🩸 抗凝固療法の判断（Class IIb-B-NR [6]）</text>
+
+    <text x="120" y="1145" font-size="13" font-weight="700" fill="#2E7D32">✅ 考慮:</text>
+    <text x="200" y="1145" font-size="13" fill="#424242">左側弁手術 / CHA₂DS₂-VASc ≥4 / 既往の塞栓イベント</text>
+
+    <text x="120" y="1166" font-size="13" font-weight="700" fill="#B71C1C">❌ 保留:</text>
+    <text x="200" y="1166" font-size="13" fill="#424242">単独CABG + CHA₂DS₂-VASc &lt;4 / 活動性出血 / ドレーン排液継続</text>
+
+    <text x="120" y="1187" font-size="13" font-weight="700" fill="#0D47A1">💊 薬剤選択:</text>
+    <text x="220" y="1187" font-size="13" fill="#424242">直接経口抗凝固薬 &gt; ワーファリン（出血少）／機械弁置換後はワーファリン必須</text>
+  </g>
+
+  <!-- Citation -->
+  <text x="700" y="1255" font-size="12" fill="#9E9E9E" text-anchor="middle">References: [5] ESC 2022 VA — [6] STS 2026 Post-op AF</text>
+
+  <!-- Prevention sidebar - removed for space - kept simple -->
+</svg>
+
+</figure></p>
+<h3 id="71-疫学-6">7.1 疫学 [6]</h3>
+<ul>
+<li>発症率: 単独CABG 20–30% / 単独弁手術 30–40% / 複合手術 40–50%</li>
+<li><strong>70%は術後 4 日以内、90%は7日以内</strong>に発症 [6]</li>
+<li>多くは paroxysmal、median 4分のエピソード [6]</li>
+</ul>
+<h3 id="72-急性期対応フロー-6">7.2 急性期対応フロー [6]</h3>
+<p>上図（SVG）参照。要点:</p>
+<ol type="1">
+<li><strong>新規 POAF を確認</strong>: 12 誘導 ECG で診断確定 + 心拍数 / 血圧 / SpO₂ 評価</li>
+<li><strong>血行動態評価</strong>
+<ul>
+<li><strong>不安定（収縮期 &lt; 90 mmHg, 虚血兆候, 意識低下）</strong> → <strong>同期カルジオバージョン 100–200 J 二相性</strong>（Class I-C-EO [6]）。鎮静必須</li>
+<li><strong>安定</strong> → レート調整 or リズム調整（どちらも妥当, Class IIb-B-NR [6]）→ §7.3 / §7.4</li>
+</ul></li>
+</ol>
+<h3 id="73-rate-control-薬剤プロトコル-6">7.3 Rate control 薬剤プロトコル [6]</h3>
+<blockquote>
+<p>⚠️ <strong>必ずHR・SBPチェック</strong>: HR &lt;60 または SBP &lt;100 → 投与中止 [6]</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>薬剤</th>
+<th>Loading</th>
+<th>持続</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>メトプロロール IV</strong></td>
+<td>2.5–5 mg over 2 min, 必要なら反復</td>
+<td>経口 12.5–25 mg BID から開始 [6]</td>
+<td>β-blocker、徐脈・低血圧</td>
+</tr>
+<tr>
+<td><strong>エスモロール</strong></td>
+<td>100 µg/kg over 1 min</td>
+<td>10–40 µg/kg/min [5]</td>
+<td>超短時間作用、調整容易</td>
+</tr>
+<tr>
+<td><strong>ランジオロール</strong></td>
+<td>100 µg/kg over 1 min</td>
+<td>10–40 µg/kg/min [5]</td>
+<td>β1選択性、心機能低下例適</td>
+</tr>
+<tr>
+<td>ジルチアゼム IV</td>
+<td>0.25 mg/kg IV (max 20 mg) over 2 min</td>
+<td>5–15 mg/h</td>
+<td>LV機能低下では避ける [6]</td>
+</tr>
+<tr>
+<td>ジゴキシン</td>
+<td>0.25 mg IV q6h × 4 (total 1 mg)</td>
+<td>0.125–0.25 mg/日</td>
+<td>効果遅い、限定的役割 [6]</td>
+</tr>
+<tr>
+<td><strong>アミオダロン</strong></td>
+<td>300 mg over 10–15 min</td>
+<td>1 mg/min × 6h, 0.5 mg/min × 18h [6]</td>
+<td>rate + rhythm 両用</td>
+</tr>
+</tbody>
+</table>
+<h3 id="74-rhythm-controlアミオダロン-静注プロトコル6">7.4 Rhythm control（アミオダロン 静注プロトコル）[6]</h3>
+<table>
+<thead>
+<tr>
+<th>時間軸</th>
+<th>投与量</th>
+<th>濃度・希釈・速度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0–15 分</strong></td>
+<td>300 mg を緩徐静注</td>
+<td>5% ブドウ糖 100 mL に溶解、中心静脈推奨</td>
+</tr>
+<tr>
+<td><strong>15 分 – 6 時間</strong></td>
+<td>1 mg/min（合計 360 mg）</td>
+<td>5% ブドウ糖 500 mL に 900 mg を溶解 → 1.8 mg/mL × 33.3 mL/h</td>
+</tr>
+<tr>
+<td><strong>6 時間 – 24 時間</strong></td>
+<td>0.5 mg/min（合計 540 mg）</td>
+<td>同上濃度で 16.7 mL/h</td>
+</tr>
+<tr>
+<td><strong>24 時間合計</strong></td>
+<td>約 1200 mg</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>観察</strong>:</p>
+<ul>
+<li>投与速度を超えない（≤50 mg/min [5]）</li>
+<li>徐脈・低血圧</li>
+<li>QT 延長</li>
+<li>静脈炎（末梢ライン使用時）</li>
+</ul>
+<h3 id="75-抗凝固療法-6">7.5 抗凝固療法 [6]</h3>
+<blockquote>
+<p>POAF は非外科 AF より塞栓症リスクが低い [6]。ルーチン抗凝固は <strong>Class IIb (B-NR)</strong> で慎重判断。</p>
+</blockquote>
+<p>判断基準（個別化）:</p>
+<ul>
+<li>左側弁手術 + CHA₂DS₂-VASc 高値 → 抗凝固考慮</li>
+<li>単独CABG + CHA₂DS₂-VASc &lt;4 → 抗凝固保留</li>
+<li>直接経口抗凝固薬(DOAC) &gt; ビタミンK拮抗薬(ワーファリン)（出血少、Class IIb-B [6]）</li>
+<li><strong>手術部位出血が止まってから開始</strong>（chest tube 出血 stable 後）[6]</li>
+<li>機械弁置換後はワーファリン必須 [6]</li>
+</ul>
+<h3 id="76-予防策術前術後-day-06">7.6 予防策（術前〜術後 day 0）[6]</h3>
+<table>
+<thead>
+<tr>
+<th>策</th>
+<th>推奨度</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>経口アミオダロン</strong></td>
+<td><strong>Class I-B</strong></td>
+<td>周術期予防的経口投与</td>
+</tr>
+<tr>
+<td>β-blocker 継続</td>
+<td>Class IIa-B</td>
+<td>既存β-blocker 患者は術前朝に最終投与、POD1 から再開</td>
+</tr>
+<tr>
+<td>左後心膜切開</td>
+<td>Class IIa-B</td>
+<td>術中操作</td>
+</tr>
+<tr>
+<td>経静脈マグネシウム</td>
+<td>Class IIb-B</td>
+<td>周術期</td>
+</tr>
+<tr>
+<td>コルヒチン</td>
+<td>Class IIb-B</td>
+<td>COPPS protocol</td>
+</tr>
+<tr>
+<td>両心房ペーシング</td>
+<td>Class IIb-B</td>
+<td>術中設置時</td>
+</tr>
+<tr>
+<td><strong>ルーチン K 補正</strong></td>
+<td><strong>Class III (no benefit)</strong></td>
+<td>TIGHT-K trial で否定</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-徐脈asystoleペーシング対応">8. 徐脈・asystole（ペーシング対応）</h2>
+<h3 id="81-心外膜ペーシングワイヤー設定--cvcu-必修">8.1 心外膜ペーシングワイヤー設定 — CVCU 必修</h3>
+<blockquote>
+<p>心臓術後患者は心外膜ペーシングワイヤーが残置されていることが多い。<strong>接続して使えなければ命取り</strong>。</p>
+</blockquote>
+<h4 id="標準設定-2">標準設定 [2]</h4>
+<pre><code>モード:     DDD（心房・心室両方接続時）
+            VVI（心室ワイヤーのみ時）
+            AAI（心房ワイヤーのみ時、AV伝導OK時）
+
+レート:     80–100 bpm
+            (Asystole/severe bradyでは最大output、レート 80–100)
+
+Atrial output:     20 mA (最大)
+Ventricular output: 20 mA (最大)
+Atrial sensitivity: 0.5 mV
+Ventricular sensitivity: 2 mV</code></pre>
+<h4 id="注意点-12">注意点 [1][2]</h4>
+<ul>
+<li>「Emergency setting」一発ボタンの場合、<strong>V00 (asynchronous ventricular)</strong> にデフォルト切替される機種が多い [1]</li>
+<li>心臓術後患者は <strong>心房ワイヤーのみ接続</strong> のケースが多い → V00 では効果なし → DDD or AAI を確認</li>
+<li>ペーシング作動中の PEA → <strong>一時OFF にして基礎リズム確認</strong>（VF 隠蔽の除外）[1][2]</li>
+<li>接続不全のため capture しない場合 → 経皮ペーシングへ切替</li>
+</ul>
+<h3 id="82-経皮ペーシング経皮ペーシング">8.2 経皮ペーシング（経皮ペーシング）</h3>
+<table>
+<thead>
+<tr>
+<th>設定</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>パッド位置</td>
+<td>前-後 (sternum + interscapular) または前-側 (心尖 + 右上胸)</td>
+</tr>
+<tr>
+<td>Rate</td>
+<td>80 bpm</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>80 mA から開始、capture まで漸増（典型 100–140 mA）</td>
+</tr>
+<tr>
+<td>鎮痛</td>
+<td>強烈な痛みあり → ミダゾラム + フェンタニル必須</td>
+</tr>
+</tbody>
+</table>
+<h3 id="83-経静脈ペーシング経静脈ペーシング">8.3 経静脈ペーシング（経静脈ペーシング）</h3>
+<p>経皮ペーシングで安定後、循環器内科 or 心臓外科がベッドサイドで内頸／鎖骨下静脈経由で挿入。Rate 80, Output 5 mA から開始。</p>
+<hr />
+<h2 id="9-周術期-acs再灌流障害ステント血栓冠スパスム">9. 周術期 ACS（再灌流障害・ステント血栓・冠スパスム）</h2>
+<blockquote>
+<p>JRC 2020 ACS Executive Summary [4] を中心に。</p>
+</blockquote>
+<h3 id="91-cvcu-での疑い基準">9.1 CVCU での疑い基準</h3>
+<ul>
+<li>新規ST変化（≥1 mm 連続2誘導）</li>
+<li>新規左脚ブロック</li>
+<li>突発する胸痛 / 背部痛</li>
+<li>新規左室壁運動異常（心エコー）</li>
+<li>心筋逸脱酵素 急上昇（術後baseline &gt; 5×）</li>
+<li>血圧低下 / 致死性不整脈の新規発症</li>
+</ul>
+<h3 id="92-初期対応10分以内-4">9.2 初期対応（10分以内） [4]</h3>
+<pre><code>✓ 12誘導 ECG（10分以内、ED 同等）[4]
+✓ バイタル + SpO₂、酸素は SpO₂ &lt;90% でのみ投与（normoxic では withhold, Grade 2D [4]）
+✓ IV ライン確保（既設）
+✓ 心筋トロポニン (hs-cTn) + 凝固・電解質
+✓ 心エコー（壁運動・心嚢液・MR/AR/VSD）
+✓ 胸部 X 線
+✓ 循環器コンサルト
+✓ アスピリン 162–325 mg 咀嚼 [4]（既投与なければ）
+✓ ニトログリセリン 舌下 0.3 mg または持続 5 µg/min から開始（SBP &gt;100, RV梗塞除外）[4]</code></pre>
+<h3 id="93-stemi-様所見-4">9.3 STEMI 様所見 [4]</h3>
+<ul>
+<li><strong>EMS-to-Device &lt;90分</strong> が国際基準 [4]</li>
+<li>院内発症のため緊急冠動脈造影室手配 → 心臓外科 + 循環器内科合同判断</li>
+<li>グラフト関連虚血の場合は IABP・IMPELLA・再手術を並行検討</li>
+</ul>
+<h3 id="94-nste-acs-4">9.4 NSTE-ACS [4]</h3>
+<ul>
+<li>早期侵襲的戦略（&lt;24h）→ 高リスクなら &lt;2h</li>
+<li>hs-cTn 0/1h アルゴリズム（感度 99.3%）[4] で除外可能なら CVCU 観察継続</li>
+</ul>
+<h3 id="95-rosc-後の-stemi-様-ecg">9.5 ROSC 後の STEMI 様 ECG</h3>
+<p>蘇生後 ECG で ST上昇あり → 緊急冠造影。ST上昇なし → 個別判断（循環器コンサル）。</p>
+<hr />
+<h2 id="10-機械的循環補助va-ecmo--impella--ecpella">10. 機械的循環補助（VA-ECMO / IMPELLA / ECPELLA）</h2>
+<blockquote>
+<p>JCS 2023 PCPS/ECMO/IMPELLA Focused Update [7]</p>
+</blockquote>
+<h3 id="101-v-a-ecmopcps導入判断">10.1 V-A ECMO（PCPS）導入判断</h3>
+<h4 id="ecpr蘇生中ecmo導入の適応">ECPR（蘇生中ECMO導入）の適応</h4>
+<p>CVCU での目撃心停止 + 通常CPR/CALSで還元しない場合、以下を満たせばECPR 考慮:</p>
+<ul>
+<li>目撃心停止</li>
+<li>初期波形 VF/pVT（asystole では成績劣る）[7]</li>
+<li>No-flow time 短い</li>
+<li>不可逆的脳損傷の証拠なし</li>
+<li>重大合併症（活動性悪性腫瘍、終末期）なし</li>
+</ul>
+<h4 id="カニュレーション">カニュレーション</h4>
+<table>
+<thead>
+<tr>
+<th>カニュラ</th>
+<th>サイズ</th>
+<th>部位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>動脈側</td>
+<td><strong>15–17 Fr</strong>（重症例 19 Fr）</td>
+<td>大腿動脈</td>
+</tr>
+<tr>
+<td>静脈側</td>
+<td><strong>21–23 Fr</strong></td>
+<td>大腿静脈</td>
+</tr>
+<tr>
+<td>遠位灌流カテーテル</td>
+<td><strong>4–7 Fr</strong></td>
+<td>同側浅大腿動脈 — 下肢虚血予防 (Class I-B [7])</td>
+</tr>
+</tbody>
+</table>
+<h3 id="102-抗凝固管理-7">10.2 抗凝固管理 [7]</h3>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>目標</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>初期ヘパリン</td>
+<td><strong>50 U/kg IV bolus</strong></td>
+</tr>
+<tr>
+<td>ACT</td>
+<td><strong>180–200秒</strong></td>
+</tr>
+<tr>
+<td>APTT</td>
+<td><strong>50–60秒</strong></td>
+</tr>
+<tr>
+<td>抗Xa</td>
+<td>0.3–0.7 U/mL（測定可能なら）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="103-流量循環目標-7">10.3 流量・循環目標 [7]</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>目標</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ECMO flow</td>
+<td>2.4–4.8 L/min/m² または 体重 50–70 mL/kg/min</td>
+</tr>
+<tr>
+<td>MAP</td>
+<td><strong>≥65 mmHg</strong></td>
+</tr>
+<tr>
+<td>SpO₂ (右橈骨動脈)</td>
+<td>≥95%（北南症候群除外）</td>
+</tr>
+<tr>
+<td>乳酸</td>
+<td>経時的低下</td>
+</tr>
+<tr>
+<td>ScvO₂</td>
+<td>≥70%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="104-impella-種類別仕様-7">10.4 IMPELLA 種類別仕様 [7]</h3>
+<table>
+<thead>
+<tr>
+<th>機種</th>
+<th>最大flow</th>
+<th>カテーテル</th>
+<th>アクセス</th>
+<th>主な適応</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IMPELLA 2.5</strong></td>
+<td>2.5 L/min</td>
+<td>12 Fr</td>
+<td>経皮大腿動脈</td>
+<td>High-risk PCI</td>
+</tr>
+<tr>
+<td><strong>IMPELLA CP</strong></td>
+<td>3.7 L/min</td>
+<td>14 Fr</td>
+<td>経皮大腿動脈</td>
+<td>心原性ショック</td>
+</tr>
+<tr>
+<td><strong>IMPELLA 5.0</strong></td>
+<td>5.0 L/min</td>
+<td>21 Fr</td>
+<td>外科的（上行大動脈 or 腋窩動脈）</td>
+<td>重症ショック</td>
+</tr>
+<tr>
+<td><strong>IMPELLA 5.5</strong></td>
+<td>5.5 L/min</td>
+<td>21 Fr</td>
+<td>外科的</td>
+<td>重症ショック</td>
+</tr>
+</tbody>
+</table>
+<h3 id="105-ecpellava-ecmo--impella7">10.5 ECPELLA（VA-ECMO + IMPELLA）[7]</h3>
+<p><strong>適応</strong>: VA-ECMO 中の左室過拡張・肺うっ血（PAWP↑、肺水腫）</p>
+<p><strong>目的</strong>:</p>
+<ul>
+<li>左室減圧</li>
+<li>肺うっ血改善</li>
+<li>心筋酸素消費量低下</li>
+</ul>
+<h3 id="106-主要合併症と看護モニタリング-7">10.6 主要合併症と看護モニタリング [7]</h3>
+<table>
+<thead>
+<tr>
+<th>合併症</th>
+<th>頻度</th>
+<th>監視項目</th>
+<th>対応</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下肢虚血</td>
+<td>17%</td>
+<td>下肢温度・色・脈拍・組織酸素飽和度（毎時）、CK</td>
+<td>遠位灌流カテーテル確認、外科コンサル</td>
+</tr>
+<tr>
+<td>脳出血</td>
+<td>30–60%</td>
+<td>瞳孔・GCS（毎時）</td>
+<td>頭部CT、抗凝固見直し</td>
+</tr>
+<tr>
+<td>穿刺部出血</td>
+<td>17.1%</td>
+<td>穿刺部観察 &gt;50 mL/h</td>
+<td>圧迫、輸血、外科対応</td>
+</tr>
+<tr>
+<td>溶血</td>
+<td>—</td>
+<td>LDH、遊離Hb、ハプトグロビン（q4–6h）</td>
+<td>カニュラ位置確認、流量調整、デバイス交換</td>
+</tr>
+<tr>
+<td>北南症候群 (Harlequin)</td>
+<td>—</td>
+<td>右橈骨動脈 SpO₂、ABG</td>
+<td>右上肢からのABG、V-VA転換、IMPELLA 併用</td>
+</tr>
+<tr>
+<td>左室拡張</td>
+<td>—</td>
+<td>PAWP、心エコー（毎日）</td>
+<td>IABP / IMPELLA / LV vent</td>
+</tr>
+</tbody>
+</table>
+<h3 id="107-離脱基準-7">10.7 離脱基準 [7]</h3>
+<ul>
+<li>PAWP &lt;15 mmHg</li>
+<li>心係数 &gt;2.0 L/min/m²</li>
+<li>LVEF &gt;30%</li>
+<li>心エコー: 壁運動の改善</li>
+<li>乳酸正常化</li>
+<li>尿量・肝機能改善</li>
+</ul>
+<p>ECMO flow を段階的（4 → 3 → 2 → 1 L/min）に絞り、各段階で30–60分の観察。</p>
+<h3 id="108-va-ecmo-中の心停止対応-7">10.8 VA-ECMO 中の心停止対応 [7]</h3>
+<p>「通常 CPR は継続せず、デバイスの機能とフロー、圧力を評価し、アラームと警告を確認する」[7]</p>
+<ol type="1">
+<li>ECMO flow / 圧力 / 酸素化 を確認</li>
+<li>カニュレーション部位の血栓・捻じれを確認</li>
+<li>ポンプ・配管を視認</li>
+<li>大動脈弁の動きを心エコーで評価</li>
+<li>必要に応じてデバイス交換</li>
+</ol>
+<hr />
+<h2 id="11-急変予防--早期警告徴候とゼロ次予防">11. 急変予防 — 早期警告徴候とゼロ次予防</h2>
+<blockquote>
+<p>ERAS Cardiac 2019 [8] の22項目から CVCU 関連抜粋。</p>
+</blockquote>
+<h3 id="111-維持目標値hemodynamic--metabolic-targets8">11.1 維持目標値（Hemodynamic / Metabolic Targets）[8]</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>目標</th>
+<th>逸脱時の意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MAP</strong></td>
+<td>≥65 mmHg</td>
+<td>&lt;65 → 臓器灌流不足</td>
+</tr>
+<tr>
+<td><strong>CI</strong></td>
+<td>≥2.2 L/min/m²</td>
+<td>&lt;2.0 → 機械的補助検討</td>
+</tr>
+<tr>
+<td><strong>ScvO₂</strong></td>
+<td>≥70%</td>
+<td>&lt;70 → 酸素供給不足</td>
+</tr>
+<tr>
+<td><strong>Lactate</strong></td>
+<td>経時的低下、&lt;2 mmol/L</td>
+<td>上昇 → 組織低灌流</td>
+</tr>
+<tr>
+<td><strong>尿量</strong></td>
+<td>≥0.5 mL/kg/h</td>
+<td>&lt;0.5 × 2h → AKI 評価</td>
+</tr>
+<tr>
+<td><strong>血糖</strong></td>
+<td><strong>&lt;180 mg/dL</strong>（避ける &gt;180）[8]</td>
+<td>インスリン点滴で調整</td>
+</tr>
+<tr>
+<td><strong>体温</strong></td>
+<td><strong>36–37.3°C</strong>（normothermia）</td>
+<td>&gt;37.9°C は避ける [8]（cognitive deficit）, &lt;36 で出血増</td>
+</tr>
+<tr>
+<td><strong>ドレーン</strong></td>
+<td>&lt;2 mL/kg/h</td>
+<td>&gt;2 mL/kg/h × 2h → 再開胸検討 [8]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="112-早期抜管6h-post-op8">11.2 早期抜管（&lt;6h post-op）[8]</h3>
+<ul>
+<li>ERAS Cardiac 推奨: 術後6時間以内の抜管 (Class B-NR [8])</li>
+<li>Low tidal volume戦略</li>
+<li>早期抜管達成のため鎮静を慎重に減量</li>
+<li>CVCU 移行時はすでに抜管後が多い</li>
+</ul>
+<h3 id="113-多モーダル疼痛管理オピオイド最小化8">11.3 多モーダル疼痛管理（オピオイド最小化）[8]</h3>
+<ul>
+<li>アセトアミノフェン 1000 mg q6h</li>
+<li>トラマドール 25 mg × 4/日 → モルヒネ消費 25% 減 [8]</li>
+<li>デクスメデトミジン infusion（術後せん妄予防）</li>
+<li>ガバペンチン / プレガバリン</li>
+<li>❌ NSAIDs は腎機能・血栓リスクのため避ける（COX-2 含む）[8]</li>
+</ul>
+<h3 id="114-せん妄スクリーニング-8">11.4 せん妄スクリーニング [8]</h3>
+<ul>
+<li><strong>ICDSC</strong> を <strong>看護シフトごと</strong>に実施 (Class C-LD [8])</li>
+<li>非薬物介入を第一選択（再オリエンテーション、睡眠保護、早期離床）</li>
+</ul>
+<h3 id="115-ssi-予防バンドル-8">11.5 SSI 予防バンドル [8]</h3>
+<ul>
+<li>ムピロシン intranasal 30–60 min 前 [8]</li>
+<li>クリッパー（剃刀 NG）</li>
+<li>クロルヘキシジン-アルコール皮膚消毒</li>
+<li>セファゾリン（体重ベース）切開60分以内 + 術後48時間継続</li>
+<li>MRSA 既感染ならバンコマイシン追加</li>
+<li>手術 &gt;4h → 抗菌薬 redose [8]</li>
+<li>創部ドレッシング 48時間で除去 [8]</li>
+</ul>
+<h3 id="116-aki-予防kdigo-バンドル8">11.6 AKI 予防（KDIGO バンドル）[8]</h3>
+<ul>
+<li>術後早期に urinary [TIMP-2]·[IGFBP7] 評価で risk 同定 [8]</li>
+<li>高リスク患者: 腎毒性薬中止、ACE-I/ARB 48h 中止、Cr/UO 高頻度監視、高血糖回避、造影剤回避 [8]</li>
+</ul>
+<h3 id="117-ドレーン管理-8">11.7 ドレーン管理 [8]</h3>
+<ul>
+<li><strong>stripping は禁止</strong> (Class III-A [8] — 害)</li>
+<li>chest tube clearance device を用いて閉塞予防 [8]</li>
+</ul>
+<h3 id="118-機械的薬剤的-dvt-予防-8">11.8 機械的・薬剤的 DVT 予防 [8]</h3>
+<ul>
+<li>術後止血確認後（通常 POD 1）から開始 (Class IIa-C [8])</li>
+</ul>
+<hr />
+<h2 id="12-看護師ロールカード6人チーム">12. 看護師ロールカード（6人チーム）</h2>
+<p><figure class="flowchart">
+<svg class="flowchart" role="img" aria-label="CALS 6 人チーム ベッドサイド配置図" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1240" font-family="system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="1240" fill="#FAFAFA"/>
+
+  <!-- ========== HEADER ========== -->
+  <rect x="0" y="0" width="1400" height="90" fill="#37474F"/>
+  <text x="700" y="42" font-size="30" font-weight="700" fill="#FFFFFF" text-anchor="middle">CALS 6 人チーム — ベッドサイド配置図</text>
+  <text x="700" y="72" font-size="16" fill="#B0BEC5" text-anchor="middle">CVCU 心停止対応 / 各役割の責任と動き [Refs 1, 2]</text>
+
+  <!-- ========== BED in center (top-down view) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="550" y="430" width="300" height="180" rx="20" fill="#ECEFF1" stroke="#546E7A" stroke-width="2"/>
+    <ellipse cx="700" cy="460" rx="60" ry="35" fill="#FFE0B2" stroke="#FF6F00" stroke-width="1.5"/>
+    <rect x="660" y="490" width="80" height="100" rx="15" fill="#FFE0B2" stroke="#FF6F00" stroke-width="1.5"/>
+    <text x="700" y="465" font-size="14" font-weight="700" fill="#E65100" text-anchor="middle">患者</text>
+    <text x="700" y="545" font-size="12" fill="#5D4037" text-anchor="middle">胸骨切開創</text>
+    <text x="700" y="420" font-size="11" font-weight="700" fill="#546E7A" text-anchor="middle">▲ 頭側 (head)</text>
+    <text x="700" y="630" font-size="11" font-weight="700" fill="#546E7A" text-anchor="middle">▼ 足側 (foot)</text>
+  </g>
+
+  <!-- ========== ROLE 1: ECM (Right of chest) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="900" y="370" width="380" height="200" rx="10" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+    <rect x="900" y="370" width="380" height="36" rx="10" fill="#E53935"/>
+    <text x="920" y="395" font-size="16" font-weight="700" fill="#FFFFFF">Role 1 — 心マッサージ担当</text>
+    <text x="1260" y="395" font-size="14" fill="#FFCDD2" text-anchor="end">患者 右胸部</text>
+
+    <text x="920" y="430" font-size="13" fill="#424242">• 100–120 / min、深さ 4–5 cm</text>
+    <text x="920" y="450" font-size="13" fill="#424242">• 動脈圧波形で 収縮期 ≥ 60 mmHg を目標</text>
+    <text x="920" y="470" font-size="13" font-weight="700" fill="#B71C1C">• &lt; 60 mmHg → 「再開胸要」と即座に宣言</text>
+    <text x="920" y="490" font-size="13" fill="#424242">• 2 分ごと交代（疲労防止）</text>
+    <text x="920" y="510" font-size="13" fill="#424242">• 経過中、収縮期値をリーダーに口頭で伝達</text>
+    <text x="920" y="540" font-size="11" font-style="italic" fill="#757575">⚠ 開胸後は内心臓マッサージへ役割移譲</text>
+  </g>
+  <line x1="900" y1="470" x2="850" y2="470" stroke="#E53935" stroke-width="2.5"/>
+
+  <!-- ========== ROLE 2: Airway (Head end) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="510" y="180" width="380" height="200" rx="10" fill="#E1F5FE" stroke="#0288D1" stroke-width="2"/>
+    <rect x="510" y="180" width="380" height="36" rx="10" fill="#0288D1"/>
+    <text x="530" y="205" font-size="16" font-weight="700" fill="#FFFFFF">Role 2 — 気道・呼吸</text>
+    <text x="870" y="205" font-size="14" fill="#B3E5FC" text-anchor="end">患者 頭側</text>
+
+    <text x="530" y="240" font-size="13" fill="#424242">• FiO₂ 100% / PEEP off に切替</text>
+    <text x="530" y="260" font-size="13" fill="#424242">• 手動バッグマスク換気</text>
+    <text x="530" y="280" font-size="13" fill="#424242">• 両肺聴診 — 気胸 除外</text>
+    <text x="530" y="300" font-size="13" fill="#424242">• 気管チューブ位置確認 + カプノグラフィ</text>
+    <text x="530" y="320" font-size="13" font-weight="700" fill="#B71C1C">• 緊張性気胸疑い → 14 G を第 2 肋間 鎖骨中線へ</text>
+    <text x="530" y="340" font-size="13" fill="#424242">• 換気状態をリーダーに報告</text>
+    <text x="530" y="365" font-size="11" font-style="italic" fill="#757575">⚠ 過換気を避ける（10/min 連続圧迫下）</text>
+  </g>
+  <line x1="700" y1="380" x2="700" y2="430" stroke="#0288D1" stroke-width="2.5"/>
+
+  <!-- ========== ROLE 3: Defib + Pacing (Left of chest) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="370" width="380" height="200" rx="10" fill="#FFCDD2" stroke="#B71C1C" stroke-width="2"/>
+    <rect x="120" y="370" width="380" height="36" rx="10" fill="#B71C1C"/>
+    <text x="140" y="395" font-size="16" font-weight="700" fill="#FFFFFF">Role 3 — 除細動・ペーシング</text>
+    <text x="480" y="395" font-size="14" fill="#FFCDD2" text-anchor="end">患者 左胸部</text>
+
+    <text x="140" y="430" font-size="13" fill="#424242">• 除細動器接続・charge</text>
+    <text x="140" y="450" font-size="13" font-weight="700" fill="#B71C1C">• 二相性 200 J × 3 連続ショック</text>
+    <text x="140" y="470" font-size="13" fill="#424242">• 心外膜ペーシング: DDD 80–100 bpm, 出力 最大</text>
+    <text x="140" y="490" font-size="13" fill="#424242">• Capture 不可なら 経皮ペーシング</text>
+    <text x="140" y="510" font-size="13" fill="#424242">• 開胸後は内除細動 paddle 準備</text>
+    <text x="140" y="540" font-size="11" font-style="italic" fill="#757575">⚠ 患者から手を離してから shock</text>
+  </g>
+  <line x1="500" y1="470" x2="550" y2="470" stroke="#B71C1C" stroke-width="2.5"/>
+
+  <!-- ========== ROLE 4: Drugs (Right foot) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="900" y="660" width="380" height="200" rx="10" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="2"/>
+    <rect x="900" y="660" width="380" height="36" rx="10" fill="#6A1B9A"/>
+    <text x="920" y="685" font-size="16" font-weight="700" fill="#FFFFFF">Role 4 — 薬剤・ライン</text>
+    <text x="1260" y="685" font-size="14" fill="#E1BEE7" text-anchor="end">患者 右足側</text>
+
+    <text x="920" y="720" font-size="13" fill="#424242">• 全持続点滴・シリンジポンプ 停止</text>
+    <text x="920" y="740" font-size="13" fill="#424242">• 鎮静のみ継続可</text>
+    <text x="920" y="760" font-size="13" fill="#424242">• 大動脈バルーン → pressure trigger 切替</text>
+    <text x="920" y="780" font-size="13" font-weight="700" fill="#4A148C">• アミオダロン 300 mg を 5%ブドウ糖 20 mL で希釈</text>
+    <text x="920" y="800" font-size="13" fill="#424242">• 中心静脈ラインから急速静注 → 追加 150 mg</text>
+    <text x="920" y="820" font-size="13" fill="#424242">• 持続点滴 900 mg/24 時間</text>
+    <text x="920" y="845" font-size="11" font-weight="700" fill="#B71C1C">⛔ アドレナリン ルーチン投与 禁止</text>
+  </g>
+  <line x1="900" y1="730" x2="850" y2="610" stroke="#6A1B9A" stroke-width="2.5"/>
+
+  <!-- ========== ROLE 5: Resternotomy prep (Left foot) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="660" width="380" height="200" rx="10" fill="#FFF3E0" stroke="#FF6F00" stroke-width="2"/>
+    <rect x="120" y="660" width="380" height="36" rx="10" fill="#FF6F00"/>
+    <text x="140" y="685" font-size="16" font-weight="700" fill="#FFFFFF">Role 5 — 胸骨再開放準備</text>
+    <text x="480" y="685" font-size="14" fill="#FFE0B2" text-anchor="end">患者 左足側</text>
+
+    <text x="140" y="720" font-size="13" fill="#424242">• 心停止コール時点で滅菌ガウン + closed-glove</text>
+    <text x="140" y="740" font-size="13" font-weight="700" fill="#E65100">• 緊急胸骨再開放セット 展開（必須 5 点）</text>
+    <text x="160" y="758" font-size="12" fill="#424242">  ① scalpel ② ワイヤーカッター ③ 重い針把持器</text>
+    <text x="160" y="774" font-size="12" fill="#424242">  ④ 単一piece 胸骨開創器 ⑤ 吸引</text>
+    <text x="140" y="798" font-size="13" fill="#424242">• All-in-one drape 準備</text>
+    <text x="140" y="818" font-size="13" fill="#424242">• 内除細動 paddle 確保</text>
+    <text x="140" y="845" font-size="11" font-style="italic" fill="#757575">⏱ 5 分以内に再開胸開始</text>
+  </g>
+  <line x1="500" y1="730" x2="550" y2="610" stroke="#FF6F00" stroke-width="2.5"/>
+
+  <!-- ========== ROLE 6: Team Leader (BELOW all other roles, full width) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="160" y="930" width="1080" height="200" rx="10" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2.5"/>
+    <rect x="160" y="930" width="1080" height="40" rx="10" fill="#2E7D32"/>
+    <text x="180" y="958" font-size="16" font-weight="700" fill="#FFFFFF">Role 6 — Team Leader（チームリーダー / コーディネーター）</text>
+    <text x="1220" y="958" font-size="14" fill="#C8E6C9" text-anchor="end">ベッド外</text>
+
+    <text x="180" y="995" font-size="14" fill="#424242">• 全体指揮 / プロトコル順守確認 / 各役割の充足確認</text>
+    <text x="180" y="1018" font-size="14" font-weight="700" fill="#B71C1C">• ⏱ 5 分タイマー（再開胸決定の壁）</text>
+    <text x="180" y="1041" font-size="14" fill="#424242">• 上級医・心臓外科オンコール を呼出</text>
+
+    <text x="700" y="995" font-size="14" fill="#424242">• 家族連絡・待機室への誘導指示</text>
+    <text x="700" y="1018" font-size="14" fill="#424242">• 全行動を口頭で記録係（看護師）に伝達</text>
+    <text x="700" y="1041" font-size="14" fill="#424242">• 心停止 0:00 からの経過時間を発声で共有</text>
+
+    <text x="700" y="1095" font-size="13" font-style="italic" fill="#2E7D32" text-anchor="middle">👐 患者に触れない唯一のメンバー — 俯瞰的判断に専念</text>
+  </g>
+
+  <!-- ========== Equipment positions (corners) — compact ========== -->
+  <g>
+    <rect x="20" y="180" width="80" height="120" rx="6" fill="#37474F"/>
+    <text x="60" y="220" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">除細動器</text>
+    <text x="60" y="240" font-size="11" fill="#FFFFFF" text-anchor="middle">/ paddle</text>
+    <text x="60" y="260" font-size="11" fill="#FFFFFF" text-anchor="middle">/ 内除細動</text>
+
+    <rect x="1300" y="180" width="80" height="120" rx="6" fill="#37474F"/>
+    <text x="1340" y="220" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">モニタ</text>
+    <text x="1340" y="240" font-size="11" fill="#FFFFFF" text-anchor="middle">/ ECG</text>
+    <text x="1340" y="260" font-size="11" fill="#FFFFFF" text-anchor="middle">/ 動脈圧</text>
+
+    <rect x="20" y="700" width="80" height="120" rx="6" fill="#37474F"/>
+    <text x="60" y="740" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">再開胸</text>
+    <text x="60" y="760" font-size="11" fill="#FFFFFF" text-anchor="middle">セット</text>
+    <text x="60" y="780" font-size="11" fill="#FFFFFF" text-anchor="middle">/ drape</text>
+
+    <rect x="1300" y="700" width="80" height="120" rx="6" fill="#37474F"/>
+    <text x="1340" y="740" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">薬剤</text>
+    <text x="1340" y="760" font-size="11" fill="#FFFFFF" text-anchor="middle">crash</text>
+    <text x="1340" y="780" font-size="11" fill="#FFFFFF" text-anchor="middle">cart</text>
+  </g>
+
+  <!-- Citation -->
+  <text x="700" y="1190" font-size="12" fill="#9E9E9E" text-anchor="middle">References: [1] Dunning J et al. EACTS 2009 — [2] Dunning J et al. STS 2017</text>
+</svg>
+
+</figure></p>
+<blockquote>
+<p>CALS は 6 人チーム制 [1][2]。CVCU では夜勤体制を考慮して <strong>看護師2–3名 + 当直医1–2名 + 心臓外科オンコール</strong> が現実的最小構成。</p>
+</blockquote>
+<h3 id="121-各ロールの責務">12.1 各ロールの責務</h3>
+<h4 id="role-1--心マッサージ担当">Role 1 — 心マッサージ担当</h4>
+<ul>
+<li>100–120 / min、深さ 4–5 cm [1][2]</li>
+<li>動脈圧波形を見て 収縮期 ≥ 60 mmHg を目標 [1]</li>
+<li>&lt; 60 mmHg なら team leader に「再開胸要」と宣言</li>
+<li>2 分ごとに交代</li>
+</ul>
+<h4 id="role-2--気道呼吸">Role 2 — 気道・呼吸</h4>
+<ul>
+<li>FiO₂ 100%、PEEP off [2]</li>
+<li>手動バッグマスク換気に切替、両肺聴診（気胸 除外）</li>
+<li>気管チューブ位置確認、カプノグラフィ装着 [3]</li>
+<li>緊張性気胸疑い → 14 ゲージ針を第 2 肋間 鎖骨中線に穿刺 [2]</li>
+</ul>
+<h4 id="role-3--除細動ペーシング">Role 3 — 除細動・ペーシング</h4>
+<ul>
+<li>二相性 paddle / pad 装着</li>
+<li>3 連続ショック（VF / 無脈性 VT）[1][2]</li>
+<li>心外膜ワイヤー接続 → DDD 80–100 bpm、出力 最大 [2]</li>
+<li>内除細動器の準備（再開胸後 [1]）</li>
+</ul>
+<h4 id="role-4--薬剤ライン">Role 4 — 薬剤・ライン</h4>
+<ul>
+<li>全持続点滴・シリンジポンプ 停止 [1][2]</li>
+<li>鎮静のみ継続可</li>
+<li>大動脈内バルーン → pressure trigger に切替 [1]</li>
+<li>アミオダロン 300 mg → 150 mg → 持続 900 mg/24 時間 を準備 [1]</li>
+<li>アドレナリンは上級医指示まで投与禁止 [1][2]</li>
+</ul>
+<h4 id="role-5--胸骨再開放準備">Role 5 — 胸骨再開放準備</h4>
+<ul>
+<li>緊急コール時点で滅菌ガウン + グローブ（closed-glove 法）[1]</li>
+<li>緊急胸骨再開放セット（必須 5 点）を展開 [2]</li>
+<li>All-in-one drape 準備</li>
+<li>内除細動 paddle 確保</li>
+<li>通常の胸骨切開セットも並行準備</li>
+</ul>
+<h4 id="role-6--チームリーダー--コーディネーター">Role 6 — チームリーダー / コーディネーター</h4>
+<ul>
+<li>全体指揮、プロトコル順守確認</li>
+<li>各役割の充足確認</li>
+<li>5 分タイマー（再開胸決定の壁）</li>
+<li>上級医・心臓外科オンコールを呼び出し</li>
+<li>家族説明、記録、家族待機室への連絡指示</li>
+</ul>
+<h3 id="122-タイマー運用推奨">12.2 タイマー運用（推奨）</h3>
+<table>
+<thead>
+<tr>
+<th>時刻</th>
+<th>アクション</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0:00</td>
+<td>心停止確認、緊急コール作動</td>
+</tr>
+<tr>
+<td>0:30</td>
+<td>6名集合、役割確定</td>
+</tr>
+<tr>
+<td>1:00</td>
+<td>第1ショック (VF/VT) または ペーシング (asystole)</td>
+</tr>
+<tr>
+<td>2:00</td>
+<td>リズム再評価、第2ショック</td>
+</tr>
+<tr>
+<td>3:00</td>
+<td>第3ショック、Amiodarone 300 mg</td>
+</tr>
+<tr>
+<td>4:00</td>
+<td>リズム再評価</td>
+</tr>
+<tr>
+<td><strong>5:00</strong></td>
+<td><strong>再開胸決定の壁</strong> — 還元しなければ open chest</td>
+</tr>
+<tr>
+<td>7:00</td>
+<td>内心臓マッサージ確立</td>
+</tr>
+<tr>
+<td>10:00+</td>
+<td>VA-ECMO 検討（ECPR）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="gear-付録-a--ドラッグチートシート印刷用1枚版">⚙️ 付録 A — ドラッグ・チート・シート（印刷用1枚版）</h2>
+<p><strong>🚨 大原則: 心臓術後 → 5 分の壁 → 再開胸 [1][2]</strong></p>
+<h4 id="vf--無脈性-vt">VF / 無脈性 VT</h4>
+<ul>
+<li>二相性 200 J × 3 連続ショック（心マッサージ介在なし）[2]</li>
+<li>アミオダロン 300 mg を中心静脈ラインから急速静注（5% ブドウ糖 20 mL で希釈）[1][2]</li>
+<li>追加 150 mg → 900 mg/24 時間 持続点滴 [1]</li>
+<li>代替: リドカイン 1 mg/kg を静注 [1][2]</li>
+<li>❌ アドレナリン ルーチン投与禁止 [1][2]</li>
+</ul>
+<h4 id="asystole--高度徐脈">Asystole / 高度徐脈</h4>
+<ul>
+<li>心外膜ペーシングワイヤー DDD 80–100 bpm、最大出力 [2]</li>
+<li>ペーシング不能なら経皮ペーシング 80 mA から漸増</li>
+<li>アトロピンはルーチン非推奨（STS 2017 Class III）[2]</li>
+<li>❌ アドレナリン ルーチン投与禁止 [1][2]</li>
+</ul>
+<h4 id="pea無脈性電気活動">PEA（無脈性電気活動）</h4>
+<ul>
+<li>ペーシング作動中なら OFF（VF 隠蔽除外）[1][2]</li>
+<li>4H/4T 鑑別 + 5 分以内に再開胸 [2]</li>
+</ul>
+<h4 id="tdp多形性心室頻拍--qt-延長">TdP（多形性心室頻拍 / QT 延長）</h4>
+<ul>
+<li>硫酸マグネシウム 1–2 g を静脈内ボーラス → 持続 600 mg/24 時間 [3][5]</li>
+<li>K, Ca を補正</li>
+<li>イソプロテレノール or ペーシングで心拍数を上げる [5]</li>
+<li>❌ アミオダロン・ソタロール 禁忌</li>
+</ul>
+<h4 id="術後新規心房細動不安定">術後新規心房細動（不安定）</h4>
+<ul>
+<li>同期カルジオバージョン 100–200 J 二相性 [6]</li>
+</ul>
+<h4 id="術後新規心房細動安定リズム調整">術後新規心房細動（安定・リズム調整）</h4>
+<ul>
+<li>アミオダロン 300 mg を 10–15 分かけて静注</li>
+<li>1 mg/min × 6 時間</li>
+<li>0.5 mg/min × 18 時間 [6]</li>
+</ul>
+<h4 id="術後新規心房細動安定レート調整">術後新規心房細動（安定・レート調整）</h4>
+<ul>
+<li>メトプロロール 2.5–5 mg を緩徐静注 [6]</li>
+<li>エスモロール 100 µg/kg → 10–40 µg/kg/min [5]</li>
+<li>ランジオロール 100 µg/kg → 10–40 µg/kg/min [5]</li>
+<li>ジルチアゼム 0.25 mg/kg → 5–15 mg/h [6]</li>
+<li>⚠ 心拍数 &lt; 60 or 収縮期血圧 &lt; 100 → 中止 [6]</li>
+</ul>
+<h4 id="vf-storm--electrical-storm">VF storm / Electrical storm</h4>
+<ul>
+<li>鎮静 [5]</li>
+<li>β 遮断薬（非選択性）+ アミオダロン 静注 [5]</li>
+<li>同期カルジオバージョン（不安定時）[5]</li>
+<li>ECMO / IMPELLA 検討 → §10</li>
+</ul>
+<h4 id="v-a-ecmo">V-A ECMO</h4>
+<ul>
+<li>ヘパリン 50 U/kg を静脈内ボーラス → ACT 180–200、APTT 50–60 [7]</li>
+<li>動脈カニュラ 15–17 Fr / 静脈カニュラ 21–23 Fr [7]</li>
+<li>遠位灌流カテーテル 4–7 Fr を同側浅大腿動脈に [7]</li>
+<li>平均動脈圧 ≥ 65、心係数 &gt; 2.2、中心静脈酸素飽和度 &gt; 70 [7][8]</li>
+</ul>
+<hr />
+<h2 id="warning-免責--disclaimer">⚠️ 免責 / Disclaimer</h2>
+<p>本文書は <strong>学術的な参照資料</strong>であり、個々の臨床判断に置き換わるものではありません。各施設のプロトコル・薬剤採用状況・体制に応じて適応してください。</p>
+<p>ガイドライン本文（References 参照）が一次資料です。本文書は2026年5月時点で公開された 8 本の主要ガイドラインから抽出・統合した二次資料です。</p>
+<p>GitHub での公開・施設内共有を意図して作成されました。商用利用・改変時は出典明記を厳守してください。</p>
+<hr />
+<h2 id="references">References</h2>
+<h3 id="心臓外科特異プロトコル">心臓外科特異プロトコル</h3>
+<p><strong>[1] EACTS CALS Protocol (2009)</strong> — 心臓術後心停止プロトコルの原典</p>
+<blockquote>
+<p>Dunning J, Fabbri A, Kolh PH, Levine A, Lockowandt U, Mackay J, Pavie AJ, Strang T, Versteegh MIM, Nashef SAM; EACTS Clinical Guidelines Committee. <strong>Guideline for resuscitation in cardiac arrest after cardiac surgery.</strong> <em>European Journal of Cardio-Thoracic Surgery.</em> 2009;36(1):3-28. DOI: <a href="https://doi.org/10.1016/j.ejcts.2009.01.033">10.1016/j.ejcts.2009.01.033</a> PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/19297185/">19297185</a> ローカル: <a href="../reference/Europe/EACTS_2009_Cardiac_Arrest_After_Cardiac_Surgery_CALS_Guidelines.pdf">reference/Europe/EACTS_2009_Cardiac_Arrest_After_Cardiac_Surgery_CALS_Guidelines.pdf</a></p>
+</blockquote>
+<p><strong>[2] STS CSU-ALS Expert Consensus (2017)</strong> — 米国版・更新版</p>
+<blockquote>
+<p>Dunning J, Levine A, Ley J, Strang T, Lizotte DE, Lamarche Y, Bittner HB, Petracek MR, Hawkins K, Cheung J, Whitford C, Geirsson A, Bocchino A, Sullivan ME, Dietl CA, Coselli J, Patel HJ, Sundt TM 3rd, Suri RM, McDonald T, Smedira NG, Higgins R, Ouzounian M, Hayanga J, Maddaus M, Doyle K, Goldberg J, Toulouse G, Pomar JL, Kron IL. <strong>The Society of Thoracic Surgeons Expert Consensus for the Resuscitation of Patients Who Arrest After Cardiac Surgery.</strong> <em>Annals of Thoracic Surgery.</em> 2017;103(3):1005-1020. DOI: <a href="https://doi.org/10.1016/j.athoracsur.2016.11.018">10.1016/j.athoracsur.2016.11.018</a> PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/28122680/">28122680</a> ローカル: <a href="../reference/US/STS_2017_Resuscitation_After_Cardiac_Surgery_CSU_ALS_Expert_Consensus.pdf">reference/US/STS_2017_Resuscitation_After_Cardiac_Surgery_CSU_ALS_Expert_Consensus.pdf</a></p>
+</blockquote>
+<h3 id="acls-一般プロトコル">ACLS 一般プロトコル</h3>
+<p><strong>[3] AHA 2025 Adult Advanced Life Support</strong> — 薬剤量・希釈・経路の最新standard</p>
+<blockquote>
+<p>Wigginton JG, et al. <strong>Part 9: Adult Advanced Life Support: 2025 American Heart Association Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care.</strong> <em>Circulation.</em> 2025;152(16_suppl_2):S538-S577. DOI: <a href="https://doi.org/10.1161/CIR.0000000000001376">10.1161/CIR.0000000000001376</a> PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/41122884/">41122884</a> ローカル: <a href="../reference/US/AHA_2025_Part9_Adult_Advanced_Life_Support_Guidelines.pdf">reference/US/AHA_2025_Part9_Adult_Advanced_Life_Support_Guidelines.pdf</a></p>
+</blockquote>
+<h3 id="日本固有資料">日本固有資料</h3>
+<p><strong>[4] JRC 2020 ACS Executive Summary</strong> — 日本版ACS対応の英文要約</p>
+<blockquote>
+<p>Kikuchi M, Tahara Y, Yamaguchi J, et al. <strong>Executive Summary — Acute Coronary Syndrome in the Japan Resuscitation Council Guidelines for Resuscitation 2020.</strong> <em>Circulation Journal.</em> 2023;87(6):866-878. DOI: <a href="https://doi.org/10.1253/circj.CJ-23-0096">10.1253/circj.CJ-23-0096</a> PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/37081690/">37081690</a> ローカル: <a href="../reference/Japan/JRC_2023_Acute_Coronary_Syndrome_Executive_Summary_CircJ.pdf">reference/Japan/JRC_2023_Acute_Coronary_Syndrome_Executive_Summary_CircJ.pdf</a></p>
+</blockquote>
+<h3 id="心室性不整脈vf-storm">心室性不整脈・VF storm</h3>
+<p><strong>[5] ESC 2022 Ventricular Arrhythmias &amp; SCD</strong> — electrical storm 詳細</p>
+<blockquote>
+<p>Zeppenfeld K, Tfelt-Hansen J, de Riva M, Winkel BG, Behr ER, Blom NA, Charron P, Corrado D, Dagres N, de Chillou C, et al.; ESC Scientific Document Group. <strong>2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death.</strong> <em>European Heart Journal.</em> 2022;43(40):3997-4126. DOI: <a href="https://doi.org/10.1093/eurheartj/ehac262">10.1093/eurheartj/ehac262</a> PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/36017572/">36017572</a> ローカル: <a href="../reference/Europe/ESC_2022_Ventricular_Arrhythmias_SCD_Guidelines.pdf">reference/Europe/ESC_2022_Ventricular_Arrhythmias_SCD_Guidelines.pdf</a></p>
+</blockquote>
+<h3 id="術後心房細動">術後心房細動</h3>
+<p><strong>[6] STS 2026 Post-op AF</strong> — CVCU 最頻急変対応の最新</p>
+<blockquote>
+<p>Chatterjee S, et al. <strong>The Society of Thoracic Surgeons 2026 Clinical Practice Guidelines for the Prevention and Treatment of New-Onset Postoperative Atrial Fibrillation after Cardiac Surgery.</strong> <em>Annals of Thoracic Surgery.</em> 2026. DOI: <a href="https://doi.org/10.1016/j.athoracsur.2026.04.002">10.1016/j.athoracsur.2026.04.002</a> PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42009116/">42009116</a> ローカル: <a href="../reference/US/STS_2026_Postoperative_Atrial_Fibrillation_Guidelines.pdf">reference/US/STS_2026_Postoperative_Atrial_Fibrillation_Guidelines.pdf</a></p>
+</blockquote>
+<h3 id="機械的循環補助日本">機械的循環補助（日本）</h3>
+<p><strong>[7] JCS 2023 PCPS/ECMO/IMPELLA Focused Update</strong></p>
+<blockquote>
+<p>JCS/JSCVS/JCC/CVIT Joint Working Group. <strong>JCS/JSCVS/JCC/CVIT 2023 Guideline Focused Update on Indication and Operation of PCPS/ECMO/IMPELLA.</strong> <em>Circulation Journal.</em> 2024;88(6):1010-1046. DOI: <a href="https://doi.org/10.1253/circj.CJ-23-0698">10.1253/circj.CJ-23-0698</a> ローカル: <a href="../reference/Japan/JCS_2023_PCPS_ECMO_IMPELLA_Focused_Update_CircJ.pdf">reference/Japan/JCS_2023_PCPS_ECMO_IMPELLA_Focused_Update_CircJ.pdf</a></p>
+</blockquote>
+<h3 id="急変予防術後icu管理ベース">急変予防・術後ICU管理ベース</h3>
+<p><strong>[8] ERAS Cardiac 2019</strong></p>
+<blockquote>
+<p>Engelman DT, Ben Ali W, Williams JB, Perrault LP, Reddy VS, Arora RC, Roselli EE, Khoynezhad A, Gerdisch M, Levy JH, Lobdell K, Fletcher N, Kirsch M, Nelson G, Engelman RM, Gregory AJ, Boyle EM. <strong>Guidelines for Perioperative Care in Cardiac Surgery: Enhanced Recovery After Surgery Society Recommendations.</strong> <em>JAMA Surgery.</em> 2019;154(8):755-766. DOI: <a href="https://doi.org/10.1001/jamasurg.2019.1153">10.1001/jamasurg.2019.1153</a> PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/31054241/">31054241</a> ローカル: <a href="../reference/US/ERAS_Cardiac_2019_Perioperative_Care_Cardiac_Surgery_Guidelines.pdf">reference/US/ERAS_Cardiac_2019_Perioperative_Care_Cardiac_Surgery_Guidelines.pdf</a></p>
+</blockquote>
+<hr />
+<h3 id="関連学習リソース無料推奨">関連学習リソース（無料・推奨）</h3>
+<ul>
+<li><strong>CSU-ALS Online Training</strong>: <a href="https://www.csu-als.com">https://www.csu-als.com</a> — 米国STSが公式運営する CSU-ALS シミュレーション教材</li>
+<li><strong>JRC 蘇生ガイドライン 2020</strong>: <a href="https://www.jrc-cpr.org/jrc-guideline-2020/">https://www.jrc-cpr.org/jrc-guideline-2020/</a> — 全文無料PDF（日本語）</li>
+<li><strong>AHA CPR &amp; ECC Guidelines</strong>: <a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines">https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines</a></li>
+</ul>
+<hr />
+<p><strong>Last updated</strong>: 2026-05-19 <strong>Maintainer</strong>: Cardiac Surgery Guidelines Repository <strong>License</strong>: 学術的引用に限定、施設内共有可、商用利用には出典明記必須</p>
+
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
+</body>
+</html>

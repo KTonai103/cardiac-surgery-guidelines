@@ -18,9 +18,36 @@
   --jp-accent: #c0392b;
   --us-accent: #2980b9;
   --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
 
 body {
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
@@ -28,10 +55,23 @@ body {
   line-height: 1.7;
   color: var(--fg);
   background: var(--bg);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 32px 80px;
 }
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
 
 h1 {
   font-size: 1.6rem;
@@ -157,14 +197,256 @@ mark {
   h2 { break-after: avoid; }
 }
 
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
 @media (max-width: 768px) {
-  body { padding: 20px 16px 60px; font-size: 13px; }
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
   h1 { font-size: 1.3rem; }
   table { font-size: 0.75rem; }
 }
 </style>
 </head>
 <body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#参照ガイドライン一覧">参照ガイドライン一覧</a></li>
+      <li class="toc-l2"><a href="#i-1-jcs-2020-大動脈瘤大動脈解離診療ガイドライン-jcs-2020-ao">I-1. JCS 2020 大動脈瘤・大動脈解離診療ガイドライン (JCS 2020 Ao)</a></li>
+      <li class="toc-l3"><a href="#概要">概要</a></li>
+      <li class="toc-l3"><a href="#推奨クラスエビデンスレベル体系">推奨クラス・エビデンスレベル体系</a></li>
+      <li class="toc-l3"><a href="#上行大動脈手術適応の推奨表12">上行大動脈手術適応の推奨（表12）</a></li>
+      <li class="toc-l3"><a href="#marfan症候群表49">Marfan症候群（表49）</a></li>
+      <li class="toc-l3"><a href="#bav関連大動脈症表52">BAV関連大動脈症（表52）</a></li>
+      <li class="toc-l3"><a href="#loeys-dietz症候群">Loeys-Dietz症候群</a></li>
+      <li class="toc-l3"><a href="#turner症候群">Turner症候群</a></li>
+      <li class="toc-l3"><a href="#jcs-2020-ao-の特徴">JCS 2020 Ao の特徴</a></li>
+      <li class="toc-l3"><a href="#径の測定方法">径の測定方法</a></li>
+      <li class="toc-l2"><a href="#i-2-jcs-2020-弁膜症治療のガイドライン-jcs-2020-vhd">I-2. JCS 2020 弁膜症治療のガイドライン (JCS 2020 VHD)</a></li>
+      <li class="toc-l3"><a href="#概要-1">概要</a></li>
+      <li class="toc-l3"><a href="#上行大動脈手術適応の推奨表28">上行大動脈手術適応の推奨（表28）</a></li>
+      <li class="toc-l4"><a href="#大動脈三尖弁-tav">大動脈三尖弁 (TAV)</a></li>
+      <li class="toc-l4"><a href="#大動脈二尖弁-bav">大動脈二尖弁 (BAV)</a></li>
+      <li class="toc-l4"><a href="#marfan症候群">Marfan症候群</a></li>
+      <li class="toc-l3"><a href="#jcs-2020-vhd-の特徴">JCS 2020 VHD の特徴</a></li>
+      <li class="toc-l2"><a href="#i-3-accaha-2022-aortic-disease-guideline-accaha-2022-ao">I-3. ACC/AHA 2022 Aortic Disease Guideline (ACC/AHA 2022 Ao)</a></li>
+      <li class="toc-l3"><a href="#概要-2">概要</a></li>
+      <li class="toc-l3"><a href="#推奨クラスエビデンスレベル体系-1">推奨クラス・エビデンスレベル体系</a></li>
+      <li class="toc-l3"><a href="#非遺伝性孤発性taa--tavsection-651">非遺伝性（孤発性）TAA ― TAV（Section 6.5.1）</a></li>
+      <li class="toc-l3"><a href="#bav関連大動脈症section-6132">BAV関連大動脈症（Section 6.1.3.2）</a></li>
+      <li class="toc-l3"><a href="#marfan症候群section-61223">Marfan症候群（Section 6.1.2.2.3）</a></li>
+      <li class="toc-l3"><a href="#loeys-dietz症候群--遺伝子別閾値table-11">Loeys-Dietz症候群 ― 遺伝子別閾値（Table 11）</a></li>
+      <li class="toc-l3"><a href="#その他の遺伝性疾患table-13">その他の遺伝性疾患（Table 13）</a></li>
+      <li class="toc-l3"><a href="#nshtad遺伝子未同定">nsHTAD（遺伝子未同定）</a></li>
+      <li class="toc-l3"><a href="#turner症候群section-6125">Turner症候群（Section 6.1.2.5）</a></li>
+      <li class="toc-l3"><a href="#妊娠前の予防的手術section-83-table-34">妊娠前の予防的手術（Section 8.3, Table 34）</a></li>
+      <li class="toc-l3"><a href="#accaha-2022-ao-の特徴">ACC/AHA 2022 Ao の特徴</a></li>
+      <li class="toc-l2"><a href="#i-4-accaha-2020-valvular-heart-disease-guideline-accaha-2020-vhd">I-4. ACC/AHA 2020 Valvular Heart Disease Guideline (ACC/AHA 2020 VHD)</a></li>
+      <li class="toc-l3"><a href="#概要-3">概要</a></li>
+      <li class="toc-l3"><a href="#bav関連上行大動脈手術適応section-5121">BAV関連上行大動脈手術適応（Section 5.1.2.1）</a></li>
+      <li class="toc-l3"><a href="#comprehensive-valve-center-cvc-の定義table-11">Comprehensive Valve Center (CVC) の定義（Table 11）</a></li>
+      <li class="toc-l3"><a href="#accaha-2020-vhd-の特徴">ACC/AHA 2020 VHD の特徴</a></li>
+      <li class="toc-l2"><a href="#i-5-esc-2024-peripheral-arterial-and-aortic-diseases-esc-2024-paad">I-5. ESC 2024 Peripheral Arterial and Aortic Diseases (ESC 2024 PAAD)</a></li>
+      <li class="toc-l3"><a href="#概要-4">概要</a></li>
+      <li class="toc-l3"><a href="#推奨クラスエビデンスレベル体系-2">推奨クラス・エビデンスレベル体系</a></li>
+      <li class="toc-l3"><a href="#非遺伝性tavrecommendation-table-38">非遺伝性TAV（Recommendation Table 38）</a></li>
+      <li class="toc-l3"><a href="#bav関連大動脈症recommendation-table-68">BAV関連大動脈症（Recommendation Table 68）</a></li>
+      <li class="toc-l3"><a href="#marfan症候群recommendation-table-62">Marfan症候群（Recommendation Table 62）</a></li>
+      <li class="toc-l3"><a href="#loeys-dietz症候群recommendation-table-66--figure-42">Loeys-Dietz症候群（Recommendation Table 66 / Figure 42）</a></li>
+      <li class="toc-l3"><a href="#acta2関連疾患recommendation-table-67">ACTA2関連疾患（Recommendation Table 67）</a></li>
+      <li class="toc-l3"><a href="#turner症候群recommendation-table-58--figure-40">Turner症候群（Recommendation Table 58 / Figure 40）</a></li>
+      <li class="toc-l3"><a href="#妊娠前の予防的手術recommendation-table-63">妊娠前の予防的手術（Recommendation Table 63）</a></li>
+      <li class="toc-l3"><a href="#esc-2024-paad-の特徴">ESC 2024 PAAD の特徴</a></li>
+      <li class="toc-l3"><a href="#径の測定方法-1">径の測定方法</a></li>
+      <li class="toc-l2"><a href="#i-6-eactssts-2024-aortic-organ-guidelines-eactssts-2024-ao">I-6. EACTS/STS 2024 Aortic Organ Guidelines (EACTS/STS 2024 Ao)</a></li>
+      <li class="toc-l3"><a href="#概要-5">概要</a></li>
+      <li class="toc-l3"><a href="#非遺伝性tav--bavrecommendation-table-12">非遺伝性TAV / BAV（Recommendation Table 12）</a></li>
+      <li class="toc-l3"><a href="#marfan症候群recommendation-table-16">Marfan症候群（Recommendation Table 16）</a></li>
+      <li class="toc-l3"><a href="#loeys-dietz症候群recommendation-table-16-遺伝子別">Loeys-Dietz症候群（Recommendation Table 16 遺伝子別）</a></li>
+      <li class="toc-l3"><a href="#非症候群性htadrecommendation-table-17">非症候群性HTAD（Recommendation Table 17）</a></li>
+      <li class="toc-l3"><a href="#大動脈長recommendation-table-13">大動脈長（Recommendation Table 13）</a></li>
+      <li class="toc-l3"><a href="#eactssts-2024-ao-の特徴">EACTS/STS 2024 Ao の特徴</a></li>
+      <li class="toc-l3"><a href="#径の測定方法-2">径の測定方法</a></li>
+      <li class="toc-l2"><a href="#i-7-esceacts-2025-valvular-heart-disease-esceacts-2025-vhd">I-7. ESC/EACTS 2025 Valvular Heart Disease (ESC/EACTS 2025 VHD)</a></li>
+      <li class="toc-l3"><a href="#概要-6">概要</a></li>
+      <li class="toc-l3"><a href="#上行大動脈関連の推奨">上行大動脈関連の推奨</a></li>
+      <li class="toc-l2"><a href="#i-8-aats-2021-acute-type-a-aortic-dissection-aats-2021-ataad">I-8. AATS 2021 Acute Type A Aortic Dissection (AATS 2021 ATAAD)</a></li>
+      <li class="toc-l3"><a href="#概要-7">概要</a></li>
+      <li class="toc-l3"><a href="#予防的手術への関連記載">予防的手術への関連記載</a></li>
+      <li class="toc-l3"><a href="#root置換の適応table-5">Root置換の適応（Table 5）</a></li>
+      <li class="toc-l3"><a href="#a型imhの高リスク基準">A型IMHの高リスク基準</a></li>
+      <li class="toc-l3"><a href="#comprehensive-aortic-center-cac">Comprehensive Aortic Center (CAC)</a></li>
+      <li class="toc-l2"><a href="#1-非遺伝性変性孤発性上行大動脈瘤--三尖弁-tav">1. 非遺伝性（変性・孤発性）上行大動脈瘤 ― 三尖弁 (TAV)</a></li>
+      <li class="toc-l3"><a href="#1-1-単独手術弁手術の適応がない場合">1-1. 単独手術（弁手術の適応がない場合）</a></li>
+      <li class="toc-l3"><a href="#1-2-弁手術併施時tav手術-or-他の心臓手術">1-2. 弁手術併施時（TAV手術 or 他の心臓手術）</a></li>
+      <li class="toc-l2"><a href="#2-二尖弁-bav-関連大動脈症">2. 二尖弁 (BAV) 関連大動脈症</a></li>
+      <li class="toc-l3"><a href="#2-1-単独手術弁手術の適応がない場合">2-1. 単独手術（弁手術の適応がない場合）</a></li>
+      <li class="toc-l3"><a href="#2-2-弁手術併施時">2-2. 弁手術併施時</a></li>
+      <li class="toc-l3"><a href="#2-3-bavのリスク因子一覧ガイドライン別">2-3. BAVのリスク因子一覧（ガイドライン別）</a></li>
+      <li class="toc-l2"><a href="#3-marfan症候群">3. Marfan症候群</a></li>
+      <li class="toc-l3"><a href="#3-1-単独手術">3-1. 単独手術</a></li>
+      <li class="toc-l3"><a href="#3-2-弁手術併施時">3-2. 弁手術併施時</a></li>
+      <li class="toc-l3"><a href="#3-3-marfanのリスク因子閾値引き下げ条件">3-3. Marfanのリスク因子（閾値引き下げ条件）</a></li>
+      <li class="toc-l2"><a href="#4-loeys-dietz症候群遺伝子別">4. Loeys-Dietz症候群（遺伝子別）</a></li>
+      <li class="toc-l3"><a href="#4-1-遺伝子別の手術閾値">4-1. 遺伝子別の手術閾値</a></li>
+      <li class="toc-l2"><a href="#5-その他の遺伝性大動脈疾患">5. その他の遺伝性大動脈疾患</a></li>
+      <li class="toc-l3"><a href="#5-1-acta2-prkg1-等">5-1. ACTA2, PRKG1 等</a></li>
+      <li class="toc-l3"><a href="#5-2-非症候群性遺伝性胸部大動脈疾患-nshtad--原因遺伝子未同定">5-2. 非症候群性遺伝性胸部大動脈疾患 (nsHTAD) ― 原因遺伝子未同定</a></li>
+      <li class="toc-l3"><a href="#5-3-血管型ehlers-danlos症候群-veds">5-3. 血管型Ehlers-Danlos症候群 (vEDS)</a></li>
+      <li class="toc-l2"><a href="#6-turner症候群">6. Turner症候群</a></li>
+      <li class="toc-l2"><a href="#7-妊娠前の予防的手術適応">7. 妊娠前の予防的手術適応</a></li>
+      <li class="toc-l2"><a href="#8-indexed-measurements-の比較">8. Indexed Measurements の比較</a></li>
+      <li class="toc-l3"><a href="#8-1-断面積身長比-cross-sectional-area-to-height-ratio">8-1. 断面積/身長比 (Cross-Sectional Area to Height Ratio)</a></li>
+      <li class="toc-l3"><a href="#8-2-大動脈径指数-aortic-size-index-asi--径bsa">8-2. 大動脈径指数 (Aortic Size Index: ASI = 径/BSA)</a></li>
+      <li class="toc-l3"><a href="#8-3-大動脈身長指数-aortic-height-index-ahi--径身長">8-3. 大動脈身長指数 (Aortic Height Index: AHI = 径/身長)</a></li>
+      <li class="toc-l3"><a href="#8-4-上行大動脈長-ascending-aortic-length">8-4. 上行大動脈長 (Ascending Aortic Length)</a></li>
+      <li class="toc-l2"><a href="#9-拡大速度の閾値比較">9. 拡大速度の閾値比較</a></li>
+      <li class="toc-l2"><a href="#10-expert施設記載の詳細比較">10. 「Expert施設」記載の詳細比較</a></li>
+      <li class="toc-l3"><a href="#10-1-各ガイドラインにおける表現と適用">10-1. 各ガイドラインにおける表現と適用</a></li>
+      <li class="toc-l3"><a href="#10-2-expert施設による閾値引き下げ疾患別まとめ">10-2. Expert施設による閾値引き下げ：疾患別まとめ</a></li>
+      <li class="toc-l2"><a href="#11-aats-2021-acute-type-a-aortic-dissection-consensus-からの関連情報">11. AATS 2021 Acute Type A Aortic Dissection Consensus からの関連情報</a></li>
+      <li class="toc-l2"><a href="#12-推奨クラスとエビデンスレベルの体系比較">12. 推奨クラスとエビデンスレベルの体系比較</a></li>
+      <li class="toc-l3"><a href="#12-1-推奨クラスの定義ガイドライン間の対応">12-1. 推奨クラスの定義（ガイドライン間の対応）</a></li>
+      <li class="toc-l3"><a href="#12-2-エビデンスレベルの定義">12-2. エビデンスレベルの定義</a></li>
+      <li class="toc-l2"><a href="#13-ガイドライン間の主要な相違点">13. ガイドライン間の主要な相違点</a></li>
+      <li class="toc-l3"><a href="#13-1-閾値の相違">13-1. 閾値の相違</a></li>
+      <li class="toc-l3"><a href="#13-2-expert施設記載の相違">13-2. Expert施設記載の相違</a></li>
+      <li class="toc-l3"><a href="#13-3-径の測定方法の相違">13-3. 径の測定方法の相違</a></li>
+      <li class="toc-l2"><a href="#14-全疾患全ガイドライン統合サマリー表">14. 全疾患・全ガイドライン統合サマリー表</a></li>
+      <li class="toc-l3"><a href="#14-1-単独手術の標準閾値弁手術適応なし">14-1. 単独手術の標準閾値（弁手術適応なし）</a></li>
+      <li class="toc-l3"><a href="#14-2-弁手術併施時の閾値">14-2. 弁手術併施時の閾値</a></li>
+      <li class="toc-l2"><a href="#15-臨床上の注意点">15. 臨床上の注意点</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
 <h1 id="上行大動脈拡大に対する手術適応ガイドライン各論と横断的比較">上行大動脈拡大に対する手術適応：ガイドライン各論と横断的比較</h1>
 <p><strong>関連ドキュメント：</strong> AS/AVRガイドライン比較 · 僧帽弁狭窄症ガイドライン比較 · AF手術適応比較 · 複合弁膜症ガイドライン比較 · 術前抗凝固管理比較</p>
 <hr />
@@ -2869,5 +3151,78 @@ mark {
 <hr />
 <p><em>最終更新: 2026-04-09</em> <em>作成: 上記8ガイドラインのPDF原文に基づく</em></p>
 
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
 </body>
 </html>

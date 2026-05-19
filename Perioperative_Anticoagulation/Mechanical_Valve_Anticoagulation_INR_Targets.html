@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>機械弁術後抗凝固療法・INR治療域</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #ffffff;
@@ -18,9 +15,39 @@
   --header-bg: #2c3e50;
   --header-fg: #ffffff;
   --link: #34495e;
+  --jp-accent: #c0392b;
+  --us-accent: #2980b9;
+  --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
 
 body {
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
@@ -28,10 +55,23 @@ body {
   line-height: 1.7;
   color: var(--fg);
   background: var(--bg);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 32px 80px;
 }
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
 
 h1 {
   font-size: 1.6rem;
@@ -86,6 +126,7 @@ ul, ol {
 
 li { margin-bottom: 4px; }
 
+/* Tables */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -123,6 +164,7 @@ tbody tr:nth-child(even) td:first-child { background-color: #f0f1f3; }
 tbody tr:hover td { background-color: #eef1f5; }
 tbody tr:hover td:first-child { background-color: #e4e8ed; }
 
+/* Blockquotes (fallback for any not converted to callouts) */
 blockquote {
   background: var(--light-bg);
   border-left: 3px solid var(--border);
@@ -133,6 +175,9 @@ blockquote {
   line-height: 1.6;
 }
 
+blockquote strong { color: var(--fg); }
+
+/* Highlights */
 mark {
   background: #fff3cd;
   padding: 1px 4px;
@@ -140,97 +185,222 @@ mark {
   font-weight: 600;
 }
 
-pre {
-  background: var(--light-bg);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 12px 16px;
-  font-size: 0.82rem;
-  line-height: 1.6;
-  overflow-x: auto;
-  margin: 12px 0 20px;
-  font-family: "Courier New", monospace;
-}
-
+/* Callout overrides - already inline styled, but ensure nested elements look right */
 .callout p { margin: 4px 0; }
 .callout ul, .callout ol { margin: 4px 0 4px 16px; }
 .callout table { font-size: 0.8rem; }
 
-.nav-back {
-  display: inline-block;
-  margin-bottom: 24px;
-  color: var(--link);
-  font-size: 0.85rem;
-  text-decoration: none;
-}
-.nav-back:hover { text-decoration: underline; }
-
+/* Print */
 @media print {
   body { max-width: 100%; padding: 20px; }
   table { font-size: 0.7rem; }
   h2 { break-after: avoid; }
 }
 
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
 @media (max-width: 768px) {
-  body { padding: 20px 16px 60px; font-size: 13px; }
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
   h1 { font-size: 1.3rem; }
   table { font-size: 0.75rem; }
 }
 </style>
 </head>
 <body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-基本原則">1. 基本原則</a></li>
+      <li class="toc-l2"><a href="#2-表47--推奨クラスエビデンスレベル一覧">2. 表47 — 推奨クラス・エビデンスレベル一覧</a></li>
+      <li class="toc-l3"><a href="#機械弁">機械弁</a></li>
+      <li class="toc-l3"><a href="#生体弁">生体弁</a></li>
+      <li class="toc-l2"><a href="#3-jcs-2020-inr目標値弁位別">3. JCS 2020 INR目標値（弁位別）</a></li>
+      <li class="toc-l3"><a href="#通常目標値">通常目標値</a></li>
+      <li class="toc-l3"><a href="#塞栓症リスク因子">塞栓症リスク因子</a></li>
+      <li class="toc-l3"><a href="#適切な抗凝固療法下でも血栓塞栓症を発症した場合">適切な抗凝固療法下でも血栓塞栓症を発症した場合</a></li>
+      <li class="toc-l2"><a href="#4-欧米ガイドラインとの比較">4. 欧米ガイドラインとの比較</a></li>
+      <li class="toc-l3"><a href="#第二世代二葉弁における目標inr">第二世代二葉弁における目標INR</a></li>
+      <li class="toc-l3"><a href="#esceacts-2025-inr目標値参考">ESC/EACTS 2025 INR目標値（参考）</a></li>
+      <li class="toc-l2"><a href="#5-特殊状況">5. 特殊状況</a></li>
+      <li class="toc-l3"><a href="#on-x-機械弁大動脈弁位">On-X 機械弁（大動脈弁位）</a></li>
+      <li class="toc-l3"><a href="#妊娠合併例">妊娠合併例</a></li>
+      <li class="toc-l3"><a href="#ms--心房細動弁膜症性af">MS + 心房細動（弁膜症性AF）</a></li>
+      <li class="toc-l2"><a href="#6-生体弁tavi術後の早期抗凝固">6. 生体弁・TAVI術後の早期抗凝固</a></li>
+      <li class="toc-l2"><a href="#7-抗凝固薬過剰投与出血合併症への対応表48">7. 抗凝固薬過剰投与・出血合併症への対応（表48）</a></li>
+      <li class="toc-l2"><a href="#8-観血的処置時の抗血栓薬管理">8. 観血的処置時の抗血栓薬管理</a></li>
+      <li class="toc-l3"><a href="#歯科処置抜歯など">歯科処置（抜歯など）</a></li>
+      <li class="toc-l3"><a href="#非心臓手術周術期管理">非心臓手術（周術期管理）</a></li>
+      <li class="toc-l2"><a href="#関連ノート">関連ノート</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
 
-<a class="nav-back" href="../index.html">← ガイドライン比較 トップへ</a>
-
+<main class="content">
 <h1 id="機械弁術後抗凝固療法inr治療域">機械弁術後抗凝固療法・INR治療域</h1>
 
-<div class="callout" style="background:#e1f5fe;border-left:4px solid #00b0ff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;">
-<div class="callout-title" style="color:#00b0ff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">一次資料</div>
-<p>JCS/JATS/JSVS/JSCS 2020 弁膜症治療ガイドライン（日本語版）<br>
-<strong>第11章 人工弁置換術後 — Section 2.2</strong> / pp. 93–95（表47・表48）<br>
-関連ノート：<a href="Perioperative_Anticoagulation_Guidelines_Comparison.html">術前抗凝固管理・ヘパリンブリッジング 各地域比較</a></p>
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">一次資料</div>
+<p>JCS/JATS/JSVS/JSCS 2020 弁膜症治療ガイドライン（日本語版） <strong>第11章 人工弁置換術後 — Section 2.2</strong> / pp. 93–95（表47・表48） 関連ノート：術前抗凝固管理・ヘパリンブリッジング 各地域比較</p>
 </div>
 
-<hr>
-
+<hr />
 <h2 id="目次">目次</h2>
-<ol>
-<li><a href="#1-基本原則">基本原則</a></li>
-<li><a href="#2-表47-推奨クラスエビデンスレベル一覧">表47 — 推奨クラス・エビデンスレベル一覧</a></li>
-<li><a href="#3-jcs-2020-inr目標値弁位別">JCS 2020 INR目標値（弁位別）</a></li>
-<li><a href="#4-欧米ガイドラインとの比較">欧米ガイドラインとの比較</a></li>
-<li><a href="#5-特殊状況">特殊状況</a></li>
-<li><a href="#6-生体弁tavi術後の早期抗凝固">生体弁・TAVI術後の早期抗凝固</a></li>
-<li><a href="#7-抗凝固薬過剰投与出血合併症への対応">抗凝固薬過剰投与・出血合併症への対応（表48）</a></li>
-<li><a href="#8-観血的処置時の抗血栓薬管理">観血的処置時の抗血栓薬管理</a></li>
+<ol type="1">
+<li>#1. 基本原則</li>
+<li>#2. 表47 — 推奨クラス・エビデンスレベル一覧</li>
+<li>#3. JCS 2020 INR目標値（弁位別）</li>
+<li>#4. 欧米ガイドラインとの比較</li>
+<li>#5. 特殊状況</li>
+<li>#6. 生体弁・TAVI術後の早期抗凝固</li>
+<li>#7. 抗凝固薬過剰投与・出血合併症への対応（表48）</li>
+<li>#8. 観血的処置時の抗血栓薬管理</li>
 </ol>
-
-<hr>
-
+<hr />
 <h2 id="1-基本原則">1. 基本原則</h2>
 
-<div class="callout" style="background:#fff8e1;border-left:4px solid #ffa000;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;">
-<div class="callout-title" style="color:#ffa000;font-weight:700;margin-bottom:4px;font-size:0.85rem;">機械弁 = 全例にワルファリン終生投与（Class I）</div>
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">機械弁 = 全例にワルファリン終生投与（Class I）</div>
 <ul>
 <li>機械弁置換術後患者では<strong>全例</strong>にワルファリンによる永続的な抗凝固療法が必要</li>
-<li>ワルファリン投与下でも年間<strong>1〜3%</strong>に血栓塞栓症の合併が認められる</li>
+<li>ワルファリン投与下でも年間**1〜3%**に血栓塞栓症の合併が認められる</li>
 <li>日本人は欧米人と比較して<strong>出血合併症リスクが高く、塞栓症リスクは低い</strong>ことが古くから知られており、欧米のデータをそのまま流用できない</li>
 </ul>
 </div>
 
-<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;">
-<div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">DOACは機械弁患者に禁忌（Class III）</div>
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">DOACは機械弁患者に禁忌（Class III）</div>
 <p>RE-ALIGN試験にて塞栓症・出血イベントともDOACで有意に多く、機械弁患者へのDOACは推奨できない（推奨クラス III、エビデンスレベル B）</p>
 </div>
 
-<hr>
-
-<h2 id="2-表47-推奨クラスエビデンスレベル一覧">2. 表47 — 推奨クラス・エビデンスレベル一覧</h2>
-
+<hr />
+<h2 id="2-表47--推奨クラスエビデンスレベル一覧">2. 表47 — 推奨クラス・エビデンスレベル一覧</h2>
 <p><em>JCS 2020 第11章 p.93–94 「表47 人工弁例に対する抗血栓療法の推奨とエビデンスレベル」</em></p>
-
 <h3 id="機械弁">機械弁</h3>
-
 <table>
 <thead>
 <tr>
@@ -291,9 +461,7 @@ pre {
 </tr>
 </tbody>
 </table>
-
 <h3 id="生体弁">生体弁</h3>
-
 <table>
 <thead>
 <tr>
@@ -318,21 +486,13 @@ pre {
 </tr>
 </tbody>
 </table>
-
-<hr>
-
+<hr />
 <h2 id="3-jcs-2020-inr目標値弁位別">3. JCS 2020 INR目標値（弁位別）</h2>
-
 <h3 id="通常目標値">通常目標値</h3>
-
-<pre>
-大動脈弁位（塞栓症リスクなし）  ：INR 2.0〜2.5
+<pre><code>大動脈弁位（塞栓症リスクなし）  ：INR 2.0〜2.5
 大動脈弁位（塞栓症リスクあり）  ：INR 2.0〜3.0
-僧帽弁位                     ：INR 2.0〜3.0
-</pre>
-
+僧帽弁位                     ：INR 2.0〜3.0</code></pre>
 <h3 id="塞栓症リスク因子">塞栓症リスク因子</h3>
-
 <p>以下を合併する場合は「塞栓症リスクあり」と判断し、INRを通常より高値（大動脈弁位では 2.0〜3.0）に設定：</p>
 <ul>
 <li>塞栓症の既往</li>
@@ -340,23 +500,18 @@ pre {
 <li>僧帽弁狭窄症（MS）</li>
 <li>LVEF &lt; 35%</li>
 </ul>
-
 <h3 id="適切な抗凝固療法下でも血栓塞栓症を発症した場合">適切な抗凝固療法下でも血栓塞栓症を発症した場合</h3>
 
-<div class="callout" style="background:#fff3e0;border-left:4px solid #ff6d00;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;">
-<div class="callout-title" style="color:#ff6d00;font-weight:700;margin-bottom:4px;font-size:0.85rem;">治療抵抗性血栓塞栓症の対応</div>
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">治療抵抗性血栓塞栓症の対応</div>
 <ul>
 <li><strong>INR 2.5〜3.5</strong>にコントロール（推奨クラス IIa）</li>
 <li>アスピリン併用を考慮してもよい（推奨クラス IIb）</li>
 </ul>
 </div>
 
-<hr>
-
+<hr />
 <h2 id="4-欧米ガイドラインとの比較">4. 欧米ガイドラインとの比較</h2>
-
 <h3 id="第二世代二葉弁における目標inr">第二世代二葉弁における目標INR</h3>
-
 <table>
 <thead>
 <tr>
@@ -388,15 +543,12 @@ pre {
 </tbody>
 </table>
 
-<div class="callout" style="background:#e8f5e9;border-left:4px solid #4caf50;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;">
-<div class="callout-title" style="color:#4caf50;font-weight:700;margin-bottom:4px;font-size:0.85rem;">なぜJCSは低め？</div>
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">なぜJCSは低め？</div>
 <p>日本人は出血合併症のリスクが高く塞栓症リスクは低いことが古くから知られており、欧米のデータをそのまま流用することはできないとの判断に基づく。抗血小板薬の併用についても個々の症例で検討するべきとされている（全例推奨ではない）。</p>
 </div>
 
 <h3 id="esceacts-2025-inr目標値参考">ESC/EACTS 2025 INR目標値（参考）</h3>
-
-<p><em>詳細は <a href="Perioperative_Anticoagulation_Guidelines_Comparison.html#7-機械弁患者の周術期管理">術前抗凝固管理・ヘパリンブリッジング 各地域比較 §7</a> を参照</em></p>
-
+<p><em>詳細は Perioperative_Anticoagulation_Guidelines_Comparison#7. 機械弁患者の周術期管理 を参照</em></p>
 <table>
 <thead>
 <tr>
@@ -427,42 +579,30 @@ pre {
 </tr>
 </tbody>
 </table>
-
 <p>リスク因子（ESC/EACTS）：MS、LV機能不全（LVEF &lt; 35%）、AF、血栓塞栓症既往、過去の弁機能不全</p>
-
-<hr>
-
+<hr />
 <h2 id="5-特殊状況">5. 特殊状況</h2>
-
 <h3 id="on-x-機械弁大動脈弁位">On-X 機械弁（大動脈弁位）</h3>
-
 <p>コーティング・ヒンジ部改良型の On-X 弁では、PROACT試験（RCT）にて低用量 <strong>INR 1.5〜2.0</strong> と常用量のランダム化比較で：</p>
 <ul>
 <li>塞栓症イベント発生率は上昇せず</li>
 <li>出血イベントを抑制</li>
 </ul>
 <p>ただし本ガイドライン（JCS 2020）では On-X弁への低用量適用を標準推奨としておらず、引き続き通常目標（INR 2.0〜2.5）が基本。</p>
-
 <h3 id="妊娠合併例">妊娠合併例</h3>
-
 <p>機械弁患者が妊娠した場合の抗凝固療法は別セクションを参照（p.107 参照）。</p>
+<h3 id="ms--心房細動弁膜症性af">MS + 心房細動（弁膜症性AF）</h3>
 
-<h3 id="ms-心房細動弁膜症性af">MS + 心房細動（弁膜症性AF）</h3>
-
-<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;">
-<div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">僧帽弁狭窄症合併AFのINR管理（p.48）</div>
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">僧帽弁狭窄症合併AFのINR管理（p.48）</div>
 <ul>
 <li>目標：<strong>INR 2〜3</strong></li>
 <li>高齢日本人においては：<strong>INR 1.6〜2.6</strong>が至適レベルとする報告あり</li>
 </ul>
 </div>
 
-<hr>
-
+<hr />
 <h2 id="6-生体弁tavi術後の早期抗凝固">6. 生体弁・TAVI術後の早期抗凝固</h2>
-
 <p>生体弁植込み後 3〜6ヵ月以内は血栓塞栓症リスクが高い。</p>
-
 <table>
 <thead>
 <tr>
@@ -495,17 +635,13 @@ pre {
 </tbody>
 </table>
 
-<div class="callout" style="background:#e8f5e9;border-left:4px solid #4caf50;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;">
-<div class="callout-title" style="color:#4caf50;font-weight:700;margin-bottom:4px;font-size:0.85rem;">6ヵ月vs3ヵ月</div>
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">6ヵ月vs3ヵ月</div>
 <p>3ヵ月より6ヵ月の抗凝固療法の方が脳梗塞発症・死亡が少ないとする報告があり、出血リスクがなければ6ヵ月が推奨。最低3ヵ月は必須。</p>
 </div>
 
-<hr>
-
-<h2 id="7-抗凝固薬過剰投与出血合併症への対応">7. 抗凝固薬過剰投与・出血合併症への対応（表48）</h2>
-
+<hr />
+<h2 id="7-抗凝固薬過剰投与出血合併症への対応表48">7. 抗凝固薬過剰投与・出血合併症への対応（表48）</h2>
 <p><em>JCS 2020 第11章 p.94–95 「表48 人工弁例における抗凝固薬過剰投与・出血合併症に対する治療の推奨とエビデンスレベル」</em></p>
-
 <table>
 <thead>
 <tr>
@@ -538,45 +674,106 @@ pre {
 </tbody>
 </table>
 
-<div class="callout" style="background:#fff3e0;border-left:4px solid #ff6d00;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;">
-<div class="callout-title" style="color:#ff6d00;font-weight:700;margin-bottom:4px;font-size:0.85rem;">INR過剰上昇の目安</div>
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">INR過剰上昇の目安</div>
 <ul>
 <li><strong>INR &gt; 4.5</strong>：出血リスクが急増</li>
 <li>INRが過度に上昇した場合は緊急対応として速やかにワルファリンを是正する</li>
 </ul>
 </div>
 
-<hr>
-
+<hr />
 <h2 id="8-観血的処置時の抗血栓薬管理">8. 観血的処置時の抗血栓薬管理</h2>
-
 <h3 id="歯科処置抜歯など">歯科処置（抜歯など）</h3>
-
 <ul>
 <li><strong>PT-INR 2.0〜4.0</strong>の範囲であれば、ワルファリン<strong>継続下</strong>での抜歯が可能（前向き研究で重篤な出血合併症なし）</li>
 <li><strong>INR 2.5以下</strong>での抜歯を勧める報告あり</li>
 <li>ワルファリン休薬は血栓性・塞栓性疾患発症リスクが上昇するため推奨しない</li>
 <li>本ガイドラインも「循環器疾患における抗凝固・抗血小板療法に関するガイドライン」と同様に、至適治療域でのワルファリン<strong>内服継続下</strong>での抜歯を推奨</li>
 </ul>
-
 <h3 id="非心臓手術周術期管理">非心臓手術（周術期管理）</h3>
-
 <ul>
 <li>抗血小板薬：術前<strong>1週間前</strong>に中止</li>
-<li>詳細なブリッジング適応・ワルファリン休薬タイミングは <a href="Perioperative_Anticoagulation_Guidelines_Comparison.html">術前抗凝固管理・ヘパリンブリッジング 各地域比較</a> を参照</li>
+<li>詳細なブリッジング適応・ワルファリン休薬タイミングは Perioperative_Anticoagulation_Guidelines_Comparison を参照</li>
 </ul>
-
-<hr>
-
-<h2 id="関連ドキュメント">関連ドキュメント</h2>
-
+<hr />
+<h2 id="関連ノート">関連ノート</h2>
 <ul>
-<li><a href="Perioperative_Anticoagulation_Guidelines_Comparison.html">術前抗凝固管理・ヘパリンブリッジング 各地域比較（JCS/ESC/ACC/EACTS）</a></li>
-<li><a href="../MS_MV_Surgery/MS_MV_Surgery_Guidelines_Comparison.html">僧帽弁狭窄症のガイドライン比較（弁膜症性AFのINR管理を含む）</a></li>
+<li>Perioperative_Anticoagulation_Guidelines_Comparison — 術前抗凝固管理・ヘパリンブリッジング 各地域比較（JCS/ESC/ACC/EACTS）</li>
+<li>MS_MV_Surgery_Guidelines_Comparison — 僧帽弁狭窄症のガイドライン比較（弁膜症性AFのINR管理を含む）</li>
 </ul>
 
-<hr>
-<p><em>本文書はJCS/JATS/JSVS/JSCS 2020 弁膜症治療ガイドライン原本の記載を忠実に要約したものです。実際の臨床判断は各症例の状況を踏まえ、専門医間の協議にて総合的に行うことが推奨されます。</em></p>
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
 
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
 </body>
 </html>

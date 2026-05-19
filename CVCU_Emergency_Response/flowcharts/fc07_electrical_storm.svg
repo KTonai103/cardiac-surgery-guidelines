@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1300" font-family="system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B71C1C"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="1300" fill="#FAFAFA"/>
+
+  <!-- HEADER -->
+  <rect x="0" y="0" width="1400" height="100" fill="#B71C1C"/>
+  <text x="700" y="50" font-size="32" font-weight="700" fill="#FFFFFF" text-anchor="middle">VF storm / Electrical storm エスカレーション</text>
+  <text x="700" y="80" font-size="16" fill="#FFCDD2" text-anchor="middle">定義: 24 時間以内に 3 回以上の sustained VA（VT/VF） [5]</text>
+
+  <!-- LEFT LANE: Reversible causes (always parallel) -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="140" width="320" height="1010" rx="10" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+    <rect x="50" y="140" width="320" height="44" rx="10" fill="#1565C0"/>
+    <text x="210" y="170" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">🔍 並行: 可逆原因 評価</text>
+
+    <text x="70" y="215" font-size="14" font-weight="700" fill="#0D47A1">電解質</text>
+    <text x="80" y="237" font-size="13" fill="#424242">✓ K ≥ 4.5 mmol/L</text>
+    <text x="80" y="257" font-size="13" fill="#424242">✓ Mg ≥ 2.0 mmol/L</text>
+    <text x="80" y="277" font-size="13" fill="#424242">✓ Ca 正常範囲</text>
+
+    <text x="70" y="312" font-size="14" font-weight="700" fill="#0D47A1">急性虚血</text>
+    <text x="80" y="334" font-size="13" fill="#424242">✓ 12 誘導 ECG（ST変化）</text>
+    <text x="80" y="354" font-size="13" fill="#424242">✓ 心エコー（壁運動）</text>
+    <text x="80" y="374" font-size="13" fill="#424242">✓ トロポニン 動向</text>
+
+    <text x="70" y="409" font-size="14" font-weight="700" fill="#0D47A1">炎症・感染</text>
+    <text x="80" y="431" font-size="13" fill="#424242">✓ 発熱・敗血症</text>
+    <text x="80" y="451" font-size="13" fill="#424242">✓ 低酸素</text>
+
+    <text x="70" y="486" font-size="14" font-weight="700" fill="#0D47A1">薬剤</text>
+    <text x="80" y="508" font-size="13" fill="#424242">✓ QT延長薬 中止</text>
+    <text x="80" y="528" font-size="13" fill="#424242">  (キノロン, マクロライド,</text>
+    <text x="80" y="544" font-size="13" fill="#424242">   抗精神病薬 等)</text>
+    <text x="80" y="564" font-size="13" fill="#424242">✓ ソタロール・ドフェチリド 中止</text>
+
+    <text x="70" y="599" font-size="14" font-weight="700" fill="#0D47A1">デバイス</text>
+    <text x="80" y="621" font-size="13" fill="#424242">✓ 植込み型除細動器 (ICD)</text>
+    <text x="80" y="641" font-size="13" fill="#424242">  繰返し作動 → magnet で停止</text>
+    <text x="80" y="661" font-size="13" fill="#424242">✓ 不適切作動の鑑別</text>
+    <text x="80" y="681" font-size="13" fill="#424242">  (AF/SVT misinterpret)</text>
+
+    <text x="70" y="716" font-size="14" font-weight="700" fill="#0D47A1">機械的・血行動態</text>
+    <text x="80" y="738" font-size="13" fill="#424242">✓ 心タンポナーデ</text>
+    <text x="80" y="758" font-size="13" fill="#424242">✓ 大動脈バルーン誤作動</text>
+    <text x="80" y="778" font-size="13" fill="#424242">✓ ECMO 異常（既装着時）</text>
+  </g>
+
+  <!-- RIGHT: 8-Step Escalation Staircase -->
+
+  <!-- Step 1 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="140" width="920" height="80" rx="8" fill="#E1F5FE" stroke="#0288D1" stroke-width="2"/>
+    <rect x="430" y="140" width="80" height="80" rx="8" fill="#0288D1"/>
+    <text x="470" y="190" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+    <text x="530" y="170" font-size="16" font-weight="700" fill="#01579B">軽度〜中等度 鎮静</text>
+    <text x="530" y="192" font-size="13" fill="#424242">デクスメデトミジン or ミダゾラム — 交感神経 tone を低下させる</text>
+    <text x="530" y="210" font-size="11" font-style="italic" fill="#757575">Class I-C [5]</text>
+  </g>
+
+  <!-- Step 2 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="240" width="920" height="120" rx="8" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="2"/>
+    <rect x="430" y="240" width="80" height="120" rx="8" fill="#6A1B9A"/>
+    <text x="470" y="310" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+    <text x="530" y="270" font-size="16" font-weight="700" fill="#4A148C">💊 β遮断薬 + アミオダロン 静注</text>
+    <text x="530" y="292" font-size="13" fill="#424242">非選択性β遮断薬 優先（プロプラノロール）</text>
+    <text x="530" y="310" font-size="13" fill="#424242">院内: エスモロール 100 µg/kg → 10–40 µg/kg/min</text>
+    <text x="530" y="328" font-size="13" fill="#424242">   or ランジオロール 100 µg/kg → 10–40 µg/kg/min</text>
+    <text x="530" y="346" font-size="13" fill="#424242">アミオダロン 5 mg/kg を 20 分で → 反復可（600–1200 mg/24h × 8–10 日）</text>
+  </g>
+  <text x="845" y="356" font-size="11" font-style="italic" fill="#757575">Class I-B [5]</text>
+
+  <!-- Step 3 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="380" width="920" height="80" rx="8" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+    <rect x="430" y="380" width="80" height="80" rx="8" fill="#E53935"/>
+    <text x="470" y="430" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+    <text x="530" y="410" font-size="16" font-weight="700" fill="#B71C1C">⚡ 同期カルジオバージョン（不安定時）</text>
+    <text x="530" y="432" font-size="13" fill="#424242">二相性 150–200 J（必要なら 360 J） — 不安定 SMVT に第一選択</text>
+    <text x="530" y="450" font-size="11" font-style="italic" fill="#757575">Class I-B [5]</text>
+  </g>
+
+  <!-- Step 4 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="480" width="920" height="100" rx="8" fill="#FFF3E0" stroke="#FF6F00" stroke-width="2"/>
+    <rect x="430" y="480" width="80" height="100" rx="8" fill="#FF6F00"/>
+    <text x="470" y="540" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">4</text>
+    <text x="530" y="510" font-size="16" font-weight="700" fill="#E65100">TdP / 多形性 VT を疑う?</text>
+    <text x="530" y="532" font-size="13" fill="#424242">→ 硫酸マグネシウム 1–2 g 静注（5% ブドウ糖 10 mL で希釈）</text>
+    <text x="530" y="550" font-size="13" fill="#424242">→ K, Ca 補正 / イソプロテレノール or ペーシングで HR↑ / FC8 参照</text>
+    <text x="530" y="571" font-size="11" font-style="italic" fill="#B71C1C">⛔ TdP にアミオダロン・ソタロール 禁忌（QT さらに延長）</text>
+  </g>
+
+  <!-- Step 5 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="600" width="920" height="80" rx="8" fill="#FFE0B2" stroke="#FF6F00" stroke-width="2"/>
+    <rect x="430" y="600" width="80" height="80" rx="8" fill="#FF6F00"/>
+    <text x="470" y="650" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">5</text>
+    <text x="530" y="630" font-size="16" font-weight="700" fill="#E65100">深鎮静・全身麻酔 + 挿管</text>
+    <text x="530" y="652" font-size="13" fill="#424242">難治性 storm（薬物治療反応せず）— 交感神経完全遮断</text>
+    <text x="530" y="670" font-size="11" font-style="italic" fill="#757575">Class IIa-C [5]</text>
+  </g>
+
+  <!-- Step 6 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="700" width="920" height="80" rx="8" fill="#FFCDD2" stroke="#B71C1C" stroke-width="2"/>
+    <rect x="430" y="700" width="80" height="80" rx="8" fill="#B71C1C"/>
+    <text x="470" y="750" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">6</text>
+    <text x="530" y="730" font-size="16" font-weight="700" fill="#B71C1C">早期カテーテルアブレーション</text>
+    <text x="530" y="752" font-size="13" fill="#424242">専門施設へ転送検討 — Trigger PVC mapping + ablation</text>
+    <text x="530" y="770" font-size="11" font-style="italic" fill="#757575">Class I-B [5]</text>
+  </g>
+
+  <!-- Step 7 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="800" width="920" height="80" rx="8" fill="#FFCDD2" stroke="#B71C1C" stroke-width="2"/>
+    <rect x="430" y="800" width="80" height="80" rx="8" fill="#B71C1C"/>
+    <text x="470" y="850" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">7</text>
+    <text x="530" y="830" font-size="16" font-weight="700" fill="#B71C1C">機械的循環補助</text>
+    <text x="530" y="852" font-size="13" fill="#424242">VA-ECMO / IMPELLA 導入 → FC10 へ</text>
+    <text x="530" y="870" font-size="11" font-style="italic" fill="#757575">Class IIb [5]</text>
+  </g>
+
+  <!-- Step 8 -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="900" width="920" height="80" rx="8" fill="#F5F5F5" stroke="#9E9E9E" stroke-width="2" stroke-dasharray="4 2"/>
+    <rect x="430" y="900" width="80" height="80" rx="8" fill="#9E9E9E"/>
+    <text x="470" y="950" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">8</text>
+    <text x="530" y="930" font-size="16" font-weight="700" fill="#424242">自律神経 modulation（高度専門）</text>
+    <text x="530" y="952" font-size="13" fill="#424242">星状神経節ブロック / 左心交感神経除神経（LCSD）</text>
+    <text x="530" y="970" font-size="11" font-style="italic" fill="#757575">Class IIb [5]</text>
+  </g>
+
+  <!-- Bottom warning box -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="1010" width="920" height="100" rx="12" fill="#B71C1C"/>
+    <text x="890" y="1042" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">⚠ 重要 — アミオダロン投与速度</text>
+    <text x="890" y="1066" font-size="13" fill="#FFCDD2" text-anchor="middle">投与速度 ≤ 50 mg/min を超えない（徐脈・低血圧 risk）</text>
+    <text x="890" y="1088" font-size="13" fill="#FFCDD2" text-anchor="middle">QT 延長モニタ / 半減期 ~55 日のため数日後の徐脈に注意</text>
+  </g>
+
+  <!-- Citation -->
+  <text x="700" y="1155" font-size="12" fill="#9E9E9E" text-anchor="middle">References: [3] AHA 2025 Part 9 — [5] ESC 2022 Ventricular Arrhythmias</text>
+</svg>

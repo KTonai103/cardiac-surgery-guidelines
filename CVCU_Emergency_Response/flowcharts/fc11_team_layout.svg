@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1240" font-family="system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="1240" fill="#FAFAFA"/>
+
+  <!-- ========== HEADER ========== -->
+  <rect x="0" y="0" width="1400" height="90" fill="#37474F"/>
+  <text x="700" y="42" font-size="30" font-weight="700" fill="#FFFFFF" text-anchor="middle">CALS 6 人チーム — ベッドサイド配置図</text>
+  <text x="700" y="72" font-size="16" fill="#B0BEC5" text-anchor="middle">CVCU 心停止対応 / 各役割の責任と動き [Refs 1, 2]</text>
+
+  <!-- ========== BED in center (top-down view) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="550" y="430" width="300" height="180" rx="20" fill="#ECEFF1" stroke="#546E7A" stroke-width="2"/>
+    <ellipse cx="700" cy="460" rx="60" ry="35" fill="#FFE0B2" stroke="#FF6F00" stroke-width="1.5"/>
+    <rect x="660" y="490" width="80" height="100" rx="15" fill="#FFE0B2" stroke="#FF6F00" stroke-width="1.5"/>
+    <text x="700" y="465" font-size="14" font-weight="700" fill="#E65100" text-anchor="middle">患者</text>
+    <text x="700" y="545" font-size="12" fill="#5D4037" text-anchor="middle">胸骨切開創</text>
+    <text x="700" y="420" font-size="11" font-weight="700" fill="#546E7A" text-anchor="middle">▲ 頭側 (head)</text>
+    <text x="700" y="630" font-size="11" font-weight="700" fill="#546E7A" text-anchor="middle">▼ 足側 (foot)</text>
+  </g>
+
+  <!-- ========== ROLE 1: ECM (Right of chest) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="900" y="370" width="380" height="200" rx="10" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+    <rect x="900" y="370" width="380" height="36" rx="10" fill="#E53935"/>
+    <text x="920" y="395" font-size="16" font-weight="700" fill="#FFFFFF">Role 1 — 心マッサージ担当</text>
+    <text x="1260" y="395" font-size="14" fill="#FFCDD2" text-anchor="end">患者 右胸部</text>
+
+    <text x="920" y="430" font-size="13" fill="#424242">• 100–120 / min、深さ 4–5 cm</text>
+    <text x="920" y="450" font-size="13" fill="#424242">• 動脈圧波形で 収縮期 ≥ 60 mmHg を目標</text>
+    <text x="920" y="470" font-size="13" font-weight="700" fill="#B71C1C">• &lt; 60 mmHg → 「再開胸要」と即座に宣言</text>
+    <text x="920" y="490" font-size="13" fill="#424242">• 2 分ごと交代（疲労防止）</text>
+    <text x="920" y="510" font-size="13" fill="#424242">• 経過中、収縮期値をリーダーに口頭で伝達</text>
+    <text x="920" y="540" font-size="11" font-style="italic" fill="#757575">⚠ 開胸後は内心臓マッサージへ役割移譲</text>
+  </g>
+  <line x1="900" y1="470" x2="850" y2="470" stroke="#E53935" stroke-width="2.5"/>
+
+  <!-- ========== ROLE 2: Airway (Head end) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="510" y="180" width="380" height="200" rx="10" fill="#E1F5FE" stroke="#0288D1" stroke-width="2"/>
+    <rect x="510" y="180" width="380" height="36" rx="10" fill="#0288D1"/>
+    <text x="530" y="205" font-size="16" font-weight="700" fill="#FFFFFF">Role 2 — 気道・呼吸</text>
+    <text x="870" y="205" font-size="14" fill="#B3E5FC" text-anchor="end">患者 頭側</text>
+
+    <text x="530" y="240" font-size="13" fill="#424242">• FiO₂ 100% / PEEP off に切替</text>
+    <text x="530" y="260" font-size="13" fill="#424242">• 手動バッグマスク換気</text>
+    <text x="530" y="280" font-size="13" fill="#424242">• 両肺聴診 — 気胸 除外</text>
+    <text x="530" y="300" font-size="13" fill="#424242">• 気管チューブ位置確認 + カプノグラフィ</text>
+    <text x="530" y="320" font-size="13" font-weight="700" fill="#B71C1C">• 緊張性気胸疑い → 14 G を第 2 肋間 鎖骨中線へ</text>
+    <text x="530" y="340" font-size="13" fill="#424242">• 換気状態をリーダーに報告</text>
+    <text x="530" y="365" font-size="11" font-style="italic" fill="#757575">⚠ 過換気を避ける（10/min 連続圧迫下）</text>
+  </g>
+  <line x1="700" y1="380" x2="700" y2="430" stroke="#0288D1" stroke-width="2.5"/>
+
+  <!-- ========== ROLE 3: Defib + Pacing (Left of chest) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="370" width="380" height="200" rx="10" fill="#FFCDD2" stroke="#B71C1C" stroke-width="2"/>
+    <rect x="120" y="370" width="380" height="36" rx="10" fill="#B71C1C"/>
+    <text x="140" y="395" font-size="16" font-weight="700" fill="#FFFFFF">Role 3 — 除細動・ペーシング</text>
+    <text x="480" y="395" font-size="14" fill="#FFCDD2" text-anchor="end">患者 左胸部</text>
+
+    <text x="140" y="430" font-size="13" fill="#424242">• 除細動器接続・charge</text>
+    <text x="140" y="450" font-size="13" font-weight="700" fill="#B71C1C">• 二相性 200 J × 3 連続ショック</text>
+    <text x="140" y="470" font-size="13" fill="#424242">• 心外膜ペーシング: DDD 80–100 bpm, 出力 最大</text>
+    <text x="140" y="490" font-size="13" fill="#424242">• Capture 不可なら 経皮ペーシング</text>
+    <text x="140" y="510" font-size="13" fill="#424242">• 開胸後は内除細動 paddle 準備</text>
+    <text x="140" y="540" font-size="11" font-style="italic" fill="#757575">⚠ 患者から手を離してから shock</text>
+  </g>
+  <line x1="500" y1="470" x2="550" y2="470" stroke="#B71C1C" stroke-width="2.5"/>
+
+  <!-- ========== ROLE 4: Drugs (Right foot) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="900" y="660" width="380" height="200" rx="10" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="2"/>
+    <rect x="900" y="660" width="380" height="36" rx="10" fill="#6A1B9A"/>
+    <text x="920" y="685" font-size="16" font-weight="700" fill="#FFFFFF">Role 4 — 薬剤・ライン</text>
+    <text x="1260" y="685" font-size="14" fill="#E1BEE7" text-anchor="end">患者 右足側</text>
+
+    <text x="920" y="720" font-size="13" fill="#424242">• 全持続点滴・シリンジポンプ 停止</text>
+    <text x="920" y="740" font-size="13" fill="#424242">• 鎮静のみ継続可</text>
+    <text x="920" y="760" font-size="13" fill="#424242">• 大動脈バルーン → pressure trigger 切替</text>
+    <text x="920" y="780" font-size="13" font-weight="700" fill="#4A148C">• アミオダロン 300 mg を 5%ブドウ糖 20 mL で希釈</text>
+    <text x="920" y="800" font-size="13" fill="#424242">• 中心静脈ラインから急速静注 → 追加 150 mg</text>
+    <text x="920" y="820" font-size="13" fill="#424242">• 持続点滴 900 mg/24 時間</text>
+    <text x="920" y="845" font-size="11" font-weight="700" fill="#B71C1C">⛔ アドレナリン ルーチン投与 禁止</text>
+  </g>
+  <line x1="900" y1="730" x2="850" y2="610" stroke="#6A1B9A" stroke-width="2.5"/>
+
+  <!-- ========== ROLE 5: Resternotomy prep (Left foot) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="660" width="380" height="200" rx="10" fill="#FFF3E0" stroke="#FF6F00" stroke-width="2"/>
+    <rect x="120" y="660" width="380" height="36" rx="10" fill="#FF6F00"/>
+    <text x="140" y="685" font-size="16" font-weight="700" fill="#FFFFFF">Role 5 — 胸骨再開放準備</text>
+    <text x="480" y="685" font-size="14" fill="#FFE0B2" text-anchor="end">患者 左足側</text>
+
+    <text x="140" y="720" font-size="13" fill="#424242">• 心停止コール時点で滅菌ガウン + closed-glove</text>
+    <text x="140" y="740" font-size="13" font-weight="700" fill="#E65100">• 緊急胸骨再開放セット 展開（必須 5 点）</text>
+    <text x="160" y="758" font-size="12" fill="#424242">  ① scalpel ② ワイヤーカッター ③ 重い針把持器</text>
+    <text x="160" y="774" font-size="12" fill="#424242">  ④ 単一piece 胸骨開創器 ⑤ 吸引</text>
+    <text x="140" y="798" font-size="13" fill="#424242">• All-in-one drape 準備</text>
+    <text x="140" y="818" font-size="13" fill="#424242">• 内除細動 paddle 確保</text>
+    <text x="140" y="845" font-size="11" font-style="italic" fill="#757575">⏱ 5 分以内に再開胸開始</text>
+  </g>
+  <line x1="500" y1="730" x2="550" y2="610" stroke="#FF6F00" stroke-width="2.5"/>
+
+  <!-- ========== ROLE 6: Team Leader (BELOW all other roles, full width) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="160" y="930" width="1080" height="200" rx="10" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2.5"/>
+    <rect x="160" y="930" width="1080" height="40" rx="10" fill="#2E7D32"/>
+    <text x="180" y="958" font-size="16" font-weight="700" fill="#FFFFFF">Role 6 — Team Leader（チームリーダー / コーディネーター）</text>
+    <text x="1220" y="958" font-size="14" fill="#C8E6C9" text-anchor="end">ベッド外</text>
+
+    <text x="180" y="995" font-size="14" fill="#424242">• 全体指揮 / プロトコル順守確認 / 各役割の充足確認</text>
+    <text x="180" y="1018" font-size="14" font-weight="700" fill="#B71C1C">• ⏱ 5 分タイマー（再開胸決定の壁）</text>
+    <text x="180" y="1041" font-size="14" fill="#424242">• 上級医・心臓外科オンコール を呼出</text>
+
+    <text x="700" y="995" font-size="14" fill="#424242">• 家族連絡・待機室への誘導指示</text>
+    <text x="700" y="1018" font-size="14" fill="#424242">• 全行動を口頭で記録係（看護師）に伝達</text>
+    <text x="700" y="1041" font-size="14" fill="#424242">• 心停止 0:00 からの経過時間を発声で共有</text>
+
+    <text x="700" y="1095" font-size="13" font-style="italic" fill="#2E7D32" text-anchor="middle">👐 患者に触れない唯一のメンバー — 俯瞰的判断に専念</text>
+  </g>
+
+  <!-- ========== Equipment positions (corners) — compact ========== -->
+  <g>
+    <rect x="20" y="180" width="80" height="120" rx="6" fill="#37474F"/>
+    <text x="60" y="220" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">除細動器</text>
+    <text x="60" y="240" font-size="11" fill="#FFFFFF" text-anchor="middle">/ paddle</text>
+    <text x="60" y="260" font-size="11" fill="#FFFFFF" text-anchor="middle">/ 内除細動</text>
+
+    <rect x="1300" y="180" width="80" height="120" rx="6" fill="#37474F"/>
+    <text x="1340" y="220" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">モニタ</text>
+    <text x="1340" y="240" font-size="11" fill="#FFFFFF" text-anchor="middle">/ ECG</text>
+    <text x="1340" y="260" font-size="11" fill="#FFFFFF" text-anchor="middle">/ 動脈圧</text>
+
+    <rect x="20" y="700" width="80" height="120" rx="6" fill="#37474F"/>
+    <text x="60" y="740" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">再開胸</text>
+    <text x="60" y="760" font-size="11" fill="#FFFFFF" text-anchor="middle">セット</text>
+    <text x="60" y="780" font-size="11" fill="#FFFFFF" text-anchor="middle">/ drape</text>
+
+    <rect x="1300" y="700" width="80" height="120" rx="6" fill="#37474F"/>
+    <text x="1340" y="740" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">薬剤</text>
+    <text x="1340" y="760" font-size="11" fill="#FFFFFF" text-anchor="middle">crash</text>
+    <text x="1340" y="780" font-size="11" fill="#FFFFFF" text-anchor="middle">cart</text>
+  </g>
+
+  <!-- Citation -->
+  <text x="700" y="1190" font-size="12" fill="#9E9E9E" text-anchor="middle">References: [1] Dunning J et al. EACTS 2009 — [2] Dunning J et al. STS 2017</text>
+</svg>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1300" font-family="system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1565C0"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E7D32"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B71C1C"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="1300" fill="#FAFAFA"/>
+
+  <!-- HEADER -->
+  <rect x="0" y="0" width="1400" height="100" fill="#1565C0"/>
+  <text x="700" y="50" font-size="32" font-weight="700" fill="#FFFFFF" text-anchor="middle">術後新規心房細動（POAF）急性期対応</text>
+  <text x="700" y="80" font-size="16" fill="#BBDEFB" text-anchor="middle">Post-Operative Atrial Fibrillation Management</text>
+
+  <!-- Epidemiology Banner -->
+  <rect x="50" y="120" width="1300" height="60" rx="8" fill="#E1F5FE" stroke="#0288D1" stroke-width="1.5"/>
+  <text x="70" y="150" font-size="14" font-weight="700" fill="#01579B">📊 疫学:</text>
+  <text x="170" y="150" font-size="14" fill="#424242">CABG 20–30% / 弁手術 30–40% / 複合 40–50% に発症</text>
+  <text x="70" y="170" font-size="14" font-weight="700" fill="#01579B">⏱ 発症時期:</text>
+  <text x="170" y="170" font-size="14" fill="#424242">術後 4 日以内に 70%、7 日以内に 90% が発症 — エピソード中央値 約 4 分（多くは paroxysmal）[6]</text>
+
+  <!-- START -->
+  <g filter="url(#shadow)">
+    <rect x="540" y="210" width="320" height="60" rx="30" fill="#E3F2FD" stroke="#1565C0" stroke-width="2.5"/>
+    <text x="700" y="248" font-size="20" font-weight="700" fill="#0D47A1" text-anchor="middle">新規 POAF を確認</text>
+  </g>
+  <line x1="700" y1="270" x2="700" y2="300" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 1: ECG + Vital -->
+  <g filter="url(#shadow)">
+    <rect x="300" y="305" width="800" height="80" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+    <text x="700" y="334" font-size="17" font-weight="700" fill="#0D47A1" text-anchor="middle">① 12 誘導 ECG で診断確定</text>
+    <text x="700" y="358" font-size="14" fill="#424242" text-anchor="middle">心拍数 / 血圧 / SpO₂ / 意識レベル を 5 分以内に評価</text>
+    <text x="700" y="378" font-size="13" fill="#424242" text-anchor="middle">電解質採血（K, Mg）、トロポニン（虚血鑑別）、血液ガス</text>
+  </g>
+  <line x1="700" y1="385" x2="700" y2="415" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Decision: hemodynamic? -->
+  <g filter="url(#shadow)">
+    <polygon points="700,420 920,510 700,600 480,510" fill="#FFF8E1" stroke="#F57F17" stroke-width="2.5"/>
+    <text x="700" y="495" font-size="20" font-weight="700" fill="#E65100" text-anchor="middle">② 血行動態は?</text>
+    <text x="700" y="520" font-size="13" fill="#424242" text-anchor="middle">SBP / 意識 / 虚血所見 /</text>
+    <text x="700" y="538" font-size="13" fill="#424242" text-anchor="middle">心不全 sign</text>
+  </g>
+
+  <!-- Branches -->
+  <text x="380" y="555" font-size="16" font-weight="700" fill="#B71C1C">不安定 →</text>
+  <text x="935" y="555" font-size="16" font-weight="700" fill="#2E7D32">← 安定</text>
+
+  <!-- UNSTABLE branch (LEFT) -->
+  <path d="M 480 510 Q 350 580 250 660" stroke="#B71C1C" stroke-width="2" fill="none" marker-end="url(#arrowRed)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="665" width="400" height="180" rx="8" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2.5"/>
+    <rect x="50" y="665" width="400" height="36" rx="8" fill="#B71C1C"/>
+    <text x="250" y="691" font-size="17" font-weight="700" fill="#FFFFFF" text-anchor="middle">⚡ 同期カルジオバージョン</text>
+
+    <text x="70" y="725" font-size="15" font-weight="700" fill="#B71C1C">エネルギー</text>
+    <text x="70" y="747" font-size="14" fill="#424242">  二相性 100–200 J（必要なら段階増）</text>
+
+    <text x="70" y="775" font-size="15" font-weight="700" fill="#B71C1C">前処置</text>
+    <text x="70" y="797" font-size="14" fill="#424242">  ミダゾラム + フェンタニル</text>
+    <text x="70" y="815" font-size="14" fill="#424242">  または プロポフォール 鎮静</text>
+
+    <text x="250" y="838" font-size="12" font-style="italic" fill="#757575" text-anchor="middle">Class I-C-EO [6]</text>
+  </g>
+
+  <!-- STABLE branch (RIGHT) -->
+  <path d="M 920 510 Q 1050 580 1150 660" stroke="#2E7D32" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="500" y="665" width="850" height="60" rx="8" fill="#E8F5E9" stroke="#43A047" stroke-width="2"/>
+    <text x="925" y="692" font-size="16" font-weight="700" fill="#1B5E20" text-anchor="middle">レート調整 vs リズム調整 — どちらも妥当</text>
+    <text x="925" y="713" font-size="13" font-style="italic" fill="#757575" text-anchor="middle">Class IIb-B-NR [6] — 個別判断</text>
+  </g>
+
+  <!-- Stable - sub branches -->
+  <line x1="700" y1="725" x2="700" y2="755" stroke="#2E7D32" stroke-width="2"/>
+  <line x1="700" y1="755" x2="500" y2="755" stroke="#2E7D32" stroke-width="2"/>
+  <line x1="700" y1="755" x2="1150" y2="755" stroke="#2E7D32" stroke-width="2"/>
+  <line x1="500" y1="755" x2="500" y2="775" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="1150" y1="755" x2="1150" y2="775" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- Rate control box -->
+  <g filter="url(#shadow)">
+    <rect x="500" y="780" width="370" height="280" rx="8" fill="#FFFFFF" stroke="#43A047" stroke-width="2"/>
+    <rect x="500" y="780" width="370" height="36" rx="8" fill="#43A047"/>
+    <text x="685" y="806" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">📉 レート調整</text>
+
+    <text x="520" y="838" font-size="14" font-weight="700" fill="#1B5E20">メトプロロール（静注）</text>
+    <text x="520" y="858" font-size="13" fill="#424242">  2.5–5 mg を緩徐静注 / 必要時反復</text>
+
+    <text x="520" y="884" font-size="14" font-weight="700" fill="#1B5E20">エスモロール</text>
+    <text x="520" y="904" font-size="13" fill="#424242">  100 µg/kg を 1 分 → 10–40 µg/kg/min</text>
+
+    <text x="520" y="930" font-size="14" font-weight="700" fill="#1B5E20">ランジオロール（心機能低下例）</text>
+    <text x="520" y="950" font-size="13" fill="#424242">  100 µg/kg を 1 分 → 10–40 µg/kg/min</text>
+
+    <text x="520" y="976" font-size="14" font-weight="700" fill="#1B5E20">ジルチアゼム（β遮断薬不可時）</text>
+    <text x="520" y="996" font-size="13" fill="#424242">  0.25 mg/kg → 5–15 mg/h（LV不全注意）</text>
+
+    <rect x="520" y="1015" width="330" height="36" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+    <text x="685" y="1038" font-size="13" font-weight="700" fill="#B71C1C" text-anchor="middle">⚠ 心拍数 &lt;60 or 収縮期 &lt;100 → 中止</text>
+  </g>
+
+  <!-- Rhythm control box -->
+  <g filter="url(#shadow)">
+    <rect x="900" y="780" width="450" height="280" rx="8" fill="#FFFFFF" stroke="#6A1B9A" stroke-width="2"/>
+    <rect x="900" y="780" width="450" height="36" rx="8" fill="#6A1B9A"/>
+    <text x="1125" y="806" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">💊 リズム調整 — アミオダロン プロトコル</text>
+
+    <!-- Phase boxes -->
+    <rect x="920" y="828" width="410" height="60" rx="4" fill="#F3E5F5"/>
+    <text x="930" y="850" font-size="13" font-weight="700" fill="#4A148C">Phase 1（0–15 分）</text>
+    <text x="930" y="869" font-size="13" fill="#424242">  300 mg を 10–15 分かけて投与</text>
+    <text x="930" y="884" font-size="12" fill="#757575">  5% ブドウ糖 100 mL に溶解 / 中心静脈推奨</text>
+
+    <rect x="920" y="895" width="410" height="48" rx="4" fill="#F3E5F5"/>
+    <text x="930" y="915" font-size="13" font-weight="700" fill="#4A148C">Phase 2（15 分 – 6 時間）</text>
+    <text x="930" y="934" font-size="13" fill="#424242">  1 mg/min × 6 時間（合計 360 mg）</text>
+
+    <rect x="920" y="950" width="410" height="48" rx="4" fill="#F3E5F5"/>
+    <text x="930" y="970" font-size="13" font-weight="700" fill="#4A148C">Phase 3（6 時間 – 24 時間）</text>
+    <text x="930" y="989" font-size="13" fill="#424242">  0.5 mg/min × 18 時間（合計 540 mg）</text>
+
+    <text x="1125" y="1020" font-size="13" font-weight="700" fill="#4A148C" text-anchor="middle">24 時間合計: ~ 1200 mg</text>
+    <text x="1125" y="1042" font-size="11" font-style="italic" fill="#757575" text-anchor="middle">投与速度 ≤ 50 mg/min を超えない / 徐脈・低血圧 注意</text>
+  </g>
+
+  <!-- Anticoagulation box -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="1090" width="1200" height="120" rx="8" fill="#FFF8E1" stroke="#F9A825" stroke-width="2"/>
+    <rect x="100" y="1090" width="1200" height="32" rx="8" fill="#F9A825"/>
+    <text x="700" y="1112" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">🩸 抗凝固療法の判断（Class IIb-B-NR [6]）</text>
+
+    <text x="120" y="1145" font-size="13" font-weight="700" fill="#2E7D32">✅ 考慮:</text>
+    <text x="200" y="1145" font-size="13" fill="#424242">左側弁手術 / CHA₂DS₂-VASc ≥4 / 既往の塞栓イベント</text>
+
+    <text x="120" y="1166" font-size="13" font-weight="700" fill="#B71C1C">❌ 保留:</text>
+    <text x="200" y="1166" font-size="13" fill="#424242">単独CABG + CHA₂DS₂-VASc &lt;4 / 活動性出血 / ドレーン排液継続</text>
+
+    <text x="120" y="1187" font-size="13" font-weight="700" fill="#0D47A1">💊 薬剤選択:</text>
+    <text x="220" y="1187" font-size="13" fill="#424242">直接経口抗凝固薬 &gt; ワーファリン（出血少）／機械弁置換後はワーファリン必須</text>
+  </g>
+
+  <!-- Citation -->
+  <text x="700" y="1255" font-size="12" fill="#9E9E9E" text-anchor="middle">References: [5] ESC 2022 VA — [6] STS 2026 Post-op AF</text>
+
+  <!-- Prevention sidebar - removed for space - kept simple -->
+</svg>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1380" font-family="system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#424242"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B71C1C"/>
+    </marker>
+    <marker id="arrowYellow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E68A00"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E7D32"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1380" fill="#FAFAFA"/>
+
+  <!-- ========== HEADER ========== -->
+  <rect x="0" y="0" width="1600" height="100" fill="#263238"/>
+  <text x="800" y="50" font-size="34" font-weight="700" fill="#FFFFFF" text-anchor="middle">CVCU 心停止対応 — CALS / CSU-ALS マスターアルゴリズム</text>
+  <text x="800" y="82" font-size="18" fill="#B0BEC5" text-anchor="middle">Cardiac Surgery Unit Advanced Life Support  /  心臓外科術後 心停止プロトコル  [Refs 1, 2]</text>
+
+  <!-- ========== START ========== -->
+  <g filter="url(#shadow)">
+    <rect x="600" y="130" width="400" height="60" rx="30" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2.5"/>
+    <text x="800" y="168" font-size="22" font-weight="700" fill="#B71C1C" text-anchor="middle">⚠ 心停止確認 → CALS 起動</text>
+  </g>
+  <line x1="800" y1="190" x2="800" y2="220" stroke="#424242" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ========== INITIAL ACTIONS (Common) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="225" width="1200" height="200" rx="12" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+    <rect x="200" y="225" width="1200" height="36" rx="12" fill="#1565C0"/>
+    <text x="800" y="251" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">① 共通初動（全リズム共通）— 0–60秒</text>
+
+    <text x="240" y="290" font-size="16" fill="#0D47A1">• 緊急コール作動 + 6人チーム招集</text>
+    <text x="240" y="318" font-size="16" fill="#0D47A1">• FiO₂ 100% / PEEP off → 手動バッグマスク換気に切替</text>
+    <text x="240" y="346" font-size="16" fill="#0D47A1">• 両側呼吸音 聴取（気胸 除外）</text>
+    <text x="240" y="374" font-size="16" fill="#0D47A1">• 全持続点滴・シリンジポンプ 停止（鎮静のみ継続可）</text>
+    <text x="240" y="402" font-size="16" fill="#0D47A1">• 大動脈内バルーンポンピング → pressure trigger に切替</text>
+
+    <text x="860" y="290" font-size="16" fill="#0D47A1">• 動脈圧波形で 収縮期 ≥60 mmHg を目標</text>
+    <text x="860" y="318" font-size="16" fill="#0D47A1">• 動脈圧波形 + 呼気終末CO₂ で心拍動確認</text>
+    <text x="860" y="346" font-size="16" fill="#0D47A1">• 中心動脈触知は迷う時のみ</text>
+    <text x="860" y="374" font-size="16" fill="#0D47A1">• 看護リーダーは 5 分タイマー開始</text>
+    <text x="860" y="402" font-size="16" fill="#0D47A1">• 緊急胸骨再開放セット 展開準備</text>
+  </g>
+  <line x1="800" y1="425" x2="800" y2="460" stroke="#424242" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ========== RHYTHM ASSESSMENT (Diamond) ========== -->
+  <g filter="url(#shadow)">
+    <polygon points="800,465 980,540 800,615 620,540" fill="#FFF8E1" stroke="#F57F17" stroke-width="2.5"/>
+    <text x="800" y="525" font-size="18" font-weight="700" fill="#E65100" text-anchor="middle">② リズム判定</text>
+    <text x="800" y="550" font-size="14" fill="#424242" text-anchor="middle">12 誘導 ECG / 動脈圧波形 /</text>
+    <text x="800" y="568" font-size="14" fill="#424242" text-anchor="middle">呼気終末CO₂</text>
+  </g>
+
+  <!-- 3 branches arrows from diamond -->
+  <path d="M 700 600 Q 500 650 270 695" stroke="#B71C1C" stroke-width="2.5" fill="none" marker-end="url(#arrowRed)"/>
+  <path d="M 800 615 L 800 695" stroke="#E68A00" stroke-width="2.5" fill="none" marker-end="url(#arrowYellow)"/>
+  <path d="M 900 600 Q 1100 650 1330 695" stroke="#2E7D32" stroke-width="2.5" fill="none" marker-end="url(#arrowGreen)"/>
+
+  <!-- ========== COLUMN 1: VF / pVT (RED) ========== -->
+  <g filter="url(#shadow)">
+    <!-- Card -->
+    <rect x="50" y="700" width="460" height="540" rx="12" fill="#FFFFFF" stroke="#E53935" stroke-width="2.5"/>
+    <!-- Header -->
+    <rect x="50" y="700" width="460" height="44" rx="12" fill="#E53935"/>
+    <text x="280" y="730" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">⚡ VF / 無脈性 VT</text>
+
+    <!-- Step 1 -->
+    <rect x="70" y="760" width="420" height="90" rx="8" fill="#FFEBEE" stroke="#E53935" stroke-width="1.5"/>
+    <text x="280" y="788" font-size="17" font-weight="700" fill="#B71C1C" text-anchor="middle">3 連続ショック（心マッサージ介在なし）</text>
+    <text x="280" y="812" font-size="15" fill="#424242" text-anchor="middle">二相性 200 J × 3 回</text>
+    <text x="280" y="834" font-size="13" font-style="italic" fill="#757575" text-anchor="middle">Class I-B [2] — 心マッサージ開始は最大1分まで遅らせて可</text>
+
+    <line x1="280" y1="852" x2="280" y2="870" stroke="#B71C1C" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+    <!-- Step 2 -->
+    <rect x="70" y="875" width="420" height="80" rx="8" fill="#FFEBEE" stroke="#E53935" stroke-width="1.5"/>
+    <text x="280" y="903" font-size="16" font-weight="700" fill="#B71C1C" text-anchor="middle">心マッサージ + 換気</text>
+    <text x="280" y="924" font-size="14" fill="#424242" text-anchor="middle">100–120/min, 深さ 4–5 cm</text>
+    <text x="280" y="944" font-size="13" fill="#424242" text-anchor="middle">動脈圧 収縮期 ≥60 mmHg を維持</text>
+
+    <line x1="280" y1="957" x2="280" y2="975" stroke="#B71C1C" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+    <!-- Step 3 - Drug -->
+    <rect x="70" y="980" width="420" height="100" rx="8" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="1.5"/>
+    <text x="280" y="1005" font-size="16" font-weight="700" fill="#4A148C" text-anchor="middle">💊 アミオダロン 300 mg を急速静注</text>
+    <text x="280" y="1027" font-size="14" fill="#424242" text-anchor="middle">中心静脈ラインから / 5%ブドウ糖 20 mL で希釈</text>
+    <text x="280" y="1047" font-size="14" fill="#424242" text-anchor="middle">不応なら 4 回目ショック → さらに 150 mg 追加</text>
+    <text x="280" y="1067" font-size="13" fill="#424242" text-anchor="middle">継続 900 mg/24h（最初6h: 1 mg/min, 続く18h: 0.5 mg/min）</text>
+
+    <line x1="280" y1="1082" x2="280" y2="1100" stroke="#B71C1C" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+    <!-- Decision: <60 mmHg? -->
+    <rect x="70" y="1105" width="420" height="60" rx="8" fill="#FFF3E0" stroke="#FF6F00" stroke-width="2"/>
+    <text x="280" y="1130" font-size="15" font-weight="700" fill="#E65100" text-anchor="middle">⏱ 5 分経過 / 収縮期 &lt; 60 mmHg ?</text>
+    <text x="280" y="1152" font-size="14" font-weight="700" fill="#B71C1C" text-anchor="middle">→ 緊急胸骨再開放（FC6）</text>
+
+    <!-- Warning box -->
+    <rect x="70" y="1180" width="420" height="50" rx="8" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2" stroke-dasharray="6 3"/>
+    <text x="280" y="1205" font-size="15" font-weight="700" fill="#B71C1C" text-anchor="middle">⛔ アドレナリン ルーチン投与禁止</text>
+    <text x="280" y="1222" font-size="12" fill="#B71C1C" text-anchor="middle">Class III-Harm [2] — 再灌流後 hypertension → graft 破綻</text>
+  </g>
+
+  <!-- ========== COLUMN 2: Asystole / Severe Brady (YELLOW) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="570" y="700" width="460" height="540" rx="12" fill="#FFFFFF" stroke="#F9A825" stroke-width="2.5"/>
+    <rect x="570" y="700" width="460" height="44" rx="12" fill="#F9A825"/>
+    <text x="800" y="730" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">⏸ Asystole / 高度徐脈</text>
+
+    <!-- Step 1 -->
+    <rect x="590" y="760" width="420" height="120" rx="8" fill="#FFF8E1" stroke="#F9A825" stroke-width="1.5"/>
+    <text x="800" y="787" font-size="16" font-weight="700" fill="#E65100" text-anchor="middle">心外膜ペーシングワイヤー接続</text>
+    <text x="800" y="810" font-size="14" fill="#424242" text-anchor="middle">DDD モード, レート 80–100 bpm</text>
+    <text x="800" y="830" font-size="14" fill="#424242" text-anchor="middle">心房・心室出力 最大（20 mA）</text>
+    <text x="800" y="850" font-size="14" fill="#424242" text-anchor="middle">心房感度 0.5 mV, 心室感度 2 mV</text>
+    <text x="800" y="870" font-size="13" font-style="italic" fill="#757575" text-anchor="middle">Class IIa-C [2]</text>
+
+    <line x1="800" y1="883" x2="800" y2="901" stroke="#E68A00" stroke-width="2" marker-end="url(#arrowYellow)"/>
+
+    <!-- Step 2 - Note callout -->
+    <rect x="590" y="905" width="420" height="80" rx="8" fill="#FFFDE7" stroke="#FBC02D" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <text x="800" y="930" font-size="13" font-weight="700" fill="#E65100" text-anchor="middle">📝 ワイヤー注意点</text>
+    <text x="800" y="950" font-size="12" fill="#424242" text-anchor="middle">「Emergency setting」は V00 デフォルトの機種が多い</text>
+    <text x="800" y="968" font-size="12" fill="#424242" text-anchor="middle">心臓術後は心房ワイヤーのみ接続のことも → DDD/AAI 確認</text>
+
+    <line x1="800" y1="988" x2="800" y2="1006" stroke="#E68A00" stroke-width="2" marker-end="url(#arrowYellow)"/>
+
+    <!-- Step 3 - TCP -->
+    <rect x="590" y="1010" width="420" height="80" rx="8" fill="#FFF8E1" stroke="#F9A825" stroke-width="1.5"/>
+    <text x="800" y="1037" font-size="16" font-weight="700" fill="#E65100" text-anchor="middle">経皮ペーシング（TCP）</text>
+    <text x="800" y="1058" font-size="14" fill="#424242" text-anchor="middle">パッド 前-後 / レート 80 bpm / 80 mA から漸増</text>
+    <text x="800" y="1076" font-size="13" fill="#424242" text-anchor="middle">疼痛強い → 鎮痛・鎮静必須</text>
+
+    <line x1="800" y1="1093" x2="800" y2="1111" stroke="#E68A00" stroke-width="2" marker-end="url(#arrowYellow)"/>
+
+    <!-- Step 4 -->
+    <rect x="590" y="1115" width="420" height="60" rx="8" fill="#FFF3E0" stroke="#FF6F00" stroke-width="2"/>
+    <text x="800" y="1140" font-size="15" font-weight="700" fill="#E65100" text-anchor="middle">⏱ 5 分以内に 緊急胸骨再開放（FC6）</text>
+    <text x="800" y="1162" font-size="13" font-style="italic" fill="#757575" text-anchor="middle">Class I-C [2]</text>
+
+    <!-- Note: atropine -->
+    <rect x="590" y="1190" width="420" height="44" rx="8" fill="#F5F5F5" stroke="#9E9E9E" stroke-width="1" stroke-dasharray="3 2"/>
+    <text x="800" y="1212" font-size="12" font-weight="700" fill="#616161" text-anchor="middle">📝 STS 2017: アトロピン ルーチン非推奨 (Class III)</text>
+    <text x="800" y="1228" font-size="11" font-style="italic" fill="#757575" text-anchor="middle">EACTS 2009 旧版は 3 mg 単回（中心静脈経由）[1]</text>
+  </g>
+
+  <!-- ========== COLUMN 3: PEA (GREEN) ========== -->
+  <g filter="url(#shadow)">
+    <rect x="1090" y="700" width="460" height="540" rx="12" fill="#FFFFFF" stroke="#43A047" stroke-width="2.5"/>
+    <rect x="1090" y="700" width="460" height="44" rx="12" fill="#43A047"/>
+    <text x="1320" y="730" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">📊 PEA（無脈性電気活動）</text>
+
+    <!-- Step 1 -->
+    <rect x="1110" y="760" width="420" height="80" rx="8" fill="#E8F5E9" stroke="#43A047" stroke-width="1.5"/>
+    <text x="1320" y="787" font-size="16" font-weight="700" fill="#1B5E20" text-anchor="middle">ペーシング作動中なら 一時 OFF</text>
+    <text x="1320" y="809" font-size="14" fill="#424242" text-anchor="middle">基礎リズムに VF が隠れていないか確認</text>
+    <text x="1320" y="828" font-size="13" font-style="italic" fill="#757575" text-anchor="middle">Class IIa-C [2]</text>
+
+    <line x1="1320" y1="843" x2="1320" y2="861" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+    <!-- Step 2 - 4H/4T -->
+    <rect x="1110" y="865" width="420" height="240" rx="8" fill="#E8F5E9" stroke="#43A047" stroke-width="1.5"/>
+    <text x="1320" y="890" font-size="16" font-weight="700" fill="#1B5E20" text-anchor="middle">心マッサージ継続 + 4H / 4T 鑑別</text>
+
+    <!-- 4H -->
+    <text x="1130" y="918" font-size="13" font-weight="700" fill="#2E7D32">4 H:</text>
+    <text x="1180" y="918" font-size="13" fill="#424242">Hypoxia（低酸素）</text>
+    <text x="1180" y="938" font-size="13" fill="#424242">Hypovolemia（循環血液量減少）</text>
+    <text x="1180" y="958" font-size="13" fill="#424242">Hypo/Hyperkalemia（K異常）</text>
+    <text x="1180" y="978" font-size="13" fill="#424242">Hypothermia（低体温）</text>
+
+    <!-- 4T -->
+    <text x="1130" y="1005" font-size="13" font-weight="700" fill="#2E7D32">4 T:</text>
+    <text x="1180" y="1005" font-size="13" font-weight="700" fill="#B71C1C">★ Tamponade（心タンポナーデ・最頻）</text>
+    <text x="1180" y="1025" font-size="13" fill="#424242">緊張性気胸（Tension PTX）</text>
+    <text x="1180" y="1045" font-size="13" fill="#424242">Thrombus（PE / 冠血栓）</text>
+    <text x="1180" y="1065" font-size="13" fill="#424242">Toxin（薬剤）→ 持続点滴 停止</text>
+
+    <text x="1320" y="1090" font-size="12" font-style="italic" fill="#757575" text-anchor="middle">タンポナーデ濃厚 → 直ちに再開胸</text>
+
+    <line x1="1320" y1="1110" x2="1320" y2="1128" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+    <!-- Step 3 - resternotomy -->
+    <rect x="1110" y="1132" width="420" height="60" rx="8" fill="#FFF3E0" stroke="#FF6F00" stroke-width="2"/>
+    <text x="1320" y="1157" font-size="15" font-weight="700" fill="#E65100" text-anchor="middle">⏱ 5 分以内に 緊急胸骨再開放（FC6）</text>
+    <text x="1320" y="1179" font-size="13" font-style="italic" fill="#757575" text-anchor="middle">Class I-C [2]</text>
+
+    <!-- Footnote -->
+    <text x="1320" y="1217" font-size="11" font-style="italic" fill="#757575" text-anchor="middle">※ 基礎リズムが VF と判明 → 左列（VF パスウェイ）へ移行</text>
+  </g>
+
+  <!-- ========== FOOTER: 5-min wall + warning ========== -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="1265" width="1500" height="80" rx="12" fill="#FF6F00"/>
+    <text x="800" y="1300" font-size="26" font-weight="700" fill="#FFFFFF" text-anchor="middle">⏱ 5 分の壁 — 5-Minute Wall</text>
+    <text x="800" y="1328" font-size="16" fill="#FFE0B2" text-anchor="middle">非VF/VT がペーシング・可逆原因対応に反応せず → 緊急胸骨再開放（FC6）に直行</text>
+  </g>
+
+  <!-- Citation -->
+  <text x="800" y="1370" font-size="12" fill="#9E9E9E" text-anchor="middle">References: [1] Dunning J et al. EACTS 2009 (DOI:10.1016/j.ejcts.2009.01.033) — [2] Dunning J et al. STS 2017 (DOI:10.1016/j.athoracsur.2016.11.018)</text>
+</svg>

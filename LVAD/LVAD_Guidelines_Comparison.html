@@ -18,9 +18,36 @@
   --jp-accent: #c0392b;
   --us-accent: #2980b9;
   --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
 
 body {
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
@@ -28,10 +55,23 @@ body {
   line-height: 1.7;
   color: var(--fg);
   background: var(--bg);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 32px 80px;
 }
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
 
 h1 {
   font-size: 1.6rem;
@@ -157,14 +197,203 @@ mark {
   h2 { break-after: avoid; }
 }
 
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
 @media (max-width: 768px) {
-  body { padding: 20px 16px 60px; font-size: 13px; }
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
   h1 { font-size: 1.3rem; }
   table { font-size: 0.75rem; }
 }
 </style>
 </head>
 <body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-概要対象ガイドラインと本文書の範囲">1. 概要：対象ガイドラインと本文書の範囲</a></li>
+      <li class="toc-l3"><a href="#1-1-本文書のスコープ">1-1. 本文書のスコープ</a></li>
+      <li class="toc-l3"><a href="#1-2-対象ガイドラインの位置づけ">1-2. 対象ガイドラインの位置づけ</a></li>
+      <li class="toc-l2"><a href="#2-jp-jcs-2021-植込型補助人工心臓ガイドライン">2. 🇯🇵 JCS 2021 植込型補助人工心臓ガイドライン</a></li>
+      <li class="toc-l3"><a href="#2-1-文献情報">2-1. 文献情報</a></li>
+      <li class="toc-l3"><a href="#2-2-適応の基本構造">2-2. 適応の基本構造</a></li>
+      <li class="toc-l3"><a href="#2-3-主要除外基準要旨">2-3. 主要除外基準（要旨）</a></li>
+      <li class="toc-l3"><a href="#2-4-抗凝固管理jcs-2021原文">2-4. 抗凝固管理（JCS 2021原文）</a></li>
+      <li class="toc-l3"><a href="#2-5-使用デバイス日本承認">2-5. 使用デバイス（日本承認）</a></li>
+      <li class="toc-l2"><a href="#3-european_union-eacts-2019-long-term-mcs-expert-consensus">3. 🇪🇺 EACTS 2019 Long-Term MCS Expert Consensus</a></li>
+      <li class="toc-l3"><a href="#3-1-文献情報">3-1. 文献情報</a></li>
+      <li class="toc-l3"><a href="#3-2-適応の基本構造">3-2. 適応の基本構造</a></li>
+      <li class="toc-l3"><a href="#3-3-抗凝固管理要旨">3-3. 抗凝固管理（要旨）</a></li>
+      <li class="toc-l2"><a href="#4-us-ishlt-2023-mcs-guidelines10年ぶり改訂">4. 🇺🇸 ISHLT 2023 MCS Guidelines（10年ぶり改訂）</a></li>
+      <li class="toc-l3"><a href="#4-1-文献情報">4-1. 文献情報</a></li>
+      <li class="toc-l3"><a href="#4-2-主要な改訂ポイント">4-2. 主要な改訂ポイント</a></li>
+      <li class="toc-l3"><a href="#4-3-抗凝固管理要旨">4-3. 抗凝固管理（要旨）</a></li>
+      <li class="toc-l2"><a href="#5-患者選択適応区分の比較btt--dt--btc--btr">5. 患者選択・適応区分の比較（BTT / DT / BTC / BTR）</a></li>
+      <li class="toc-l3"><a href="#5-1-適応区分の比較表">5-1. 適応区分の比較表</a></li>
+      <li class="toc-l3"><a href="#5-2-intermacs--j-macs-profile-対応">5-2. INTERMACS / J-MACS profile 対応</a></li>
+      <li class="toc-l2"><a href="#6-適応基準除外基準の比較">6. 適応基準・除外基準の比較</a></li>
+      <li class="toc-l3"><a href="#6-1-重要な絶対的相対的禁忌の比較">6-1. 重要な絶対的・相対的禁忌の比較</a></li>
+      <li class="toc-l2"><a href="#7-右心不全リスク評価の比較">7. 右心不全リスク評価の比較</a></li>
+      <li class="toc-l3"><a href="#7-1-評価指標と閾値">7-1. 評価指標と閾値</a></li>
+      <li class="toc-l3"><a href="#7-2-術前最適化と-rvad-適応">7-2. 術前最適化と RVAD 適応</a></li>
+      <li class="toc-l2"><a href="#8-star-lvad同時施行弁手術の推奨比較最重要セクション">8. ⭐ LVAD同時施行弁手術の推奨比較（最重要セクション）</a></li>
+      <li class="toc-l3"><a href="#8-1-大動脈弁逆流ar">8-1. 大動脈弁逆流（AR）</a></li>
+      <li class="toc-l3"><a href="#8-2-僧帽弁逆流mr僧帽弁狭窄ms">8-2. 僧帽弁逆流（MR）・僧帽弁狭窄（MS）</a></li>
+      <li class="toc-l3"><a href="#8-3-三尖弁逆流tr">8-3. 三尖弁逆流（TR）</a></li>
+      <li class="toc-l3"><a href="#8-4-卵円孔開存pfo心内シャント">8-4. 卵円孔開存（PFO）／心内シャント</a></li>
+      <li class="toc-l3"><a href="#8-5-既存人工弁とlvad適応">8-5. 既存人工弁とLVAD適応</a></li>
+      <li class="toc-l3"><a href="#8-6-上行大動脈瘤大動脈基部疾患">8-6. 上行大動脈瘤・大動脈基部疾患</a></li>
+      <li class="toc-l2"><a href="#9-術後抗凝固療法inr目標の比較">9. 術後抗凝固療法（INR目標）の比較</a></li>
+      <li class="toc-l3"><a href="#9-1-デバイス別-inr-目標">9-1. デバイス別 INR 目標</a></li>
+      <li class="toc-l2"><a href="#10-使用デバイスの比較">10. 使用デバイスの比較</a></li>
+      <li class="toc-l3"><a href="#10-1-各国で承認推奨されている主要デバイス">10-1. 各国で承認・推奨されている主要デバイス</a></li>
+      <li class="toc-l2"><a href="#11-日本固有の制度的要件と心不全ガイドラインの位置づけ">11. 日本固有の制度的要件と心不全ガイドラインの位置づけ</a></li>
+      <li class="toc-l3"><a href="#11-1-日本固有の制度的要件欧米に対応なし">11-1. 日本固有の制度的要件（欧米に対応なし）</a></li>
+      <li class="toc-l4"><a href="#a-適応判定システム">(A) 適応判定システム</a></li>
+      <li class="toc-l4"><a href="#b-実施施設認定基準table-3">(B) 実施施設認定基準（Table 3）</a></li>
+      <li class="toc-l4"><a href="#c-実施医認定基準table-4">(C) 実施医認定基準（Table 4）</a></li>
+      <li class="toc-l4"><a href="#d-j-macs-レジストリ">(D) J-MACS レジストリ</a></li>
+      <li class="toc-l3"><a href="#11-2-補助参照心不全ガイドラインの-lvad-推奨">11-2. 補助参照：心不全ガイドラインの LVAD 推奨</a></li>
+      <li class="toc-l4"><a href="#us-accahahfsa-2022-heart-failure-guidelinessection-84-mcs">🇺🇸 ACC/AHA/HFSA 2022 Heart Failure Guidelines（Section 8.4 MCS）</a></li>
+      <li class="toc-l4"><a href="#european_union-esc-2021-heart-failure-guidelines--esc-2023-focused-update">🇪🇺 ESC 2021 Heart Failure Guidelines + ESC 2023 Focused Update</a></li>
+      <li class="toc-l2"><a href="#12-クロスガイドライン総括と臨床的含意">12. クロスガイドライン総括と臨床的含意</a></li>
+      <li class="toc-l3"><a href="#12-1-全ガイドライン共通の合意事項">12-1. 全ガイドライン共通の合意事項</a></li>
+      <li class="toc-l3"><a href="#12-2-主要な相違点まとめ">12-2. 主要な相違点まとめ</a></li>
+      <li class="toc-l3"><a href="#12-3-各地域ガイドラインの特徴と臨床的含意">12-3. 各地域ガイドラインの特徴と臨床的含意</a></li>
+      <li class="toc-l3"><a href="#12-4-臨床判断における重要メッセージ">12-4. 臨床判断における重要メッセージ</a></li>
+      <li class="toc-l2"><a href="#関連ノート">関連ノート</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
 <h1 id="植込型補助人工心臓lvad手術適応術式-各地域ガイドライン比較">植込型補助人工心臓（LVAD）手術適応・術式 各地域ガイドライン比較</h1>
 <p><strong>作成日：</strong> 2026年5月6日 <strong>対象ガイドライン（MCS専門）：</strong></p>
 <ul>
@@ -1372,5 +1601,78 @@ mark {
 <li>日本循環器学会 ほか. 2025年改訂版 心不全診療ガイドライン. 2025（DT適応の更新参照）.</li>
 </ul>
 
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
 </body>
 </html>

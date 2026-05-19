@@ -18,9 +18,36 @@
   --jp-accent: #c0392b;
   --us-accent: #2980b9;
   --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
 
 body {
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
@@ -28,10 +55,23 @@ body {
   line-height: 1.7;
   color: var(--fg);
   background: var(--bg);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 32px 80px;
 }
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
 
 h1 {
   font-size: 1.6rem;
@@ -157,14 +197,203 @@ mark {
   h2 { break-after: avoid; }
 }
 
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
 @media (max-width: 768px) {
-  body { padding: 20px 16px 60px; font-size: 13px; }
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
   h1 { font-size: 1.3rem; }
   table { font-size: 0.75rem; }
 }
 </style>
 </head>
 <body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-mrの病態分類一次性二次性carpentier分類">1. MRの病態分類（一次性・二次性／Carpentier分類）</a></li>
+      <li class="toc-l3"><a href="#1-1-一次性器質性mr-vs-二次性機能性mr">1-1. 一次性（器質性）MR vs 二次性（機能性）MR</a></li>
+      <li class="toc-l3"><a href="#1-2-carpentier-機能分類jcs-2020-表8-を基準">1-2. Carpentier 機能分類（JCS 2020 表8 を基準）</a></li>
+      <li class="toc-l3"><a href="#1-3-一次性-mr-の病理形態fed--barlow-spectrum">1-3. 一次性 MR の病理形態（FED / Barlow Spectrum）</a></li>
+      <li class="toc-l2"><a href="#2-重症度分類">2. 重症度分類</a></li>
+      <li class="toc-l3"><a href="#2-1-jcs-2020表10-3段階分類">2-1. JCS 2020（表10）— 3段階分類</a></li>
+      <li class="toc-l3"><a href="#2-2-esceacts-2025--pmr-vs-smr-で重症度閾値が異なる">2-2. ESC/EACTS 2025 — PMR vs SMR で重症度閾値が異なる</a></li>
+      <li class="toc-l3"><a href="#2-3-accaha-2020表1718-adステージ分類">2-3. ACC/AHA 2020（表17・18）— A〜Dステージ分類</a></li>
+      <li class="toc-l4"><a href="#表17慢性一次性-mr-のステージ">表17：慢性一次性 MR のステージ</a></li>
+      <li class="toc-l4"><a href="#表18慢性二次性-mr-のステージsmr">表18：慢性二次性 MR のステージ（SMR）</a></li>
+      <li class="toc-l3"><a href="#2-4-3ガイドライン重症度閾値の対照">2-4. 3ガイドライン重症度閾値の対照</a></li>
+      <li class="toc-l2"><a href="#3-慢性一次性器質性mrの介入適応">3. 慢性一次性（器質性）MRの介入適応</a></li>
+      <li class="toc-l3"><a href="#3-1-症候性重症-pmr共通-class-i">3-1. 症候性重症 PMR（共通 Class I）</a></li>
+      <li class="toc-l3"><a href="#3-2-無症候性重症-pmr--lv-機能低下による絶対的介入">3-2. 無症候性重症 PMR — LV 機能低下による絶対的介入</a></li>
+      <li class="toc-l3"><a href="#3-3-無症候性重症-pmr--リスクマーカー陽性での予防的介入">3-3. 無症候性重症 PMR — リスクマーカー陽性での予防的介入</a></li>
+      <li class="toc-l3"><a href="#3-4-弁形成術-vs-弁置換術の原則pmr">3-4. 弁形成術 vs 弁置換術の原則（PMR）</a></li>
+      <li class="toc-l3"><a href="#3-5-pmr-への-teer-の適応">3-5. PMR への TEER の適応</a></li>
+      <li class="toc-l3"><a href="#3-6-低侵襲手術mini-mics">3-6. 低侵襲手術（Mini-MICS）</a></li>
+      <li class="toc-l2"><a href="#4-慢性二次性機能性mr心室性smrの介入適応">4. 慢性二次性（機能性）MR—心室性SMRの介入適応</a></li>
+      <li class="toc-l3"><a href="#4-1-治療階層の大前提gdmtcrt-最適化が先">4-1. 治療階層の大前提：GDMT・CRT 最適化が先</a></li>
+      <li class="toc-l3"><a href="#4-2-cabg-同時施行虚血性-smr">4-2. CABG 同時施行（虚血性 SMR）</a></li>
+      <li class="toc-l3"><a href="#4-3-cabg-適応なしの単独-mr-介入重症心室性-smr">4-3. CABG 適応なしの単独 MR 介入（重症心室性 SMR）</a></li>
+      <li class="toc-l3"><a href="#4-4-心室性-smr-への-teer-の選択基準coapt-由来">4-4. 心室性 SMR への TEER の選択基準（COAPT 由来）</a></li>
+      <li class="toc-l3"><a href="#4-5-高度心不全進行性-smr-への-lvadhtx">4-5. 高度心不全・進行性 SMR への LVAD/HTx</a></li>
+      <li class="toc-l2"><a href="#5-慢性二次性機能性mr心房性smrの介入適応">5. 慢性二次性（機能性）MR—心房性SMRの介入適応</a></li>
+      <li class="toc-l3"><a href="#5-1-心房性-smr-の概念と診断基準">5-1. 心房性 SMR の概念と診断基準</a></li>
+      <li class="toc-l3"><a href="#5-2-心房性-smr-の治療階層">5-2. 心房性 SMR の治療階層</a></li>
+      <li class="toc-l2"><a href="#6-teermitraclipの適応">6. TEER（MitraClip®）の適応</a></li>
+      <li class="toc-l3"><a href="#6-1-pmr-vs-smr-での-teer-推奨強度">6-1. PMR vs SMR での TEER 推奨強度</a></li>
+      <li class="toc-l3"><a href="#6-2-jcs-の-mitraclip-適用基準表17-全文">6-2. JCS の MitraClip® 適用基準（表17 全文）</a></li>
+      <li class="toc-l3"><a href="#6-3-その他のカテーテル-mv-介入補助的">6-3. その他のカテーテル MV 介入（補助的）</a></li>
+      <li class="toc-l2"><a href="#7-外科的形成術-vs-置換術人工弁選択">7. 外科的形成術 vs 置換術／人工弁選択</a></li>
+      <li class="toc-l3"><a href="#7-1-一次性-mr--形成術第一選択の原則">7-1. 一次性 MR — 形成術第一選択の原則</a></li>
+      <li class="toc-l3"><a href="#7-2-二次性-mr--形成-vs-置換の戦略">7-2. 二次性 MR — 形成 vs 置換の戦略</a></li>
+      <li class="toc-l3"><a href="#7-3-人工弁選択mvr">7-3. 人工弁選択（MVR）</a></li>
+      <li class="toc-l2"><a href="#8-急性mrおよびその他特殊状況">8. 急性MRおよびその他特殊状況</a></li>
+      <li class="toc-l3"><a href="#8-1-急性-mr">8-1. 急性 MR</a></li>
+      <li class="toc-l3"><a href="#8-2-妊娠合併-mr">8-2. 妊娠合併 MR</a></li>
+      <li class="toc-l3"><a href="#8-3-リウマチ性-mr-への弁形成">8-3. リウマチ性 MR への弁形成</a></li>
+      <li class="toc-l3"><a href="#8-4-感染性心内膜炎ie合併-mr">8-4. 感染性心内膜炎（IE）合併 MR</a></li>
+      <li class="toc-l3"><a href="#8-5-心房細動合併-mr-の抗凝固">8-5. 心房細動合併 MR の抗凝固</a></li>
+      <li class="toc-l2"><a href="#9-各地域の相違点-比較表">9. 各地域の相違点 比較表</a></li>
+      <li class="toc-l3"><a href="#9-1-主要な相違点サマリー">9-1. 主要な相違点サマリー</a></li>
+      <li class="toc-l3"><a href="#9-2-一次性-mr-への介入適応比較">9-2. 一次性 MR への介入適応比較</a></li>
+      <li class="toc-l3"><a href="#9-3-二次性-mr心室性-smrへの介入適応比較">9-3. 二次性 MR（心室性 SMR）への介入適応比較</a></li>
+      <li class="toc-l3"><a href="#9-4-二次性-mr心房性-smrへの介入適応比較">9-4. 二次性 MR（心房性 SMR）への介入適応比較</a></li>
+      <li class="toc-l2"><a href="#10-まとめ総括">10. まとめ・総括</a></li>
+      <li class="toc-l3"><a href="#共通事項">共通事項</a></li>
+      <li class="toc-l3"><a href="#主要な相違点まとめ">主要な相違点まとめ</a></li>
+      <li class="toc-l3"><a href="#臨床的含意">臨床的含意</a></li>
+      <li class="toc-l3"><a href="#実臨床での意思決定フレームワーク">実臨床での意思決定フレームワーク</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
 <h1 id="僧帽弁閉鎖不全症mrに対する僧帽弁手術teerの適応各地域ガイドライン比較">僧帽弁閉鎖不全症（MR）に対する僧帽弁手術・TEERの適応：各地域ガイドライン比較</h1>
 <p><strong>作成日：</strong> 2026年5月16日<br />
 <strong>対象ガイドライン：</strong></p>
@@ -1520,5 +1749,78 @@ mark {
 <li>CTSN RCT（虚血性 SMR の MVR vs 形成）：Acker MA, et al. N Engl J Med 2014; 370:23 / Goldstein D, et al. N Engl J Med 2016; 374:344</li>
 </ul>
 
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
 </body>
 </html>

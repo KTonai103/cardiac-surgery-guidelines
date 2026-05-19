@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" font-family="system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#424242"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E7D32"/>
+    </marker>
+    <marker id="arrowYellow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E68A00"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B71C1C"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="1000" fill="#FAFAFA"/>
+
+  <!-- HEADER -->
+  <rect x="0" y="0" width="1400" height="90" fill="#263238"/>
+  <text x="700" y="42" font-size="30" font-weight="700" fill="#FFFFFF" text-anchor="middle">CVCU 急変発見時 初期トリアージ</text>
+  <text x="700" y="72" font-size="16" fill="#B0BEC5" text-anchor="middle">Initial Triage on Discovering Acute Deterioration</text>
+
+  <!-- START -->
+  <g filter="url(#shadow)">
+    <rect x="540" y="115" width="320" height="60" rx="30" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2"/>
+    <text x="700" y="153" font-size="20" font-weight="700" fill="#B71C1C" text-anchor="middle">⚠ 急変を発見</text>
+  </g>
+  <line x1="700" y1="175" x2="700" y2="205" stroke="#424242" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 1: Initial 10s actions -->
+  <g filter="url(#shadow)">
+    <rect x="250" y="210" width="900" height="120" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+    <rect x="250" y="210" width="900" height="34" rx="8" fill="#1565C0"/>
+    <text x="700" y="234" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">① 0–10 秒 初期評価</text>
+
+    <text x="270" y="270" font-size="14" font-weight="700" fill="#0D47A1">①</text>
+    <text x="290" y="270" font-size="14" fill="#424242">大声で「急変！」と叫び応援要請</text>
+
+    <text x="270" y="294" font-size="14" font-weight="700" fill="#0D47A1">②</text>
+    <text x="290" y="294" font-size="14" fill="#424242">緊急コール作動（Code Blue 等）</text>
+
+    <text x="270" y="318" font-size="14" font-weight="700" fill="#0D47A1">③</text>
+    <text x="290" y="318" font-size="14" fill="#424242">10 秒以内に 反応・呼吸・脈拍 を評価</text>
+  </g>
+  <line x1="700" y1="330" x2="700" y2="365" stroke="#424242" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Decision diamond -->
+  <g filter="url(#shadow)">
+    <polygon points="700,370 920,460 700,550 480,460" fill="#FFF8E1" stroke="#F57F17" stroke-width="2.5"/>
+    <text x="700" y="445" font-size="18" font-weight="700" fill="#E65100" text-anchor="middle">② 反応 / 呼吸 / 脈拍?</text>
+    <text x="700" y="475" font-size="13" fill="#424242" text-anchor="middle">ABC + 動脈圧波形</text>
+  </g>
+
+  <!-- 3 branches -->
+  <path d="M 480 460 Q 320 530 230 600" stroke="#2E7D32" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+  <path d="M 700 550 L 700 600" stroke="#E68A00" stroke-width="2" fill="none" marker-end="url(#arrowYellow)"/>
+  <path d="M 920 460 Q 1080 530 1170 600" stroke="#B71C1C" stroke-width="2" fill="none" marker-end="url(#arrowRed)"/>
+
+  <!-- ============ BRANCH A: STABLE (GREEN, LEFT) ============ -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="605" width="400" height="260" rx="10" fill="#FFFFFF" stroke="#43A047" stroke-width="2.5"/>
+    <rect x="30" y="605" width="400" height="40" rx="10" fill="#43A047"/>
+    <text x="230" y="632" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">A. 反応・呼吸・循環 安定</text>
+
+    <text x="230" y="668" font-size="15" font-weight="700" fill="#1B5E20" text-anchor="middle">📋 経過観察</text>
+
+    <text x="50" y="697" font-size="13" fill="#424242">• バイタルを 5 分毎に再評価</text>
+    <text x="50" y="720" font-size="13" fill="#424242">• 担当医にコール</text>
+    <text x="50" y="743" font-size="13" fill="#424242">• 12 誘導 ECG</text>
+    <text x="50" y="766" font-size="13" fill="#424242">• 採血（トロポニン、電解質、ABG）</text>
+    <text x="50" y="789" font-size="13" fill="#424242">• 心エコー 検討</text>
+    <text x="50" y="812" font-size="13" fill="#424242">• 胸部 X 線</text>
+
+    <text x="230" y="850" font-size="11" font-style="italic" fill="#757575" text-anchor="middle">悪化したら B または C へ</text>
+  </g>
+
+  <!-- ============ BRANCH B: PRE-ARREST (YELLOW, CENTER) ============ -->
+  <g filter="url(#shadow)">
+    <rect x="475" y="605" width="450" height="260" rx="10" fill="#FFFFFF" stroke="#F9A825" stroke-width="2.5"/>
+    <rect x="475" y="605" width="450" height="40" rx="10" fill="#F9A825"/>
+    <text x="700" y="632" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">B. 反応あり/弱・循環不安定（Pre-arrest）</text>
+
+    <text x="700" y="668" font-size="15" font-weight="700" fill="#E65100" text-anchor="middle">🚨 並行で原因鑑別 + 治療開始</text>
+
+    <text x="495" y="697" font-size="13" fill="#424242">• 心エコー（タンポナーデ評価）</text>
+    <text x="495" y="720" font-size="13" fill="#424242">• 12 誘導 ECG（虚血・不整脈）</text>
+    <text x="495" y="743" font-size="13" fill="#424242">• 動脈血液ガス + 乳酸</text>
+    <text x="495" y="766" font-size="13" fill="#424242">• ドレーン排液量確認 → タンポナーデ?</text>
+    <text x="495" y="789" font-size="13" fill="#424242">• 輸液 500 mL 急速静注 検討</text>
+    <text x="495" y="812" font-size="13" fill="#424242">• 循環器コンサル + 心臓外科オンコール</text>
+
+    <text x="700" y="850" font-size="11" font-style="italic" fill="#B71C1C" text-anchor="middle">⚠ 悪化したら直ちに C（心停止）対応へ</text>
+  </g>
+
+  <!-- ============ BRANCH C: CARDIAC ARREST (RED, RIGHT) ============ -->
+  <g filter="url(#shadow)">
+    <rect x="970" y="605" width="400" height="260" rx="10" fill="#FFFFFF" stroke="#E53935" stroke-width="2.5"/>
+    <rect x="970" y="605" width="400" height="40" rx="10" fill="#E53935"/>
+    <text x="1170" y="632" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">C. 反応なし / 呼吸停止 / 脈拍なし</text>
+
+    <text x="1170" y="668" font-size="17" font-weight="700" fill="#B71C1C" text-anchor="middle">⚡ 心停止 (Cardiac Arrest)</text>
+
+    <text x="990" y="700" font-size="13" font-weight="700" fill="#B71C1C">→ FC2 CALS Algorithm を起動</text>
+    <text x="990" y="725" font-size="13" fill="#424242">• 6 人チーム招集（FC11）</text>
+    <text x="990" y="748" font-size="13" fill="#424242">• 緊急胸骨再開放セット 展開</text>
+    <text x="990" y="771" font-size="13" fill="#424242">• 除細動器 持込 + 5 分タイマー作動</text>
+    <text x="990" y="794" font-size="13" fill="#424242">• 上級医・心臓外科 呼出</text>
+    <text x="990" y="817" font-size="13" fill="#424242">• 家族待機室へ連絡</text>
+
+    <text x="1170" y="852" font-size="11" font-style="italic" fill="#757575" text-anchor="middle">⏱ 5 分の壁 — 再開胸の判断点</text>
+  </g>
+
+  <!-- Pre-arrest causes box at bottom -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="890" width="1200" height="80" rx="8" fill="#FFFDE7" stroke="#F9A825" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <text x="120" y="918" font-size="14" font-weight="700" fill="#E65100">📝 Pre-arrest 原因鑑別チェックリスト（B分岐で必ず想起）</text>
+    <text x="120" y="942" font-size="12" fill="#424242">タンポナーデ / 緊張性気胸 / 出血性ショック / 急性右心不全・PE / VF storm 前兆（頻発PVC, TdP run） / 心筋虚血・新規ST変化 / 大動脈バルーン破損</text>
+    <text x="1280" y="962" font-size="10" font-style="italic" fill="#9E9E9E" text-anchor="end">[1][2][8]</text>
+  </g>
+</svg>

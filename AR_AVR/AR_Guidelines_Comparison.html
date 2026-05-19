@@ -18,9 +18,36 @@
   --jp-accent: #c0392b;
   --us-accent: #2980b9;
   --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
 
 body {
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
@@ -28,10 +55,23 @@ body {
   line-height: 1.7;
   color: var(--fg);
   background: var(--bg);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 32px 80px;
 }
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
 
 h1 {
   font-size: 1.6rem;
@@ -157,14 +197,180 @@ mark {
   h2 { break-after: avoid; }
 }
 
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
 @media (max-width: 768px) {
-  body { padding: 20px 16px 60px; font-size: 13px; }
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
   h1 { font-size: 1.3rem; }
   table { font-size: 0.75rem; }
 }
 </style>
 </head>
 <body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-大動脈弁閉鎖不全症の分類と病因">1. 大動脈弁閉鎖不全症の分類と病因</a></li>
+      <li class="toc-l3"><a href="#1-1-病因による分類弁性病変-vs-基部拡大">1-1. 病因による分類（弁性病変 vs 基部拡大）</a></li>
+      <li class="toc-l3"><a href="#1-2-ar機能分類carpentier型分類の応用">1-2. AR機能分類（Carpentier型分類の応用）</a></li>
+      <li class="toc-l2"><a href="#2-重症度分類">2. 重症度分類</a></li>
+      <li class="toc-l3"><a href="#2-1-tteを中心とした重症度判定3ガイドライン共通の主要パラメータ">2-1. TTEを中心とした重症度判定（3ガイドライン共通の主要パラメータ）</a></li>
+      <li class="toc-l3"><a href="#2-2-accaha-独自のステージ分類ad">2-2. ACC/AHA 独自のステージ分類（A〜D）</a></li>
+      <li class="toc-l2"><a href="#3-症候性arに対する手術適応">3. 症候性ARに対する手術適応</a></li>
+      <li class="toc-l3"><a href="#3-1-症候性重症arnyha-iiiv労作時呼吸困難狭心症等">3-1. 症候性重症AR（NYHA II〜IV、労作時呼吸困難・狭心症等）</a></li>
+      <li class="toc-l2"><a href="#4-無症候性arに対する手術適応">4. 無症候性ARに対する手術適応</a></li>
+      <li class="toc-l3"><a href="#4-1-lvef低下例最も強い適応">4-1. LVEF低下例（最も強い適応）</a></li>
+      <li class="toc-l3"><a href="#4-2-lv拡大例lvef保存">4-2. LV拡大例（LVEF保存）</a></li>
+      <li class="toc-l3"><a href="#4-3-その他併存条件重症ar--他の心臓手術">4-3. その他併存条件（重症AR + 他の心臓手術）</a></li>
+      <li class="toc-l2"><a href="#5-急性arへの対応">5. 急性ARへの対応</a></li>
+      <li class="toc-l2"><a href="#6-術式の選択avr弁形成弁温存基部置換vsarr">6. 術式の選択：AVR・弁形成・弁温存基部置換（VSARR）</a></li>
+      <li class="toc-l3"><a href="#6-1-術式選択の基本指針3ガイドライン共通">6-1. 術式選択の基本指針（3ガイドライン共通）</a></li>
+      <li class="toc-l3"><a href="#6-2-弁形成vsarrに関するガイドライン推奨">6-2. 弁形成・VSARRに関するガイドライン推奨</a></li>
+      <li class="toc-l2"><a href="#7-tavi-for-ar-の位置付け">7. TAVI for AR の位置付け</a></li>
+      <li class="toc-l3"><a href="#7-1-単独ar症例に対するtaviの推奨">7-1. 単独AR症例に対するTAVIの推奨</a></li>
+      <li class="toc-l3"><a href="#7-2-tavi-for-ar-が技術的に困難な理由3ガイドライン共通の見解">7-2. TAVI for AR が技術的に困難な理由（3ガイドライン共通の見解）</a></li>
+      <li class="toc-l2"><a href="#8-各地域の相違点-比較表">8. 各地域の相違点 比較表</a></li>
+      <li class="toc-l3"><a href="#8-1-主要な相違点サマリー">8-1. 主要な相違点サマリー</a></li>
+      <li class="toc-l3"><a href="#8-2-無症候性ar介入適応の総合比較">8-2. 無症候性AR介入適応の総合比較</a></li>
+      <li class="toc-l3"><a href="#8-3-術式選択の比較">8-3. 術式選択の比較</a></li>
+      <li class="toc-l2"><a href="#9-まとめ総括">9. まとめ・総括</a></li>
+      <li class="toc-l3"><a href="#共通事項">共通事項</a></li>
+      <li class="toc-l3"><a href="#主要な相違点まとめ">主要な相違点まとめ</a></li>
+      <li class="toc-l3"><a href="#臨床的含意">臨床的含意</a></li>
+      <li class="toc-l3"><a href="#臨床判断のフロー3ガイドライン統合視点">臨床判断のフロー（3ガイドライン統合視点）</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
 <h1 id="大動脈弁閉鎖不全症arに対する大動脈弁手術の適応各地域ガイドライン比較">大動脈弁閉鎖不全症（AR）に対する大動脈弁手術の適応：各地域ガイドライン比較</h1>
 <p><strong>作成日：</strong> 2026年5月15日<br />
 <strong>対象ガイドライン：</strong></p>
@@ -1012,5 +1218,78 @@ mark {
 <li>2020 ACC/AHA Guideline for the Management of Patients With Valvular Heart Disease, Section 4: Aortic Regurgitation</li>
 </ul>
 
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
 </body>
 </html>

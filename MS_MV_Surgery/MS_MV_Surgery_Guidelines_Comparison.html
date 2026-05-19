@@ -18,9 +18,36 @@
   --jp-accent: #c0392b;
   --us-accent: #2980b9;
   --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
 
 body {
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
@@ -28,10 +55,23 @@ body {
   line-height: 1.7;
   color: var(--fg);
   background: var(--bg);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 32px 80px;
 }
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
 
 h1 {
   font-size: 1.6rem;
@@ -157,14 +197,192 @@ mark {
   h2 { break-after: avoid; }
 }
 
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
 @media (max-width: 768px) {
-  body { padding: 20px 16px 60px; font-size: 13px; }
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
   h1 { font-size: 1.3rem; }
   table { font-size: 0.75rem; }
 }
 </style>
 </head>
 <body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-僧帽弁狭窄症の重症度分類">1. 僧帽弁狭窄症の重症度分類</a></li>
+      <li class="toc-l3"><a href="#1-1-血行動態的重症度分類">1-1. 血行動態的重症度分類</a></li>
+      <li class="toc-l4"><a href="#jcs-2020日本の定義">JCS 2020（日本）の定義</a></li>
+      <li class="toc-l4"><a href="#esceacts-2025欧州の定義">ESC/EACTS 2025（欧州）の定義</a></li>
+      <li class="toc-l4"><a href="#accaha-2020米国のステージ分類ad">ACC/AHA 2020（米国）のステージ分類（A〜D）</a></li>
+      <li class="toc-l3"><a href="#1-2-重症度定義における3ガイドライン間の相違">1-2. 重症度定義における3ガイドライン間の相違</a></li>
+      <li class="toc-l2"><a href="#2-弁形態評価wilkinsスコアcormierスコア">2. 弁形態評価（Wilkinsスコア・Cormierスコア）</a></li>
+      <li class="toc-l3"><a href="#2-1-wilkinsスコアecho-score">2-1. Wilkinsスコア（Echo Score）</a></li>
+      <li class="toc-l3"><a href="#2-2-cormierスコアesceacts-2025のみ">2-2. Cormierスコア（ESC/EACTS 2025のみ）</a></li>
+      <li class="toc-l3"><a href="#2-3-pmcの形態的禁忌">2-3. PMCの形態的禁忌</a></li>
+      <li class="toc-l2"><a href="#3-症候性msへのptmcpmcpmbc適応">3. 症候性MSへのPTMC/PMC/PMBC適応</a></li>
+      <li class="toc-l3"><a href="#3-1-症候性ms形態良好例">3-1. 症候性MS（形態良好例）</a></li>
+      <li class="toc-l3"><a href="#3-2-症候性ms形態不良例高外科的リスク例">3-2. 症候性MS（形態不良例・高外科的リスク例）</a></li>
+      <li class="toc-l3"><a href="#3-3-軽症msmva-15-cm²への介入">3-3. 軽症MS（MVA &amp;gt;1.5 cm²）への介入</a></li>
+      <li class="toc-l2"><a href="#4-症候性msへの外科的介入適応">4. 症候性MSへの外科的介入適応</a></li>
+      <li class="toc-l3"><a href="#4-1-外科的介入全般の適応">4-1. 外科的介入全般の適応</a></li>
+      <li class="toc-l3"><a href="#4-2-外科的形成術omcdirect-commissurotomy--mitral-valve-repair">4-2. 外科的形成術（OMC：Direct Commissurotomy / Mitral Valve Repair）</a></li>
+      <li class="toc-l3"><a href="#4-3-外科的弁置換術mvrの適応">4-3. 外科的弁置換術（MVR）の適応</a></li>
+      <li class="toc-l2"><a href="#5-無症候性msへの介入適応">5. 無症候性MSへの介入適応</a></li>
+      <li class="toc-l3"><a href="#5-1-肺高血圧を伴う無症候性重症ms">5-1. 肺高血圧を伴う無症候性重症MS</a></li>
+      <li class="toc-l3"><a href="#5-2-心房細動afを伴う無症候性重症ms">5-2. 心房細動（AF）を伴う無症候性重症MS</a></li>
+      <li class="toc-l3"><a href="#5-3-塞栓症リスクに関わる無症候性ms">5-3. 塞栓症リスクに関わる無症候性MS</a></li>
+      <li class="toc-l3"><a href="#5-4-非心臓外科手術前の無症候性ms">5-4. 非心臓外科手術前の無症候性MS</a></li>
+      <li class="toc-l2"><a href="#6-低流量低圧較差msの管理">6. 低流量・低圧較差MSの管理</a></li>
+      <li class="toc-l3"><a href="#6-1-定義と特徴">6-1. 定義と特徴</a></li>
+      <li class="toc-l2"><a href="#7-特殊状況における管理">7. 特殊状況における管理</a></li>
+      <li class="toc-l3"><a href="#7-1-妊娠合併ms">7-1. 妊娠合併MS</a></li>
+      <li class="toc-l3"><a href="#7-2-左心房血栓を伴うms">7-2. 左心房血栓を伴うMS</a></li>
+      <li class="toc-l3"><a href="#7-3-非リウマチ性ms僧帽弁輪石灰化mac">7-3. 非リウマチ性MS（僧帽弁輪石灰化：MAC）</a></li>
+      <li class="toc-l3"><a href="#7-4-感染性心内膜炎を合併した-ms">7-4. 感染性心内膜炎を合併した MS</a></li>
+      <li class="toc-l2"><a href="#8-弁置換術における人工弁選択">8. 弁置換術における人工弁選択</a></li>
+      <li class="toc-l3"><a href="#8-1-機械弁-vs-生体弁の選択基準">8-1. 機械弁 vs 生体弁の選択基準</a></li>
+      <li class="toc-l2"><a href="#9-各地域の相違点-比較表">9. 各地域の相違点 比較表</a></li>
+      <li class="toc-l3"><a href="#9-1-主要な相違点サマリー">9-1. 主要な相違点サマリー</a></li>
+      <li class="toc-l3"><a href="#9-2-症候性ms形態良好例への介入比較">9-2. 症候性MS（形態良好例）への介入比較</a></li>
+      <li class="toc-l3"><a href="#9-3-無症候性msstage-c--中等症以上無症候性への介入比較">9-3. 無症候性MS（Stage C / 中等症以上無症候性）への介入比較</a></li>
+      <li class="toc-l2"><a href="#10-まとめ総括">10. まとめ・総括</a></li>
+      <li class="toc-l3"><a href="#共通事項">共通事項</a></li>
+      <li class="toc-l3"><a href="#主要な相違点まとめ">主要な相違点まとめ</a></li>
+      <li class="toc-l3"><a href="#臨床的含意">臨床的含意</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
 <h1 id="僧帽弁狭窄症に対する僧帽弁形成術置換術の適応各地域ガイドライン比較">僧帽弁狭窄症に対する僧帽弁形成術・置換術の適応：各地域ガイドライン比較</h1>
 <p><strong>作成日：</strong> 2026年4月11日<br />
 <strong>対象ガイドライン：</strong></p>
@@ -1245,5 +1463,78 @@ mark {
 <hr />
 <p><em>本文書は各ガイドライン原本の推奨事項を忠実に要約したものです。推奨クラス（I, IIa, IIb, III）およびエビデンスレベルは原文に基づいています。実際の臨床判断は各症例の状況を踏まえ、弁膜症チーム（Heart Teamまたは専門医間の協議）にて総合的に行うことが推奨されます。</em></p>
 
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
 </body>
 </html>

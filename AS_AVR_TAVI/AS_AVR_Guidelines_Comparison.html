@@ -18,9 +18,36 @@
   --jp-accent: #c0392b;
   --us-accent: #2980b9;
   --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
 
 body {
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
@@ -28,10 +55,23 @@ body {
   line-height: 1.7;
   color: var(--fg);
   background: var(--bg);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 32px 80px;
 }
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
 
 h1 {
   font-size: 1.6rem;
@@ -157,23 +197,203 @@ mark {
   h2 { break-after: avoid; }
 }
 
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
 @media (max-width: 768px) {
-  body { padding: 20px 16px 60px; font-size: 13px; }
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
   h1 { font-size: 1.3rem; }
   table { font-size: 0.75rem; }
 }
 </style>
 </head>
 <body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-大動脈弁狭窄症の重症度分類">1. 大動脈弁狭窄症の重症度分類</a></li>
+      <li class="toc-l3"><a href="#1-1-血行動態的重症度分類3ガイドライン共通事項">1-1. 血行動態的重症度分類（3ガイドライン共通事項）</a></li>
+      <li class="toc-l3"><a href="#1-2-accaha-独自のステージ分類ad">1-2. ACC/AHA 独自のステージ分類（A〜D）</a></li>
+      <li class="toc-l2"><a href="#2-症候性asに対するavr適応">2. 症候性ASに対するAVR適応</a></li>
+      <li class="toc-l3"><a href="#2-1-症候性重度高圧較差assymptomatic-severe-high-gradient-as">2-1. 症候性重度高圧較差AS（Symptomatic Severe High-Gradient AS）</a></li>
+      <li class="toc-l3"><a href="#2-2-症候性低流量低圧較差assymptomatic-low-flow-low-gradient-as">2-2. 症候性低流量低圧較差AS（Symptomatic Low-Flow Low-Gradient AS）</a></li>
+      <li class="toc-l2"><a href="#3-無症候性asに対するavr適応">3. 無症候性ASに対するAVR適応</a></li>
+      <li class="toc-l3"><a href="#3-1-無症候性重度asasymptomatic-severe-as全般">3-1. 無症候性重度AS（Asymptomatic Severe AS）全般</a></li>
+      <li class="toc-l3"><a href="#3-2-無症候性重度aslvef正常における追加介入トリガー">3-2. 無症候性重度AS（LVEF正常）における追加介入トリガー</a></li>
+      <li class="toc-l2"><a href="#4-低流量低圧較差asの分類と対応">4. 低流量低圧較差ASの分類と対応</a></li>
+      <li class="toc-l3"><a href="#4-1-定義">4-1. 定義</a></li>
+      <li class="toc-l3"><a href="#4-2-診断補助検査">4-2. 診断補助検査</a></li>
+      <li class="toc-l2"><a href="#5-tavi-vs-savr-選択基準">5. TAVI vs SAVR 選択基準</a></li>
+      <li class="toc-l3"><a href="#5-1-年齢手術リスクに基づく選択基準">5-1. 年齢・手術リスクに基づく選択基準</a></li>
+      <li class="toc-l3"><a href="#5-2-解剖学的臨床的選択因子">5-2. 解剖学的・臨床的選択因子</a></li>
+      <li class="toc-l3"><a href="#5-3-heart-team-の役割">5-3. Heart Team の役割</a></li>
+      <li class="toc-l2"><a href="#6-運動負荷試験の役割">6. 運動負荷試験の役割</a></li>
+      <li class="toc-l2"><a href="#7-各地域の相違点-比較表">7. 各地域の相違点 比較表</a></li>
+      <li class="toc-l3"><a href="#7-1-主要な相違点サマリー">7-1. 主要な相違点サマリー</a></li>
+      <li class="toc-l3"><a href="#7-2-無症候性as介入適応の比較lvef正常例">7-2. 無症候性AS介入適応の比較（LVEF正常例）</a></li>
+      <li class="toc-l3"><a href="#7-3-tavi適応拡大の比較">7-3. TAVI適応拡大の比較</a></li>
+      <li class="toc-l2"><a href="#8-まとめ総括">8. まとめ・総括</a></li>
+      <li class="toc-l3"><a href="#共通事項">共通事項</a></li>
+      <li class="toc-l3"><a href="#主要な相違点まとめ">主要な相違点まとめ</a></li>
+      <li class="toc-l3"><a href="#臨床的含意">臨床的含意</a></li>
+      <li class="toc-l2"><a href="#9-ross手術eacts-2025-consensus">9. Ross手術（EACTS 2025 Consensus）</a></li>
+      <li class="toc-l3"><a href="#9-1-3地域vhdガイドラインにおけるross手術の位置付け">9-1. 3地域VHDガイドラインにおけるRoss手術の位置付け</a></li>
+      <li class="toc-l3"><a href="#9-2-ross手術の理論的根拠eacts-2025-consensus-table-1">9-2. Ross手術の理論的根拠（EACTS 2025 Consensus Table 1）</a></li>
+      <li class="toc-l3"><a href="#9-3-患者選択基準eacts-2025-consensus-table-2">9-3. 患者選択基準（EACTS 2025 Consensus Table 2）</a></li>
+      <li class="toc-l4"><a href="#9-3-1-適応となる患者像">9-3-1. 適応となる患者像</a></li>
+      <li class="toc-l4"><a href="#9-3-2-適応疾患別の推奨">9-3-2. 適応疾患別の推奨</a></li>
+      <li class="toc-l4"><a href="#9-3-3-禁忌回避すべき病態">9-3-3. 禁忌・回避すべき病態</a></li>
+      <li class="toc-l3"><a href="#9-4-手術手技eacts-2025-consensus-table-3">9-4. 手術手技（EACTS 2025 Consensus Table 3）</a></li>
+      <li class="toc-l4"><a href="#9-4-1-推奨される3つの基本術式">9-4-1. 推奨される3つの基本術式</a></li>
+      <li class="toc-l4"><a href="#9-4-2-手技上の必須事項">9-4-2. 手技上の必須事項</a></li>
+      <li class="toc-l3"><a href="#9-5-術後管理eacts-2025-consensus-table-5">9-5. 術後管理（EACTS 2025 Consensus Table 5）</a></li>
+      <li class="toc-l3"><a href="#9-6-再手術eacts-2025-consensus-table-4">9-6. 再手術（EACTS 2025 Consensus Table 4）</a></li>
+      <li class="toc-l3"><a href="#9-7-ross-centres-of-excellenceeacts-2025-consensus-table-6">9-7. Ross Centres of Excellence（EACTS 2025 Consensus Table 6）</a></li>
+      <li class="toc-l3"><a href="#9-8-jcsescacc-asガイドラインへの臨床的含意">9-8. JCS/ESC/ACC ASガイドラインへの臨床的含意</a></li>
+      <li class="toc-l3"><a href="#9-9-主要な相違点差異ポイントまとめ">9-9. 主要な相違点・差異ポイントまとめ</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
 <h1 id="大動脈弁狭窄症に対する大動脈弁置換術の適応各地域ガイドライン比較">大動脈弁狭窄症に対する大動脈弁置換術の適応：各地域ガイドライン比較</h1>
 <p><strong>作成日：</strong> 2026年4月10日<br />
+<strong>最終改訂：</strong> 2026年5月18日（Ross手術セクション追加）<br />
 <strong>対象ガイドライン：</strong></p>
 <ul>
 <li>🇯🇵 <strong>JCS 2020</strong>：JCS/JSCS/JATS/JSVS 2020年改訂版 弁膜症治療ガイドライン（日本）</li>
 <li>🇪🇺 <strong>ESC/EACTS 2025</strong>：ESC/EACTS 2025 Guidelines on the Management of Valvular Heart Disease（欧州）</li>
 <li>🇺🇸 <strong>ACC/AHA 2020</strong>：ACC/AHA 2020 Guideline for the Management of Patients With Valvular Heart Disease（米国）</li>
+<li>🇪🇺 <strong>EACTS 2025 Ross Consensus</strong>：EACTS Expert Consensus Statement on the Ross Procedure in Adult Patients（欧州・成人Ross手術専門コンセンサス、2025年10月）</li>
 </ul>
-<p><strong>関連ドキュメント：</strong> 僧帽弁狭窄症ガイドライン比較 · AF手術適応比較 · 上行大動脈手術適応比較 · 複合弁膜症ガイドライン比較 · 術前抗凝固管理比較</p>
+<p><strong>関連ドキュメント：</strong> 僧帽弁狭窄症ガイドライン比較 · AF手術適応比較 · 上行大動脈手術適応比較 · 複合弁膜症ガイドライン比較 · 術前抗凝固管理比較 · 大動脈弁逆流症ガイドライン比較</p>
 <hr />
 <h2 id="目次">目次</h2>
 <ol type="1">
@@ -185,6 +405,7 @@ mark {
 <li><a href="#6-運動負荷試験の役割">運動負荷試験の役割</a></li>
 <li><a href="#7-各地域の相違点-比較表">各地域の相違点 比較表</a></li>
 <li><a href="#8-まとめ総括">まとめ・総括</a></li>
+<li><a href="#9-ross手術eacts-2025-consensus">Ross手術（EACTS 2025 Consensus）</a></li>
 </ol>
 <hr />
 <h2 id="1-大動脈弁狭窄症の重症度分類">1. 大動脈弁狭窄症の重症度分類</h2>
@@ -927,6 +1148,403 @@ mark {
 
 <hr />
 <p><em>本文書は各ガイドライン原本の推奨事項を忠実に要約したものです。推奨クラス（I, IIa, IIb, III）およびエビデンスレベルは原文に基づいています。実際の臨床判断は各症例の状況を踏まえ、Heart Teamにて総合的に行うことが推奨されます。</em></p>
+<hr />
+<h2 id="9-ross手術eacts-2025-consensus">9. Ross手術（EACTS 2025 Consensus）</h2>
 
+<div class="callout" style="background:#e1f5fe;border-left:4px solid #00b0ff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00b0ff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">本章について</div>
+<p>Ross手術（自家肺動脈弁による大動脈弁置換術 / pulmonary autograft）は、若年〜中年成人の大動脈弁疾患に対する独自の置換選択肢である。3地域のVHDガイドラインではいずれも推奨記載が限定的であるため、本章では <strong>EACTS 2025 Expert Consensus Statement on the Ross Procedure in Adult Patients</strong>（2025年10月発表）の主要推奨を中心に、ASガイドラインとの関係を整理する。</p>
+</div>
+
+<h3 id="9-1-3地域vhdガイドラインにおけるross手術の位置付け">9-1. 3地域VHDガイドラインにおけるRoss手術の位置付け</h3>
+<table>
+<thead>
+<tr>
+<th>ガイドライン</th>
+<th>Ross手術の推奨レベル</th>
+<th>主な記載内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>JCS 2020</strong></td>
+<td>明示的なクラス推奨なし</td>
+<td>若年・小児領域での選択肢として言及。成人例での適応については限定的記載。</td>
+</tr>
+<tr>
+<td><strong>ESC/EACTS 2025</strong>（VHD）</td>
+<td>経験豊富な施設での選択肢</td>
+<td>「経験ある施設で、選定された患者に限り考慮しうる」と記載。詳細はRoss専門コンセンサス（下記）に委ねる。</td>
+</tr>
+<tr>
+<td><strong>ACC/AHA 2020</strong></td>
+<td><strong>Class IIb, Level C-LD</strong></td>
+<td>「<mark>50歳未満</mark>・適切な解剖を有する患者で、経験豊富な施設で実施される場合に考慮しうる」（4.3.2項）</td>
+</tr>
+<tr>
+<td><strong>EACTS 2025 Ross Consensus</strong></td>
+<td>専門コンセンサス</td>
+<td>60歳未満・余命15年以上の選定患者で<strong>第一選択肢として考慮</strong>しうると明示。</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ガイドライン間の温度差</div>
+<p>3地域VHDガイドラインはいずれもRoss手術に対し慎重（Class IIb相当〜記載なし）であるのに対し、<strong>EACTS 2025 Ross専門コンセンサス</strong>は近年蓄積した長期成績エビデンスに基づき、適切な患者選定と専門施設での実施を条件として、より積極的な姿勢を示している。</p>
+</div>
+
+<hr />
+<h3 id="9-2-ross手術の理論的根拠eacts-2025-consensus-table-1">9-2. Ross手術の理論的根拠（EACTS 2025 Consensus Table 1）</h3>
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Ross手術の利点</div>
+<ol type="1">
+<li><strong>長期生存率の回復</strong>：年齢・性別をマッチさせた一般集団と<mark>同等の余命</mark>が期待できる（人工弁置換では達成困難）</li>
+<li><strong>優れた血行動態</strong>：他のあらゆる人工弁置換オプションと比較して優れたhemodynamic performance（特にPPM（patient-prosthesis mismatch）の回避）</li>
+<li><strong>弁関連合併症からの解放</strong>：感染性心内膜炎、ペースメーカー植込み、再手術、血栓塞栓症、出血の発生率が低い</li>
+</ol>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>Ross手術</th>
+<th>mAVR（機械弁）</th>
+<th>bAVR（生体弁）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>長期生存率（vs 一般集団）</strong></td>
+<td><strong>同等</strong></td>
+<td>過剰死亡あり</td>
+<td>過剰死亡あり</td>
+</tr>
+<tr>
+<td><strong>生涯抗凝固療法</strong></td>
+<td>不要</td>
+<td>必須</td>
+<td>不要</td>
+</tr>
+<tr>
+<td><strong>主要出血/脳卒中（15年）</strong></td>
+<td>1.9% / 2.1%</td>
+<td>5.2% / 4.8%</td>
+<td>3.3% / 3.3%</td>
+</tr>
+<tr>
+<td><strong>PPMリスク</strong></td>
+<td>ほぼゼロ（特に重症PPM）</td>
+<td>あり</td>
+<td>あり</td>
+</tr>
+<tr>
+<td><strong>感染性心内膜炎</strong></td>
+<td>極低い（自己組織）</td>
+<td>低い</td>
+<td>やや高い</td>
+</tr>
+<tr>
+<td><strong>再手術リスク</strong></td>
+<td>〜1%/患者年（経験施設）</td>
+<td>低い</td>
+<td>10年以降急増</td>
+</tr>
+<tr>
+<td><strong>長期成績データ</strong></td>
+<td>25年フォローアップあり</td>
+<td>豊富</td>
+<td>豊富（但し若年では耐久性問題）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="9-3-患者選択基準eacts-2025-consensus-table-2">9-3. 患者選択基準（EACTS 2025 Consensus Table 2）</h3>
+<h4 id="9-3-1-適応となる患者像">9-3-1. 適応となる患者像</h4>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Ross手術の理想的適応</div>
+<ul>
+<li><strong>年齢 <mark>&lt;60歳</mark></strong>（理想的には&lt;50歳、合併症最小であれば60歳まで拡大可）</li>
+<li><strong>余命 <mark>&gt;15年</mark></strong></li>
+<li><strong>最適な解剖学的基質</strong>：AS または mixed AV diseaseで<mark>大動脈弁輪が拡大していない（&lt;27 mm）</mark></li>
+<li><strong>挙児希望のある若年女性</strong>：抗凝固不要のためRoss手術が<mark>第一選択</mark></li>
+<li><strong>純粋AR / 弁輪拡大例</strong>：適切な手術手技（弁輪形成術等）を併用すれば良好な候補</li>
+</ul>
+</div>
+
+<h4 id="9-3-2-適応疾患別の推奨">9-3-2. 適応疾患別の推奨</h4>
+<table>
+<thead>
+<tr>
+<th>病態</th>
+<th>EACTS 2025 Ross Consensusの記載</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>大動脈弁狭窄症（AS）</strong></td>
+<td>弁輪非拡大例で最も理想的な適応。二尖弁・一尖弁を含めて長期成績良好</td>
+</tr>
+<tr>
+<td><strong>大動脈弁逆流症（AR）</strong></td>
+<td>修復不能例で考慮可。弁輪形成術・autograft補強等の<strong>手技調整が必須</strong></td>
+</tr>
+<tr>
+<td><strong>混合弁膜症（mixed）</strong></td>
+<td>AS優位型でASと同様に良好な適応</td>
+</tr>
+<tr>
+<td><strong>感染性心内膜炎（IE）</strong></td>
+<td>経験施設で選定された症例において考慮可。複雑手術であり専門施設限定</td>
+</tr>
+<tr>
+<td><strong>リウマチ性弁膜症</strong></td>
+<td>自己免疫機転によるPA障害の懸念あり。発展途上国の若年症例では選定の上検討可</td>
+</tr>
+</tbody>
+</table>
+<h4 id="9-3-3-禁忌回避すべき病態">9-3-3. 禁忌・回避すべき病態</h4>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Ross手術を避けるべき病態</div>
+<ul>
+<li><strong>遺伝性結合組織疾患（Marfan症候群・Loeys-Dietz症候群・Ehlers-Danlos症候群）</strong>：肺動脈壁にも組織異常が及ぶため<strong>禁忌</strong></li>
+<li><strong>活動性自己免疫疾患</strong>（関節リウマチ・高安動脈炎・SLE等）：<strong>禁忌</strong></li>
+<li><strong>術前心エコーで有意な肺動脈弁機能異常</strong>：厳格な禁忌</li>
+<li><strong>冠動脈の右室漏斗部前方走行</strong>：autograft採取で冠動脈損傷を来すため<strong>絶対禁忌</strong></li>
+<li><strong>回復不能なLVEF低下（&lt;30%）、重症肺高血圧、進行肝/腎/肺疾患、複雑糖尿病、予後不良がん、放射線治療歴、虚弱</strong>：Ross手術の利点が減弱</li>
+</ul>
+</div>
+
+<hr />
+<h3 id="9-4-手術手技eacts-2025-consensus-table-3">9-4. 手術手技（EACTS 2025 Consensus Table 3）</h3>
+<h4 id="9-4-1-推奨される3つの基本術式">9-4-1. 推奨される3つの基本術式</h4>
+<table>
+<thead>
+<tr>
+<th>術式</th>
+<th>概要</th>
+<th>主な適応</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tailored free-standing root replacement（標準術式）</strong></td>
+<td>自家肺動脈をroot replacementとして移植。弁輪・STJの安定化（reinforcement）を併用 = <strong>Reinforced Root Replacement (RR+R)</strong></td>
+<td>大多数の症例</td>
+</tr>
+<tr>
+<td><strong>Autologous inclusion technique</strong></td>
+<td>自家肺動脈を患者自身の大動脈根部内に挿入。autograft拡張を物理的に抑制</td>
+<td>大動脈根部径がPAと適合する症例</td>
+</tr>
+<tr>
+<td><strong>Prosthetic inclusion technique</strong></td>
+<td>自家肺動脈をDacron人工血管内に挿入（cylinder or scalloped法）</td>
+<td>弁輪拡大例・AR症例で外部支持を要する症例</td>
+</tr>
+<tr>
+<td><strong>Ross-PEARS</strong></td>
+<td>Personalised External Aortic Root Support（CT像から個別作製）でautograftを外部から補強</td>
+<td>中長期データはまだ限定的（新規術式）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="9-4-2-手技上の必須事項">9-4-2. 手技上の必須事項</h4>
+<table>
+<thead>
+<tr>
+<th>推奨事項</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>大動脈弁輪形成術（annuloplasty）の併用</strong></td>
+<td>純粋/優位AR、<mark>弁輪 ≥27 mm</mark>、または弁輪mismatch例で<strong>全例必須</strong></td>
+</tr>
+<tr>
+<td><strong>STJ補強</strong></td>
+<td>autograftのSTJレベルでの拡張予防に有効</td>
+</tr>
+<tr>
+<td><strong>STJ-上行大動脈mismatch対応</strong></td>
+<td>上行大動脈径&gt;32-36 mmや明らかなmismatchがある場合、<strong>interposition graftまたはreduction aortoplasty</strong>を実施</td>
+</tr>
+<tr>
+<td><strong>右室流出路再建</strong></td>
+<td><strong>凍結保存肺動脈ホモグラフトがgold standard</strong>。xenograftは代替可だが耐久性は劣る。脱細胞化ホモグラフトはより良好な耐久性の可能性あり</td>
+</tr>
+<tr>
+<td><strong>術中TEE評価</strong></td>
+<td>術直後の評価必須。<strong>mild以上の残存ARは再手術リスクのため再クランプ検討</strong>（AV修復術と同じ基準を適用）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="9-5-術後管理eacts-2025-consensus-table-5">9-5. 術後管理（EACTS 2025 Consensus Table 5）</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">術後管理の3本柱</div>
+<ol type="1">
+<li><strong>厳格な血圧管理（術後1年間最重要）</strong>：<mark>SBP &lt;110-115 mmHg</mark>を目標。<strong>β遮断薬を第一選択</strong>（不耐例ではACE-I/ARB）。早期のautograft拡張は晩期拡張を予測する。</li>
+<li><strong>抗炎症療法（術後3-6ヶ月）</strong>：イブプロフェン <strong><mark>5 mg/kg×3回/日</mark></strong> で肺動脈ホモグラフトの長期成績改善の可能性（限定的エビデンス）。アスピリンの慢性投与の根拠は不十分。</li>
+<li><strong>生涯にわたる経過観察</strong>：退院時・術後3-6ヶ月・以後年1回の心エコー（autograft径、AR程度、ホモグラフト機能、LV/RV機能等を評価）。専門施設での三次機関フォロー推奨。</li>
+</ol>
+</div>
+
+<hr />
+<h3 id="9-6-再手術eacts-2025-consensus-table-4">9-6. 再手術（EACTS 2025 Consensus Table 4）</h3>
+<table>
+<thead>
+<tr>
+<th>部位</th>
+<th>再手術頻度</th>
+<th>推奨アプローチ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Autograft失敗（大動脈側）</strong></td>
+<td>5年97%、10年90%、15年84%、20年70%（再手術回避率）</td>
+<td>autograft拡張・AR例では<strong>弁温存手術（valve-sparing reoperation）を選択肢として考慮</strong>可。重症AR例ではmAVR/bAVR</td>
+</tr>
+<tr>
+<td><strong>肺動脈ホモグラフト失敗（右側）</strong></td>
+<td>5年96%、10年90%、15年88%（再手術回避率）</td>
+<td><strong>経皮的介入（transcatheter pulmonary valve replacement）が多くの症例で第一選択</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="9-7-ross-centres-of-excellenceeacts-2025-consensus-table-6">9-7. Ross Centres of Excellence（EACTS 2025 Consensus Table 6）</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">施設・術者要件</div>
+<ul>
+<li><strong>強い施設・術者volume-outcome関係</strong>：年間1-2例施設は10例以上施設より周術期死亡率が約4.5倍高い</li>
+<li><strong>学習曲線</strong>：約<mark>75例</mark>を経過すると周術期合併症リスクが最小化</li>
+<li><strong>新規プログラム立ち上げの最低基準</strong>：年間<mark>10-15例</mark>を維持できる症例数</li>
+<li><strong>チーム構成</strong>：心臓外科医（大動脈基部・弁修復術の経験必須）、多職種画像チーム、TEE専門麻酔科医、弁膜症専門循環器内科医</li>
+<li><strong>指標</strong>：症例数・周術期死亡率・早期臨床/心エコー成績・縦断的長期フォローを定義し公表する施設</li>
+</ul>
+</div>
+
+<hr />
+<h3 id="9-8-jcsescacc-asガイドラインへの臨床的含意">9-8. JCS/ESC/ACC ASガイドラインへの臨床的含意</h3>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Ross手術を「TAVI vs SAVR」フレームに統合する視点</div>
+<p>本書の第5章では「<strong>TAVI vs SAVR</strong>」の二項対立で年齢別選択基準を示したが、若年成人例（特に<mark>&lt;60歳</mark>・余命&gt;15年）では、EACTS 2025 Ross Consensusに基づき**「TAVI vs SAVR vs Ross」の三つ巴**として検討すべきである。</p>
+<ul>
+<li>🇪🇺 <strong>ESC/EACTS 2025</strong>ではTAVIの年齢閾値が<mark>≥70歳</mark>、SAVRが&lt;70歳とされており、&lt;70歳の患者群の中で機械弁・生体弁・Ross手術を選択する必要がある。</li>
+<li>🇺🇸 <strong>ACC/AHA 2020</strong>はRoss手術を<mark>&lt;50歳</mark>でClass IIbとして明示しており、若年低リスク患者でのSAVR選択時の重要な選択肢。</li>
+<li>🇯🇵 <strong>JCS 2020</strong>ではRoss手術の成人例での明示的推奨は限定的だが、EACTSコンセンサスのエビデンスを踏まえ、若年女性・挙児希望例等で専門施設へのreferralを検討する価値あり。</li>
+</ul>
+</div>
+
+<h3 id="9-9-主要な相違点差異ポイントまとめ">9-9. 主要な相違点・差異ポイントまとめ</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>比較軸</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>⑨</strong></td>
+<td><strong>Ross手術の推奨強度</strong></td>
+<td>ACC/AHAは「&lt;50歳でClass IIb」、ESC/EACTS VHDは「経験施設で選定患者に考慮可」、JCSは「明示的推奨なし」。<strong>EACTS 2025 Ross Consensus</strong>のみが詳細な患者選択・術式・術後管理を専門的に提示</td>
+</tr>
+<tr>
+<td><strong>⑩</strong></td>
+<td><strong>年齢閾値</strong></td>
+<td>EACTS Ross Consensus：<strong><mark>&lt;60歳</mark></strong>（理想&lt;50歳）、ACC/AHA：<mark>&lt;50歳</mark></td>
+</tr>
+<tr>
+<td><strong>⑪</strong></td>
+<td><strong>手術手技の標準化</strong></td>
+<td>EACTS Ross Consensus 2025で初めて<strong>RR+R（reinforced root replacement）、autologous/prosthetic inclusion</strong>の3術式が体系的に推奨</td>
+</tr>
+<tr>
+<td><strong>⑫</strong></td>
+<td><strong>施設要件</strong></td>
+<td>EACTS Ross Consensusのみが<strong>Ross Centres of Excellence</strong>の定量的要件（年間10-15例以上、学習曲線75例）を明示</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>本章はEACTS 2025 Expert Consensus Statement on the Ross Procedure in Adult Patients (Vojacek et al., Eur J Cardiothorac Surg 2026;68(2):ezaf295) の主要推奨を要約したものです。Ross手術は技術的に複雑な手術であり、適応判断・術式選択・長期管理のすべてを経験豊富な専門施設・Heart Teamにて行うことが強く推奨されます。</em></p>
+
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1500" font-family="system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B71C1C"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="1500" fill="#FAFAFA"/>
+
+  <!-- HEADER -->
+  <rect x="0" y="0" width="1400" height="100" fill="#B71C1C"/>
+  <text x="700" y="50" font-size="32" font-weight="700" fill="#FFFFFF" text-anchor="middle">VF / 無脈性 VT パスウェイ — タイムライン（0–10 分）</text>
+  <text x="700" y="80" font-size="16" fill="#FFCDD2" text-anchor="middle">心臓術後 心室細動・無脈性心室頻拍への対応</text>
+
+  <!-- TIMELINE AXIS (left) -->
+  <line x1="180" y1="140" x2="180" y2="1380" stroke="#424242" stroke-width="3"/>
+  <text x="100" y="155" font-size="14" font-weight="700" fill="#424242">時刻</text>
+
+  <!-- Time markers -->
+  <g font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">
+    <circle cx="180" cy="180" r="32" fill="#424242"/>
+    <text x="180" y="187">0:00</text>
+    <circle cx="180" cy="295" r="32" fill="#424242"/>
+    <text x="180" y="302">0:30</text>
+    <circle cx="180" cy="425" r="32" fill="#B71C1C"/>
+    <text x="180" y="432">1:00</text>
+    <circle cx="180" cy="555" r="32" fill="#B71C1C"/>
+    <text x="180" y="562">2:00</text>
+    <circle cx="180" cy="700" r="32" fill="#6A1B9A"/>
+    <text x="180" y="707">2:00</text>
+    <circle cx="180" cy="840" r="32" fill="#B71C1C"/>
+    <text x="180" y="847">3:00</text>
+    <circle cx="180" cy="970" r="32" fill="#FF6F00"/>
+    <text x="180" y="977">5:00</text>
+    <circle cx="180" cy="1100" r="32" fill="#FF6F00"/>
+    <text x="180" y="1107">7:00</text>
+    <circle cx="180" cy="1230" r="32" fill="#FF6F00"/>
+    <text x="180" y="1237">10:00</text>
+  </g>
+
+  <!-- ============ ACTION BOXES (right of timeline) ============ -->
+
+  <!-- 0:00 -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="148" width="1080" height="80" rx="8" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2"/>
+    <text x="290" y="180" font-size="18" font-weight="700" fill="#B71C1C">VF / 無脈性 VT を確認</text>
+    <text x="290" y="205" font-size="14" fill="#424242">大声で「急変！」 → 緊急コール作動 → 6 人チーム招集</text>
+    <text x="290" y="222" font-size="14" fill="#424242">FiO₂ 100% / PEEP off / 持続点滴 停止 / 大動脈内バルーンを pressure trigger へ</text>
+  </g>
+  <line x1="180" y1="212" x2="260" y2="188" stroke="#B71C1C" stroke-width="2"/>
+
+  <!-- 0:30 -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="263" width="1080" height="65" rx="8" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2"/>
+    <text x="290" y="293" font-size="18" font-weight="700" fill="#B71C1C">6 人配置完了</text>
+    <text x="290" y="316" font-size="14" fill="#424242">心マッサージ / 気道 / 除細動 / 薬剤 / 再開胸準備 / リーダー（FC11 参照）</text>
+  </g>
+  <line x1="180" y1="327" x2="260" y2="303" stroke="#B71C1C" stroke-width="2"/>
+
+  <!-- 1:00 - 3連続ショック -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="378" width="1080" height="95" rx="8" fill="#FFCDD2" stroke="#B71C1C" stroke-width="2.5"/>
+    <text x="290" y="408" font-size="20" font-weight="700" fill="#B71C1C">⚡ 3 連続ショック（心マッサージ介在なし）</text>
+    <text x="290" y="432" font-size="15" fill="#424242">二相性 200 J × 3 回（最大1分以内に完了）</text>
+    <text x="290" y="452" font-size="15" fill="#424242">  1:00 → 1回目  /  1:15 → 2回目  /  1:30 → 3回目</text>
+    <text x="290" y="470" font-size="13" font-style="italic" fill="#757575">Class I-B [2]　通常 ACLS（1ショック直後CPR）との最大の違い</text>
+  </g>
+  <line x1="180" y1="433" x2="260" y2="425" stroke="#B71C1C" stroke-width="2"/>
+
+  <!-- 2:00 - ECM start (red box) -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="508" width="540" height="95" rx="8" fill="#FFEBEE" stroke="#B71C1C" stroke-width="2"/>
+    <text x="290" y="538" font-size="17" font-weight="700" fill="#B71C1C">心マッサージ 開始</text>
+    <text x="290" y="562" font-size="14" fill="#424242">100–120 / min, 深さ 4–5 cm</text>
+    <text x="290" y="582" font-size="14" fill="#424242">動脈圧 収縮期 ≥60 mmHg を目標</text>
+    <text x="290" y="599" font-size="13" font-style="italic" fill="#757575">2分サイクルで担当者交代</text>
+  </g>
+  <line x1="180" y1="563" x2="260" y2="555" stroke="#B71C1C" stroke-width="2"/>
+
+  <!-- 2:00 - Amiodarone (purple, parallel) -->
+  <g filter="url(#shadow)">
+    <rect x="810" y="508" width="530" height="95" rx="8" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="2"/>
+    <text x="840" y="538" font-size="17" font-weight="700" fill="#4A148C">💊 アミオダロン 300 mg を急速静注</text>
+    <text x="840" y="562" font-size="14" fill="#424242">中心静脈ラインから / 5% ブドウ糖 20 mL で希釈</text>
+    <text x="840" y="582" font-size="14" fill="#424242">生理食塩水は沈殿のため不可</text>
+    <text x="840" y="599" font-size="13" font-style="italic" fill="#757575">Class IIa-A [2]</text>
+  </g>
+  <line x1="180" y1="700" x2="820" y2="600" stroke="#6A1B9A" stroke-width="2"/>
+
+  <!-- 3:00 - 4th shock if VF persists -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="800" width="1080" height="80" rx="8" fill="#FFCDD2" stroke="#B71C1C" stroke-width="2.5"/>
+    <text x="290" y="828" font-size="18" font-weight="700" fill="#B71C1C">⚡ 4 回目ショック（依然 VF なら）</text>
+    <text x="290" y="850" font-size="14" fill="#424242">アミオダロン 150 mg を追加投与 + 持続点滴開始準備</text>
+    <text x="290" y="870" font-size="14" fill="#424242">継続: 900 mg/24h（最初 6 h: 1 mg/min, 続く 18 h: 0.5 mg/min）</text>
+  </g>
+  <line x1="180" y1="848" x2="260" y2="840" stroke="#B71C1C" stroke-width="2"/>
+
+  <!-- 5:00 - 5-min wall -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="925" width="1080" height="100" rx="8" fill="#FFF3E0" stroke="#FF6F00" stroke-width="3"/>
+    <text x="290" y="958" font-size="22" font-weight="700" fill="#E65100">⏱ 5 分の壁 — 緊急胸骨再開放 の判断点</text>
+    <text x="290" y="983" font-size="15" fill="#424242">心マッサージで 収縮期 &lt; 60 mmHg または VF 還元せず</text>
+    <text x="290" y="1003" font-size="15" font-weight="700" fill="#B71C1C">→ 胸骨再開放開始（FC6）／内心臓マッサージへ</text>
+    <text x="290" y="1020" font-size="13" font-style="italic" fill="#757575">Class I-C [2]</text>
+  </g>
+  <line x1="180" y1="983" x2="260" y2="975" stroke="#FF6F00" stroke-width="2"/>
+
+  <!-- 7:00 - refractory -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="1058" width="1080" height="80" rx="8" fill="#FFE0B2" stroke="#FF6F00" stroke-width="2"/>
+    <text x="290" y="1086" font-size="17" font-weight="700" fill="#E65100">難治性 VF（refractory VF）</text>
+    <text x="290" y="1108" font-size="14" fill="#424242">代替: リドカイン 1 mg/kg を静脈内ボーラス（追加 0.5–0.75 mg/kg）</text>
+    <text x="290" y="1128" font-size="14" fill="#424242">K ≥4.5 mmol/L, Mg ≥2.0 mmol/L 補正 / 内心臓マッサージ確立</text>
+  </g>
+  <line x1="180" y1="1108" x2="260" y2="1100" stroke="#FF6F00" stroke-width="2"/>
+
+  <!-- 10:00 - ECPR -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="1188" width="1080" height="80" rx="8" fill="#FFE0B2" stroke="#FF6F00" stroke-width="2"/>
+    <text x="290" y="1216" font-size="17" font-weight="700" fill="#E65100">体外式心肺蘇生（ECPR）検討</text>
+    <text x="290" y="1238" font-size="14" fill="#424242">VA-ECMO 導入判断 → FC10 へ（年齢・基礎疾患・no-flow time 評価）</text>
+    <text x="290" y="1258" font-size="14" fill="#424242">心エコーで可逆原因（タンポナーデ・PE）最終確認</text>
+  </g>
+  <line x1="180" y1="1238" x2="260" y2="1230" stroke="#FF6F00" stroke-width="2"/>
+
+  <!-- WARNING BANNER -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="1310" width="1300" height="80" rx="12" fill="#B71C1C"/>
+    <text x="700" y="1346" font-size="22" font-weight="700" fill="#FFFFFF" text-anchor="middle">⛔ アドレナリン ルーチン投与禁止 — Class III-Harm [2]</text>
+    <text x="700" y="1374" font-size="14" fill="#FFCDD2" text-anchor="middle">理由: 自己心拍再開直後の hypertension → グラフト破綻・縫合線出血 / 上級医指示下のみ少量ボーラス可</text>
+  </g>
+
+  <!-- Citation -->
+  <text x="700" y="1430" font-size="12" fill="#9E9E9E" text-anchor="middle">References: [1] EACTS 2009 — [2] STS 2017 — [3] AHA 2025 Part 9 — [5] ESC 2022 VA</text>
+</svg>

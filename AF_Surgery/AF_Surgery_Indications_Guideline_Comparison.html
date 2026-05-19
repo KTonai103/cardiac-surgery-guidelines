@@ -18,9 +18,36 @@
   --jp-accent: #c0392b;
   --us-accent: #2980b9;
   --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
 
 body {
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
@@ -28,10 +55,23 @@ body {
   line-height: 1.7;
   color: var(--fg);
   background: var(--bg);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 32px 80px;
 }
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
 
 h1 {
   font-size: 1.6rem;
@@ -157,14 +197,205 @@ mark {
   h2 { break-after: avoid; }
 }
 
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
 @media (max-width: 768px) {
-  body { padding: 20px 16px 60px; font-size: 13px; }
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
   h1 { font-size: 1.3rem; }
   table { font-size: 0.75rem; }
 }
 </style>
 </head>
 <body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#maze手術pv-isolationlaa閉鎖術-ガイドライン横断比較">Maze手術・PV Isolation・LAA閉鎖術 ガイドライン横断比較</a></li>
+      <li class="toc-l2"><a href="#略語定義">略語・定義</a></li>
+      <li class="toc-l2"><a href="#part-i各ガイドライン個別サマリー">Part I：各ガイドライン個別サマリー</a></li>
+      <li class="toc-l3"><a href="#1-sts-2023-surgical-af-treatment-guidelines">1. STS 2023 Surgical AF Treatment Guidelines</a></li>
+      <li class="toc-l4"><a href="#1-1-弁手術合併時">1-1. 弁手術合併時</a></li>
+      <li class="toc-l4"><a href="#1-2-単独外科的af治療stand-alone">1-2. 単独外科的AF治療（Stand-alone）</a></li>
+      <li class="toc-l4"><a href="#1-3-laa管理チーム医療">1-3. LAA管理・チーム医療</a></li>
+      <li class="toc-l4"><a href="#1-4-full-cox-maze-vs-la-maze">1-4. Full Cox-Maze vs LA Maze</a></li>
+      <li class="toc-l3"><a href="#2-hrsehraecasaphrssolaece-2017-expert-consensus">2. HRS/EHRA/ECAS/APHRS/SOLAECE 2017 Expert Consensus</a></li>
+      <li class="toc-l4"><a href="#2-1-外科的af治療の推奨">2-1. 外科的AF治療の推奨</a></li>
+      <li class="toc-l4"><a href="#2-2-full-cox-maze-vs-la-maze最小病変セットminimum-lesion-set">2-2. Full Cox-Maze vs LA Maze：最小病変セット（Minimum Lesion Set）</a></li>
+      <li class="toc-l4"><a href="#2-3-術式別成功率洞調律維持率1年">2-3. 術式別成功率（洞調律維持率；1年）</a></li>
+      <li class="toc-l4"><a href="#2-4-術中確認基準pvi-confirmation">2-4. 術中確認基準（PVI Confirmation）</a></li>
+      <li class="toc-l4"><a href="#2-5-laa閉鎖抗凝固療法に関する特記事項">2-5. LAA閉鎖・抗凝固療法に関する特記事項</a></li>
+      <li class="toc-l4"><a href="#2-6-ハイブリッド手術の定義">2-6. ハイブリッド手術の定義</a></li>
+      <li class="toc-l3"><a href="#3-accahahrs-2023-af-management-guidelines">3. ACC/AHA/HRS 2023 AF Management Guidelines</a></li>
+      <li class="toc-l4"><a href="#3-1-外科的af治療の推奨section-86">3-1. 外科的AF治療の推奨（Section 8.6）</a></li>
+      <li class="toc-l4"><a href="#3-2-術後心房細動poaf予防section-108-合併mazeとは別概念">3-2. 術後心房細動（POAF）予防（Section 10.8）—— 合併Mazeとは別概念</a></li>
+      <li class="toc-l3"><a href="#4-esceacts-2024-af-guidelines">4. ESC/EACTS 2024 AF Guidelines</a></li>
+      <li class="toc-l4"><a href="#4-1-外科的af治療の推奨">4-1. 外科的AF治療の推奨</a></li>
+      <li class="toc-l3"><a href="#5-jcsjhrs-202420212020-不整脈ガイドライン群">5. JCS/JHRS 2024・2021・2020 不整脈ガイドライン群</a></li>
+      <li class="toc-l3"><a href="#6-accaha-2020-valvular-heart-disease-guidelines">6. ACC/AHA 2020 Valvular Heart Disease Guidelines</a></li>
+      <li class="toc-l4"><a href="#6-1-弁手術時の合併外科的af治療">6-1. 弁手術時の合併外科的AF治療</a></li>
+      <li class="toc-l4"><a href="#6-2-laa管理">6-2. LAA管理</a></li>
+      <li class="toc-l3"><a href="#7-esceacts-2025-valvular-heart-disease-guidelines">7. ESC/EACTS 2025 Valvular Heart Disease Guidelines</a></li>
+      <li class="toc-l3"><a href="#8-jcsjatsjsvsjscs-2020-弁膜症治療ガイドライン">8. JCS/JATS/JSVS/JSCS 2020 弁膜症治療ガイドライン</a></li>
+      <li class="toc-l4"><a href="#8-1-弁手術時のmaze手術laa閉鎖の推奨表52">8-1. 弁手術時のMaze手術・LAA閉鎖の推奨（表52）</a></li>
+      <li class="toc-l4"><a href="#8-2-日本ガイドライン固有の視点">8-2. 日本ガイドライン固有の視点</a></li>
+      <li class="toc-l2"><a href="#part-iiガイドライン横断比較表テーマ分析">Part II：ガイドライン横断比較表・テーマ分析</a></li>
+      <li class="toc-l3"><a href="#a-単独外科的af治療primary-stand-alone-surgical-ablation比較">A. 単独外科的AF治療（Primary Stand-alone Surgical Ablation）比較</a></li>
+      <li class="toc-l3"><a href="#b-弁手術合併時の適応比較">B. 弁手術合併時の適応比較</a></li>
+      <li class="toc-l4"><a href="#b-1-僧帽弁手術合併時">B-1. 僧帽弁手術合併時</a></li>
+      <li class="toc-l4"><a href="#b-2-大動脈弁その他の弁手術合併時">B-2. 大動脈弁・その他の弁手術合併時</a></li>
+      <li class="toc-l3"><a href="#c-cabg合併時の適応比較">C. CABG合併時の適応比較</a></li>
+      <li class="toc-l3"><a href="#d-la-maze-vs-full-cox-maze-比較重点項目">D. LA Maze vs Full Cox-Maze 比較（重点項目）</a></li>
+      <li class="toc-l4"><a href="#d-1-定義病変セット">D-1. 定義・病変セット</a></li>
+      <li class="toc-l4"><a href="#d-2-af-typeごとの術式別成功率1年洞調律維持率hrsehra-2017データ">D-2. AF typeごとの術式別成功率（1年洞調律維持率；HRS/EHRA 2017データ）</a></li>
+      <li class="toc-l4"><a href="#d-3-各ガイドラインの立場">D-3. 各ガイドラインの立場</a></li>
+      <li class="toc-l4"><a href="#d-4-現時点のコンセンサス">D-4. 現時点のコンセンサス</a></li>
+      <li class="toc-l3"><a href="#e-laa閉鎖術の適応方法比較">E. LAA閉鎖術の適応・方法比較</a></li>
+      <li class="toc-l4"><a href="#e-1-各ガイドラインの適応推奨">E-1. 各ガイドラインの適応推奨</a></li>
+      <li class="toc-l4"><a href="#e-2-laa閉鎖の方法と特徴">E-2. LAA閉鎖の方法と特徴</a></li>
+      <li class="toc-l4"><a href="#e-3-抗凝固療法との関係">E-3. 抗凝固療法との関係</a></li>
+      <li class="toc-l3"><a href="#f-患者選択基準-ガイドライン横断比較">F. 患者選択基準 ガイドライン横断比較</a></li>
+      <li class="toc-l4"><a href="#f-1-af-typeによる推奨強度と術式選択">F-1. AF typeによる推奨強度と術式選択</a></li>
+      <li class="toc-l4"><a href="#f-2-患者背景因子の影響">F-2. 患者背景因子の影響</a></li>
+      <li class="toc-l3"><a href="#g-成功率の定義と基準hrsehra-2017">G. 成功率の定義と基準（HRS/EHRA 2017）</a></li>
+      <li class="toc-l3"><a href="#h-術後管理抗凝固療法">H. 術後管理・抗凝固療法</a></li>
+      <li class="toc-l3"><a href="#i-af分類の用語地域差最新update">I. AF分類の用語・地域差・最新Update</a></li>
+      <li class="toc-l4"><a href="#i-1-時間的4型分類の変遷と現行定義">I-1. 時間的4型分類の変遷と現行定義</a></li>
+      <li class="toc-l4"><a href="#i-2-accaha-2023の最大変更点stage-ad-分類の新設figure-4">I-2. ACC/AHA 2023の最大変更点：Stage A–D 分類の新設（Figure 4）</a></li>
+      <li class="toc-l4"><a href="#i-3-esc-2024の新概念table-6">I-3. ESC 2024の新概念（Table 6）</a></li>
+      <li class="toc-l4"><a href="#i-4-廃用語一覧accaha-2023-table-4-明示">I-4. 廃用語一覧（ACC/AHA 2023 Table 4 明示）</a></li>
+      <li class="toc-l4"><a href="#i-5-地域別ガイドライン別-用語比較まとめ">I-5. 地域別・ガイドライン別 用語比較まとめ</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
 <h1 id="心房細動af手術加療の適応基準">心房細動（AF）手術加療の適応基準</h1>
 <h2 id="maze手術pv-isolationlaa閉鎖術-ガイドライン横断比較">Maze手術・PV Isolation・LAA閉鎖術 ガイドライン横断比較</h2>
 <p><strong>作成日：</strong> 2026年4月10日　<strong>最終更新：</strong> 2026年4月10日<br />
@@ -1659,5 +1890,78 @@ mark {
 <hr />
 <p><em>本文書は2026年4月11日時点の入手済みガイドライン（計10文書）に基づく。各推奨の詳細は原文ガイドラインを参照のこと。</em></p>
 
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
 </body>
 </html>

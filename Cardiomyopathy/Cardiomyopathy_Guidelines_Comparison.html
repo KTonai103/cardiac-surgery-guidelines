@@ -18,9 +18,36 @@
   --jp-accent: #c0392b;
   --us-accent: #2980b9;
   --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
 
 body {
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
@@ -28,10 +55,23 @@ body {
   line-height: 1.7;
   color: var(--fg);
   background: var(--bg);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 32px 80px;
 }
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
 
 h1 {
   font-size: 1.6rem;
@@ -157,14 +197,222 @@ mark {
   h2 { break-after: avoid; }
 }
 
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
 @media (max-width: 768px) {
-  body { padding: 20px 16px 60px; font-size: 13px; }
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
   h1 { font-size: 1.3rem; }
   table { font-size: 0.75rem; }
 }
 </style>
 </head>
 <body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-概要心筋症分類と本文書のスコープ">1. 概要：心筋症分類と本文書のスコープ</a></li>
+      <li class="toc-l3"><a href="#1-1-各ガイドラインの心筋症分類枠組み">1-1. 各ガイドラインの心筋症分類枠組み</a></li>
+      <li class="toc-l3"><a href="#1-2-本文書のスコープと優先トピック">1-2. 本文書のスコープと優先トピック</a></li>
+      <li class="toc-l2"><a href="#2-dcm-拡張型心筋症dilated-cardiomyopathy">2. DCM 拡張型心筋症（Dilated Cardiomyopathy）</a></li>
+      <li class="toc-l3"><a href="#2-1-定義の-verbatim-比較">2-1. 定義の verbatim 比較</a></li>
+      <li class="toc-l3"><a href="#2-2-診断基準の核心と数値要件">2-2. 診断基準の核心と数値要件</a></li>
+      <li class="toc-l3"><a href="#2-3-jcs-2018-が鑑別を求める二次性心筋症表40">2-3. JCS 2018 が鑑別を求める二次性心筋症（表40）</a></li>
+      <li class="toc-l3"><a href="#2-4-疫学jcs-2018-verbatim">2-4. 疫学（JCS 2018 verbatim）</a></li>
+      <li class="toc-l3"><a href="#2-5-dcm-の亜型jcs-2018">2-5. DCM の亜型（JCS 2018）</a></li>
+      <li class="toc-l2"><a href="#3-hcm-肥大型心筋症hypertrophic-cardiomyopathy">3. HCM 肥大型心筋症（Hypertrophic Cardiomyopathy）</a></li>
+      <li class="toc-l3"><a href="#3-1-定義と壁厚カットオフ--三極で完全一致">3-1. 定義と壁厚カットオフ — 三極で完全一致</a></li>
+      <li class="toc-l3"><a href="#3-2-壁厚カットオフ--三ガイドラインの比較">3-2. 壁厚カットオフ — 三ガイドラインの比較</a></li>
+      <li class="toc-l3"><a href="#3-3-hcm-表現型分類jcs-2018-表8jcs-2025-表39">3-3. HCM 表現型分類（JCS 2018 表8／JCS 2025 表39）</a></li>
+      <li class="toc-l3"><a href="#3-4-hcm-の遺伝学">3-4. HCM の遺伝学</a></li>
+      <li class="toc-l2"><a href="#4-star-dhcmd-hcm拡張相肥大型心筋症--dcm-との鑑別最重要セクション">4. ⭐ dHCM（D-HCM）拡張相肥大型心筋症 — DCM との鑑別（最重要セクション）</a></li>
+      <li class="toc-l3"><a href="#4-1-jcs-2018--jcs-2025-が定める-dhcm-の正式定義">4-1. JCS 2018 / JCS 2025 が定める dHCM の正式定義</a></li>
+      <li class="toc-l3"><a href="#4-2-star-dcm-vs-dhcm-鑑別の核心--6-軸チェックリスト">4-2. ⭐ DCM vs dHCM 鑑別の核心 — 6 軸チェックリスト</a></li>
+      <li class="toc-l3"><a href="#4-3-病理組織学的差異jcs-2018-第5章">4-3. 病理組織学的差異（JCS 2018 第5章）</a></li>
+      <li class="toc-l3"><a href="#4-4-自然歴フローチャートjcs-2018-21-サルコメア遺伝学-図6">4-4. 自然歴フローチャート（JCS 2018 §2.1 サルコメア遺伝学 図6）</a></li>
+      <li class="toc-l3"><a href="#4-5-dhcm-治療--dcm-と同じ-hfref-標準治療">4-5. dHCM 治療 — 「DCM と同じ HFrEF 標準治療」</a></li>
+      <li class="toc-l3"><a href="#4-6-icmescacc-gl-における-dhcm-の取り扱い">4-6. ICM/ESC/ACC GL における dHCM の取り扱い</a></li>
+      <li class="toc-l2"><a href="#5-rcm-拘束型心筋症restrictive-cardiomyopathy">5. RCM 拘束型心筋症（Restrictive Cardiomyopathy）</a></li>
+      <li class="toc-l3"><a href="#5-1-定義と-jcs-2018-の扱い">5-1. 定義と JCS 2018 の扱い</a></li>
+      <li class="toc-l3"><a href="#5-2-鑑別の核心--rcm-vs-収縮性心膜炎">5-2. 鑑別の核心 — RCM vs 収縮性心膜炎</a></li>
+      <li class="toc-l3"><a href="#5-3-accaha-2022--心アミロイドーシスrcm-表現型の独立章">5-3. ACC/AHA 2022 — 心アミロイドーシス（RCM 表現型）の独立章</a></li>
+      <li class="toc-l3"><a href="#5-4-esc-2021--rcm-単独テーブルなし">5-4. ESC 2021 — RCM 単独テーブルなし</a></li>
+      <li class="toc-l3"><a href="#5-5-外科医視点での-rcm-の重要性">5-5. 外科医視点での RCM の重要性</a></li>
+      <li class="toc-l2"><a href="#6-icm-虚血性心筋症ischemic-cardiomyopathy">6. ICM 虚血性心筋症（Ischemic Cardiomyopathy）</a></li>
+      <li class="toc-l3"><a href="#6-1-定義に関する各-gl-の温度差">6-1. 定義に関する各 GL の温度差</a></li>
+      <li class="toc-l3"><a href="#6-2-stich-由来の運用域jcs-2025-心不全-gl">6-2. STICH 由来の運用域（JCS 2025 心不全 GL）</a></li>
+      <li class="toc-l3"><a href="#6-3-移植適応疾患としての-icm">6-3. 移植適応疾患としての ICM</a></li>
+      <li class="toc-l2"><a href="#7-arvc不整脈原性左室含む心筋症の補足">7. ARVC／不整脈原性（左室含む）心筋症の補足</a></li>
+      <li class="toc-l3"><a href="#7-1-jcs-2018-arvcdcm-章-412b-に簡記">7-1. JCS 2018 ARVC（DCM 章 §4.1.2b に簡記）</a></li>
+      <li class="toc-l3"><a href="#7-2-esc-2021-arrhythmogenic-cardiomyopathyac-lv-巻き込み概念の導入">7-2. ESC 2021 Arrhythmogenic Cardiomyopathy（AC）— LV 巻き込み概念の導入</a></li>
+      <li class="toc-l3"><a href="#7-3-accaha-2022--arrhythmogenic-cardiomyopathy-命名の採用">7-3. ACC/AHA 2022 — "Arrhythmogenic Cardiomyopathy" 命名の採用</a></li>
+      <li class="toc-l2"><a href="#8-心不全分類と進行病期hfrefhfmrefhfpef-stage-a-d-nyha-intermacs">8. 心不全分類と進行病期（HFrEF/HFmrEF/HFpEF, Stage A-D, NYHA, INTERMACS）</a></li>
+      <li class="toc-l3"><a href="#8-1-lvef-による-hf-分類--3-ガイドライン完全一致">8-1. LVEF による HF 分類 — 3 ガイドライン完全一致</a></li>
+      <li class="toc-l3"><a href="#8-2-stage-a-daccahajcs-2025">8-2. Stage A-D（ACC/AHA／JCS 2025）</a></li>
+      <li class="toc-l3"><a href="#8-3-escacc-共通の-advanced-hf-定義4-項目すべて充足">8-3. ESC／ACC 共通の Advanced HF 定義（4 項目すべて充足）</a></li>
+      <li class="toc-l3"><a href="#8-4-intermacs--j-macs-profile共通">8-4. INTERMACS / J-MACS profile（共通）</a></li>
+      <li class="toc-l2"><a href="#9-star-lvad心臓移植-適応条件と心筋症別の位置づけ外科医必読">9. ⭐ LVAD・心臓移植 適応条件と心筋症別の位置づけ（外科医必読）</a></li>
+      <li class="toc-l3"><a href="#9-1-心臓移植の対象疾患jcs-心筋症別">9-1. 心臓移植の対象疾患（JCS）— 心筋症別</a></li>
+      <li class="toc-l3"><a href="#9-2-jcs-心臓移植-適応条件と除外条件jcs-2025-421-verbatim">9-2. JCS 心臓移植 適応条件と除外条件（JCS 2025 §4.2.1 verbatim）</a></li>
+      <li class="toc-l3"><a href="#9-3-jcs-btt-適応基準jcs-2025-表35-verbatim">9-3. JCS BTT 適応基準（JCS 2025 表35 verbatim）</a></li>
+      <li class="toc-l3"><a href="#9-4-jcs-dt-適応基準jcs-2025-表36--2024-改定済み-verbatim-要点">9-4. JCS DT 適応基準（JCS 2025 表36 — 2024 改定済み verbatim 要点）</a></li>
+      <li class="toc-l3"><a href="#9-5-jcs-dt-リスクスコアjcs-2025-表37">9-5. JCS DT リスクスコア（JCS 2025 表37）</a></li>
+      <li class="toc-l3"><a href="#9-6-esc-2021--acc-2022-lvad移植推奨">9-6. ESC 2021 / ACC 2022 LVAD・移植推奨</a></li>
+      <li class="toc-l2"><a href="#10-star-lvad-外科医が知っておくべきポイント--心筋症-phenotype-別の落とし穴">10. ⭐ LVAD 外科医が知っておくべきポイント — 心筋症 phenotype 別の落とし穴</a></li>
+      <li class="toc-l3"><a href="#10-1-術前-phenotype-鑑別が手術に与える影響">10-1. 術前 phenotype 鑑別が手術に与える影響</a></li>
+      <li class="toc-l3"><a href="#10-2-外科医視点での危険な-phenotype-移行">10-2. 外科医視点での「危険な phenotype 移行」</a></li>
+      <li class="toc-l3"><a href="#10-3-心筋症-phenotype-別の-lvad-同時施行弁手術の考え方要点">10-3. 心筋症 phenotype 別の LVAD 同時施行弁手術の考え方（要点）</a></li>
+      <li class="toc-l3"><a href="#10-4-心移植-work-up-中の管理--心筋症別">10-4. 心移植 work-up 中の管理 — 心筋症別</a></li>
+      <li class="toc-l3"><a href="#10-5-心筋症患者の術後管理特有の注意点">10-5. 心筋症患者の術後管理特有の注意点</a></li>
+      <li class="toc-l2"><a href="#11-遺伝子検査家族スクリーニングの推奨比較">11. 遺伝子検査・家族スクリーニングの推奨比較</a></li>
+      <li class="toc-l2"><a href="#12-icdcrt-推奨の心筋症別比較">12. ICD/CRT 推奨の心筋症別比較</a></li>
+      <li class="toc-l3"><a href="#12-1-一次予防-icdhfref-主体">12-1. 一次予防 ICD（HFrEF 主体）</a></li>
+      <li class="toc-l3"><a href="#12-2-hcm-一次予防-icdjcs-2018-表2930--jcs-2025-で踏襲">12-2. HCM 一次予防 ICD（JCS 2018 表29／30 — JCS 2025 で踏襲）</a></li>
+      <li class="toc-l3"><a href="#12-3-crtjcs-2025-表21-抜粋--主要組合せのみ">12-3. CRT（JCS 2025 表21 抜粋 — 主要組合せのみ）</a></li>
+      <li class="toc-l2"><a href="#13-hcm-中隔縮小治療外科的中隔切除ptsmaマバカムテンの位置づけ">13. HCM 中隔縮小治療（外科的中隔切除・PTSMA）・マバカムテンの位置づけ</a></li>
+      <li class="toc-l3"><a href="#13-1-jcs-2018-表32-srt-推奨verbatim-要点">13-1. JCS 2018 表32 SRT 推奨（verbatim 要点）</a></li>
+      <li class="toc-l3"><a href="#13-2-esc-2021-hf-gl-の-srt-記載参考">13-2. ESC 2021 HF GL の SRT 記載（参考）</a></li>
+      <li class="toc-l3"><a href="#13-3-マバカムテンmavacamten-jcs-2025-推奨表56-で新規追加">13-3. マバカムテン（mavacamten）— JCS 2025 推奨表56 で新規追加</a></li>
+      <li class="toc-l3"><a href="#13-4-sammr-評価のチェックリスト外科医視点">13-4. SAM/MR 評価のチェックリスト（外科医視点）</a></li>
+      <li class="toc-l2"><a href="#14-クロスガイドライン総括と臨床的含意">14. クロスガイドライン総括と臨床的含意</a></li>
+      <li class="toc-l3"><a href="#14-1-各-gl-の心筋症記述の強み弱み">14-1. 各 GL の心筋症記述の「強み・弱み」</a></li>
+      <li class="toc-l3"><a href="#14-2-外科医移植内科医の意思決定に直結する-8-つの実務原則">14-2. 外科医・移植内科医の意思決定に直結する 8 つの実務原則</a></li>
+      <li class="toc-l3"><a href="#14-3-残された不確実性2026-年時点">14-3. 残された不確実性（2026 年時点）</a></li>
+      <li class="toc-l2"><a href="#出典まとめ">出典まとめ</a></li>
+      <li class="toc-l3"><a href="#主要ガイドライン">主要ガイドライン</a></li>
+      <li class="toc-l3"><a href="#関連参照ガイドライン">関連参照ガイドライン</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
 <h1 id="心筋症dcmhcmdhcmrcmicm診断基準定義-各地域ガイドライン比較">心筋症（DCM・HCM・dHCM・RCM・ICM）診断基準・定義 各地域ガイドライン比較</h1>
 <p><strong>作成日：</strong> 2026年5月15日 <strong>対象ガイドライン：</strong></p>
 <ul>
@@ -1672,5 +1920,78 @@ mark {
 <p>本リポジトリには HCM 単独専門ガイドライン（2020 AHA/ACC HCM GL、2023 ESC Cardiomyopathies GL）の PDF が含まれていない。HCM 詳細管理（SCD risk-stratification、家族スクリーニングの最新アルゴリズムなど）は本文書では JCS 2018／2025 を基準として記述しているため、欧米最新版との細部比較が必要な場合は原典 GL を参照のこと。</p>
 </div>
 
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
 </body>
 </html>
