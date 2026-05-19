@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVCU 急変対応プロトコル — QR 共有ポスター</title>
+<style>
+  @page { size: A4; margin: 15mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+    color: #1a1a1a;
+    background: #ffffff;
+    padding: 24px;
+  }
+  .poster {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 3px solid #263238;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .header {
+    background: #263238;
+    color: white;
+    padding: 24px 28px;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .header .sub {
+    font-size: 14px;
+    color: #B0BEC5;
+  }
+  .qr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+  }
+  .qr-card {
+    padding: 28px 24px;
+    text-align: center;
+    border-right: 1px dashed #CFD8DC;
+  }
+  .qr-card:last-child { border-right: none; }
+  .qr-card h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #B71C1C;
+    margin-bottom: 4px;
+  }
+  .qr-card.portal h2 { color: #1565C0; }
+  .qr-card .label {
+    font-size: 12px;
+    color: #5c5c5c;
+    margin-bottom: 16px;
+  }
+  .qr-card img {
+    width: 240px;
+    height: 240px;
+    display: block;
+    margin: 0 auto 12px;
+    image-rendering: pixelated;
+  }
+  .qr-card .url {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 10.5px;
+    color: #424242;
+    word-break: break-all;
+    line-height: 1.4;
+    padding: 6px 8px;
+    background: #F5F5F5;
+    border-radius: 4px;
+  }
+  .body {
+    padding: 20px 28px;
+    border-top: 2px solid #ECEFF1;
+    background: #FAFAFA;
+  }
+  .body h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #263238;
+    margin-bottom: 10px;
+  }
+  .body ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 12.5px;
+    color: #424242;
+    line-height: 1.7;
+  }
+  .body li:before {
+    content: "▸ ";
+    color: #B71C1C;
+    font-weight: 700;
+  }
+  .footer {
+    padding: 14px 28px;
+    background: #263238;
+    color: #B0BEC5;
+    font-size: 11px;
+    text-align: center;
+  }
+  @media print {
+    body { padding: 0; }
+    .poster { border: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="header">
+      <h1>CVCU 心臓術後 急変対応プロトコル</h1>
+      <div class="sub">医師・看護師向け統合ガイドライン — スマートフォンで QR を読み取り</div>
+    </div>
+
+    <div class="qr-grid">
+      <div class="qr-card">
+        <h2>🚨 急変対応プロトコル</h2>
+        <div class="label">CALS / 薬剤 / フローチャート 完全版</div>
+        <img src="qr_cvcu_protocol.png" alt="QR Code for CVCU protocol">
+        <div class="url">https://ktonai103.github.io/cardiac-surgery-guidelines/CVCU_Emergency_Response/CVCU_Emergency_Response_Protocol.html</div>
+      </div>
+
+      <div class="qr-card portal">
+        <h2>📚 心臓外科ガイドライン ライブラリ</h2>
+        <div class="label">全 18 領域のガイドライン比較</div>
+        <img src="qr_portal.png" alt="QR Code for guideline portal">
+        <div class="url">https://ktonai103.github.io/cardiac-surgery-guidelines/</div>
+      </div>
+    </div>
+
+    <div class="body">
+      <h3>📋 CVCU 急変対応プロトコルに含まれる内容</h3>
+      <ul>
+        <li>CALS / CSU-ALS マスターアルゴリズム（VF・無脈性VT / Asystole / PEA の3分岐）</li>
+        <li>緊急胸骨再開放の5分ルールと手順</li>
+        <li>薬剤投与プロトコル（量・希釈・経路）— アミオダロン, アドレナリン, β遮断薬 ほか</li>
+        <li>VF storm 8段階エスカレーション / Torsades de Pointes 鑑別</li>
+        <li>術後新規心房細動 急性期対応 / 抗凝固判断</li>
+        <li>V-A ECMO / IMPELLA 適応とカニュレーション規格</li>
+        <li>CALS 6人チーム ベッドサイド配置図</li>
+        <li>出典: EACTS 2009 CALS, STS 2017 CSU-ALS, AHA 2025 Part 9, JRC 2020 ACS, ESC 2022 VA/SCD, STS 2026 POAF, JCS 2023 PCPS/ECMO/IMPELLA, ERAS Cardiac 2019</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      © 2026 心臓外科ガイドライン比較ライブラリ — 学術的引用に限定 / 施設内共有可
+    </div>
+  </div>
+</body>
+</html>
