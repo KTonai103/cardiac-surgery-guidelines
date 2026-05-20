@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTEPH・肺動脈血栓内膜摘除術（PEA）・急性肺塞栓症の外科：各地域ガイドライン比較</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5c5c5c;
+  --border: #d4d4d4;
+  --accent: #2c3e50;
+  --light-bg: #f7f8fa;
+  --header-bg: #2c3e50;
+  --header-fg: #ffffff;
+  --link: #34495e;
+  --jp-accent: #c0392b;
+  --us-accent: #2980b9;
+  --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
+
+body {
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+  margin: 48px 0 12px;
+}
+
+h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 28px 0 8px;
+}
+
+h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 20px 0 6px;
+}
+
+p { margin: 8px 0; font-size: 0.88rem; }
+strong { color: var(--fg); }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+ul, ol {
+  padding-left: 24px;
+  margin: 8px 0;
+  font-size: 0.88rem;
+}
+
+li { margin-bottom: 4px; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 12px 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+thead th {
+  background: var(--header-bg);
+  color: var(--header-fg);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--light-bg);
+}
+
+tbody tr:nth-child(even) td { background-color: #fafbfc; }
+tbody tr:nth-child(even) td:first-child { background-color: #f0f1f3; }
+tbody tr:hover td { background-color: #eef1f5; }
+tbody tr:hover td:first-child { background-color: #e4e8ed; }
+
+/* Blockquotes (fallback for any not converted to callouts) */
+blockquote {
+  background: var(--light-bg);
+  border-left: 3px solid var(--border);
+  padding: 10px 16px;
+  margin: 12px 0 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+blockquote strong { color: var(--fg); }
+
+/* Highlights */
+mark {
+  background: #fff3cd;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Callout overrides - already inline styled, but ensure nested elements look right */
+.callout p { margin: 4px 0; }
+.callout ul, .callout ol { margin: 4px 0 4px 16px; }
+.callout table { font-size: 0.8rem; }
+
+/* Print */
+@media print {
+  body { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
+@media (max-width: 768px) {
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
+  h1 { font-size: 1.3rem; }
+  table { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-略語定義">1. 略語・定義</a></li>
+      <li class="toc-l3"><a href="#1-1-疾患病態">1-1. 疾患・病態</a></li>
+      <li class="toc-l3"><a href="#1-2-治療術式">1-2. 治療・術式</a></li>
+      <li class="toc-l3"><a href="#1-3-検査指標分類">1-3. 検査・指標・分類</a></li>
+      <li class="toc-l3"><a href="#1-4-体制チーム">1-4. 体制・チーム</a></li>
+      <li class="toc-l2"><a href="#2-ガイドラインの位置づけと推奨グレーディング体系">2. ガイドラインの位置づけと推奨グレーディング体系</a></li>
+      <li class="toc-l2"><a href="#3-多職種チームpertctephphチーム">3. 多職種チーム（PERT・CTEPH/PHチーム）</a></li>
+      <li class="toc-l2"><a href="#4-病態重症度の枠組み">4. 病態・重症度の枠組み</a></li>
+      <li class="toc-l3"><a href="#4-1-急性peの重症度分類jcs-2025図9esc-2019準拠">4-1. 急性PEの重症度分類（JCS 2025・図9／ESC 2019準拠）</a></li>
+      <li class="toc-l3"><a href="#4-2-ahaacc-2026-の-ae-臨床カテゴリ米国の新分類">4-2. AHA/ACC 2026 の A–E 臨床カテゴリ（米国の新分類）</a></li>
+      <li class="toc-l3"><a href="#4-3-cteph-の-operability-評価">4-3. CTEPH の operability 評価</a></li>
+      <li class="toc-l2"><a href="#5-part-i各ガイドライン個別サマリー">5. Part I：各ガイドライン個別サマリー</a></li>
+      <li class="toc-l2"><a href="#a-急性肺塞栓症の外科">A. 急性肺塞栓症の外科</a></li>
+      <li class="toc-l3"><a href="#a-1-jcs-2025急性pe">A-1. JCS 2025（急性PE）</a></li>
+      <li class="toc-l3"><a href="#a-2-esc-2019急性pe">A-2. ESC 2019（急性PE）</a></li>
+      <li class="toc-l3"><a href="#a-3-ahaacc-2026急性pe">A-3. AHA/ACC 2026（急性PE）</a></li>
+      <li class="toc-l3"><a href="#a-4-aha-2011急性pe">A-4. AHA 2011（急性PE）</a></li>
+      <li class="toc-l2"><a href="#b-cteph-の外科pea">B. CTEPH の外科（PEA）</a></li>
+      <li class="toc-l3"><a href="#b-1-jcs-2025cteph">B-1. JCS 2025（CTEPH）</a></li>
+      <li class="toc-l3"><a href="#b-2-escers-2022cteph">B-2. ESC/ERS 2022（CTEPH）</a></li>
+      <li class="toc-l3"><a href="#b-3-ers-2021-cteph-statement">B-3. ERS 2021 CTEPH Statement</a></li>
+      <li class="toc-l3"><a href="#b-4-aha-2011cteph">B-4. AHA 2011（CTEPH）</a></li>
+      <li class="toc-l2"><a href="#6-part-ii横断比較">6. Part II：横断比較</a></li>
+      <li class="toc-l3"><a href="#a-1-急性pe外科的肺塞栓摘除術の適応">A-1. 急性PE：外科的肺塞栓摘除術の適応</a></li>
+      <li class="toc-l3"><a href="#a-2-急性pev-a-ecmomcs-の位置づけ">A-2. 急性PE：V-A ECMO・MCS の位置づけ</a></li>
+      <li class="toc-l3"><a href="#b-1-cteph診断確定と-operability-評価">B-1. CTEPH：診断確定と operability 評価</a></li>
+      <li class="toc-l3"><a href="#b-2-pea-の適応専門施設集約">B-2. PEA の適応・専門施設集約</a></li>
+      <li class="toc-l3"><a href="#b-3-pea-vs-bpa-vs-薬物療法の振り分け">B-3. PEA vs BPA vs 薬物療法の振り分け</a></li>
+      <li class="toc-l3"><a href="#b-4-残存再発-ph-の評価フォロー">B-4. 残存／再発 PH の評価・フォロー</a></li>
+      <li class="toc-l2"><a href="#7-術式周術期の要点">7. 術式・周術期の要点</a></li>
+      <li class="toc-l2"><a href="#8-まとめ総括">8. まとめ・総括</a></li>
+      <li class="toc-l3"><a href="#共通点6文書を通じた骨子">共通点（6文書を通じた骨子）</a></li>
+      <li class="toc-l3"><a href="#主要な相違点">主要な相違点</a></li>
+      <li class="toc-l3"><a href="#臨床的インプリケーション">臨床的インプリケーション</a></li>
+      <li class="toc-l2"><a href="#9-付録出典pdf一覧">9. 付録：出典PDF一覧</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
+<h1 id="cteph肺動脈血栓内膜摘除術pea急性肺塞栓症の外科各地域ガイドライン比較">CTEPH・肺動脈血栓内膜摘除術（PEA）・急性肺塞栓症の外科：各地域ガイドライン比較</h1>
+<p><strong>作成日：</strong> 2026年5月20日 <strong>対象ガイドライン：</strong></p>
+<ul>
+<li>🇯🇵 <strong>JCS 2025</strong>：2025年改訂版 肺血栓塞栓症・深部静脈血栓症および肺高血圧症に関するガイドライン（日本循環器学会ほか合同）</li>
+<li>🇪🇺 <strong>ESC/ERS 2022</strong>：2022 ESC/ERS Guidelines for the diagnosis and treatment of pulmonary hypertension（CTEPH章。ISHLT・ERN-LUNG endorsement）</li>
+<li>🇪🇺 <strong>ESC 2019</strong>：2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism（ERS collaboration）</li>
+<li>🇪🇺 <strong>ERS 2021</strong>：ERS statement on chronic thromboembolic pulmonary hypertension（Delcroix M, et al.）</li>
+<li>🇺🇸 <strong>AHA/ACC 2026</strong>：2026 AHA/ACC/ACCP/ACEP/CHEST/SCAI/SHM/SIR/SVM/SVN Guideline for the Evaluation and Management of Acute Pulmonary Embolism in Adults（Creager MA, et al.）</li>
+<li>🇺🇸 <strong>AHA 2011</strong>：Management of Massive and Submassive PE, Iliofemoral DVT, and CTEPH — AHA Scientific Statement（Jaff MR, et al.）</li>
+</ul>
+<p><strong>関連ドキュメント：</strong> 一時的MCS（V-A ECMO等）ガイドライン比較 · 術前抗凝固管理比較 · 心臓移植ガイドライン比較</p>
+
+<div class="callout" style="background:#e1f5fe;border-left:4px solid #00b0ff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00b0ff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">このドキュメントの要点</div>
+<p>本テーマは性質の異なる<strong>2つの外科領域</strong>にまたがる：</p>
+</div>
+>
+> 1. **急性肺塞栓症（PE）の外科** — 新鮮血栓に対する**外科的肺塞栓摘除術**（人工心肺）と **V-A ECMO**。血栓溶解療法の代替・補完として、中枢型血栓を有する高リスク／一部の中間リスク例が対象。
+> 2. **CTEPH の外科** — 器質化血栓に対する**PEA（肺動脈血栓内膜摘除術、超低温循環停止下）**。operable CTEPH の**第一選択・根治術**。inoperable／残存PHには BPA・薬物（リオシグアト）。
+>
+> **どのガイドラインが何をカバーするか**：急性PE＝ESC 2019・AHA/ACC 2026（＋JCS 2025・AHA 2011）／CTEPH＝ESC/ERS 2022・ERS 2021（＋JCS 2025・AHA 2011）。**AHA/ACC 2026 は急性PE専用でCTEPHは対象外**と明記しており、米国のCTEPH/PEA推奨は依然 **AHA 2011** が主文書。
+
+<hr />
+<h2 id="目次">目次</h2>
+<ol type="1">
+<li><a href="#1-略語定義">略語・定義</a></li>
+<li><a href="#2-ガイドラインの位置づけと推奨グレーディング体系">ガイドラインの位置づけと推奨グレーディング体系</a></li>
+<li><a href="#3-多職種チームpertctephphチーム">多職種チーム（PERT・CTEPH/PHチーム）</a></li>
+<li><a href="#4-病態重症度の枠組み">病態・重症度の枠組み</a></li>
+<li><a href="#5-part-i各ガイドライン個別サマリー">Part I：各ガイドライン個別サマリー</a>
+<ul>
+<li><a href="#a-急性肺塞栓症の外科">A. 急性肺塞栓症の外科</a>
+<ul>
+<li><a href="#a-1-jcs-2025急性pe">A-1. JCS 2025</a></li>
+<li><a href="#a-2-esc-2019急性pe">A-2. ESC 2019</a></li>
+<li><a href="#a-3-ahaacc-2026急性pe">A-3. AHA/ACC 2026</a></li>
+<li><a href="#a-4-aha-2011急性pe">A-4. AHA 2011</a></li>
+</ul></li>
+<li><a href="#b-cteph-の外科pea">B. CTEPH の外科（PEA）</a>
+<ul>
+<li><a href="#b-1-jcs-2025cteph">B-1. JCS 2025</a></li>
+<li><a href="#b-2-escers-2022cteph">B-2. ESC/ERS 2022</a></li>
+<li><a href="#b-3-ers-2021-cteph-statement">B-3. ERS 2021 CTEPH Statement</a></li>
+<li><a href="#b-4-aha-2011cteph">B-4. AHA 2011</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#6-part-ii横断比較">Part II：横断比較</a></li>
+<li><a href="#7-術式周術期の要点">術式・周術期の要点</a></li>
+<li><a href="#8-まとめ総括">まとめ・総括</a></li>
+<li><a href="#9-付録出典pdf一覧">付録：出典PDF一覧</a></li>
+</ol>
+<hr />
+<h2 id="1-略語定義">1. 略語・定義</h2>
+<h3 id="1-1-疾患病態">1-1. 疾患・病態</h3>
+<table>
+<thead>
+<tr>
+<th>略語</th>
+<th>英語表記</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PE / PTE</strong></td>
+<td><strong>P</strong>ulmonary <strong>E</strong>mbolism / <strong>P</strong>ulmonary <strong>T</strong>hrombo<strong>E</strong>mbolism</td>
+<td>肺塞栓症／肺血栓塞栓症（JCSは「PTE」を使用）</td>
+</tr>
+<tr>
+<td><strong>VTE</strong></td>
+<td><strong>V</strong>enous <strong>T</strong>hrombo<strong>E</strong>mbolism</td>
+<td>静脈血栓塞栓症（PE＋DVTの総称）</td>
+</tr>
+<tr>
+<td><strong>DVT</strong></td>
+<td><strong>D</strong>eep <strong>V</strong>ein <strong>T</strong>hrombosis</td>
+<td>深部静脈血栓症</td>
+</tr>
+<tr>
+<td><strong>massive / submassive PE</strong></td>
+<td>—</td>
+<td>AHA 2011の用語。massive＝高リスク（ショック・低血圧）、submassive＝中間リスク（血圧正常＋RV機能障害）</td>
+</tr>
+<tr>
+<td><strong>CTEPH</strong></td>
+<td><strong>C</strong>hronic <strong>T</strong>hrombo<strong>E</strong>mbolic <strong>P</strong>ulmonary <strong>H</strong>ypertension</td>
+<td>慢性血栓塞栓性肺高血圧症（器質化血栓による肺動脈狭窄・閉塞＋PH）</td>
+</tr>
+<tr>
+<td><strong>CTEPD</strong></td>
+<td><strong>C</strong>hronic <strong>T</strong>hrombo<strong>E</strong>mbolic <strong>P</strong>ulmonary <strong>D</strong>isease</td>
+<td>慢性血栓塞栓性肺疾患（PHの有無を問わない包括概念）</td>
+</tr>
+<tr>
+<td><strong>CTEPD without PH (CTED)</strong></td>
+<td>—</td>
+<td>PHのない慢性血栓塞栓症（症候性なら治療対象になりうる）</td>
+</tr>
+<tr>
+<td><strong>PH / PAH</strong></td>
+<td><strong>P</strong>ulmonary (<strong>A</strong>rterial) <strong>H</strong>ypertension</td>
+<td>肺高血圧症／肺動脈性肺高血圧症（第1群）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-2-治療術式">1-2. 治療・術式</h3>
+<table>
+<thead>
+<tr>
+<th>略語</th>
+<th>英語表記</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PEA</strong></td>
+<td><strong>P</strong>ulmonary <strong>E</strong>nd<strong>A</strong>rterectomy</td>
+<td>肺動脈血栓内膜摘除術（CTEPHの根治術。超低温循環停止下に器質化血栓・肥厚内膜を摘除）。海外では PTE（pulmonary thromboendarterectomy）とも</td>
+</tr>
+<tr>
+<td><strong>BPA</strong></td>
+<td><strong>B</strong>alloon <strong>P</strong>ulmonary <strong>A</strong>ngioplasty</td>
+<td>バルーン肺動脈形成術（カテーテルによる末梢病変への治療）</td>
+</tr>
+<tr>
+<td><strong>外科的肺塞栓摘除術</strong></td>
+<td>Surgical (pulmonary) embolectomy</td>
+<td>急性PEに対する外科的血栓摘除術（人工心肺。新鮮血栓を摘出。CTEPHのPEAとは別概念）</td>
+</tr>
+<tr>
+<td><strong>DHCA</strong></td>
+<td><strong>D</strong>eep <strong>H</strong>ypothermic <strong>C</strong>irculatory <strong>A</strong>rrest</td>
+<td>超低温循環停止法（PEAで気管支循環逆流を遮断し無血視野を得る）</td>
+</tr>
+<tr>
+<td><strong>V-A ECMO</strong></td>
+<td><strong>V</strong>eno-<strong>A</strong>rterial <strong>E</strong>xtracorporeal <strong>M</strong>embrane <strong>O</strong>xygenation</td>
+<td>静脈‑動脈 体外式膜型人工肺（高リスクPEの呼吸循環補助・手術へのブリッジ）</td>
+</tr>
+<tr>
+<td><strong>CDT</strong></td>
+<td><strong>C</strong>atheter-<strong>D</strong>irected <strong>T</strong>hrombolysis</td>
+<td>カテーテル血栓溶解療法</td>
+</tr>
+<tr>
+<td><strong>リオシグアト</strong></td>
+<td>Riociguat (sGC stimulator)</td>
+<td>可溶性グアニル酸シクラーゼ刺激薬（CTEPHに保険適用）</td>
+</tr>
+<tr>
+<td><strong>セレキシパグ／トレプロスチニル</strong></td>
+<td>Selexipag / Treprostinil</td>
+<td>プロスタサイクリン系薬剤</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-3-検査指標分類">1-3. 検査・指標・分類</h3>
+<table>
+<thead>
+<tr>
+<th>略語</th>
+<th>英語表記</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>mPAP / PVR</strong></td>
+<td>mean Pulmonary Arterial Pressure / Pulmonary Vascular Resistance</td>
+<td>平均肺動脈圧／肺血管抵抗（Wood単位）</td>
+</tr>
+<tr>
+<td><strong>RHC</strong></td>
+<td>Right Heart Catheterization</td>
+<td>右心カテーテル検査</td>
+</tr>
+<tr>
+<td><strong>V/Q scan</strong></td>
+<td>Ventilation/Perfusion scintigraphy</td>
+<td>肺換気/血流シンチグラフィ（CTEPH除外の感度が高い）</td>
+</tr>
+<tr>
+<td><strong>CTPA / DSA</strong></td>
+<td>CT Pulmonary Angiography / Digital Subtraction Angiography</td>
+<td>CT肺動脈造影／肺動脈造影</td>
+</tr>
+<tr>
+<td><strong>PESI / sPESI</strong></td>
+<td>(simplified) Pulmonary Embolism Severity Index</td>
+<td>肺塞栓症重症度指数</td>
+</tr>
+<tr>
+<td><strong>SCAI SHOCK stage</strong></td>
+<td>—</td>
+<td>心原性ショックの病期分類（AHA/ACC 2026でカテゴリE1の定義に使用）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-4-体制チーム">1-4. 体制・チーム</h3>
+<table>
+<thead>
+<tr>
+<th>略語</th>
+<th>英語表記</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PERT</strong></td>
+<td><strong>P</strong>ulmonary <strong>E</strong>mbolism <strong>R</strong>esponse <strong>T</strong>eam</td>
+<td>肺塞栓症対応チーム（急性PEの集学的・即時的判断）</td>
+</tr>
+<tr>
+<td><strong>CTEPH/PH expert centre</strong></td>
+<td>—</td>
+<td>CTEPH/BPA・PEAのMDTを擁する専門施設</td>
+</tr>
+<tr>
+<td><strong>MDT</strong></td>
+<td><strong>M</strong>ulti<strong>D</strong>isciplinary <strong>T</strong>eam</td>
+<td>多職種チーム</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-ガイドラインの位置づけと推奨グレーディング体系">2. ガイドラインの位置づけと推奨グレーディング体系</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2025</th>
+<th>🇪🇺 ESC/ERS 2022 (PH)</th>
+<th>🇪🇺 ESC 2019 (急性PE)</th>
+<th>🇪🇺 ERS 2021 (CTEPH)</th>
+<th>🇺🇸 AHA/ACC 2026 (急性PE)</th>
+<th>🇺🇸 AHA 2011</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>文書形式</strong></td>
+<td>診療ガイドライン</td>
+<td>Clinical Practice Guidelines</td>
+<td>Clinical Practice Guidelines</td>
+<td>Society Statement（推奨クラス無し）</td>
+<td>Clinical Practice Guideline</td>
+<td>Scientific Statement</td>
+</tr>
+<tr>
+<td><strong>発行</strong></td>
+<td>2025年</td>
+<td>2022年8月（Eur Heart J / Eur Respir J）</td>
+<td>2019年8月（Eur Heart J）</td>
+<td>2021年（Eur Respir J）</td>
+<td>2026年3月（Circulation / JACC）</td>
+<td>2011年（Circulation）</td>
+</tr>
+<tr>
+<td><strong>対象</strong></td>
+<td>急性PE＋DVT＋PH全般（CTEPH含む）</td>
+<td>PH全般（CTEPHは独立章）</td>
+<td>急性PEに特化</td>
+<td>CTEPHに特化</td>
+<td>急性PEに特化（<strong>CTEPHは対象外</strong>）</td>
+<td>massive/submassive PE・iliofemoral DVT・CTEPH</td>
+</tr>
+<tr>
+<td><strong>推奨クラス</strong></td>
+<td>I / IIa / IIb / III</td>
+<td>I / IIa / IIb / III</td>
+<td>I / IIa / IIb / III</td>
+<td>（なし）</td>
+<td>1 / 2a / 2b / 3（＝I/IIa/IIb/III）</td>
+<td>I / IIa / IIb / III</td>
+</tr>
+<tr>
+<td><strong>エビデンスレベル</strong></td>
+<td>A / B / C</td>
+<td>A / B / C</td>
+<td>A / B / C</td>
+<td>（なし）</td>
+<td>A / B-R / B-NR / C-LD / C-EO</td>
+<td>A / B / C</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">推奨体系の読み替え</div>
+<ul>
+<li><strong>ERS 2021</strong> は推奨クラス／LOEを付さない「ステートメント」。PEA・BPA・薬物の使い分けや operability・expert centre 要件のコンセンサスを narrative で提示。</li>
+<li><strong>AHA/ACC 2026</strong> は ACC/AHA 標準の細分化LOE（B-R＝randomized／B-NR＝non-randomized／C-LD＝limited data／C-EO＝expert opinion）を採用し、ESC/JCS の A/B/C とは直接対応しない。さらに独自の <strong>A–E 5段階臨床カテゴリ</strong>で重症度を分類する（→ §4-2）。</li>
+<li><strong>AHA 2011</strong> は当時、急性PE・DVT・CTEPHを一括して扱った文書であり、<strong>米国のCTEPH/PEA推奨は依然この2011 statementが主</strong>（2026は急性PE特化でCTEPH/PEA非掲載）。</li>
+</ul>
+</div>
+
+<hr />
+<h2 id="3-多職種チームpertctephphチーム">3. 多職種チーム（PERT・CTEPH/PHチーム）</h2>
+<p>急性PEとCTEPHでは「どのチームが意思決定するか」が異なる。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2025</th>
+<th>🇪🇺 ESC 2019（急性PE）</th>
+<th>🇺🇸 AHA/ACC 2026（急性PE）</th>
+<th>🇪🇺 ESC/ERS 2022・ERS 2021（CTEPH）</th>
+<th>🇺🇸 AHA 2011</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>急性PE</strong></td>
+<td>高リスク例は呼吸循環管理・診断・治療を同時進行。心臓血管外科・カテーテル医・集中治療を含む（PERT相当）</td>
+<td><strong>PERT設置を推奨</strong>（多職種rapid-responseチーム）。MDT/プログラム整備を考慮：<strong>IIa, C</strong></td>
+<td><strong>PERTs を推奨</strong>（治療の迅速化のため。Top Take-Home #6）</td>
+<td>カテーテル/外科治療は経験施設へ集約を推奨</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>CTEPH</strong></td>
+<td>—</td>
+<td>—</td>
+<td>（対象外）</td>
+<td><strong>全CTEPH患者をCTEPHチームでレビューし multimodality management を評価：I, C（ESC/ERS 2022）</strong>。ERS 2021：expert centre要件（DHCA・PH service・専門画像・PEA外科医・BPA医含むMDT、&gt;50 PEA/年、≥5年経験、院内死亡&lt;5%、ECMO常備）</td>
+<td>objectively proven CTEPHは経験施設でPEA評価。薬物単独でPEA評価を遅らせない</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-病態重症度の枠組み">4. 病態・重症度の枠組み</h2>
+<h3 id="4-1-急性peの重症度分類jcs-2025図9esc-2019準拠">4-1. 急性PEの重症度分類（JCS 2025・図9／ESC 2019準拠）</h3>
+<ul>
+<li><strong>心停止</strong> → 早急に <strong>V-A ECMO</strong> 導入を検討</li>
+<li><strong>ショック（高リスク群）</strong> → 抗凝固＋<strong>再灌流療法</strong>（血栓溶解・外科的血栓摘除術・カテーテル治療）</li>
+<li><strong>中間リスク</strong>：右室機能障害＋心臓バイオマーカー上昇の両者陽性＝<strong>中［高］リスク</strong>（悪化時に再灌流療法）／どちらか陽性または両陰性＝<strong>中［低］リスク</strong></li>
+<li><strong>低リスク</strong>（sPESI=0かつ右室機能障害なし）→ 抗凝固療法、適切な社会背景があれば早期退院・外来治療を検討</li>
+</ul>
+<h3 id="4-2-ahaacc-2026-の-ae-臨床カテゴリ米国の新分類">4-2. AHA/ACC 2026 の A–E 臨床カテゴリ（米国の新分類）</h3>
+<table>
+<thead>
+<tr>
+<th>カテゴリ</th>
+<th>内容</th>
+<th>推奨される場</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>無症候</td>
+<td>帰宅可（入院不要）</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>症候性だが低重症度スコア（B1＝亜区域、B2＝区域以上）</td>
+<td>早期退院が一般的</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>高重症度スコア（PESI&gt;85／sPESI≥1／Bova&gt;4）±バイオマーカー上昇・RV機能障害</td>
+<td>入院</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>切迫した心肺不全（incipient cardiopulmonary failure；D1/D2）</td>
+<td>入院・治療最適化</td>
+</tr>
+<tr>
+<td><strong>E</strong></td>
+<td>持続性低血圧を伴う心肺不全</td>
+<td>入院</td>
+</tr>
+<tr>
+<td>└ <strong>E1</strong></td>
+<td>持続性低血圧（血行動態破綻）＋心原性ショック（≒SCAI SHOCK stage C）</td>
+<td>高度治療の主対象</td>
+</tr>
+<tr>
+<td>└ <strong>E2</strong></td>
+<td>難治性心原性ショックまたは<strong>心停止</strong></td>
+<td>VA-ECMO等</td>
+</tr>
+<tr>
+<td><strong>R</strong>（修飾子）</td>
+<td>呼吸不全（&gt;6L経鼻 or リザーバー必要）</td>
+<td>各カテゴリに付加</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>外科との対応</strong>：外科的塞栓摘除を含む高度治療は <strong>E1で「妥当（reasonable）」</strong>、<strong>D1-2で「考慮可」</strong>。E2（心停止/難治性ショック）はまず <strong>VA-ECMO</strong>。</p>
+</blockquote>
+<h3 id="4-3-cteph-の-operability-評価">4-3. CTEPH の operability 評価</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>判定の枠組み</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🇯🇵 <strong>JCS 2025</strong></td>
+<td>器質化血栓への機械的介入を第一に検討。<strong>中枢型</strong>（主肺動脈〜区域枝の内膜肥厚）→PEA向き／<strong>末梢型</strong>（区域・亜区域枝のみ）→BPA向き／<strong>混合病変</strong>→BPA単独 or PEA＋BPAハイブリッド。手術適応は病変部位＋年齢＋全身状態をMDTで総合判断</td>
+</tr>
+<tr>
+<td>🇪🇺 <strong>ESC/ERS 2022</strong></td>
+<td><strong>外科到達可能な fibrotic obstruction</strong>＝PEA適応。技術的非適応／PEA後残存PHで遠位病変がBPA可能＝BPA適応。判定は<strong>CTEPHチーム（I, C）</strong></td>
+</tr>
+<tr>
+<td>🇪🇺 <strong>ERS 2021</strong></td>
+<td>operability の eligibility に統一基準はなく、<strong>expert centre のMDTの判断</strong>に依存。病変到達性・血行動態・併存症・予測術後PVRを勘案</td>
+</tr>
+<tr>
+<td>🇺🇸 <strong>AHA 2011</strong></td>
+<td>objectively proven CTEPH は症状が軽くても速やかにPEA評価。inoperable か residual PAH のみ薬物療法</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">PEA後の残存PH</div>
+<ul>
+<li><strong>JCS 2025</strong>：PEA後 <strong>mPAP ≧ 38 mmHg かつ PVR ≧ 5 Wood単位</strong>で長期生存悪化と関連。残存・再発PHには BPA＋肺血管拡張薬。</li>
+<li><strong>ERS 2021</strong>：PEA後の残存PHは**約50%**に生じ、BPA・薬物の標的。</li>
+</ul>
+</div>
+
+<hr />
+<h2 id="5-part-i各ガイドライン個別サマリー">5. Part I：各ガイドライン個別サマリー</h2>
+<h2 id="a-急性肺塞栓症の外科">A. 急性肺塞栓症の外科</h2>
+<h3 id="a-1-jcs-2025急性pe">A-1. JCS 2025（急性PE）</h3>
+<blockquote>
+<p>出典：肺血栓塞栓症・深部静脈血栓症および肺高血圧症に関するガイドライン（2025年改訂版）第3章 VTEの治療</p>
+</blockquote>
+<p><strong>外科的肺塞栓摘除術（推奨表12）</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th style="text-align: center;">クラス</th>
+<th style="text-align: center;">レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>肺動脈中枢（肺動脈幹、主肺動脈）に血栓が存在する高リスクPTEで、血栓溶解療法禁忌例・不成功例・経皮的体外循環導入例・昇圧薬投与で循環動態維持が困難な例に、<strong>肺動脈血栓摘除術（人工心肺使用）を行う</strong></td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>中枢血栓の高リスクあるいは中高リスクPTEで、継続的抗凝固療法の高リスク例に対し肺動脈血栓摘除術を考慮する</td>
+<td style="text-align: center;"><strong>IIa</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>中枢血栓の中高リスクPTEで、血栓溶解療法禁忌例・不成功例、循環動態・呼吸状態・右心機能が増悪、または予測死亡率が高い場合に肺動脈血栓摘除術を考慮する</td>
+<td style="text-align: center;"><strong>IIa</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>V-A ECMO（推奨表7・抜粋）／カテーテル治療（推奨表11・抜粋）</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th style="text-align: center;">クラス</th>
+<th style="text-align: center;">レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>心肺蘇生困難例、薬物療法でも呼吸循環不全を安定化できない例にV-A ECMO導入を考慮する</td>
+<td style="text-align: center;"><strong>IIa</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>全身血栓溶解療法が禁忌・無効あるいは抗凝固禁忌の高リスクPTEに、専門施設で血栓溶解薬非併用カテーテル治療を考慮</td>
+<td style="text-align: center;">IIa</td>
+<td style="text-align: center;">C</td>
+</tr>
+</tbody>
+</table>
+<p><strong>現況</strong>：年間手術件数 84〜127件（2014–2021）。30日死亡率 全体2.3〜19%。JCVSD 30日死亡率 2008–2014 <strong>20.6%</strong> → 2017–2021 <strong>13.3%</strong>。DPC解析：高リスクPTEの院内死亡 <strong>V-A ECMO単独 58.7% vs V-A ECMO＋血栓摘除術 39.7%</strong>。</p>
+<hr />
+<h3 id="a-2-esc-2019急性pe">A-2. ESC 2019（急性PE）</h3>
+<blockquote>
+<p>出典：2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism（PMID 31473594）</p>
+</blockquote>
+<p><strong>高リスクPEの急性期治療（推奨表6.6）</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th style="text-align: center;">クラス</th>
+<th style="text-align: center;">レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>高リスクPEに対し UFH による抗凝固を遅滞なく開始</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td>高リスクPEに対し全身血栓溶解療法を行う</td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td><strong>血栓溶解が禁忌または不成功の高リスクPEに、外科的肺塞栓摘除術を行う</strong></td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td><strong>血栓溶解が禁忌または不成功の高リスクPEに、経皮的カテーテル治療を考慮する</strong></td>
+<td style="text-align: center;"><strong>IIa</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>高リスクPEにノルエピネフリン and/or ドブタミンを考慮</td>
+<td style="text-align: center;">IIa</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td><strong>難治性の循環虚脱または心停止に、外科的塞栓摘除またはカテーテル治療と併用してECMOを考慮してもよい</strong></td>
+<td style="text-align: center;"><strong>IIb</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>中間／低リスクの再灌流（推奨表6.7）</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th style="text-align: center;">クラス</th>
+<th style="text-align: center;">レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>抗凝固中に血行動態が悪化した患者にレスキュー血栓溶解療法を行う</td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td>レスキュー血栓溶解の代替として、血行動態悪化例に外科的塞栓摘除またはカテーテル治療を考慮する</td>
+<td style="text-align: center;"><strong>IIa</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>中間／低リスクPEへのルーチンの一次全身血栓溶解は推奨しない</td>
+<td style="text-align: center;">III</td>
+<td style="text-align: center;">B</td>
+</tr>
+</tbody>
+</table>
+<p><strong>多職種チーム（6.8）</strong>：高リスク・選択された中間リスクPE管理のためのMDT/プログラム整備を考慮（<strong>IIa, C</strong>）。<strong>post-PE/CTEPH</strong>：症候性かつV/Qでミスマッチ血流欠損がPE後3か月以上残存→PH/CTEPH expert centreへ紹介（<strong>I</strong>）。</p>
+<hr />
+<h3 id="a-3-ahaacc-2026急性pe">A-3. AHA/ACC 2026（急性PE）</h3>
+<blockquote>
+<p>出典：2026 AHA/ACC/.../SVN Guideline for Acute Pulmonary Embolism in Adults（DOI 10.1016/j.jacc.2025.11.005, Circulation 2026;153:e977–e1051）。COR表記は 1/2a/2b/3（＝I/IIa/IIb/III）。</p>
+</blockquote>
+<p><strong>外科的塞栓摘除術（4.4.4）</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th style="text-align: center;">COR</th>
+<th style="text-align: center;">LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>カテゴリE1</strong>：外科的塞栓摘除は抗凝固単独と比べ、さらなる代償不全・急性死亡の予防に妥当</td>
+<td style="text-align: center;"><strong>2a (IIa)</strong></td>
+<td style="text-align: center;"><strong>B-NR</strong></td>
+</tr>
+<tr>
+<td><strong>カテゴリD1-2</strong>で高度治療を検討する場合：塞栓摘除＋抗凝固を抗凝固単独より考慮してもよい</td>
+<td style="text-align: center;"><strong>2b (IIb)</strong></td>
+<td style="text-align: center;"><strong>C-LD</strong></td>
+</tr>
+<tr>
+<td><strong>カテゴリD1-E1</strong>の手術候補：全身血栓溶解との優劣は不明だが、ICHリスク低減のため血栓溶解より塞栓摘除を考慮してもよい</td>
+<td style="text-align: center;"><strong>2b (IIb)</strong></td>
+<td style="text-align: center;"><strong>B-NR</strong></td>
+</tr>
+<tr>
+<td>カテゴリA-C3：外科的塞栓摘除を抗凝固単独より行うことは推奨しない</td>
+<td style="text-align: center;"><strong>3: No Benefit</strong></td>
+<td style="text-align: center;">C-EO</td>
+</tr>
+<tr>
+<td>カテゴリE2でMCS非装着：短期死亡予防のため他の高度治療より塞栓摘除を行うことは推奨しない</td>
+<td style="text-align: center;"><strong>3: No Benefit</strong></td>
+<td style="text-align: center;">B-NR</td>
+</tr>
+</tbody>
+</table>
+<p><strong>機械的循環補助／VA-ECMO（4.2.4）</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th style="text-align: center;">COR</th>
+<th style="text-align: center;">LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VA-ECMO中の患者に、出血がなければ非経口抗凝固の継続を推奨</td>
+<td style="text-align: center;">1 (I)</td>
+<td style="text-align: center;">B-NR</td>
+</tr>
+<tr>
+<td><strong>急性PEによる難治性心原性ショック（カテゴリE2）に、資源があればVA-ECMO導入は妥当</strong></td>
+<td style="text-align: center;"><strong>2a (IIa)</strong></td>
+<td style="text-align: center;"><strong>B-NR</strong></td>
+</tr>
+<tr>
+<td>カテゴリE2でVA-ECMO装着例における追加の高度治療の有用性は確立されていない</td>
+<td style="text-align: center;">2b (IIb)</td>
+<td style="text-align: center;">C-LD</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Top Take-Home</strong>：高度治療（全身血栓溶解・カテーテル血栓溶解・機械的血栓除去・<strong>外科的塞栓摘除</strong>）は <strong>E1で妥当・D1-2で考慮可</strong>。<strong>PERTs を推奨</strong>。<strong>CTEPHは本ガイドラインの対象外</strong>（→米国CTEPHはAHA 2011参照）。</p>
+<hr />
+<h3 id="a-4-aha-2011急性pe">A-4. AHA 2011（急性PE）</h3>
+<blockquote>
+<p>出典：AHA Scientific Statement（PMID 21422387）。massive＝高リスク、submassive＝中間リスク。</p>
+</blockquote>
+<p><strong>カテーテル塞栓摘除・破砕／外科的塞栓摘除</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th style="text-align: center;">クラス</th>
+<th style="text-align: center;">レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>massive PEで血栓溶解禁忌：施設の習熟度に応じカテーテル塞栓摘除・破砕<strong>または外科的塞栓摘除</strong>が妥当</td>
+<td style="text-align: center;"><strong>IIa</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>massive PEで血栓溶解後も不安定：カテーテルまたは外科的塞栓摘除が妥当</td>
+<td style="text-align: center;"><strong>IIa</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>massive PEで血栓溶解不可/不成功かつ自施設に手技がない：経験施設への転送が妥当</td>
+<td style="text-align: center;">IIa</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td>予後不良所見を伴う submassive PE：カテーテルまたは外科的塞栓摘除を考慮してもよい</td>
+<td style="text-align: center;"><strong>IIb</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>低リスクPEまたは軽度RV機能障害の submassive PE：カテーテル/外科的塞栓摘除は推奨しない</td>
+<td style="text-align: center;">III</td>
+<td style="text-align: center;">C</td>
+</tr>
+</tbody>
+</table>
+<p><strong>外科的塞栓摘除（本文）</strong>：人工心肺下の緊急塞栓摘除は、血栓溶解が禁忌の massive／RV機能障害を伴う submassive PE に有効。<strong>心原性ショック発症前の紹介</strong>で成績が最適化。off-pump・常温・大動脈遮断なしでも施行可、区域枝レベルまでの直視下血栓摘出に限定。</p>
+<hr />
+<h2 id="b-cteph-の外科pea">B. CTEPH の外科（PEA）</h2>
+<h3 id="b-1-jcs-2025cteph">B-1. JCS 2025（CTEPH）</h3>
+<blockquote>
+<p>出典：第9章 第4群 CTEPH（推奨表37）</p>
+</blockquote>
+<p><strong>診断</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th style="text-align: center;">クラス</th>
+<th style="text-align: center;">レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CTEPHを診断・除外するため、肺換気/血流シンチグラフィを行う</td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>CTEPHの診断、病変局在の評価のため、造影CTを行う</td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>CTEPHの診断のため、肺動脈造影・RHC検査を行う</td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>治療</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th style="text-align: center;">クラス</th>
+<th style="text-align: center;">レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>手術適応があるCTEPHに対し、超低温循環停止法下のPEAを行う</strong></td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>手術適応がないCTEPHに対し、BPAを行う</td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+</tr>
+<tr>
+<td>手術適応がないCTEPHに対し、肺血管拡張薬（リオシグアト、セレキシパグ）を投与する</td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+</tr>
+<tr>
+<td>末梢病変のCTEPH、もしくはPEA後に残存・再発したPHに対し、BPAを行う</td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+</tr>
+<tr>
+<td>PEA後に残存・再発した肺高血圧に肺血管拡張薬（リオシグアト、セレキシパグ）を投与する</td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+</tr>
+<tr>
+<td>混合病変のCTEPHにBPAとPEAのハイブリッド治療を考慮する</td>
+<td style="text-align: center;"><strong>IIa</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>BPA施行前に肺血管拡張薬の投与開始を考慮する</td>
+<td style="text-align: center;"><strong>IIa</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td>低酸素血症を認めるCTEPHに酸素療法を考慮する</td>
+<td style="text-align: center;">IIa</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td>有症候性のCTEPD without PHにBPA施行を考慮する</td>
+<td style="text-align: center;">IIa</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td>集学的アプローチでも改善困難なCTEPHにリオシグアト・セレキシパグ以外の肺血管拡張薬を考慮してもよい</td>
+<td style="text-align: center;">IIb</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr>
+<td>PEAのリスクを下げるため、PEA施行前にBPAを施行することを考慮してもよい</td>
+<td style="text-align: center;"><strong>IIb</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>抗凝固（図26）</strong>：生涯にわたる抗凝固療法（<strong>ワルファリン＝推奨クラスI／DOAC＝推奨クラスIIa</strong>）。PEA・BPA後も継続。</p>
+<hr />
+<h3 id="b-2-escers-2022cteph">B-2. ESC/ERS 2022（CTEPH）</h3>
+<blockquote>
+<p>出典：2022 ESC/ERS PH Guidelines, Recommendation Table 24A/24B（PMID 36017548）</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th style="text-align: center;">クラス</th>
+<th style="text-align: center;">レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全CTEPHに生涯の治療用量抗凝固を推奨</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td>全CTEPHに抗リン脂質抗体症候群（APS）検査を推奨／APS合併例はVKAを推奨</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td><strong>全CTEPHをCTEPHチームでレビューし multimodality management を評価</strong></td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td><strong>外科到達可能な fibrotic obstruction を伴うCTEPHに、PEAを第一選択（treatment of choice）として推奨</strong></td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td>技術的非適応、またはPEA後残存PHで遠位病変がBPA可能な患者にBPAを推奨</td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td>症候性の inoperable CTEPH またはPEA後の持続/再発PHにリオシグアトを推奨</td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td>PEA・BPA後、および薬物療法中のCTEPHに長期フォローを推奨</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td>PEA後残存PHおよび inoperable CTEPH に multi-modality アプローチを考慮</td>
+<td style="text-align: center;"><strong>IIa</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>BPA候補のCTEPHに、BPA前の薬物療法を考慮（GRADE, Table 24B）</td>
+<td style="text-align: center;"><strong>IIa</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td>WHO-FC III–IVの inoperable／PEA後持続再発PHにトレプロスチニル皮下注を考慮してもよい</td>
+<td style="text-align: center;">IIb</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr>
+<td>症候性 inoperable CTEPH にPAH承認薬の適応外使用を考慮してもよい</td>
+<td style="text-align: center;">IIb</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr>
+<td>inoperable CTEPH に sGC刺激薬/PDE5i・ERA・非経口プロスタサイクリンの併用を考慮してもよい</td>
+<td style="text-align: center;">IIb</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td>遠位病変主体でPEAの risk:benefit が不良な technically operable 患者にBPAを考慮してもよい</td>
+<td style="text-align: center;">IIb</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td><strong>CTEPD without PH</strong>：個別判断で長期抗凝固を考慮／選択された症候例にPEAまたはBPAを考慮</td>
+<td style="text-align: center;">IIa</td>
+<td style="text-align: center;">C</td>
+</tr>
+</tbody>
+</table>
+<p><strong>診断（PH診断推奨表より）</strong>：V/Qまたは血流シンチを推奨（I, C）／CTPAを推奨（I, C）／全PHに胸部CTを考慮（IIa, C）／CTEPH精査にDSAを考慮（IIa, C）。<strong>PHセンターは年≥50 PAH/CTEPH・月≥2新規紹介を維持（IIa）</strong>。</p>
+<hr />
+<h3 id="b-3-ers-2021-cteph-statement">B-3. ERS 2021 CTEPH Statement</h3>
+<blockquote>
+<p>出典：ERS statement on chronic thromboembolic pulmonary hypertension（Delcroix M, et al. PMID 33334946）。narrative statement（推奨クラスなし）。</p>
+</blockquote>
+<ul>
+<li><strong>PEA は operable 患者の treatment of choice</strong>。著明な血行動態・臨床改善をもたらし、expert centre での早期死亡率は <strong>&lt;3%</strong>。</li>
+<li><strong>expert PEA centre の要件（Jenkins 2017）</strong>：DHCAを含む心臓胸部外科の経験、PH service、専門画像、外科医・放射線科医・麻酔科医・集中治療医・看護師・perfusionist・呼吸療法士・<strong>BPA医</strong>を含むMDT。<strong>症例数 &gt;50 PEA/年、≥5年経験、院内死亡 &lt;5%、遠位内膜摘除が可能で3治療すべてを提供</strong>。<strong>ECMO常備</strong>（WSPH 2013）。</li>
+<li><strong>operability・multimodal</strong>：eligibility に統一基準はなく expert centre のMDTが判断。<strong>operable CTEPH への術前薬物治療が有益とのエビデンスは乏しい</strong>（高PVRの高リスク例で bridging を考慮することはある）。</li>
+<li><strong>BPA</strong>：inoperable CTEPHが対象。安全性・有効性は施設経験と相関、高ボリューム施設での training が重要。</li>
+<li><strong>薬物</strong>：リオシグアト・トレプロスチニルが inoperable／PEA後持続再発PHに承認、他は適応外。<strong>BPA/PEA成功後は薬剤中止を検討</strong>。多くのメンバーが BPA の安全性向上目的で<strong>BPA前のPH標的薬</strong>を使用。</li>
+<li><strong>混合病変／残存PH</strong>：PEA前BPAのbridging・PEA＋BPAハイブリッドは有望だがエビデンス不十分。<strong>PEA後残存PH（約50%）には追加BPA＋薬物が一般的</strong>。</li>
+<li><strong>リハビリ</strong>：inoperable例・PEA/BPA後とも有効・安全。</li>
+</ul>
+<hr />
+<h3 id="b-4-aha-2011cteph">B-4. AHA 2011（CTEPH）</h3>
+<blockquote>
+<p>出典：AHA Scientific Statement（PMID 21422387）。米国のCTEPH/PEA主要推奨文書。</p>
+</blockquote>
+<p><strong>診断</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th style="text-align: center;">クラス</th>
+<th style="text-align: center;">レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原因不明の労作時呼吸困難・運動耐容能低下・右心不全（±VTE既往）はCTEPHを評価すべき</td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>治療（Medical Therapy and Pulmonary Endarterectomy）</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th style="text-align: center;">クラス</th>
+<th style="text-align: center;">レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>objectively proven CTEPH は、症状が軽くても速やかにPEA評価を行う</strong></td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td>objectively proven CTEPH は禁忌がなければ生涯の治療用量抗凝固を行う</td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td>PEA非適応または術後残存PAHの患者に、経験施設でPAH（第1群）特異的薬物療法を考慮してもよい</td>
+<td style="text-align: center;"><strong>IIb</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td><strong>手術候補となりうる objectively proven CTEPH で、PAH特異的薬物をPEAの代わりに用いる/PEA評価を遅らせることは推奨しない</strong></td>
+<td style="text-align: center;"><strong>III</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>PEA（本文）</strong>：UCSDで確立、&gt;2500例。最大規模の近年シリーズで手術死亡 <strong>4.7%</strong>（施設により0〜24%）。术後はNYHA改善・RV reverse remodeling。</p>
+<hr />
+<h2 id="6-part-ii横断比較">6. Part II：横断比較</h2>
+<h3 id="a-1-急性pe外科的肺塞栓摘除術の適応">A-1. 急性PE：外科的肺塞栓摘除術の適応</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2025</th>
+<th>🇪🇺 ESC 2019</th>
+<th>🇺🇸 AHA/ACC 2026</th>
+<th>🇺🇸 AHA 2011</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>高リスク／massive・第一適応</strong></td>
+<td>中枢血栓＋高リスクで血栓溶解禁忌・不成功・ECMO導入・昇圧薬で循環維持困難：<strong>I, C</strong></td>
+<td>血栓溶解禁忌・不成功の高リスクPE：<strong>I, C</strong></td>
+<td>カテゴリE1：抗凝固単独比で妥当：<strong>IIa(2a), B-NR</strong></td>
+<td>massive＋血栓溶解禁忌／溶解後不安定：<strong>IIa, C</strong></td>
+</tr>
+<tr>
+<td><strong>中間リスク／submassive</strong></td>
+<td>中高リスクで増悪・予測死亡率高：<strong>IIa, C</strong></td>
+<td>血行動態悪化時にレスキュー血栓溶解の代替：<strong>IIa, C</strong></td>
+<td>カテゴリD1-2：考慮可：<strong>IIb(2b), C-LD</strong></td>
+<td>予後不良所見のsubmassive：<strong>IIb, C</strong></td>
+</tr>
+<tr>
+<td><strong>血栓溶解との位置づけ</strong></td>
+<td>溶解の代替（第一選択でない）。中枢型血栓が前提</td>
+<td>溶解の代替（禁忌/不成功）</td>
+<td>D1-E1でICH低減目的に溶解より考慮可：IIb, B-NR</td>
+<td>溶解の代替・補完</td>
+</tr>
+<tr>
+<td><strong>適応外</strong></td>
+<td>中リスク一般</td>
+<td>中間/低リスクのルーチン溶解は III, B</td>
+<td>A-C3：3 No Benefit</td>
+<td>低リスク/軽度submassive：III, C</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>4ガイドラインとも「<strong>外科的塞栓摘除＝血栓溶解の代替・補完</strong>」で一致。日本（JCSは中枢型血栓の高リスクで I, C）と欧米（ESC I, C／米国は IIa前後）で<strong>第一適応の推奨強度が最も近いのはJCSとESC</strong>。米国2文書は外科を「reasonable/may be considered」とやや控えめ。</p>
+</blockquote>
+<h3 id="a-2-急性pev-a-ecmomcs-の位置づけ">A-2. 急性PE：V-A ECMO・MCS の位置づけ</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2025</th>
+<th>🇪🇺 ESC 2019</th>
+<th>🇺🇸 AHA/ACC 2026</th>
+<th>🇺🇸 AHA 2011</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VA-ECMO適応</strong></td>
+<td>心停止例は早急に導入。蘇生困難・薬物で安定化不能に<strong>導入考慮：IIa, C</strong></td>
+<td>難治性循環虚脱/心停止に外科/カテーテルと<strong>併用でECMO考慮：IIb, C</strong></td>
+<td>難治性心原性ショック（E2）に<strong>導入妥当：IIa, B-NR</strong></td>
+<td>（個別記載）</td>
+</tr>
+<tr>
+<td><strong>手術へのブリッジ</strong></td>
+<td>ECMO単独より外科併用が有用な可能性（院内死亡58.7%→39.7%）</td>
+<td>ECMOは塞栓摘除/カテーテルと組み合わせて</td>
+<td>E2でECMO＋追加高度治療の有用性は未確立</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="b-1-cteph診断確定と-operability-評価">B-1. CTEPH：診断確定と operability 評価</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2025</th>
+<th>🇪🇺 ESC/ERS 2022</th>
+<th>🇪🇺 ERS 2021</th>
+<th>🇺🇸 AHA 2011</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>除外検査</strong></td>
+<td>V/Qシンチ <strong>I, C</strong>／造影CT <strong>I, C</strong>／肺動脈造影・RHC <strong>I, C</strong></td>
+<td>V/Q <strong>I, C</strong>／CTPA <strong>I, C</strong>／胸部CT IIa, C／DSA IIa, C</td>
+<td>（narrative）V/Q・CTPA・RHC・肺動脈造影</td>
+<td>不明熱性呼吸困難等はCTEPH評価 <strong>I, C</strong></td>
+</tr>
+<tr>
+<td><strong>operability判定主体</strong></td>
+<td>PEA熟練外科医を含むMDT</td>
+<td><strong>CTEPHチーム I, C</strong></td>
+<td>expert centre のMDT</td>
+<td>経験施設の多職種チーム</td>
+</tr>
+<tr>
+<td><strong>病変分類</strong></td>
+<td>中枢型→PEA／末梢型→BPA／混合→ハイブリッド</td>
+<td>外科到達可能 fibrotic obstruction→PEA</td>
+<td>解剖学的にPEAとBPAは重複</td>
+<td>type分類（UCSD）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="b-2-pea-の適応専門施設集約">B-2. PEA の適応・専門施設集約</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2025</th>
+<th>🇪🇺 ESC/ERS 2022</th>
+<th>🇪🇺 ERS 2021</th>
+<th>🇺🇸 AHA 2011</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PEAの位置づけ</strong></td>
+<td>手術適応CTEPHへ超低温循環停止下PEA：<strong>I, C</strong></td>
+<td>外科到達可能病変の<strong>第一選択：I, B</strong></td>
+<td>operable の <strong>treatment of choice</strong>（早期死亡&lt;3%）</td>
+<td>軽症でも速やかにPEA評価：<strong>I, B</strong></td>
+</tr>
+<tr>
+<td><strong>専門施設・volume</strong></td>
+<td>CTEPH/BPA専門施設のMDT（推奨クラスI）</td>
+<td>CTEPHチームI, C／PHセンター年≥50・月≥2新規（IIa）</td>
+<td><strong>&gt;50 PEA/年・≥5年・院内死亡&lt;5%・ECMO常備</strong></td>
+<td>経験施設へ集約</td>
+</tr>
+<tr>
+<td><strong>薬物単独の戒め</strong></td>
+<td>—</td>
+<td>—</td>
+<td>術前薬物の有益性エビデンス乏しい</td>
+<td><strong>薬物でPEA評価を遅らせない：III, B</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="b-3-pea-vs-bpa-vs-薬物療法の振り分け">B-3. PEA vs BPA vs 薬物療法の振り分け</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2025</th>
+<th>🇪🇺 ESC/ERS 2022</th>
+<th>🇪🇺 ERS 2021</th>
+<th>🇺🇸 AHA 2011</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>operable</strong></td>
+<td>PEA（I, C）</td>
+<td>PEA第一選択（I, B）</td>
+<td>PEA treatment of choice</td>
+<td>PEA（I, B）</td>
+</tr>
+<tr>
+<td><strong>inoperable→BPA</strong></td>
+<td>手術適応なしにBPA：<strong>I, A</strong></td>
+<td>技術的非適応にBPA：<strong>I, B</strong></td>
+<td>inoperableにBPA（施設経験依存）</td>
+<td>（2011時点でBPA推奨は未確立）</td>
+</tr>
+<tr>
+<td><strong>inoperable→薬物</strong></td>
+<td>手術適応なしにリオシグアト等：<strong>I, A</strong></td>
+<td>inoperableにリオシグアト：<strong>I, B</strong></td>
+<td>リオシグアト・トレプロスチニル承認</td>
+<td>PAH特異薬を考慮：IIb, B</td>
+</tr>
+<tr>
+<td><strong>BPA前の薬物</strong></td>
+<td>BPA前の薬物開始を考慮：<strong>IIa, B</strong></td>
+<td>BPA前の薬物を考慮（GRADE）：<strong>IIa, B</strong></td>
+<td>多くが安全性向上目的で使用</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>PEA前のBPA（リスク低減）</strong></td>
+<td>PEA前BPAを考慮してもよい：<strong>IIb, C</strong></td>
+<td>混合病変でBPA併用を考慮</td>
+<td>bridging/ハイブリッドは有望もエビデンス不十分</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>CTEPHの<strong>基本骨格は4文書で一致</strong>：operable→PEA、inoperable／残存→BPA＋薬物。<strong>エビデンスレベルはJCSがBPA・薬物にAを付与（国内BPA成績を反映）、ESC/ERSはB</strong>。米国はBPA普及前のAHA 2011が最新のため、BPAの推奨が体系化されていない（最新の米国知見は2026 PEガイドラインの対象外）。</p>
+</blockquote>
+<h3 id="b-4-残存再発-ph-の評価フォロー">B-4. 残存／再発 PH の評価・フォロー</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2025</th>
+<th>🇪🇺 ESC/ERS 2022</th>
+<th>🇪🇺 ERS 2021</th>
+<th>🇺🇸 AHA 2011</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PEA後残存/再発PH→BPA</strong></td>
+<td><strong>I, A</strong></td>
+<td>I, B（遠位病変）</td>
+<td>追加BPAが一般的</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>PEA後残存/再発PH→薬物</strong></td>
+<td>リオシグアト等 <strong>I, A</strong></td>
+<td>リオシグアト <strong>I, B</strong></td>
+<td>承認薬あり</td>
+<td>PAH特異薬 IIb, B</td>
+</tr>
+<tr>
+<td><strong>multimodal</strong></td>
+<td>ハイブリッド IIa, C</td>
+<td>残存PH/inoperableに考慮 IIa, C</td>
+<td>MDTで選択</td>
+<td>再PEAを経験施設で検討</td>
+</tr>
+<tr>
+<td><strong>予後指標</strong></td>
+<td>mPAP≧38mmHg かつ PVR≧5 Wood単位で生存悪化</td>
+<td>（長期フォロー I, C）</td>
+<td>残存PH 約50%</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>抗凝固</strong></td>
+<td>生涯（ワルファリンI／DOAC IIa）</td>
+<td>生涯（I, C）。APS検査 I, C</td>
+<td>生涯</td>
+<td>生涯（I, C）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-術式周術期の要点">7. 術式・周術期の要点</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>急性PE：外科的肺塞栓摘除術</th>
+<th>CTEPH：PEA（肺動脈血栓内膜摘除術）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>対象血栓</strong></td>
+<td>新鮮血栓（器質化していない）</td>
+<td>器質化血栓＋肥厚内膜（弾性肺動脈レベル）</td>
+</tr>
+<tr>
+<td><strong>到達</strong></td>
+<td>胸骨正中切開、左右主肺動脈切開、直視下に区域枝まで摘出</td>
+<td>胸骨正中切開、左右肺動脈を切開し<strong>内膜剥離面</strong>を作成、区域・亜区域枝へ追って完全摘除</td>
+</tr>
+<tr>
+<td><strong>体外循環</strong></td>
+<td>上行大動脈送血＋上下大静脈2本脱血、多くは心拍動下（off-pump/常温も可〔AHA 2011〕）</td>
+<td>人工心肺＋**超低温循環停止（DHCA）**で気管支循環逆流を遮断し無血視野を確保</td>
+</tr>
+<tr>
+<td><strong>完全性</strong></td>
+<td>直視可能な血栓に限定（盲目的操作は肺動脈損傷の危険）</td>
+<td><strong>completeness が術後PVR低下を決定</strong>。遠位内膜摘除能力が expert centre 要件</td>
+</tr>
+<tr>
+<td><strong>補助</strong></td>
+<td>V-A ECMO併用（導入準備に大腿動静脈ライン確保）</td>
+<td><strong>ECMO常備</strong>（術後合併症対応。ERS 2021/WSPH 2013）</td>
+</tr>
+<tr>
+<td><strong>成績</strong></td>
+<td>30日死亡 2.3〜19%（術前CPRと関連）／JCVSD近年13.3%</td>
+<td>早期死亡 expert centreで&lt;3〜5%。残存PH（mPAP≧38/PVR≧5）で予後不良</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-まとめ総括">8. まとめ・総括</h2>
+<h3 id="共通点6文書を通じた骨子">共通点（6文書を通じた骨子）</h3>
+<ul>
+<li><strong>急性PEの外科＝血栓溶解の代替・補完</strong>。中枢型血栓を有する高リスク（／一部の中間リスク・予後不良 submassive）で、血栓溶解禁忌・不成功例が主対象。<strong>心停止／難治性ショックには V-A ECMO</strong>（手術へのブリッジとして外科併用が予後改善に寄与しうる）。</li>
+<li><strong>CTEPHの治療は集学的</strong>：<strong>operable→PEA（第一選択・根治・DHCA下）</strong>、inoperable／残存PH→<strong>BPA＋肺血管拡張薬</strong>。<strong>operability判定と治療はCTEPH/PH expert centre のMDT</strong>で行う（ESC/ERS・JCSとも推奨クラスI、ERS 2021はvolume基準を具体化）。</li>
+<li><strong>抗凝固は生涯継続</strong>（PEA/BPA後も）。</li>
+</ul>
+<h3 id="主要な相違点">主要な相違点</h3>
+<ol type="1">
+<li><strong>急性PE外科の推奨強度</strong>：JCS（I, C）・ESC（I, C）が最も積極的。米国（AHA/ACC 2026：E1で IIa／AHA 2011：massiveで IIa）はやや控えめで「他の高度治療と並列」。</li>
+<li><strong>A–E臨床カテゴリ（AHA/ACC 2026）</strong>：米国は重症度を5段階で精密化し、外科を含む高度治療を<strong>E1で妥当・D1-2で考慮可</strong>と紐づけ。日欧の「高リスク／中間リスク」より細かい。</li>
+<li><strong>CTEPHのBPA・薬物のエビデンスレベル</strong>：JCSは国内BPA成績を反映し <strong>I, A</strong>、ESC/ERSは <strong>I, B</strong>。米国はBPA普及前の2011 statementが最新のためBPAが体系化されていない。</li>
+<li><strong>米国のCTEPH/PEA文書のギャップ</strong>：2026 PEガイドラインが<strong>CTEPHを明示的に対象外</strong>としたため、米国のCTEPH/PEA推奨は依然 <strong>AHA 2011（PEA：軽症でも速やかに評価 I, B／薬物単独でPEA遅延は III, B）</strong>。欧州（ESC/ERS 2022・ERS 2021）が現時点で最も体系的。</li>
+<li><strong>専門施設集約</strong>：ERS 2021が最も具体的（&gt;50 PEA/年、院内死亡&lt;5%、ECMO常備、3治療提供）。</li>
+</ol>
+<h3 id="臨床的インプリケーション">臨床的インプリケーション</h3>
+<ul>
+<li>急性PEでは「<strong>中枢型血栓＋血栓溶解できない高リスク</strong>」が外科的塞栓摘除の核。心停止/難治性ショックではまず VA-ECMO で安定化し外科へ橋渡し。</li>
+<li>CTEPHでは「<strong>まず operability をexpert centre MDTで判定</strong>」が全ガイドライン共通の第一歩。operableなら<strong>薬物で先延ばしせずPEA</strong>（AHA 2011は III, B で明確に戒める）。inoperable/残存にはBPA＋リオシグアトを多モーダルで。</li>
+<li>日本のガイドラインはBPA・薬物に高いエビデンスレベル（A）を与えており、<strong>末梢型・混合病変でのBPA活用に積極的</strong>な点が特徴。</li>
+</ul>
+<hr />
+<h2 id="9-付録出典pdf一覧">9. 付録：出典PDF一覧</h2>
+<table>
+<thead>
+<tr>
+<th>ガイドライン</th>
+<th>PMID / DOI</th>
+<th>保存先パス</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JCS 2025 肺血栓塞栓症・肺高血圧症</td>
+<td>—</td>
+<td><code>reference/Japan/Pulmonary_Vascular_Disease/JCS_2025_肺血栓塞栓症_肺高血圧症_Guidelines.pdf</code></td>
+</tr>
+<tr>
+<td>ESC/ERS 2022 PH</td>
+<td>36017548 / 10.1093/eurheartj/ehac237</td>
+<td><code>reference/Europe/Pulmonary_Vascular_Disease/ESC_ERS_2022_Pulmonary_Hypertension_Guidelines.pdf</code></td>
+</tr>
+<tr>
+<td>ESC 2019 急性PE</td>
+<td>31473594 / 10.1093/eurheartj/ehz405</td>
+<td><code>reference/Europe/Pulmonary_Vascular_Disease/ESC_2019_Acute_Pulmonary_Embolism_Guidelines.pdf</code></td>
+</tr>
+<tr>
+<td>ERS 2021 CTEPH Statement</td>
+<td>33334946 / 10.1183/13993003.02828-2020</td>
+<td><code>reference/Europe/Pulmonary_Vascular_Disease/ERS_2021_CTEPH_Statement.pdf</code></td>
+</tr>
+<tr>
+<td>AHA/ACC 2026 急性PE</td>
+<td>10.1016/j.jacc.2025.11.005（Circulation 2026;153:e977–e1051）</td>
+<td><code>reference/US/Pulmonary_Vascular_Disease/AHA_ACC_2026_Acute_Pulmonary_Embolism_Guidelines.pdf</code></td>
+</tr>
+<tr>
+<td>AHA 2011 Statement (Jaff)</td>
+<td>21422387 / 10.1161/CIR.0b013e318214914f</td>
+<td><code>reference/US/Pulmonary_Vascular_Disease/AHA_2011_Massive_Submassive_PE_DVT_CTEPH_Statement.pdf</code></td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">推奨の転記方針</div>
+<p>各推奨クラス（I/IIa/IIb/III）とエビデンスレベルは原典PDFの推奨表から直接転記した（CLAUDE.md準拠）。AHA/ACC 2026 は原典のCOR表記（1/2a/2b/3）と細分化LOE（B-NR等）をそのまま併記。ERS 2021 は推奨クラスを持たない statement のため narrative で要約。</p>
+</div>
+
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
+</body>
+</html>

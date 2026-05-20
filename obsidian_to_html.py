@@ -772,6 +772,8 @@ def main():
          "CVCU_Emergency_Response/CVCU_Emergency_Response_Protocol.html"),
         ("CPB_Management/CPB_Management_Guidelines_Comparison.md",
          "CPB_Management/CPB_Management_Guidelines_Comparison.html"),
+        ("CTEPH_PEA_Acute_PE_Surgery/CTEPH_PEA_Acute_PE_Surgery_Guidelines_Comparison.md",
+         "CTEPH_PEA_Acute_PE_Surgery/CTEPH_PEA_Acute_PE_Surgery_Guidelines_Comparison.html"),
     ]
 
     print("Converting Obsidian MD → styled HTML:")
