@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>心臓移植 — 心膜疾患・Redo / High-risk症例の適応分析</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5c5c5c;
+  --border: #d4d4d4;
+  --accent: #2c3e50;
+  --light-bg: #f7f8fa;
+  --header-bg: #2c3e50;
+  --header-fg: #ffffff;
+  --link: #34495e;
+  --jp-accent: #c0392b;
+  --us-accent: #2980b9;
+  --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
+
+body {
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+  margin: 48px 0 12px;
+}
+
+h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 28px 0 8px;
+}
+
+h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 20px 0 6px;
+}
+
+p { margin: 8px 0; font-size: 0.88rem; }
+strong { color: var(--fg); }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+ul, ol {
+  padding-left: 24px;
+  margin: 8px 0;
+  font-size: 0.88rem;
+}
+
+li { margin-bottom: 4px; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 12px 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+thead th {
+  background: var(--header-bg);
+  color: var(--header-fg);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--light-bg);
+}
+
+tbody tr:nth-child(even) td { background-color: #fafbfc; }
+tbody tr:nth-child(even) td:first-child { background-color: #f0f1f3; }
+tbody tr:hover td { background-color: #eef1f5; }
+tbody tr:hover td:first-child { background-color: #e4e8ed; }
+
+/* Blockquotes (fallback for any not converted to callouts) */
+blockquote {
+  background: var(--light-bg);
+  border-left: 3px solid var(--border);
+  padding: 10px 16px;
+  margin: 12px 0 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+blockquote strong { color: var(--fg); }
+
+/* Highlights */
+mark {
+  background: #fff3cd;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Callout overrides - already inline styled, but ensure nested elements look right */
+.callout p { margin: 4px 0; }
+.callout ul, .callout ol { margin: 4px 0 4px 16px; }
+.callout table { font-size: 0.8rem; }
+
+/* Print */
+@media print {
+  body { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
+@media (max-width: 768px) {
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
+  h1 { font-size: 1.3rem; }
+  table { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-executive-summary--結論先出し">1. Executive Summary — 結論先出し</a></li>
+      <li class="toc-l2"><a href="#2-日本jcs-2025の建付け心膜疾患の取り扱い">2. 日本（JCS 2025）の建付け：心膜疾患の取り扱い</a></li>
+      <li class="toc-l3"><a href="#2-1-表4心臓移植の適応となる疾患原文jcs-2025-p25">2-1. 表4「心臓移植の適応となる疾患」原文（JCS 2025 p.25）</a></li>
+      <li class="toc-l3"><a href="#2-2-日本累積704例の疾患分布jcs-2025-図112022年末時点">2-2. 日本累積704例の疾患分布（JCS 2025 図11／2022年末時点）</a></li>
+      <li class="toc-l3"><a href="#2-3-その他枠への該当判断ロジックjcs-2025-pp25-26-要旨">2-3. 「その他」枠への該当判断ロジック（JCS 2025 pp.25-26 要旨）</a></li>
+      <li class="toc-l3"><a href="#2-4-心膜疾患外科的可逆性疾患という位置づけ">2-4. 心膜疾患＝外科的可逆性疾患という位置づけ</a></li>
+      <li class="toc-l2"><a href="#3-日本jcs-2025の建付けredo--high-risk症例の取り扱い">3. 日本（JCS 2025）の建付け：Redo / High-risk症例の取り扱い</a></li>
+      <li class="toc-l3"><a href="#3-1-jcs-2025-が明示する移植後1年死亡率の上昇リスク因子第5章-p54">3-1. JCS 2025 が明示する移植後1年死亡率の上昇リスク因子（第5章 p.54）</a></li>
+      <li class="toc-l3"><a href="#3-2-redo時の手技的対応jcs-2025-第4章-p50-51">3-2. Redo時の手技的対応（JCS 2025 第4章 p.50-51）</a></li>
+      <li class="toc-l3"><a href="#3-3-日本のredo-htx構造的にbtt-lvadによる準redo前提">3-3. 日本のRedo HTx：構造的にBTT-LVADによる「準Redo」前提</a></li>
+      <li class="toc-l3"><a href="#3-4-先天性心疾患achd複数回開心術歴の位置づけ">3-4. 先天性心疾患・ACHD（複数回開心術歴）の位置づけ</a></li>
+      <li class="toc-l3"><a href="#3-5-絶対的除外条件にredo高リスクは含まれない表6--p27">3-5. 「絶対的除外条件」にRedo・高リスクは含まれない（表6 / p.27）</a></li>
+      <li class="toc-l2"><a href="#4-欧米gl心膜疾患をhtx適応として明示する数少ない記述">4. 欧米GL：心膜疾患をHTx適応として明示する数少ない記述</a></li>
+      <li class="toc-l3"><a href="#4-1-esc-2025-myocarditispericarditis-guidelineseur-heart-j-2025463952--p3994-周辺">4-1. ESC 2025 Myocarditis/Pericarditis Guidelines（Eur Heart J 2025;46:3952-, p.3994 周辺）</a></li>
+      <li class="toc-l3"><a href="#4-2-jacc-2024-best-practices-for-pericardiectomyal-kazaz-et-al-jacc-202484561-580">4-2. JACC 2024 Best Practices for Pericardiectomy（Al-Kazaz et al. JACC 2024;84:561-580）</a></li>
+      <li class="toc-l3"><a href="#4-3-accahahfsa-2022-hf-guideline--esc-2021-hf-guideline">4-3. ACC/AHA/HFSA 2022 HF Guideline / ESC 2021 HF Guideline</a></li>
+      <li class="toc-l2"><a href="#5-欧米redo-htxachd-htxのレジストリエビデンス">5. 欧米：Redo HTx・ACHD HTxのレジストリエビデンス</a></li>
+      <li class="toc-l3"><a href="#5-1-unos-database-1997-2011awad-et-al-jtcvs-2014">5-1. UNOS Database 1997-2011（Awad et al. JTCVS 2014）</a></li>
+      <li class="toc-l3"><a href="#5-2-transplant-international-2023-korean-multicenter-pmc10579607">5-2. Transplant International 2023 (Korean Multicenter, PMC10579607)</a></li>
+      <li class="toc-l3"><a href="#5-3-achd-htx-30日死亡率bryant-et-al-meshulami-narrative-review-jtd-2023">5-3. ACHD HTx 30日死亡率（Bryant et al.; Meshulami narrative review JTD 2023）</a></li>
+      <li class="toc-l3"><a href="#5-4-ishlt-2024-pgdegd-consensus--redo-の-pgd-リスク因子としての位置">5-4. ISHLT 2024 PGD/EGD Consensus — Redo の PGD リスク因子としての位置</a></li>
+      <li class="toc-l2"><a href="#6-放射線誘発心疾患mediastinal-radiationの特殊位置づけ">6. 放射線誘発心疾患（mediastinal radiation）の特殊位置づけ</a></li>
+      <li class="toc-l3"><a href="#6-1-なぜ高リスクの代表として取り扱うか">6-1. なぜ"高リスク"の代表として取り扱うか</a></li>
+      <li class="toc-l3"><a href="#6-2-心臓移植成績エビデンス">6-2. 心臓移植成績エビデンス</a></li>
+      <li class="toc-l3"><a href="#6-30-mayo-clinic-saxena-2014--radiation-induced-rcm-htx-単施設成績再掲">6-3.0 Mayo Clinic (Saxena 2014) — radiation-induced RCM HTx 単施設成績（再掲）</a></li>
+      <li class="toc-l3"><a href="#6-3-murashita-2017-mayo-n1066-大規模シリーズ--radiationredo-の独立危険度">6-3. Murashita 2017 Mayo n=1,066 大規模シリーズ — Radiation/Redo の独立危険度</a></li>
+      <li class="toc-l3"><a href="#6-4-depasquale-2016-unos解析n75-radiation-induced-htx">6-4. DePasquale 2016 UNOS解析（n=75 radiation-induced HTx）</a></li>
+      <li class="toc-l3"><a href="#6-5-esc-2025--jacc-2024-の-post-radiation-推奨">6-5. ESC 2025 / JACC 2024 の post-radiation 推奨</a></li>
+      <li class="toc-l2"><a href="#7-pericardiectomy-re-do--completion-pericardiectomy-と移植への分岐">7. Pericardiectomy Re-do / Completion pericardiectomy と移植への分岐</a></li>
+      <li class="toc-l3"><a href="#7-1-なぜこのセクションが必要か">7-1. なぜこのセクションが必要か</a></li>
+      <li class="toc-l3"><a href="#7-2-cho-2012-mayon21-完成的心膜剥皮術-star-再発時期で予後が劇的に二極化">7-2. Cho 2012 Mayo（n=21 完成的心膜剥皮術）— ⭐ 再発時期で予後が劇的に二極化</a></li>
+      <li class="toc-l3"><a href="#7-3-multiple-redo--末期病態の組み合わせ--hf専門医移植チームへの早期紹介">7-3. 「Multiple redo + 末期病態」の組み合わせ → HF専門医・移植チームへの早期紹介</a></li>
+      <li class="toc-l3"><a href="#7-4-krzelj-2026-cleveland-clinic-state-of-the-art-update--統合的判断軸">7-4. Krzelj 2026 Cleveland Clinic State-of-the-Art Update — 統合的判断軸</a></li>
+      <li class="toc-l3"><a href="#7-5-日本の実装上の留意点">7-5. 日本の実装上の留意点</a></li>
+      <li class="toc-l2"><a href="#8-post-transplant-cp移植後の収縮性心膜炎">8. Post-transplant CP（移植後の収縮性心膜炎）</a></li>
+      <li class="toc-l3"><a href="#8-1-概要--移植後の遅発性合併症としての-cp">8-1. 概要 — 移植後の遅発性合併症としての CP</a></li>
+      <li class="toc-l3"><a href="#8-2-bergroshanali-2021--post-transplant-cp-に対する-pericardiectomy-成績">8-2. Berg/Roshanali 2021 — Post-transplant CP に対する pericardiectomy 成績</a></li>
+      <li class="toc-l3"><a href="#8-3-post-transplant-cp-の鑑別と治療戦略">8-3. Post-transplant CP の鑑別と治療戦略</a></li>
+      <li class="toc-l3"><a href="#8-4-再移植re-transplantationの選択肢">8-4. 再移植（Re-transplantation）の選択肢</a></li>
+      <li class="toc-l3"><a href="#8-5-jcs-2025-が言及する-post-transplant-関連病態">8-5. JCS 2025 が言及する post-transplant 関連病態</a></li>
+      <li class="toc-l2"><a href="#9-クロスgl比較表">9. クロスGL比較表</a></li>
+      <li class="toc-l3"><a href="#9-1-心膜疾患のhtx適応としての位置づけ">9-1. 心膜疾患のHTx適応としての位置づけ</a></li>
+      <li class="toc-l3"><a href="#9-2-redo--high-risk症例のhtx適応としての位置づけ">9-2. Redo / High-risk症例のHTx適応としての位置づけ</a></li>
+      <li class="toc-l2"><a href="#10-臨床的含意実務的判断アルゴリズム">10. 臨床的含意・実務的判断アルゴリズム</a></li>
+      <li class="toc-l3"><a href="#10-1-心膜疾患患者にhtxを検討する場合の意思決定日本想定">10-1. 「心膜疾患」患者にHTxを検討する場合の意思決定（日本想定）</a></li>
+      <li class="toc-l3"><a href="#10-2-redo--high-risk患者にhtxを検討する場合のチェックリスト日本想定">10-2. 「Redo / High-risk」患者にHTxを検討する場合のチェックリスト（日本想定）</a></li>
+      <li class="toc-l3"><a href="#10-3-日本における心膜疾患redohigh-risk共存例の現実">10-3. 日本における「心膜疾患＋Redo＋High-risk」共存例の現実</a></li>
+      <li class="toc-l3"><a href="#10-4-一文の臨床的結論">10-4. 一文の臨床的結論</a></li>
+      <li class="toc-l3"><a href="#10-5-プレゼン用キーメッセージ集">10-5. プレゼン用キーメッセージ集</a></li>
+      <li class="toc-l2"><a href="#11-references--引用文献">11. References / 引用文献</a></li>
+      <li class="toc-l3"><a href="#11-1-主要ガイドライン">11-1. 主要ガイドライン</a></li>
+      <li class="toc-l3"><a href="#11-2-redo-htx--achd-htx-エビデンス">11-2. Redo HTx / ACHD HTx エビデンス</a></li>
+      <li class="toc-l3"><a href="#11-3-心膜疾患放射線後心疾患-htx">11-3. 心膜疾患・放射線後心疾患 HTx</a></li>
+      <li class="toc-l3"><a href="#11-4-日本固有の制度関連資料">11-4. 日本固有の制度・関連資料</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
+<h1 id="心臓移植--心膜疾患redo--high-risk症例の適応分析">心臓移植 — 心膜疾患・Redo / High-risk症例の適応分析</h1>
+<p><strong>作成日：</strong> 2026年5月19日 <strong>焦点となる臨床質問：</strong></p>
+<blockquote>
+<p>心膜疾患患者（収縮性心膜炎・mixed CP/RCM・放射線後心膜炎）や、Redo（再開胸）などのHigh-risk症例において、心臓移植の適応はとれうるか？特に日本（JCS 2025）の建付けではどう取り扱われるか？</p>
+</blockquote>
+<p><strong>対象ガイドライン：</strong></p>
+<ul>
+<li>🇯🇵 <strong>JCS/JHFS/JSPCCS 2025</strong>：「2025年改訂版 心臓移植に関するガイドライン」（班長：齋木佳克）</li>
+<li>🇪🇺 <strong>ESC 2025</strong>：Guidelines for the management of myocarditis and pericarditis（Eur Heart J 2025;46:3952-）</li>
+<li>🇺🇸 <strong>ACC 2025</strong>：Concise Clinical Guidance on the Evaluation and Management of Suspected Acute and Recurrent Pericarditis</li>
+<li>🇺🇸 <strong>JACC 2024</strong>：Al-Kazaz et al. <em>Best Practices for Pericardiectomy</em>（JACC 2024;84:561-580）</li>
+<li>🇺🇸 <strong>ACC/AHA/HFSA 2022 HF GL</strong>（Section 8.5 移植）</li>
+<li>🇪🇺 <strong>ESC 2021/2023 HF GL</strong>（Section 10.2.3 移植）</li>
+<li>🌐 補助：ISHLT 2016 Listing Criteria・ISHLT 2024 PGD Consensus・UNOS/ISHLT registries</li>
+</ul>
+<p><strong>関連ドキュメント：</strong> 心臓移植ガイドライン比較 · 収縮性心膜炎ガイドライン比較 · 心筋症ガイドライン比較 · LVAD ガイドライン比較</p>
+<hr />
+<h2 id="目次">目次</h2>
+<ol type="1">
+<li><a href="#1-executive-summary--結論先出し">Executive Summary — 結論先出し</a></li>
+<li><a href="#2-日本jcs-2025の建付け心膜疾患の取り扱い">日本（JCS 2025）の建付け：心膜疾患の取り扱い</a></li>
+<li><a href="#3-日本jcs-2025の建付けredo--high-risk症例の取り扱い">日本（JCS 2025）の建付け：Redo / High-risk症例の取り扱い</a></li>
+<li><a href="#4-欧米gl心膜疾患をhtx適応として明示する数少ない記述">欧米GL：心膜疾患をHTx適応として明示する数少ない記述</a></li>
+<li><a href="#5-欧米redo-htxachd-htxのレジストリエビデンス">欧米：Redo HTx・ACHD HTxのレジストリエビデンス</a></li>
+<li><a href="#6-放射線誘発心疾患mediastinal-radiationの特殊位置づけ">放射線誘発心疾患（mediastinal radiation）の特殊位置づけ</a></li>
+<li><a href="#7-pericardiectomy-re-do--completion-pericardiectomy-と移植への分岐">Pericardiectomy Re-do / Completion pericardiectomy と移植への分岐</a></li>
+<li><a href="#8-post-transplant-cp移植後の収縮性心膜炎">Post-transplant CP（移植後の収縮性心膜炎）</a></li>
+<li><a href="#9-クロスgl比較表">クロスGL比較表</a></li>
+<li><a href="#10-臨床的含意実務的判断アルゴリズム">臨床的含意・実務的判断アルゴリズム</a></li>
+<li><a href="#11-references--引用文献">References / 引用文献</a></li>
+</ol>
+<hr />
+<h2 id="1-executive-summary--結論先出し">1. Executive Summary — 結論先出し</h2>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><p>3つのキーメッセージ</p>
+</div>
+
+<blockquote>
+<p><strong>① 日本では「心膜疾患」は心臓移植の独立適応疾患として位置づけられていない。</strong> JCS 2025 表4「心臓移植の適応となる疾患」は ①DCM/拡張相HCM ②虚血性心筋疾患 ③その他（適応検討会承認疾患） の3カテゴリのみで、<strong>収縮性心膜炎（CP）は明示列挙されない</strong>。日本心臓移植 累積704例（2022年末）の疾患分布（図11）にも独立カテゴリとしての<strong>心膜疾患は存在せず、症例数ゼロ</strong>。理論上は ③「その他」枠で適応検討会の個別承認を経る経路があるが、実臨床ではほぼ運用されていない。</p>
+<p><strong>② Mixed CP/RCM の myocardial-dominant 症例は「RCM」として適応経路に乗りうる。</strong> 心膜剥皮術が不能・不完遂で、心筋側のRCM要素が支配的になる症例（広範囲石灰化・myocardial invasion・post-radiation・mixed pathology）は、日本でもRCM（適応検討会承認カテゴリ）として登録される可能性がある。ただし「心外サルコイドーシス所見」のような併存疾患の予後規定除外論理が厳格に適用される。</p>
+<p><strong>③ Redoは「絶対除外」ではないが「最大級の独立リスク因子」である。</strong> JCS 2025は「心臓手術の既往」を移植後1年死亡率上昇の独立リスク因子として明記（術前ECMO・人工呼吸器使用に次ぐ要素）。同時に再開胸時の技術的対応（<strong>大腿動静脈の事前露出・両側鎖骨下動脈+右総頚動脈プレカニュレーション</strong>）まで具体的に手技書に組み込まれている。日本は「BTT-LVAD前提＞4.8年待機」という構造上、ほぼ全例がRedo HTxであり、システム自体がRedoを許容する設計になっている。</p>
+</blockquote>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">一文要約</div>
+<p><strong>「日本のHTx建付けは、Redoを所与の前提として受容しつつ、心膜疾患を実質的に対象外としている」</strong> — これは日本のドナー供給格差（米国の~1/75）と植込型LVAD依存型BTT戦略の必然的帰結である。</p>
+</div>
+
+<hr />
+<h2 id="2-日本jcs-2025の建付け心膜疾患の取り扱い">2. 日本（JCS 2025）の建付け：心膜疾患の取り扱い</h2>
+<h3 id="2-1-表4心臓移植の適応となる疾患原文jcs-2025-p25">2-1. 表4「心臓移植の適応となる疾患」原文（JCS 2025 p.25）</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JCS 2025 表4 適応疾患（原文）</div>
+<p>心臓移植の適応となる疾患は従来の治療法では救命ないし延命の期待がもてない以下の重症心疾患とする．</p>
+<ol type="1">
+<li><strong>拡張型心筋症，および拡張相の肥大型心筋症</strong></li>
+<li><strong>虚血性心筋疾患</strong></li>
+<li><strong>その他</strong>（日本循環器学会および日本小児循環器学会の<strong>心臓移植適応検討会で承認する心臓疾患</strong>）</li>
+</ol>
+</div>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">⭐ 心膜疾患（CP・心嚢液貯留性心不全）は明示されていない</div>
+<p>ESC 2021/2025・ACC/AHA 2022 ガイドラインと異なり、JCS 2025 表4は「その他」枠を持つが、本文で具体的に列挙される「その他」の例は以下である（pp.25-26）：</p>
+<ul>
+<li><strong>拘束型心筋症（RCM）</strong></li>
+<li><strong>心筋炎後心筋症</strong></li>
+<li><strong>心臓サルコイドーシス</strong>（心外所見が5年予後を規定しない場合）</li>
+<li><strong>筋ジストロフィー</strong>（古典的病型 + 遺伝子型分類）</li>
+<li><strong>アミロイドーシス</strong>（<strong>一部を除き移植適応とはならない</strong> — 原則除外）</li>
+<li>周産期心筋症・薬剤誘発性心筋症・アルコール性心筋症（<strong>自然回復に時間が必要、十分時間をかける</strong>）</li>
+</ul>
+</div>
+>
+> **収縮性心膜炎・原発性心膜疾患は本文中にも例示されない。**
+
+<h3 id="2-2-日本累積704例の疾患分布jcs-2025-図112022年末時点">2-2. 日本累積704例の疾患分布（JCS 2025 図11／2022年末時点）</h3>
+<table>
+<thead>
+<tr>
+<th>原疾患</th>
+<th>例数</th>
+<th>全体に占める割合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>拡張型心筋症（DCM）</td>
+<td>439</td>
+<td>62.4%</td>
+</tr>
+<tr>
+<td>拡張相肥大型心筋症（dHCM）</td>
+<td>72</td>
+<td>10.2%</td>
+</tr>
+<tr>
+<td>虚血性心筋症（ICM）</td>
+<td>69</td>
+<td>9.8%</td>
+</tr>
+<tr>
+<td>心筋炎後心筋症</td>
+<td>31</td>
+<td>4.4%</td>
+</tr>
+<tr>
+<td>Becker型</td>
+<td>19</td>
+<td>2.7%</td>
+</tr>
+<tr>
+<td>拘束型心筋症（RCM）</td>
+<td>15</td>
+<td>2.1%</td>
+</tr>
+<tr>
+<td>サルコイドーシス</td>
+<td>13</td>
+<td>1.8%</td>
+</tr>
+<tr>
+<td>薬剤性心筋症</td>
+<td>12</td>
+<td>1.7%</td>
+</tr>
+<tr>
+<td>ARVC</td>
+<td>10</td>
+<td>1.4%</td>
+</tr>
+<tr>
+<td>先天性心疾患</td>
+<td>9</td>
+<td>1.3%</td>
+</tr>
+<tr>
+<td>周産期心筋症</td>
+<td>4</td>
+<td>0.6%</td>
+</tr>
+<tr>
+<td>DCM/RCM混在</td>
+<td>3</td>
+<td>0.4%</td>
+</tr>
+<tr>
+<td>弁膜症</td>
+<td>3</td>
+<td>0.4%</td>
+</tr>
+<tr>
+<td>Marfan</td>
+<td>2</td>
+<td>0.3%</td>
+</tr>
+<tr>
+<td>肥大型心筋症（非dHCM）</td>
+<td>1</td>
+<td>0.1%</td>
+</tr>
+<tr>
+<td>Duchenne保因</td>
+<td>1</td>
+<td>0.1%</td>
+</tr>
+<tr>
+<td>川崎病</td>
+<td>1</td>
+<td>0.1%</td>
+</tr>
+<tr>
+<td><strong>収縮性心膜炎・心膜疾患</strong></td>
+<td><strong>0</strong></td>
+<td><strong>0%</strong></td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">**日本心臓移植史において、原発性心膜疾患を原疾患とする症例は累積ゼロである。**</div>
+<p>これは制度的に「不可能」を意味するものではないが、適応検討会承認・施設認定・社会的合意の3層に渡る慎重論理が運用上の障壁となっている可能性を示唆する。</p>
+</div>
+
+<h3 id="2-3-その他枠への該当判断ロジックjcs-2025-pp25-26-要旨">2-3. 「その他」枠への該当判断ロジック（JCS 2025 pp.25-26 要旨）</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">「その他」枠承認の判断軸</div>
+<p>適応検討会が「その他」枠で承認するために、本文は以下の論点を順次検討するよう指示している：</p>
+</div>
+>
+> 1. **特異的治療法の有無**（心臓サルコイドーシス・脚気心・Fabry病など）→ 存在する場合、まず特異的治療を優先
+> 2. **全身性疾患による予後規定の排除**（アミロイドーシス・筋ジストロフィー・ミトコンドリア心筋症）→ 心臓以外の病態が今後予後を決定しないことを示す必要
+> 3. **自然回復の可能性**（心筋炎・周産期・薬剤性）→ 回復判断に十分時間をかける
+> 4. **専門医意見書**の提出（特に多臓器疾患・遺伝性疾患）
+>
+> **収縮性心膜炎をこの枠に当てはめると：**
+> - 「特異的治療法」=**心膜剥皮術**が存在する → 心膜剥皮術が不可能 or 不完遂であることの証明が前提
+> - 心筋側の病変（mixed CP/RCM）が支配的であることをCMR・心筋生検で証明 → **RCM枠での登録**が現実的経路
+> - 結果的に「心膜疾患として」ではなく「**RCM/混在型心筋症として**」HTx登録される
+
+<h3 id="2-4-心膜疾患外科的可逆性疾患という位置づけ">2-4. 心膜疾患＝外科的可逆性疾患という位置づけ</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">日本における心膜疾患のテリトリー</div>
+<p>JCS 2025 心臓移植GLでは「心膜（pericardium）」「心嚢（pericardial cavity）」の用語は以下の文脈でのみ出現する：</p>
+<ul>
+<li><strong>ドナー摘出手技</strong>：心膜を縦切開して心臓を吊り上げる（p.62 周辺）</li>
+<li><strong>再開胸時の癒着剥離</strong>：「上行大動脈や outflow graft，右心室が胸骨後面に強固に癒着」（p.50）</li>
+<li><strong>異種心膜パッチ</strong>：小児・先天性心疾患の血管形成材料（p.104）</li>
+<li><strong>タクロリムスの副作用</strong>：心嚢液貯留など（p.86 周辺）</li>
+</ul>
+</div>
+>
+> **原疾患としての心膜疾患の議論は皆無。** これは JCS 系列に独立した心膜疾患ガイドラインが存在しない という事実と整合的である（CP診療は ESC 2015/2025、ACC 2025、NCVC 2022 単施設経験を組み合わせて運用）。
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">実装メッセージ</div>
+<p><strong>日本でCP患者を心臓移植の俎上に乗せる場合、「収縮性心膜炎」という診断名のままでは適応検討会の議論の入口に立てない。</strong> Mixed CP/RCM である根拠（CMR の myocardial LGE/edema・心筋生検 fibrosis・拘束性血行動態の支配性）を確立し、「<strong>RCM</strong>」として登録する経路がほぼ唯一の実装可能ルートとなる。</p>
+</div>
+
+<hr />
+<h2 id="3-日本jcs-2025の建付けredo--high-risk症例の取り扱い">3. 日本（JCS 2025）の建付け：Redo / High-risk症例の取り扱い</h2>
+<h3 id="3-1-jcs-2025-が明示する移植後1年死亡率の上昇リスク因子第5章-p54">3-1. JCS 2025 が明示する移植後1年死亡率の上昇リスク因子（第5章 p.54）</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">レシピエント要因（術前因子）</div>
+<p>「レシピエント要因として，術前の <strong>ECMO と人工呼吸器の使用</strong> が心臓移植後1年死亡率上昇の<strong>最大のリスク因子</strong>であり，そのほかに：</p>
+<ul>
+<li><strong>VAD の使用</strong></li>
+<li><strong>移植前の緊急入院</strong></li>
+<li>⭐ <strong>心臓手術の既往（Redo）</strong></li>
+<li>レシピエントの<strong>年齢が若いこと，または高齢であること</strong>（U字型リスク）</li>
+<li><strong>eGFR低下</strong></li>
+<li><strong>総ビリルビン値上昇</strong></li>
+<li><strong>肺血管抵抗上昇</strong></li>
+<li>移植時の<strong>パネル反応性抗体（PRA）上昇</strong></li>
+</ul>
+</div>
+>
+> ──などがリスク因子と報告されている．」（文献 139）
+
+<h3 id="3-2-redo時の手技的対応jcs-2025-第4章-p50-51">3-2. Redo時の手技的対応（JCS 2025 第4章 p.50-51）</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">再開胸症例の手術手技（原文要約）</div>
+<ul>
+<li><strong>大腿動静脈の事前露出</strong>：「再開胸症例では大腿動静脈を露出し，緊急カニュレーションに備える」</li>
+<li><strong>VAD outflow graft 癒着への対応</strong>：「上行大動脈や outflow graft，右心室が胸骨後面に強固に癒着している症例では，開胸時にこれらを損傷し循環停止を余儀なくされることがある」</li>
+<li><strong>頸部血管プレカニュレーション</strong>：「術前 CT などから損傷なく剥離することが不可避と予想される症例では，<strong>開胸前に両側鎖骨下動脈および右総頚動脈にあらかじめカニュレーションしておく</strong>ことで循環停止時に速やかに脳分離循環を確立することができる」</li>
+<li><strong>PCC（プロトロンビン複合体製剤）</strong>：ワルファリン服用 LVAD 症例に対する周術期凝固補正の第一選択（米国心臓病学会推奨を採用）</li>
+</ul>
+</div>
+
+<h3 id="3-3-日本のredo-htx構造的にbtt-lvadによる準redo前提">3-3. 日本のRedo HTx：構造的にBTT-LVADによる「準Redo」前提</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">「日本のHTxは大半がRedo HTxである」</div>
+<p>JCS 2025 第2章ドナー供給と待機期間の分析（pp.21-22）：</p>
+<ul>
+<li><strong>Status 1 平均待機期間：1,769 日（≈4.8年）</strong>（2022年末時点）</li>
+<li>植込型LVAD装着率：&gt;80%（米国 ~50%・欧州中間 と比較して圧倒的高率）</li>
+<li>「わが国の心臓移植は，<strong>植込型VAD装着下での長期待機を要し</strong>」と明記（JCS 2025 p.20）</li>
+</ul>
+</div>
+>
+> 結果として、日本で行われる成人心臓移植は **事実上ほぼすべて「LVAD 摘出 + 心臓移植 = Redo 開胸」** となる。本論文の文脈で「Redo HTx」を「LVAD なしの prior cardiac surgery」に限定するならば、日本ではこちらの方が稀である。
+
+<h3 id="3-4-先天性心疾患achd複数回開心術歴の位置づけ">3-4. 先天性心疾患・ACHD（複数回開心術歴）の位置づけ</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JCS 2025 のACHD HTx記述（第7章 p.103-104）</div>
+<ul>
+<li>「先天性心疾患症例では複数回の姑息術や根治術（Norwood手術，Fontan手術，Mustard/Senning手術など）を受けた後の心不全症例が多く，解剖学的特徴に加えて，移植前に受けた手術術式に応じた対応が必要である」</li>
+<li>「Fontan手術後では，上大静脈を肺動脈から切離した後，多くの場合左右肺門部まで広範な肺動脈形成を必要とする」</li>
+<li>「先天性心疾患に対する移植の場合，これまでに<strong>複数回にわたり開心術を繰り返してきた</strong>ことに起因するさまざまな問題を想定しておく必要がある．<strong>高度の癒着，側副血行路，主要な血管の狭窄・閉塞および長年の姑息的な血行動態</strong>などがあげられる」</li>
+</ul>
+</div>
+>
+> **第3章 適応疾患の論述（p.25）**：
+> 「**幼小児期からの複数回にわたる開心術の影響，解剖学的右心室を体心室とする疾患群の存在，Fontan術後症例など先天性心疾患は移植適応判定が難しく，また VAD の適応も限られている**という現状がある」
+>
+> → 日本では ACHD HTx は **「適応判定が難しい」**と明記される領域であり、累積704例中わずか9例（1.3%）。
+
+<h3 id="3-5-絶対的除外条件にredo高リスクは含まれない表6--p27">3-5. 「絶対的除外条件」にRedo・高リスクは含まれない（表6 / p.27）</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JCS 2025 絶対的除外条件（再掲）</div>
+<ul>
+<li>a. 肝臓・腎臓の不可逆的機能障害（肝硬変，維持透析中）</li>
+<li>b. 活動性感染症（HIV原則除外／HBV・HCV・HTLV は条件付き）</li>
+<li>c. 肺高血圧症（<strong>PVR ≥6 Wood 単位</strong>）</li>
+<li>d. 薬物依存症（禁酒・禁煙宣言が必須）</li>
+<li>e. 悪性腫瘍（完全寛解後5年以上または5年無再発生存率 ≥95% が条件）</li>
+</ul>
+</div>
+>
+> **→ Redo・prior cardiac surgery はリスク因子であって絶対除外ではない。**
+
+<hr />
+<h2 id="4-欧米gl心膜疾患をhtx適応として明示する数少ない記述">4. 欧米GL：心膜疾患をHTx適応として明示する数少ない記述</h2>
+<h3 id="4-1-esc-2025-myocarditispericarditis-guidelineseur-heart-j-2025463952--p3994-周辺">4-1. ESC 2025 Myocarditis/Pericarditis Guidelines（Eur Heart J 2025;46:3952-, p.3994 周辺）</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ESC 2025 原文（要約訳）</div>
+<p>「<strong>Heart transplantation is very rarely indicated in patients with CP.</strong> However, <strong>it may be considered as a last-resort option in highly selected, exceptional cases</strong>. This applies when <strong>pericardiectomy is not feasible or cannot be completed</strong> due to:</p>
+<ul>
+<li>extensive <strong>pericardial calcification with myocardial involvement</strong></li>
+<li><strong>prior surgeries</strong></li>
+<li><strong>radiation therapy</strong></li>
+<li><strong>infections</strong> that have caused severe adhesions and scarring</li>
+</ul>
+</div>
+>
+> Surgical inaccessibility of [the constricted pericardium] ...」
+>
+> → ESC 2025 は世界の主要GLの中で唯一、**「心膜疾患→心臓移植」を最終手段として明示的に容認する条文**を持つ（推奨クラス・LOEはついていない narrative recommendation）。
+
+<h3 id="4-2-jacc-2024-best-practices-for-pericardiectomyal-kazaz-et-al-jacc-202484561-580">4-2. JACC 2024 Best Practices for Pericardiectomy（Al-Kazaz et al. JACC 2024;84:561-580）</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Mixed CP+RCMの取り扱い（p.572-573）</div>
+<ul>
+<li>「<strong>Approximately 13% of patients evaluated for CP had mixed pathophysiology with evidence of RCM.</strong> More commonly seen in patients with prior <strong>radiation therapy (50%)</strong> or coronary artery disease (24%)」</li>
+<li>「Mixed RCM and CP is associated with worse outcomes and an <strong>all-cause mortality of 40% at 5 years</strong>」</li>
+<li>「<strong>Patients with mixed CP with severe RCM</strong> ... this group of patients does poorly post-pericardiectomy even if they survive postoperatively, because they may not improve symptomatically given RCM」</li>
+<li>「<strong>CP following mediastinal radiation was associated with 10.1% operative mortality and 53.4% and 32.1% survival at 5 and 10 years, respectively</strong>」</li>
+<li>「In mixed CP with RCM, <strong>heart team discussion is important</strong>, and it is critical to understand which lesion is the predominant physiologically using clinical judgment and noninvasive and invasive diagnostic testing」</li>
+</ul>
+</div>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JACC 2024 「治療オプションのカスケード」</div>
+<p>RCM physiology が predominant な場合 → 「<strong>medical therapy directed at heart failure and/or cardiac transplantation in selected cases should be the cornerstone therapies</strong>」(p.572)</p>
+</div>
+>
+> = 心膜剥皮術ではなく、HF管理 + 心臓移植が cornerstone と明記。
+
+<h3 id="4-3-accahahfsa-2022-hf-guideline--esc-2021-hf-guideline">4-3. ACC/AHA/HFSA 2022 HF Guideline / ESC 2021 HF Guideline</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">心不全GL移植セクションでの心膜疾患言及</div>
+<ul>
+<li><strong>ACC/AHA/HFSA 2022 Section 8.5</strong>：心膜疾患を独立して列挙せず。Class I/C-LD で「進行性 HF（GDMT 抵抗性）の選択された患者」とだけ規定。</li>
+<li><strong>ESC 2021 Section 10.2.3 / Table 17</strong>：適応に "Advanced HF, no other treatment options" とのみ記載。**禁忌側に「previous cardiac surgery」「mediastinal radiation」「ACHD」**が"手術複雑性"として留意事項に挙げられる：
+<blockquote>
+<p>"Surgical complexity should be considered: <strong>previous sternotomy, mediastinal radiation, adult congenital heart disease</strong>"</p>
+</blockquote></li>
+</ul>
+</div>
+>
+> → 米欧 HF GL は心膜疾患をHTx適応として明示しないが、**禁忌・除外にも明示しない** → 個別ケース判断に委ねる文献的余白を残す建付け。
+
+<hr />
+<h2 id="5-欧米redo-htxachd-htxのレジストリエビデンス">5. 欧米：Redo HTx・ACHD HTxのレジストリエビデンス</h2>
+<h3 id="5-1-unos-database-1997-2011awad-et-al-jtcvs-2014">5-1. UNOS Database 1997-2011（Awad et al. <em>JTCVS</em> 2014）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>Redo HTx 群</th>
+<th>No Redo HTx 群</th>
+<th>統計</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>60日生存率</strong></td>
+<td>92.6%</td>
+<td>95.9%</td>
+<td>P&lt;0.001</td>
+</tr>
+<tr>
+<td>60日以内 再開胸</td>
+<td>12.3%</td>
+<td>8.8%</td>
+<td>P&lt;0.001</td>
+</tr>
+<tr>
+<td>60日以内 透析必要</td>
+<td>8.9%</td>
+<td>5.2%</td>
+<td>P&lt;0.001</td>
+</tr>
+<tr>
+<td>感染症（抗菌薬治療）</td>
+<td>23.2%</td>
+<td>19.0%</td>
+<td>P&lt;0.001</td>
+</tr>
+<tr>
+<td>脳卒中</td>
+<td>2.5%</td>
+<td>1.4%</td>
+<td>P&lt;0.001</td>
+</tr>
+<tr>
+<td><strong>Conditional 5年生存率（60日生存者）</strong></td>
+<td><strong>同等</strong></td>
+<td><strong>同等</strong></td>
+<td>NS</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">UNOS結論</div>
+<p><strong>「Redoのリスクは"frontloaded"」</strong> — 60日を生き抜けば、長期予後は no-Redo と同等になる。</p>
+</div>
+
+<h3 id="5-2-transplant-international-2023-korean-multicenter-pmc10579607">5-2. Transplant International 2023 (Korean Multicenter, PMC10579607)</h3>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1年死亡率 HR（PCCS：Previous Conventional Cardiac Surgery）</td>
+<td><strong>2.485</strong></td>
+</tr>
+<tr>
+<td>CPB時間 HR（per minute）</td>
+<td>1.005</td>
+</tr>
+<tr>
+<td>1年/5年死亡率増加倍率（PCCSあり）</td>
+<td>1.192倍 / 1.104倍</td>
+</tr>
+<tr>
+<td>短期合併症（PCCSあり）</td>
+<td>透析・再開胸・血流感染が有意に増加</td>
+</tr>
+<tr>
+<td><strong>病因サブ解析</strong></td>
+<td><strong>虚血性心筋症 + PCCS は予後最悪</strong>（非虚血では PCCS の早期生存への影響は小さい）</td>
+</tr>
+<tr>
+<td>時代別差</td>
+<td>新旧時代で同等（手技進歩でも基本リスクは残る）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-3-achd-htx-30日死亡率bryant-et-al-meshulami-narrative-review-jtd-2023">5-3. ACHD HTx 30日死亡率（Bryant et al.; Meshulami narrative review JTD 2023）</h3>
+<table>
+<thead>
+<tr>
+<th>群</th>
+<th>30日死亡率</th>
+<th>透析必要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACHD HTx 全体</td>
+<td><strong>8.2%</strong></td>
+<td>22.7%</td>
+</tr>
+<tr>
+<td>非ACHD HTx 対照</td>
+<td>3.9%</td>
+<td>13.3%</td>
+</tr>
+<tr>
+<td>単心室 / Fontan既往 サブグループ</td>
+<td><strong>44%（7/16）</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>ACHD + 追加血管修復必要</td>
+<td>17/40（42.5%）</td>
+<td>30日・長期生存への影響 <strong>なし</strong></td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ACHD HTx — 「最高難度の Redo HTx」</div>
+<p>Fontan/Glenn循環後の HTx は <strong>30日死亡率が一般 HTx の10倍超</strong>。短期リスクは極めて高いが、生き残れば長期予後は受容可能。日本ではこの群はほぼ排除されている（適応判定が難しい・VAD適応も限定的）。</p>
+</div>
+
+<h3 id="5-4-ishlt-2024-pgdegd-consensus--redo-の-pgd-リスク因子としての位置">5-4. ISHLT 2024 PGD/EGD Consensus — Redo の PGD リスク因子としての位置</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">EGD（Early Graft Dysfunction）危険因子（Table 3、レシピエント側）</div>
+<ul>
+<li>男性レシピエント</li>
+<li>BMI</li>
+<li>腎・肝機能障害・糖尿病</li>
+<li><strong>移植前 VA-ECMO</strong></li>
+<li><strong>植込型 LVAD（合併症の有無）</strong> ← Redo に近い意味合い</li>
+<li>移植前人工呼吸</li>
+<li>移植前透析</li>
+<li>不可逆性肺高血圧</li>
+<li>RV機能障害（CVP/PCWP比）</li>
+<li>感染症</li>
+<li>感作</li>
+<li>薬剤：RAAS阻害薬・β遮断薬・アミオダロン</li>
+</ul>
+</div>
+>
+> → 「prior sternotomy」単独は ISHLT 2024 の独立変数として明示されていないが、**LVAD bridging + 長時間虚血** という日本型パターンは EGD-LVip（CPB離脱失敗型）のハイリスクに直結。
+
+<hr />
+<h2 id="6-放射線誘発心疾患mediastinal-radiationの特殊位置づけ">6. 放射線誘発心疾患（mediastinal radiation）の特殊位置づけ</h2>
+<h3 id="6-1-なぜ高リスクの代表として取り扱うか">6-1. なぜ"高リスク"の代表として取り扱うか</h3>
+<p>放射線誘発心疾患は以下を<strong>同時に</strong>起こす：</p>
+<ol type="1">
+<li><strong>収縮性心膜炎</strong>（fibrotic + calcified pericardium）</li>
+<li><strong>拘束型心筋症（RCM）</strong>（myocardial fibrosis）</li>
+<li><strong>冠動脈疾患</strong>（accelerated atherosclerosis）</li>
+<li><strong>弁膜症</strong>（thickened/calcified valves）</li>
+<li><strong>伝導障害</strong></li>
+</ol>
+<p>→ いわば「<strong>心膜疾患 + Redo + High-risk が一人の患者に同居する原型例</strong>」。</p>
+<h3 id="6-2-心臓移植成績エビデンス">6-2. 心臓移植成績エビデンス</h3>
+<table>
+<thead>
+<tr>
+<th>報告</th>
+<th>n</th>
+<th>5年生存率</th>
+<th>10年生存率</th>
+<th>周術期死亡率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mayo Clinic</strong> (Saxena et al. <em>J Card Fail</em> 2014)</td>
+<td>12</td>
+<td><strong>75%</strong></td>
+<td><strong>47%</strong></td>
+<td>3例の周術期死亡</td>
+</tr>
+<tr>
+<td><strong>UNOS 1987-2011</strong> (DePasquale, <em>Am Heart J</em> 2010)</td>
+<td>~150</td>
+<td>~52%</td>
+<td>—</td>
+<td>1年生存率 79.3% vs 86.3% (P&lt;0.001)</td>
+</tr>
+<tr>
+<td><strong>JACC 2024 review of post-radiation CP pericardiectomy</strong></td>
+<td>—</td>
+<td>53.4%</td>
+<td>32.1%</td>
+<td>10.1%</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">post-radiation HTx の本質的限界</div>
+<ul>
+<li><strong>早期周術期死亡率の上昇</strong>：mediastinal fibrosis による止血困難・癒着・LITA損傷リスク</li>
+<li><strong>長期予後の悪化</strong>：レシピエントの<strong>多臓器放射線傷害</strong>（肺線維症・食道狭窄・骨髄抑制）が独立予後規定因子</li>
+<li><strong>二次癌のリスク</strong>：免疫抑制下での悪性腫瘍発生</li>
+</ul>
+</div>
+>
+> 日本での実例：JCS 2025 図11 累積704例に明示的な"radiation-induced"カテゴリなし。実態として極めて稀。
+
+<h3 id="6-30-mayo-clinic-saxena-2014--radiation-induced-rcm-htx-単施設成績再掲">6-3.0 Mayo Clinic (Saxena 2014) — radiation-induced RCM HTx 単施設成績（再掲）</h3>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>n=12</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1年生存率</td>
+<td>91.7%</td>
+</tr>
+<tr>
+<td>5年生存率</td>
+<td>75%</td>
+</tr>
+<tr>
+<td>10年生存率</td>
+<td>46.7%</td>
+</tr>
+<tr>
+<td>周術期死亡</td>
+<td>3例</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-3-murashita-2017-mayo-n1066-大規模シリーズ--radiationredo-の独立危険度">6-3. Murashita 2017 Mayo n=1,066 大規模シリーズ — Radiation/Redo の独立危険度</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Murashita T, et al. *Ann Thorac Surg* 2017;104:742-50（80年・1,066例）</div>
+<p>Mayo Clinic 1936-2013 の心膜剥皮術 1,066例の多変量解析（過去最大規模）：</p>
+</div>
+>
+> | 因子 | HR（30日死亡） | HR（長期死亡） |
+> |---|---|---|
+> | **放射線後CP** | **4.35** | **3.93** |
+> | **Redo sternotomy** | **1.98** | — |
+> | 30日全体死亡率（放射線後）| **14%** | — |
+> | 30日全体死亡率（全コホート）| 6% | — |
+>
+> ⭐ **臨床的含意**：放射線後CPは「pericardiectomy単独で救えない群」の最大の予測因子。Redo sternotomyも独立リスク。両者が共存する症例こそ「移植チーム並行評価」が必須。
+
+<h3 id="6-4-depasquale-2016-unos解析n75-radiation-induced-htx">6-4. DePasquale 2016 UNOS解析（n=75 radiation-induced HTx）</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">DePasquale EC, et al. *Heart Lung Circ* 2016</div>
+<ul>
+<li><strong>1年生存率：76%</strong>（他病因HTx の86%と比較して有意低下）</li>
+<li><strong>5年生存率：58%</strong></li>
+<li><strong>6ヵ月死亡率：21%</strong>（他CM の 8-9% と比較）</li>
+<li>死亡ドライバー：<strong>創部哆開・呼吸不全・腎障害</strong>（縦隔放射線傷害の波及）</li>
+</ul>
+</div>
+>
+> = Mayo Saxena 2014 (n=12, 5年75%) よりやや悲観的だが、レジストリ規模が大きく現実的な数値。両研究を統合すると放射線後HTxの**5年生存率は58-75%レンジ**で、一般HTxの~80%より明確に低い。
+
+<h3 id="6-5-esc-2025--jacc-2024-の-post-radiation-推奨">6-5. ESC 2025 / JACC 2024 の post-radiation 推奨</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">post-radiation CP のアルゴリズム（要約）</div>
+<ol type="1">
+<li><strong>CMR で myocardial LGE/edema を必ず評価</strong> → mixed CP/RCM か pure CP かを鑑別</li>
+<li><strong>Pure CP</strong> → radical pericardiectomy（経験施設で）</li>
+<li><strong>Mixed CP/RCM（myocardial dominant）</strong> → <strong>HTx を視野に入れた評価</strong>（ESC 2025・JACC 2024 共通）</li>
+<li><strong>Trans-pericardium calcium invasion</strong> → pericardiectomy 困難 → HTx「last resort」（ESC 2025）</li>
+</ol>
+</div>
+
+<hr />
+<h2 id="7-pericardiectomy-re-do--completion-pericardiectomy-と移植への分岐">7. Pericardiectomy Re-do / Completion pericardiectomy と移植への分岐</h2>
+<h3 id="7-1-なぜこのセクションが必要か">7-1. なぜこのセクションが必要か</h3>
+<p><strong>「再発CPに対する Completion pericardiectomy」と「心臓移植」は同じ末期CP患者群に提供されうる選択肢</strong>だが、判断の鍵は**再発時期（initial pericardiectomy からの経過期間）**にある。</p>
+<h3 id="7-2-cho-2012-mayon21-完成的心膜剥皮術-star-再発時期で予後が劇的に二極化">7-2. Cho 2012 Mayo（n=21 完成的心膜剥皮術）— ⭐ 再発時期で予後が劇的に二極化</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Cho YH, et al. *Ann Thorac Surg* 2012;93:1236-40</div>
+<p>Mayo Clinic で施行された <strong>Completion pericardiectomy 21例</strong> の長期成績：</p>
+</div>
+>
+> | 再発時期 | 5年生存率 | 院内死亡率 |
+> |---|---|---|
+> | **<1年で再発** | **72%** | 低 |
+> | **>1年で再発（遅発性）** | **29%** | **9.5%** |
+> | 全体 30日死亡率 | 7% | — |
+>
+> ⭐ **解釈**：
+> - **<1年再発**：解剖学的に「取り残し」が主因 → completion pericardiectomy で根治可能 → 移植不要
+> - **>1年再発**：「**unrecognized diastolic dysfunction / RCM / mediastinal fibrosis**」が主因 → 心膜以外の myocardial pathology が支配 → completion pericardiectomy の恩恵限定的 → **移植候補性評価が必須**
+
+<h3 id="7-3-multiple-redo--末期病態の組み合わせ--hf専門医移植チームへの早期紹介">7-3. 「Multiple redo + 末期病態」の組み合わせ → HF専門医・移植チームへの早期紹介</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">不可逆性を示唆する所見クラスタ</div>
+<ul>
+<li><strong>MELD-XI ≥13.7</strong>（90日死亡率 16.0%）— 肝機能予備能の低下</li>
+<li><strong>Child-Pugh B/C（≥7点）</strong>— 5年生存率 37.9%（Class B）</li>
+<li><strong>CI &lt;1.2 L/min/m²</strong>（end-stage CP physiology）</li>
+<li><strong>Cachexia / anasarca</strong>（栄養失調・全身浮腫）</li>
+<li><strong>LVEF低下 / 心筋萎縮</strong>（mixed RCM-CP）</li>
+</ul>
+</div>
+>
+> これらが重畳する症例は **「pericardiectomy の操作的可能性」と「移植候補性」を並列で評価**するのが現実的（JACC 2024 / Krzelj 2026 共通）。
+
+<h3 id="7-4-krzelj-2026-cleveland-clinic-state-of-the-art-update--統合的判断軸">7-4. Krzelj 2026 Cleveland Clinic State-of-the-Art Update — 統合的判断軸</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Krzelj K, et al. *Curr Cardiol Rep* 2026;28:14</div>
+<p>Cleveland Clinic 高ボリュームセンターの最新総説で示された <strong>「Pericardiectomy poor candidate」</strong> の判定基準：</p>
+</div>
+>
+> 1. **Predominant RCM physiology**（CMR LGE 広範・mitral E/e' >15・PA pressure 高値）
+> 2. **Cachexia / advanced cardiac cirrhosis**（Child-Pugh ≥7）
+> 3. **Multiple prior cardiac surgeries**（特に >2回）
+> 4. **Extensive mediastinal radiation + cardiac involvement**
+> 5. **Inadequate response to optimized HF management**
+>
+> → これらに該当する場合、**Pericardiectomy の代替**ではなく、**「並行評価としての心臓移植 listing」** を推奨。
+
+<h3 id="7-5-日本の実装上の留意点">7-5. 日本の実装上の留意点</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">日本では「Completion pericardiectomy 後の移植」経路はほぼ未蓄積</div>
+<ul>
+<li>日本心臓移植 累積704例中、CP・post-pericardiectomy を原疾患とする例 = <strong>ゼロ</strong></li>
+<li>4.8年LVAD待機の構造下で「Completion pericardiectomy 失敗 → LVAD bridging → HTx」というカスケードは現実的に困難</li>
+<li>代替戦略：<strong>初回心膜剥皮術前から high-risk feature をスクリーニング</strong>し、移植チームと並行評価する「centers of excellence」モデルの導入が課題</li>
+</ul>
+</div>
+
+<hr />
+<h2 id="8-post-transplant-cp移植後の収縮性心膜炎">8. Post-transplant CP（移植後の収縮性心膜炎）</h2>
+<h3 id="8-1-概要--移植後の遅発性合併症としての-cp">8-1. 概要 — 移植後の遅発性合併症としての CP</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Post-transplant CP の疫学</div>
+<ul>
+<li><strong>発生率：1.4-3.9%</strong>（OHT recipients）</li>
+<li><strong>発症までの median 期間：1.7年</strong>（range 0.8-18.1年）</li>
+<li>リスク因子：<strong>術後心嚢液貯留の既往、急性拒絶反応エピソードあり</strong></li>
+</ul>
+</div>
+
+<h3 id="8-2-bergroshanali-2021--post-transplant-cp-に対する-pericardiectomy-成績">8-2. Berg/Roshanali 2021 — Post-transplant CP に対する pericardiectomy 成績</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Berg DD/Roshanali F, et al. *J Heart Lung Transplant* 2021</div>
+<ul>
+<li><strong>30日死亡率：13%</strong></li>
+<li><strong>5年生存率：29%</strong></li>
+<li><strong>median 生存期間：2.3年</strong></li>
+</ul>
+</div>
+>
+> → **post-transplant CP は predominant な subset of CP のなかでも特に予後不良**。一般的なCP pericardiectomy（30日死亡率 5-7%・5年生存率 70-90%）よりも明確に悪い。
+
+<h3 id="8-3-post-transplant-cp-の鑑別と治療戦略">8-3. Post-transplant CP の鑑別と治療戦略</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">鑑別診断（移植recipient の congestive HF 様症状）</div>
+<ul>
+<li><strong>急性拒絶反応</strong>（特に AMR）が CP に類似した拘束性血行動態を示しうる（"acute rejection mimicking CP"）</li>
+<li><strong>CMV/EBV related pericarditis</strong></li>
+<li><strong>CAV with diastolic dysfunction</strong></li>
+<li><strong>CNI 関連心嚢液貯留</strong></li>
+<li><strong>真の constrictive pericarditis</strong></li>
+</ul>
+</div>
+>
+> → CMR・心筋生検・冠動脈造影 を統合した精密診断が必要。
+
+<h3 id="8-4-再移植re-transplantationの選択肢">8-4. 再移植（Re-transplantation）の選択肢</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">日本では再移植は「現実的ではない」と明記</div>
+<ul>
+<li>JCS 2025 第1章：「<strong>わが国においては再移植は現実的ではない</strong>」と明言</li>
+<li>米国・欧州では post-transplant CP に対する再移植は症例レベルの報告のみ（&gt;5% of total HTx cohort）</li>
+<li>結果的に post-transplant CP には：
+<ol type="1">
+<li><strong>Pericardiectomy（高リスク・予後不良）</strong></li>
+<li><strong>緩和的医療管理</strong> が主たる選択肢となる</li>
+</ol></li>
+</ul>
+</div>
+
+<h3 id="8-5-jcs-2025-が言及する-post-transplant-関連病態">8-5. JCS 2025 が言及する post-transplant 関連病態</h3>
+<p>JCS 2025 第5章（術後管理）では、心嚢液貯留が <strong>タクロリムスの副作用</strong>（CNI関連）として扱われ、独立した post-transplant CP の章立てはない。これは日本の累積症例数の少なさ（704例・最長生存24年）を反映している可能性がある。</p>
+<hr />
+<h2 id="9-クロスgl比較表">9. クロスGL比較表</h2>
+<h3 id="9-1-心膜疾患のhtx適応としての位置づけ">9-1. 心膜疾患のHTx適応としての位置づけ</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2025</th>
+<th>🇺🇸 ACC/AHA 2022 + JACC 2024</th>
+<th>🇪🇺 ESC 2021/2025</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>心膜疾患を独立適応として列挙</td>
+<td><strong>なし</strong>（「その他」枠の例示にも未記載）</td>
+<td>なし</td>
+<td><strong>ESC 2025 で明示</strong>（"last-resort, highly selected")</td>
+</tr>
+<tr>
+<td>Mixed CP/RCM の取り扱い</td>
+<td>RCM枠で適応検討会承認可能（理論）</td>
+<td><strong>HF + 移植 cornerstone</strong>（JACC 2024）</td>
+<td>後方視的言及・移植考慮</td>
+</tr>
+<tr>
+<td>post-radiation CP</td>
+<td>言及なし</td>
+<td><strong>明示</strong>（10.1%手術死亡）</td>
+<td><strong>明示</strong>（"radiation therapy" を last-resort 条件に含む）</td>
+</tr>
+<tr>
+<td>pericardiectomy 不可能例</td>
+<td>言及なし</td>
+<td>個別判断</td>
+<td><strong>明示</strong>（"surgical inaccessibility"）</td>
+</tr>
+<tr>
+<td>累積実例数</td>
+<td><strong>0</strong></td>
+<td>数十例（UNOS）</td>
+<td>数十例（ET）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-2-redo--high-risk症例のhtx適応としての位置づけ">9-2. Redo / High-risk症例のHTx適応としての位置づけ</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2025</th>
+<th>🇺🇸 ACC/AHA 2022 + ISHLT</th>
+<th>🇪🇺 ESC 2021/2025</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redo を absolute exclusion とするか</td>
+<td><strong>No</strong>（リスク因子記載）</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>1年死亡率上昇リスク因子としての位置づけ</td>
+<td><strong>明示</strong>（術前ECMO・人工呼吸器・VAD・<strong>心臓手術既往</strong>・若年/高齢・eGFR低下・総ビリルビン・PVR・PRA）</td>
+<td>個別評価</td>
+<td>"Surgical complexity considered: previous sternotomy, mediastinal radiation, ACHD"</td>
+</tr>
+<tr>
+<td>Redo手技対応の明記</td>
+<td>⭐ <strong>詳細</strong>（大腿動静脈・両側鎖骨下動脈+右総頚動脈プレカニュレーション・PCC）</td>
+<td>ISHLT consensus 内に分散記載</td>
+<td>一般論として個別化</td>
+</tr>
+<tr>
+<td>ACHD HTx</td>
+<td>「適応判定難しい・VAD適応限定」と明記</td>
+<td>UNOS データで明示</td>
+<td>"Surgical complexity" として留意</td>
+</tr>
+<tr>
+<td>BTT-LVAD前提のRedo率</td>
+<td>⭐ <strong>構造的に &gt;80%</strong>（4.8年待機）</td>
+<td>~50%（6ヵ月待機）</td>
+<td>中間</td>
+</tr>
+<tr>
+<td>Redo に対する制度的安全装置</td>
+<td>適応判定委員会＋施設認定（12施設）</td>
+<td>UNOS 6-tier allocation</td>
+<td>ET HU/T/NT + Auditor</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-臨床的含意実務的判断アルゴリズム">10. 臨床的含意・実務的判断アルゴリズム</h2>
+<h3 id="10-1-心膜疾患患者にhtxを検討する場合の意思決定日本想定">10-1. 「心膜疾患」患者にHTxを検討する場合の意思決定（日本想定）</h3>
+<pre><code>                       ┌──────────────────────────────────┐
+                       │  原疾患：収縮性心膜炎・心嚢疾患    │
+                       │  難治性右心不全 / 強心薬依存       │
+                       └──────────────────────────────────┘
+                                      │
+                          ┌───────────┴───────────┐
+                          ↓                       ↓
+                   pure CP か?           mixed CP/RCM か?
+                          ↓                       ↓
+              ┌─────────────────┐   ┌──────────────────────┐
+              │ Radical          │   │ CMR で myocardial    │
+              │ pericardiectomy  │   │ LGE/edema 評価        │
+              │（経験施設で）     │   │ + 心筋生検            │
+              └─────────────────┘   │ + 拘束性血行動態       │
+                          ↓         │   支配性の判定         │
+                   ┌─────────┐      └──────────────────────┘
+                   │ 成功？  │              │
+                   │  Yes →  │      ┌───────┴───────┐
+                   │ 経過観察│      ↓               ↓
+                   │  No →   │  Myocardial      Pericardial
+                   │ HTx検討 │  dominant        dominant
+                   └─────────┘      ↓               ↓
+                          │   RCM として        Radical
+                          │   適応検討会へ      pericardiectomy
+                          │   ⭐ JCS 2025 で     を試行
+                          │   承認可能カテゴリ
+                          ↓
+                ┌──────────────────────────┐
+                │ 適応検討会 個別承認        │
+                │ - 絶対除外条件（表6）に  │
+                │   非該当                  │
+                │ - 相対除外条件（表7）の  │
+                │   個別評価                │
+                │ - 専門医意見書            │
+                │ - 施設内→ JCS 委員会      │
+                │   2段階審査              │
+                └──────────────────────────┘</code></pre>
+<h3 id="10-2-redo--high-risk患者にhtxを検討する場合のチェックリスト日本想定">10-2. 「Redo / High-risk」患者にHTxを検討する場合のチェックリスト（日本想定）</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">術前評価チェックリスト（JCS 2025 推奨に基づく）</div>
+<p><strong>絶対除外条件の確認（表6）：</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox" />肝臓・腎臓の不可逆的機能障害なし</label></li>
+<li><label><input type="checkbox" />活動性感染症なし（HIV・HTLV-1・HBV/HCV ガイドライン条件）</label></li>
+<li><label><input type="checkbox" /><strong>PVR &lt;6 Wood 単位</strong>（血管拡張薬下）</label></li>
+<li><label><input type="checkbox" />薬物依存なし</label></li>
+<li><label><input type="checkbox" />悪性腫瘍 完全寛解後5年以上または5年無再発生存率 ≥95%</label></li>
+</ul>
+</div>
+>
+> **手術リスク因子の精査（追加考慮）：**
+> - [ ] 既往手術回数・術式（CABG・弁置換・LVAD・先天性心疾患手術）
+> - [ ] 胸部CT で **bypass graft の走行・RV/大動脈の胸骨後面癒着**を評価
+> - [ ] 大腿動静脈・両側鎖骨下動脈・右総頚動脈の **プレカニュレーション計画**
+> - [ ] PCC（プロトロンビン複合体製剤）準備（ワルファリン LVAD例）
+> - [ ] **eGFR・総ビリルビン・PVR・PRA** の数値追跡
+> - [ ] PGD/EGD ハイリスクスコアの評価（ISHLT 2024 RADIAL/Penn-Columbia score）
+>
+> **判断基準の優先順位：**
+> 1. **絶対除外条件 該当 → 適応外**（議論の余地なし）
+> 2. **手術困難 + 移植後早期合併症高リスク → 適応判定委員会の慎重審議**
+> 3. **長期予後改善見込み + 手術リスクが施設の対応範囲内 → 適応**
+
+<h3 id="10-3-日本における心膜疾患redohigh-risk共存例の現実">10-3. 日本における「心膜疾患＋Redo＋High-risk」共存例の現実</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">想定される最難症例：放射線後CP + 既往CABG + 軽度CKD + 軽度肝障害</div>
+<ul>
+<li><strong>欧米</strong>：post-radiation HTx の文献蓄積あり（Mayo 5年75%）→ 個別評価で適応の余地</li>
+<li><strong>日本</strong>：
+<ul>
+<li>累積704例中ゼロ → 過去事例の蓄積なし</li>
+<li>4.8年LVAD待機 → 長期 LVAD 装着自体が困難（Driveline感染リスク・PRA上昇）</li>
+<li>適応検討会で「心膜疾患」入口での承認は事実上困難</li>
+<li><strong>RCM として登録するための CMR/生検エビデンスの完成</strong>が現実的条件</li>
+<li><strong>施設選択</strong>：移植実施12施設中、心膜外科経験を有する高ボリューム施設での評価が必須</li>
+</ul></li>
+</ul>
+</div>
+>
+> → 日本では理論上可能だが、実装上の障壁は欧米より高い。
+
+<h3 id="10-4-一文の臨床的結論">10-4. 一文の臨床的結論</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">結論（プレゼン用一文要約）</div>
+<p><strong>「心膜疾患は心臓移植の適応疾患として明記されていない（特に日本JCS 2025 表4では完全に未記載）が、CP Redo / 完成的心膜剥皮術でも勝ち目がない症例（mixed RCM-CP、放射線後、&gt;1年再発、cachexia重畳）では、ハートチームディスカッションを経て心臓移植が現実的な選択肢となりうる。</strong> <strong>日本では『RCM』として再診断・登録する経路が事実上唯一の実装ルートである。」</strong></p>
+</div>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">拡張版（3点に分解）</div>
+<ul>
+<li><strong>心膜疾患</strong>：適応疾患リスト未記載 → 「<strong>RCM 化</strong>」エビデンスを揃えて適応検討会の「その他」枠承認が必須</li>
+<li><strong>Redo（LVAD bridging を含む）</strong>：制度的に許容（むしろ標準）。技術的対応も成熟。<strong>1年死亡率の上昇は受容範囲内</strong></li>
+<li><strong>High-risk（ACHD・post-radiation・複合合併症）</strong>：日本では極めて稀。<strong>個別の適応判定委員会審議</strong>と高ボリューム施設での実施が前提</li>
+</ul>
+</div>
+
+<h3 id="10-5-プレゼン用キーメッセージ集">10-5. プレゼン用キーメッセージ集</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">スライド作成時に強調すべきポイント</div>
+<ol type="1">
+<li><strong>CP itself は "curable diastolic HF"</strong>（Syed FF, <em>Nat Rev Cardiol</em> 2014）— 移植不要が原則</li>
+<li><strong>以下の3群はHigh-volume center で移植チーム並行評価が望ましい</strong>：
+<ul>
+<li>放射線性CP（pericardiectomy後 &gt;20% mortality）</li>
+<li>Mixed RCM-CP（CI &lt;1.2、心筋線維化主体）</li>
+<li>Multiple redo / cachexia / 多臓器障害（MELD-XI 高値）</li>
+</ul></li>
+<li><strong>Redo pericardiectomyの予後は再発時期で二極化</strong>（Cho 2012）：
+<ul>
+<li>&lt;1年再発：5年生存 72%（completion peri. 有効）</li>
+<li><blockquote>
+<p>1年再発：5年生存 29%（他病態を疑い、移植評価も）</p>
+</blockquote></li>
+</ul></li>
+<li><strong>ISHLT 2024 Cardiac Transplant Candidate Guidelines</strong> は RCM評価時の "must exclude CP" を強調 → 逆も真：<strong>High-risk CPでは移植候補性評価を見落とさない</strong></li>
+<li><strong>日本固有の制約</strong>：適応疾患リスト未記載・累積実例ゼロ → "RCM 化" 経路 + 適応検討会承認が必須</li>
+</ol>
+</div>
+
+<hr />
+<h2 id="11-references--引用文献">11. References / 引用文献</h2>
+<h3 id="11-1-主要ガイドライン">11-1. 主要ガイドライン</h3>
+<ol type="1">
+<li><strong>JCS/JHFS/JSPCCS 2025</strong>：2025年改訂版 心臓移植に関するガイドライン．班長：齋木佳克．2025年3月27日発行．
+<ul>
+<li>表3「適応決定考慮事項」(p.25)・表4「適応疾患」(p.25)・表5「適応条件」(p.25)・表6「絶対的除外条件」(p.27)・表7「相対的除外条件」(p.28)・図11「患者の適応疾患」(p.26)</li>
+<li>第4章 心臓移植手術の実際（再開胸対応 p.50-51）・第5章 周術期管理（リスク因子 p.54）・第7章 小児（ACHD p.103-104）</li>
+</ul></li>
+<li><strong>Heidenreich PA, et al.</strong> 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure. <em>Circulation</em> 2022;145:e895-e1032. (Section 8.5 Cardiac Transplantation)</li>
+<li><strong>McDonagh TA, et al.</strong> 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure. <em>Eur Heart J</em> 2021;42:3599-3726. (Section 10.2.3)</li>
+<li><strong>Heidbuchel H, Anker SD, et al.</strong> 2025 ESC Guidelines for the management of myocarditis and pericarditis. <em>Eur Heart J</em> 2025;46:3952-4018. (Section 6 Pericarditis, CP→HTx p.3994)</li>
+<li><strong>Klein AL, et al.</strong> 2025 ACC Concise Clinical Guidance on the Evaluation and Management of Suspected Acute and Recurrent Pericarditis.</li>
+<li><strong>Al-Kazaz M, et al.</strong> Best Practices for Pericardiectomy. <em>JACC</em> 2024;84:561-580. doi:10.1016/j.jacc.2024.05.063</li>
+<li><strong>Kobashigawa J, et al.</strong> ISHLT Consensus Conference on Graft Dysfunction within the First 72 hours after Heart Transplantation: A 10-year Update. <em>J Heart Lung Transplant</em> 2026;45:e149-e171.</li>
+<li><strong>Mehra MR, et al.</strong> The 2016 ISHLT listing criteria for heart transplantation: A 10-year update. <em>J Heart Lung Transplant</em> 2016;35:1-23.</li>
+</ol>
+<h3 id="11-2-redo-htx--achd-htx-エビデンス">11-2. Redo HTx / ACHD HTx エビデンス</h3>
+<ol start="9" type="1">
+<li><strong>Awad M, et al.</strong> Heart transplantation with and without prior sternotomy: analysis of the United Network for Organ Sharing database. <em>J Thorac Cardiovasc Surg</em> 2014;148:1591-1597. <a href="https://pubmed.ncbi.nlm.nih.gov/24507061/">PMID 24507061</a></li>
+<li><strong>Choi BS, et al.</strong> Impact of Previous Conventional Cardiac Surgery on the Clinical Outcomes After Heart Transplantation. <em>Transplant International</em> 2023;36:11824. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10579607/">PMC10579607</a></li>
+<li><strong>Bryant R, et al.</strong> Cardiac transplantation in adult congenital heart disease with prior sternotomy. <em>Ann Thorac Surg</em> 2021;112:1267-1273. <a href="https://pubmed.ncbi.nlm.nih.gov/33476438/">PMID 33476438</a></li>
+<li><strong>Meshulami N, et al.</strong> Cardiac transplantation in adult congenital heart disease: a narrative review. <em>J Thorac Dis</em> 2023;15:5733-5746. <a href="https://pubmed.ncbi.nlm.nih.gov/37868855/">PMID 37868855</a></li>
+<li><strong>ISHLT 2024 International Thoracic Organ Transplant Registry Annual Report.</strong> <a href="https://www.ishlt.org/registries/international-thoracic-organ-transplant-(ttx)-registry">ISHLT TTX Registry</a></li>
+</ol>
+<h3 id="11-3-心膜疾患放射線後心疾患-htx">11-3. 心膜疾患・放射線後心疾患 HTx</h3>
+<ol start="14" type="1">
+<li><strong>Berg DD / Roshanali F, et al.</strong> Clinical features and prognosis of surgically proven constrictive pericarditis after orthotopic heart transplantation. <em>J Heart Lung Transplant</em> 2021;40:381-388. <a href="https://pubmed.ncbi.nlm.nih.gov/33546972/">PMID 33546972</a></li>
+<li><strong>Saxena P, et al.</strong> Cardiac Transplantation for Radiation-Induced Cardiomyopathy: The Mayo Clinic Experience. <em>Ann Thorac Surg</em> 2014;98:2115-2121. (5年生存75%・10年47%)</li>
+<li><strong>DePasquale EC, et al.</strong> Heart Transplantation Outcomes in Radiation-Induced Restrictive Cardiomyopathy. <em>Heart Lung Circ</em> 2016. (1年76%・5年58%・6ヵ月死亡21%)</li>
+<li><strong>DePasquale EC, et al.</strong> Mediastinal radiation and adverse outcomes after heart transplantation. <em>J Heart Lung Transplant</em> 2010;29:1342-1347. <a href="https://pubmed.ncbi.nlm.nih.gov/19804988/">PMID 19804988</a></li>
+<li><strong>Saito S, et al.</strong> [National Cerebral and Cardiovascular Center pericardiectomy experience]. <em>Gen Thorac Cardiovasc Surg</em> 2022;70:430-438.</li>
+<li><strong>Diaz Soto J, et al.</strong> MELD and MELD XI Scores as Predictors of Mortality After Pericardiectomy for Constrictive Pericarditis. <em>Mayo Clin Proc</em> 2021;96:1213-1224. <a href="https://pubmed.ncbi.nlm.nih.gov/33673914/">PMID 33673914</a></li>
+<li>⭐ <strong>Murashita T, et al.</strong> Experience With Pericardiectomy for Constrictive Pericarditis Over Eight Decades. <em>Ann Thorac Surg</em> 2017;104:742-750. (Mayo Clinic n=1,066; Radiation HR 3.93・Redo sternotomy HR 1.98)</li>
+<li>⭐ <strong>Cho YH, et al.</strong> Completion Pericardiectomy for Recurrent Constrictive Pericarditis. <em>Ann Thorac Surg</em> 2012;93:1236-1240. (Mayo Clinic; &lt;1年再発 5年生存72%、&gt;1年再発 29%)</li>
+<li>⭐ <strong>Krzelj K, et al.</strong> Pericardiectomy for Constrictive and Recurrent Pericarditis: State of the Art Update. <em>Curr Cardiol Rep</em> 2026;28:14. (Cleveland Clinic State-of-the-Art)</li>
+<li><strong>Balakrishnan KR, et al.</strong> Cardiac transplantation for cardiomyopathy with constrictive pericarditis. <em>Indian J Thorac Cardiovasc Surg</em> 2021. (CP+心筋症 HTx 2例報告)</li>
+<li><strong>ISHLT Cardiac Transplant Candidate Guidelines 2024.</strong> <em>J Heart Lung Transplant</em> 2024 (S1053-2498(24)01679-6). RCM評価時のCP除外を推奨。</li>
+<li><strong>Syed FF, et al.</strong> Constrictive pericarditis—a curable diastolic heart failure. <em>Nat Rev Cardiol</em> 2014. (CPの可逆性総説)</li>
+<li><strong>Awad M, et al.</strong> Heart transplantation with and without prior sternotomy: analysis of the UNOS database. <em>J Thorac Cardiovasc Surg</em> 2014;148:1591-1597. <a href="https://pubmed.ncbi.nlm.nih.gov/24507061/">PMID 24507061</a> （※9番と重複・統合）</li>
+</ol>
+<h3 id="11-4-日本固有の制度関連資料">11-4. 日本固有の制度・関連資料</h3>
+<ol start="19" type="1">
+<li><strong>日本循環器学会心臓移植委員会.</strong> 心臓移植適応疾患（2024年12月改訂版）.</li>
+<li><strong>厚生労働省.</strong> 心臓移植希望者選択基準（令和7年3月7日改正）.</li>
+<li><strong>JCS 2021 植込型補助人工心臓ガイドライン</strong>（BTT 戦略）</li>
+<li><strong>JCS 2023 補助循環ガイドライン</strong>（PCPS/ECMO/Impella）</li>
+</ol>
+<hr />
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">補足コメント — 本文書のスコープ外</div>
+<p>以下は本論題からは外れるが、関連して言及されるべき項目：</p>
+<ul>
+<li><strong>異種移植（xenotransplantation）</strong>：放射線後・複数回開心術後の救命戦略として2026年時点で実験段階（遺伝子改変ブタ心）。本論題の解決策にはまだなり得ない</li>
+<li><strong>再移植（re-transplantation）</strong>：日本では「現実的ではない」（JCS 2025）と明言。心膜疾患・Redoの議論とは別軸の問題</li>
+<li><strong>小児心膜疾患</strong>：本文書は成人を対象。小児ではmixed CP/RCMがさらに稀</li>
+<li><strong>心アミロイドーシス</strong>：JCS 2025 で「原則除外」。心膜・拘束性血行動態を呈する例があるが本論題とは別軸</li>
+</ul>
+</div>
+
+<hr />
+<p><strong>作成者注：</strong> 本文書は2026年5月19日時点のガイドライン群および PubMed/UNOS/ISHLT レジストリ報告を統合した二次資料である。実臨床判断は必ず当該施設の適応判定委員会・JCS心臓移植委員会の正式審議を経ること。</p>
+
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
+</body>
+</html>

@@ -26,7 +26,7 @@ aliases:
 - 🇺🇸 **ACC/AHA 2020**：ACC/AHA 2020 Guideline for the Management of Patients With Valvular Heart Disease（米国）
 - 🇪🇺 **EACTS 2025 Ross Consensus**：EACTS Expert Consensus Statement on the Ross Procedure in Adult Patients（欧州・成人Ross手術専門コンセンサス、2025年10月）
 
-**関連ドキュメント：** [[MS_MV_Surgery_Guidelines_Comparison|僧帽弁狭窄症ガイドライン比較]] · [[AF_Surgery_Indications_Guideline_Comparison|AF手術適応比較]] · [[Ascending_Aorta_Surgery_Indications_Guideline_Comparison|上行大動脈手術適応比較]] · [[Combined_VHD_Guidelines_Comparison|複合弁膜症ガイドライン比較]] · [[Perioperative_Anticoagulation_Guidelines_Comparison|術前抗凝固管理比較]] · [[AR_Guidelines_Comparison|大動脈弁逆流症ガイドライン比較]]
+**関連ドキュメント：** [[MS_MV_Surgery_Guidelines_Comparison|僧帽弁狭窄症ガイドライン比較]] · [[AF_Surgery_Indications_Guideline_Comparison|AF手術適応比較]] · [[Ascending_Aorta_Surgery_Indications_Guideline_Comparison|上行大動脈手術適応比較]] · [[Combined_VHD_Guidelines_Comparison|複合弁膜症ガイドライン比較]] · [[AR_Guidelines_Comparison|大動脈弁逆流症ガイドライン比較]] · [[Ross_Procedure_Guidelines_Comparison|Ross手術まとめ]]
 
 ---
 
@@ -282,7 +282,7 @@ ACC/AHA 2020は欧州・日本と異なり、AS進行段階を以下のステー
 |------------|-------------------|------------|
 | **JCS 2020** | 明示的なクラス推奨なし | 若年・小児領域での選択肢として言及。成人例での適応については限定的記載。 |
 | **ESC/EACTS 2025**（VHD） | 経験豊富な施設での選択肢 | 「経験ある施設で、選定された患者に限り考慮しうる」と記載。詳細はRoss専門コンセンサス（下記）に委ねる。 |
-| **ACC/AHA 2020** | **Class IIb, Level C-LD** | 「==50歳未満==・適切な解剖を有する患者で、経験豊富な施設で実施される場合に考慮しうる」（4.3.2項） |
+| **ACC/AHA 2020** | **Class IIb, Level B-NR** | 「==50歳未満==で生体弁AVRを希望し適切な解剖を有する患者で、Comprehensive Valve Centerにて考慮しうる」（原本推奨表の表記を逐語確認：COR 2b / LOE B-NR） |
 | **EACTS 2025 Ross Consensus** | 専門コンセンサス | 60歳未満・余命15年以上の選定患者で**第一選択肢として考慮**しうると明示。 |
 
 > [!warning] ガイドライン間の温度差

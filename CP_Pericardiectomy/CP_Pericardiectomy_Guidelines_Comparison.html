@@ -1,0 +1,2416 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>収縮性心膜炎（CP）に対する外科的治療（心膜剥皮術）の適応：各地域ガイドライン・コンセンサス比較</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5c5c5c;
+  --border: #d4d4d4;
+  --accent: #2c3e50;
+  --light-bg: #f7f8fa;
+  --header-bg: #2c3e50;
+  --header-fg: #ffffff;
+  --link: #34495e;
+  --jp-accent: #c0392b;
+  --us-accent: #2980b9;
+  --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
+
+body {
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+  margin: 48px 0 12px;
+}
+
+h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 28px 0 8px;
+}
+
+h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 20px 0 6px;
+}
+
+p { margin: 8px 0; font-size: 0.88rem; }
+strong { color: var(--fg); }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+ul, ol {
+  padding-left: 24px;
+  margin: 8px 0;
+  font-size: 0.88rem;
+}
+
+li { margin-bottom: 4px; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 12px 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+thead th {
+  background: var(--header-bg);
+  color: var(--header-fg);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--light-bg);
+}
+
+tbody tr:nth-child(even) td { background-color: #fafbfc; }
+tbody tr:nth-child(even) td:first-child { background-color: #f0f1f3; }
+tbody tr:hover td { background-color: #eef1f5; }
+tbody tr:hover td:first-child { background-color: #e4e8ed; }
+
+/* Blockquotes (fallback for any not converted to callouts) */
+blockquote {
+  background: var(--light-bg);
+  border-left: 3px solid var(--border);
+  padding: 10px 16px;
+  margin: 12px 0 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+blockquote strong { color: var(--fg); }
+
+/* Highlights */
+mark {
+  background: #fff3cd;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Callout overrides - already inline styled, but ensure nested elements look right */
+.callout p { margin: 4px 0; }
+.callout ul, .callout ol { margin: 4px 0 4px 16px; }
+.callout table { font-size: 0.8rem; }
+
+/* Print */
+@media print {
+  body { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
+@media (max-width: 768px) {
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
+  h1 { font-size: 1.3rem; }
+  table { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-略語定義">1. 略語・定義</a></li>
+      <li class="toc-l3"><a href="#1-1-疾患病態">1-1. 疾患・病態</a></li>
+      <li class="toc-l3"><a href="#1-2-病因">1-2. 病因</a></li>
+      <li class="toc-l3"><a href="#1-3-検査">1-3. 検査</a></li>
+      <li class="toc-l3"><a href="#1-4-治療手術">1-4. 治療・手術</a></li>
+      <li class="toc-l2"><a href="#2-ガイドラインコンセンサスの位置づけと推奨グレーディング体系">2. ガイドライン・コンセンサスの位置づけと推奨グレーディング体系</a></li>
+      <li class="toc-l2"><a href="#3-収縮性病態の分類cptransient-cpeffusive-constrictivemixed-cprcm">3. 収縮性病態の分類（CP・transient CP・effusive-constrictive・mixed CP/RCM）</a></li>
+      <li class="toc-l3"><a href="#3-1-esc-2025-の分類table-18主な収縮性心膜症候群">3-1. ESC 2025 の分類（Table 18：主な収縮性心膜症候群）</a></li>
+      <li class="toc-l3"><a href="#3-2-acc-2025-の分類">3-2. ACC 2025 の分類</a></li>
+      <li class="toc-l3"><a href="#3-3-jacc-2024-sota-による分類alkazaz-et-al-figure-3">3-3. JACC 2024 SOTA による分類（AlKazaz et al. Figure 3）</a></li>
+      <li class="toc-l2"><a href="#4-診断アルゴリズムマルチモダリティ画像--心臓カテーテル検査">4. 診断アルゴリズム（マルチモダリティ画像 ＋ 心臓カテーテル検査）</a></li>
+      <li class="toc-l3"><a href="#4-1-cpの主要診断基準mayo-clinic-echo-diagnostic-criteria">4-1. CPの主要診断基準（Mayo Clinic Echo Diagnostic Criteria）</a></li>
+      <li class="toc-l3"><a href="#4-2-cmrの役割esc-2025acc-2025-共通推奨">4-2. CMRの役割（ESC 2025・ACC 2025 共通推奨）</a></li>
+      <li class="toc-l3"><a href="#4-3-ctの役割">4-3. CTの役割</a></li>
+      <li class="toc-l3"><a href="#4-4-心臓カテーテル検査侵襲的血行動態評価">4-4. 心臓カテーテル検査（侵襲的血行動態評価）</a></li>
+      <li class="toc-l2"><a href="#5-part-i各ドキュメント個別サマリー--推奨内容">5. Part I：各ドキュメント個別サマリー — 推奨内容</a></li>
+      <li class="toc-l3"><a href="#5-1-esc-2025">5-1. ESC 2025</a></li>
+      <li class="toc-l4"><a href="#5-1-1-recommendation-table-13--外科治療section-64-全体">5-1-1. Recommendation Table 13 — 外科治療（Section 6.4 全体）</a></li>
+      <li class="toc-l4"><a href="#5-1-2-recommendation-table-24--収縮性心膜炎の診断治療">5-1-2. Recommendation Table 24 — 収縮性心膜炎の診断・治療</a></li>
+      <li class="toc-l4"><a href="#5-1-3-esc-2025-本文記載の主要原則section-6423-pericardiectomy">5-1-3. ESC 2025 本文記載の主要原則（Section 6.4.2.3 Pericardiectomy）</a></li>
+      <li class="toc-l3"><a href="#5-2-acc-2025-concise-clinical-guidance">5-2. ACC 2025 Concise Clinical Guidance</a></li>
+      <li class="toc-l4"><a href="#5-2-1-table-11--マルチモダリティ画像評価と-cp管理の推奨">5-2-1. Table 11 — マルチモダリティ画像評価と CP管理の推奨</a></li>
+      <li class="toc-l4"><a href="#5-2-2-figure-14--cp治療アルゴリズム">5-2-2. Figure 14 — CP治療アルゴリズム</a></li>
+      <li class="toc-l4"><a href="#5-2-3-acc-2025-が-esc-2025-と差異化される論点">5-2-3. ACC 2025 が ESC 2025 と差異化される論点</a></li>
+      <li class="toc-l3"><a href="#5-3-jacc-2024-state-of-the-art-review">5-3. JACC 2024 State-of-the-Art Review</a></li>
+      <li class="toc-l4"><a href="#5-3-1-table-3--心膜剥皮術の適応">5-3-1. Table 3 — 心膜剥皮術の適応</a></li>
+      <li class="toc-l4"><a href="#5-3-2-central-illustration--リスク層別化と患者選択">5-3-2. Central Illustration — リスク層別化と患者選択</a></li>
+      <li class="toc-l4"><a href="#5-3-3-jacc-2024-sota-の手術技術詳細figure-4">5-3-3. JACC 2024 SOTA の手術技術詳細（Figure 4）</a></li>
+      <li class="toc-l2"><a href="#6-part-ii地域間横断比較">6. Part II：地域間横断比較</a></li>
+      <li class="toc-l3"><a href="#6-1-心膜剥皮術の適応">6-1. 心膜剥皮術の適応</a></li>
+      <li class="toc-l3"><a href="#6-2-剥皮範囲radical-vs-completetotal-vs-partial">6-2. 剥皮範囲（radical vs complete/total vs partial）</a></li>
+      <li class="toc-l3"><a href="#6-3-人工心肺cpb使用の是非">6-3. 人工心肺（CPB）使用の是非</a></li>
+      <li class="toc-l3"><a href="#6-4-手術タイミング早期-vs-待機">6-4. 手術タイミング（早期 vs 待機）</a></li>
+      <li class="toc-l3"><a href="#6-5-同時三尖弁手術の適応">6-5. 同時三尖弁手術の適応</a></li>
+      <li class="toc-l3"><a href="#6-6-再発性心膜炎rpに対する心膜剥皮術">6-6. 再発性心膜炎（RP）に対する心膜剥皮術</a></li>
+      <li class="toc-l3"><a href="#6-7-滲出性収縮性心膜炎ecp">6-7. 滲出性収縮性心膜炎（ECP）</a></li>
+      <li class="toc-l3"><a href="#6-8-心膜剥皮術の禁忌相対的適応外">6-8. 心膜剥皮術の禁忌・相対的適応外</a></li>
+      <li class="toc-l2"><a href="#7-周術期管理術後低拍出症候群lcosrv管理">7. 周術期管理：術後低拍出症候群（LCOS）・RV管理</a></li>
+      <li class="toc-l3"><a href="#7-1-lcosの病態">7-1. LCOSの病態</a></li>
+      <li class="toc-l3"><a href="#7-2-周術期管理プロトコル3文書共通">7-2. 周術期管理プロトコル（3文書共通）</a></li>
+      <li class="toc-l3"><a href="#7-3-その他の周術期合併症">7-3. その他の周術期合併症</a></li>
+      <li class="toc-l2"><a href="#8-術後成績原因別術式別施設別生存率">8. 術後成績：原因別・術式別・施設別生存率</a></li>
+      <li class="toc-l3"><a href="#8-1-原因別の周術期長期成績murashita-2017-mayo-1066例-contemporary-era-n807-multivariate">8-1. 原因別の周術期・長期成績（Murashita 2017 Mayo 1066例, contemporary era N=807, multivariate）</a></li>
+      <li class="toc-l3"><a href="#8-2-大規模施設別の長期生存率">8-2. 大規模施設別の長期生存率</a></li>
+      <li class="toc-l3"><a href="#8-3-全体的傾向">8-3. 全体的傾向</a></li>
+      <li class="toc-l2"><a href="#9-日本における現状ncvcjatsの位置づけ">9. 日本における現状（NCVC・JATSの位置づけ）</a></li>
+      <li class="toc-l3"><a href="#9-1-日本における-cp診療のガイドライン上のギャップ">9-1. 日本における CP診療のガイドライン上のギャップ</a></li>
+      <li class="toc-l3"><a href="#9-2-ncvc-2022-saito-et-al--日本最大単施設経験">9-2. NCVC 2022 Saito et al. — 日本最大単施設経験</a></li>
+      <li class="toc-l3"><a href="#9-3-日本における今後の課題">9-3. 日本における今後の課題</a></li>
+      <li class="toc-l2"><a href="#10-まとめ総括">10. まとめ・総括</a></li>
+      <li class="toc-l3"><a href="#10-1-3文書の主要合意点">10-1. 3文書の主要合意点</a></li>
+      <li class="toc-l3"><a href="#10-2-3文書の主要相違点">10-2. 3文書の主要相違点</a></li>
+      <li class="toc-l3"><a href="#10-3-日本における推奨される実践本資料の総括的提言">10-3. 日本における推奨される実践（本資料の総括的提言）</a></li>
+      <li class="toc-l3"><a href="#10-4-領域横断的なメッセージ">10-4. 領域横断的なメッセージ</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
+<h1 id="収縮性心膜炎cpに対する外科的治療心膜剥皮術の適応各地域ガイドラインコンセンサス比較">収縮性心膜炎（CP）に対する外科的治療（心膜剥皮術）の適応：各地域ガイドライン・コンセンサス比較</h1>
+<p><strong>作成日：</strong> 2026年5月19日<br />
+<strong>対象ドキュメント：</strong></p>
+<ul>
+<li>🇪🇺 <strong>ESC 2025</strong>：2025 ESC Guidelines for the management of myocarditis and pericarditis（欧州心臓病学会、EACTS・AEPC endorsement）— <em>Eur Heart J 2025;46:3952–4041</em></li>
+<li>🇺🇸 <strong>ACC 2025</strong>：2025 Concise Clinical Guidance: ACC Expert Consensus Statement on the Diagnosis and Management of Pericarditis（米国心臓病学会）— <em>J Am Coll Cardiol 2025;86:2691–2719</em></li>
+<li>🇺🇸 <strong>JACC 2024 SOTA</strong>：Pericardial Diseases and Best Practices for Pericardiectomy — JACC State-of-the-Art Review（Al-Kazaz, Klein, Crestanello, Cremer, Johnston ほか、Cleveland Clinic／Mayo／Northwestern／Mount Sinai）— <em>J Am Coll Cardiol 2024;84:561–580</em></li>
+<li>🇯🇵 <strong>JCS</strong>：<strong>収縮性心膜炎・心膜疾患に特化した独立した日本循環器学会ガイドラインは現時点（2026年5月）で存在しない</strong>。本資料では NCVC 2022（Saito et al., <em>Gen Thorac Cardiovasc Surg</em> 2022;70:430–438）を日本の代表的外科経験として参照。</li>
+</ul>
+<p><strong>関連ドキュメント：</strong> 心筋症（DCM/HCM/RCM）ガイドライン比較 · 心不全管理ガイドライン比較 · 心臓移植ガイドライン比較 · 感染性心内膜炎ガイドライン比較</p>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">重要な注意事項</div>
+<p>心膜疾患（とくに収縮性心膜炎・再発性心膜炎）に特化した独立した<strong>JCSガイドラインは2026年5月時点で未発行</strong>である。日本では実臨床上、ESC 2015/2025、ACC 2025、および学会セッション・国内単施設経験（NCVC 2022、北大、大阪大ほか）を組み合わせて意思決定する状況にある。本資料では、ガイドラインとしての<strong>比較対象</strong>は ESC 2025 と ACC 2025 の2文書、補助的に <strong>JACC 2024 State-of-the-Art Review</strong>（米国の主要心膜疾患センター合同レビュー）を用いる。</p>
+</div>
+
+<hr />
+<h2 id="目次">目次</h2>
+<ol type="1">
+<li><a href="#1-略語定義">略語・定義</a></li>
+<li><a href="#2-ガイドラインコンセンサスの位置づけと推奨グレーディング体系">ガイドライン・コンセンサスの位置づけと推奨グレーディング体系</a></li>
+<li><a href="#3-収縮性病態の分類cptransient-cpeffusive-constrictivemixed-cprcm">収縮性病態の分類（CP・transient CP・effusive-constrictive・mixed CP/RCM）</a></li>
+<li><a href="#4-診断アルゴリズムマルチモダリティ画像--心臓カテーテル検査">診断アルゴリズム（マルチモダリティ画像 ＋ 心臓カテーテル検査）</a></li>
+<li><a href="#5-part-i各ドキュメント個別サマリー--推奨内容">Part I：各ドキュメント個別サマリー — 推奨内容</a>
+<ul>
+<li><a href="#5-1-esc-2025">5-1. ESC 2025</a></li>
+<li><a href="#5-2-acc-2025-concise-clinical-guidance">5-2. ACC 2025 Concise Clinical Guidance</a></li>
+<li><a href="#5-3-jacc-2024-state-of-the-art-review">5-3. JACC 2024 State-of-the-Art Review</a></li>
+</ul></li>
+<li><a href="#6-part-ii地域間横断比較">Part II：地域間横断比較</a>
+<ul>
+<li><a href="#6-1-心膜剥皮術の適応">6-1. 心膜剥皮術の適応</a></li>
+<li><a href="#6-2-剥皮範囲radical-vs-completetotal-vs-partial">6-2. 剥皮範囲（radical vs complete/total vs partial）</a></li>
+<li><a href="#6-3-人工心肺cpb使用の是非">6-3. 人工心肺（CPB）使用の是非</a></li>
+<li><a href="#6-4-手術タイミング早期-vs-待機">6-4. 手術タイミング（早期 vs 待機）</a></li>
+<li><a href="#6-5-同時三尖弁手術の適応">6-5. 同時三尖弁手術の適応</a></li>
+<li><a href="#6-6-再発性心膜炎rpに対する心膜剥皮術">6-6. 再発性心膜炎（RP）に対する心膜剥皮術</a></li>
+<li><a href="#6-7-滲出性収縮性心膜炎ecp">6-7. 滲出性収縮性心膜炎（ECP）</a></li>
+<li><a href="#6-8-心膜剥皮術の禁忌相対的適応外">6-8. 心膜剥皮術の禁忌・相対的適応外</a></li>
+</ul></li>
+<li><a href="#7-周術期管理術後低拍出症候群lcosrv管理">周術期管理：術後低拍出症候群（LCOS）・RV管理</a></li>
+<li><a href="#8-術後成績原因別術式別施設別生存率">術後成績：原因別・術式別・施設別生存率</a></li>
+<li><a href="#9-日本における現状ncvcjatsの位置づけ">日本における現状（NCVC・JATSの位置づけ）</a></li>
+<li><a href="#10-まとめ総括">まとめ・総括</a></li>
+</ol>
+<hr />
+<h2 id="1-略語定義">1. 略語・定義</h2>
+<h3 id="1-1-疾患病態">1-1. 疾患・病態</h3>
+<table>
+<thead>
+<tr>
+<th>略語</th>
+<th>英語表記</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CP</strong></td>
+<td><strong>C</strong>onstrictive <strong>P</strong>ericarditis</td>
+<td>収縮性心膜炎</td>
+</tr>
+<tr>
+<td><strong>TCP</strong></td>
+<td><strong>T</strong>ransient <strong>C</strong>onstrictive <strong>P</strong>ericarditis</td>
+<td>一過性収縮性心膜炎（炎症性、可逆性）</td>
+</tr>
+<tr>
+<td><strong>ECP / EffCP</strong></td>
+<td><strong>E</strong>ffusive-<strong>C</strong>onstrictive <strong>P</strong>ericarditis</td>
+<td>滲出性収縮性心膜炎（心嚢液貯留＋心膜収縮を併存）</td>
+</tr>
+<tr>
+<td><strong>RP</strong></td>
+<td><strong>R</strong>ecurrent <strong>P</strong>ericarditis</td>
+<td>再発性心膜炎（無症状期4–6週以後の再燃）</td>
+</tr>
+<tr>
+<td><strong>IP</strong></td>
+<td><strong>I</strong>ncessant <strong>P</strong>ericarditis</td>
+<td>持続性心膜炎（症状持続 &gt;4–6週、＜3ヵ月）</td>
+</tr>
+<tr>
+<td><strong>AP</strong></td>
+<td><strong>A</strong>cute <strong>P</strong>ericarditis</td>
+<td>急性心膜炎</td>
+</tr>
+<tr>
+<td><strong>CTP</strong></td>
+<td><strong>C</strong>ardiac <strong>T</strong>amponade with <strong>P</strong>ericarditis</td>
+<td>心タンポナーデを伴う心膜炎</td>
+</tr>
+<tr>
+<td><strong>RCM</strong></td>
+<td><strong>R</strong>estrictive <strong>C</strong>ardio<strong>M</strong>yopathy</td>
+<td>拘束型心筋症（CPの最重要鑑別）</td>
+</tr>
+<tr>
+<td><strong>Mixed CP/RCM</strong></td>
+<td>—</td>
+<td>心筋病変を併存する混合型（典型は post-radiation CP）</td>
+</tr>
+<tr>
+<td><strong>IMPS</strong></td>
+<td><strong>I</strong>nflammatory <strong>M</strong>yo<strong>P</strong>ericardial <strong>S</strong>yndrome</td>
+<td>心筋心膜炎症症候群（ESC 2025 で新たに定式化）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-2-病因">1-2. 病因</h3>
+<table>
+<thead>
+<tr>
+<th>略語</th>
+<th>英語表記</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Idiopathic / Post-viral CP</strong></td>
+<td>—</td>
+<td>特発性・ウイルス感染後（先進国で最多）</td>
+</tr>
+<tr>
+<td><strong>Post-cardiotomy CP</strong></td>
+<td><strong>P</strong>ost-<strong>C</strong>ardiac <strong>S</strong>urgery</td>
+<td>心臓術後（弁置換・CABG等の既往）</td>
+</tr>
+<tr>
+<td><strong>Post-radiation CP</strong></td>
+<td>—</td>
+<td>縦隔放射線治療後（Hodgkinリンパ腫・乳癌等）</td>
+</tr>
+<tr>
+<td><strong>Tuberculous CP</strong></td>
+<td>—</td>
+<td>結核性（途上国で最多、先進国でも HIV+ で増加）</td>
+</tr>
+<tr>
+<td><strong>Purulent CP</strong></td>
+<td>—</td>
+<td>化膿性（細菌性、CP移行率20–30%と最高）</td>
+</tr>
+<tr>
+<td><strong>Post-cardiac injury syndrome</strong></td>
+<td><strong>PCIS</strong></td>
+<td>心筋梗塞後・心臓手術後・カテーテル治療後の心膜炎症候群</td>
+</tr>
+<tr>
+<td><strong>Autoimmune CP</strong></td>
+<td>—</td>
+<td>自己免疫性（RA・SLE・Sjögren等）</td>
+</tr>
+<tr>
+<td><strong>Neoplastic CP</strong></td>
+<td>—</td>
+<td>腫瘍性（直接浸潤・転移）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-3-検査">1-3. 検査</h3>
+<table>
+<thead>
+<tr>
+<th>略語</th>
+<th>英語表記</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TTE</strong></td>
+<td><strong>T</strong>rans<strong>t</strong>horacic <strong>E</strong>chocardiography</td>
+<td>経胸壁心エコー</td>
+</tr>
+<tr>
+<td><strong>CMR</strong></td>
+<td><strong>C</strong>ardiovascular <strong>M</strong>agnetic <strong>R</strong>esonance</td>
+<td>心臓MRI</td>
+</tr>
+<tr>
+<td><strong>CCT / CT</strong></td>
+<td><strong>C</strong>ardiac <strong>C</strong>omputed <strong>T</strong>omography</td>
+<td>心臓CT</td>
+</tr>
+<tr>
+<td><strong>LGE</strong></td>
+<td><strong>L</strong>ate <strong>G</strong>adolinium <strong>E</strong>nhancement</td>
+<td>後期ガドリニウム増強（心膜炎症の指標）</td>
+</tr>
+<tr>
+<td><strong>T2-STIR</strong></td>
+<td><strong>T</strong>2-weighted <strong>S</strong>hort <strong>T</strong>au <strong>I</strong>nversion <strong>R</strong>ecovery</td>
+<td>T2強調短T1反転回復像（心膜浮腫の指標）</td>
+</tr>
+<tr>
+<td><strong>PET / FDG-PET</strong></td>
+<td><strong>P</strong>ositron <strong>E</strong>mission <strong>T</strong>omography</td>
+<td>フルオロデオキシグルコースPET（活動性炎症）</td>
+</tr>
+<tr>
+<td><strong>RHC / LHC</strong></td>
+<td><strong>R</strong>ight / <strong>L</strong>eft <strong>H</strong>eart <strong>C</strong>atheterization</td>
+<td>右心／左心カテーテル検査</td>
+</tr>
+<tr>
+<td><strong>RAP</strong></td>
+<td><strong>R</strong>ight <strong>A</strong>trial <strong>P</strong>ressure</td>
+<td>右房圧</td>
+</tr>
+<tr>
+<td><strong>PAWP / PCWP</strong></td>
+<td><strong>P</strong>ulmonary <strong>A</strong>rtery / <strong>C</strong>apillary <strong>W</strong>edge <strong>P</strong>ressure</td>
+<td>肺動脈楔入圧</td>
+</tr>
+<tr>
+<td><strong>CI</strong></td>
+<td><strong>C</strong>ardiac <strong>I</strong>ndex</td>
+<td>心係数</td>
+</tr>
+<tr>
+<td><strong>CVP</strong></td>
+<td><strong>C</strong>entral <strong>V</strong>enous <strong>P</strong>ressure</td>
+<td>中心静脈圧</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-4-治療手術">1-4. 治療・手術</h3>
+<table>
+<thead>
+<tr>
+<th>略語</th>
+<th>英語表記</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Radical pericardiectomy</strong></td>
+<td>—</td>
+<td><strong>根治的心膜剥皮術</strong>：心膜全切除（前面・横隔面・後面の左房後面まで）＋両側横隔神経のスケルトナイゼーション（脂肪柄を残し神経のみを温存）。<strong>最も広範</strong>な切除。</td>
+</tr>
+<tr>
+<td><strong>Complete/Total pericardiectomy</strong></td>
+<td>—</td>
+<td><strong>完全／全心膜剥皮術</strong>：前・下・（一部）後面切除＋横隔神経に沿った心膜帯を残す。Radicalより狭い切除。施設により定義が異なる。</td>
+</tr>
+<tr>
+<td><strong>Partial pericardiectomy</strong></td>
+<td>—</td>
+<td><strong>部分心膜剥皮術</strong>：前面のみ（横隔神経間）または前面＋横隔面のみ。<strong>最も狭い</strong>切除。</td>
+</tr>
+<tr>
+<td><strong>Waffle procedure</strong></td>
+<td>—</td>
+<td>心外膜の格子状切開（剥離面がない場合の便宜的アプローチ。再収縮率高い）</td>
+</tr>
+<tr>
+<td><strong>Phrenic-to-phrenic resection</strong></td>
+<td>—</td>
+<td>両側横隔神経間の前面切除（partialの一形態）</td>
+</tr>
+<tr>
+<td><strong>Pericardial window</strong></td>
+<td>—</td>
+<td>心膜窓造設（心嚢液ドレナージ目的、CPには無効）</td>
+</tr>
+<tr>
+<td><strong>CPB</strong></td>
+<td><strong>C</strong>ardio<strong>P</strong>ulmonary <strong>B</strong>ypass</td>
+<td>人工心肺</td>
+</tr>
+<tr>
+<td><strong>LCOS</strong></td>
+<td><strong>L</strong>ow <strong>C</strong>ardiac <strong>O</strong>utput <strong>S</strong>yndrome</td>
+<td>術後低拍出症候群</td>
+</tr>
+<tr>
+<td><strong>MELD-XI</strong></td>
+<td><strong>M</strong>odel for <strong>E</strong>nd-Stage <strong>L</strong>iver <strong>D</strong>isease excluding <strong>INR</strong></td>
+<td>INR除外型MELDスコア（CP術前リスク評価に有用）</td>
+</tr>
+<tr>
+<td><strong>PDC</strong></td>
+<td><strong>P</strong>ericardial <strong>D</strong>iseases <strong>C</strong>enter</td>
+<td>心膜疾患センター（複数科横断診療体制）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">術式名の定義に関する重要な混乱</div>
+<p>「radical / complete / total / partial」の定義は施設・著者により大きく異なる。本資料では <strong>Krzelj 2026 SOTA</strong> の整理（Table 1）に従う：</p>
+<ul>
+<li><strong>Radical</strong>：心膜を完全切除＋両側横隔神経スケルトナイゼーション（神経単独を温存、心膜帯を残さない）。最も広範。</li>
+<li><strong>Complete/Total</strong>：前・下・一部後面の心膜を切除、横隔神経には<strong>心膜帯を残す</strong>。Radicalより狭い。</li>
+<li><strong>Partial</strong>：前面のみ、または前面＋横隔面のみ。</li>
+</ul>
+</div>
+>
+> 同じ「complete pericardiectomy」と呼ばれていても、Cleveland Clinicの「complete」は他施設の「radical」に近いことがある。**論文を読む際は実際の切除範囲を必ず確認すること**。
+
+<hr />
+<h2 id="2-ガイドラインコンセンサスの位置づけと推奨グレーディング体系">2. ガイドライン・コンセンサスの位置づけと推奨グレーディング体系</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 ESC 2025</th>
+<th>🇺🇸 ACC 2025</th>
+<th>🇺🇸 JACC 2024 SOTA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>文書形式</strong></td>
+<td>Clinical Practice Guidelines</td>
+<td>Concise Clinical Guidance（Expert Consensus Statement）</td>
+<td>State-of-the-Art Review</td>
+</tr>
+<tr>
+<td><strong>発行年</strong></td>
+<td>2025年8月（<em>Eur Heart J</em>）</td>
+<td>2025年12月（<em>J Am Coll Cardiol</em>）</td>
+<td>2024年8月（<em>J Am Coll Cardiol</em>）</td>
+</tr>
+<tr>
+<td><strong>発行学会</strong></td>
+<td>ESC（EACTS・AEPC endorsement）</td>
+<td>ACC</td>
+<td>JACC（査読付き総説、AHA等公式エンドースメントなし）</td>
+</tr>
+<tr>
+<td><strong>対象範囲</strong></td>
+<td>心筋炎＋心膜炎（包括的、90ページ）</td>
+<td>心膜炎の診断・管理（簡潔型、29ページ）</td>
+<td>心膜疾患全般＋心膜剥皮術の周術期管理（20ページ）</td>
+</tr>
+<tr>
+<td><strong>推奨クラス</strong></td>
+<td>I / IIa / IIb / III</td>
+<td><strong>Recommended / Reasonable / Not recommended</strong>（3段階）</td>
+<td>推奨クラス明記なし（本文中で記述）</td>
+</tr>
+<tr>
+<td><strong>エビデンスレベル</strong></td>
+<td>A / B / C</td>
+<td>記載なし</td>
+<td>記載なし</td>
+</tr>
+<tr>
+<td><strong>CPに関する推奨表</strong></td>
+<td>Recommendation Table 13（外科治療）＋ Recommendation Table 24（CP診断・治療）</td>
+<td>Table 11（CP診断・管理）</td>
+<td>Table 3（心膜剥皮術の適応）＋ Central Illustration</td>
+</tr>
+<tr>
+<td><strong>特筆</strong></td>
+<td>心膜疾患専門ガイドラインを2015年版以降10年ぶりに改訂。<strong>EACTS endorsement</strong> により外科治療推奨が手厚い</td>
+<td>ACC初の<strong>心膜炎単独</strong>コンセンサス文書。Multimodality imaging guided therapeutic approach を強調</td>
+<td>Cleveland Clinic／Mayo／Northwestern／Mount Sinai 合同。<strong>米国の事実上の外科標準</strong>。ACC/AHA公式ガイドラインは未発行</td>
+</tr>
+<tr>
+<td><strong>JCS対応文書</strong></td>
+<td><strong>存在しない</strong>（2026年5月時点）</td>
+<td><strong>存在しない</strong></td>
+<td><strong>存在しない</strong></td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">グレーディング体系の読み替え</div>
+<ul>
+<li>ESC 2025 は伝統的な ACC/AHA 系の <strong>Class I / IIa / IIb / III</strong> ＋ <strong>LOE A / B / C</strong> を採用。</li>
+<li>ACC 2025 Concise Clinical Guidance は簡潔性を優先し、<strong>Recommended / Reasonable / Not recommended の3段階</strong>のみ。Class I/IIa/III に概ね対応するが、LOE は明示されない。</li>
+<li>JACC 2024 SOTA は推奨クラスを伴わない<strong>状態評価レビュー</strong>であり、本文中で「推奨される（recommended）」「望ましい（preferred）」等の表現を用いる。Central Illustrationに集約された患者選択基準は事実上のベストプラクティス。</li>
+</ul>
+</div>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JCSガイドラインの欠落</div>
+<p>心膜疾患に特化した日本循環器学会ガイドラインは<strong>過去にも現在にも存在しない</strong>。心膜炎に関する記載は以下の文書に<strong>断片的にのみ</strong>含まれる：</p>
+<ul>
+<li>JCS 2025 心不全診療ガイドライン（CPは右心不全鑑別の項で言及のみ）</li>
+<li>JCS 2026 感染性心内膜炎ガイドライン（心膜炎は対象外）</li>
+</ul>
+</div>
+>
+> 本領域は日本における**ガイドライン上のギャップ**であり、日常臨床は ESC 2015→2025 と単施設経験に依存している。NCVC（国立循環器病研究センター）が国内最大の症例集積（2000–2020で44例）を持つ。
+
+<hr />
+<h2 id="3-収縮性病態の分類cptransient-cpeffusive-constrictivemixed-cprcm">3. 収縮性病態の分類（CP・transient CP・effusive-constrictive・mixed CP/RCM）</h2>
+<h3 id="3-1-esc-2025-の分類table-18主な収縮性心膜症候群">3-1. ESC 2025 の分類（Table 18：主な収縮性心膜症候群）</h3>
+<table>
+<thead>
+<tr>
+<th>症候群</th>
+<th>定義</th>
+<th>治療</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Transient constriction</strong>（一過性収縮、TCP）<br>（鑑別：永続性CP、RCM）</td>
+<td>自然軽快または抗炎症療法後に<strong>可逆的</strong>となる収縮パターン</td>
+<td>経験的抗炎症療法<strong>3〜6ヵ月</strong></td>
+</tr>
+<tr>
+<td><strong>Effusive–constrictive pericarditis</strong>（ECP）<br>（鑑別：心タンポナーデ、CP）</td>
+<td>心膜穿刺後も<strong>右房圧が50%以下に低下しない、または＜10 mmHgに達しない</strong>。非侵襲的画像でも診断可</td>
+<td>心膜穿刺＋抗炎症療法。<strong>抵抗例には手術</strong></td>
+</tr>
+<tr>
+<td><strong>Chronic constriction</strong>（慢性収縮、＝chronic CP）<br>（鑑別：transient CP、RCM）</td>
+<td>3〜6ヵ月持続する収縮</td>
+<td><strong>根治的心膜剥皮術</strong>（進行例・高リスク手術・心筋病変併存例には内科治療）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-2-acc-2025-の分類">3-2. ACC 2025 の分類</h3>
+<table>
+<thead>
+<tr>
+<th>病態</th>
+<th>特徴</th>
+<th>CMR所見</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Chronic CP</strong></td>
+<td>不可逆性、線維化／石灰化を伴う</td>
+<td>LGE−、T2-STIR−、心膜肥厚／石灰化±</td>
+</tr>
+<tr>
+<td><strong>Subacute CP — Transient</strong></td>
+<td>可逆性、心膜炎症が主体</td>
+<td><strong>LGE＋、T2-STIR＋、↑CRP</strong></td>
+</tr>
+<tr>
+<td><strong>Subacute CP — Effusive constrictive (ECP)</strong></td>
+<td>心膜穿刺後も RAP 高値持続</td>
+<td><strong>LGE＋、T2-STIR＋、心嚢液 ± ↑CRP</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-3-jacc-2024-sota-による分類alkazaz-et-al-figure-3">3-3. JACC 2024 SOTA による分類（AlKazaz et al. Figure 3）</h3>
+<table>
+<thead>
+<tr>
+<th>病型</th>
+<th>治療優先順位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Subacute / Transient CP</strong></td>
+<td>NSAID＋コルヒチン8–12週、低閾値で3剤併用（NSAID+コルヒチン+ステロイド）、抗IL-1（rilonacept/anakinra）2nd or 3rd line。3–6ヵ月で再評価</td>
+</tr>
+<tr>
+<td><strong>Effusive-constrictive (ECP)</strong></td>
+<td>心膜穿刺第一、その後 transient CP と同じ抗炎症療法。<strong>抵抗例は visceral pericardiectomy も含めた拡大剥皮</strong>が必要</td>
+</tr>
+<tr>
+<td><strong>Chronic CP</strong></td>
+<td>利尿薬による症状コントロール → <strong>心膜剥皮術</strong>。Mixed CP/RCM では限定的効果</td>
+</tr>
+<tr>
+<td><strong>Mixed CP and RCM</strong>（CP の約13%）</td>
+<td>5年全死亡40%。<strong>post-radiation CPに多い</strong>（50%）。RAP/PAWP比＜0.77で RCM寄与示唆、≥0.77で純粋CP寄与示唆 → 後者は心膜剥皮の良好な反応が期待</td>
+</tr>
+<tr>
+<td><strong>Occult CP</strong></td>
+<td>容量負荷で初めて顕在化。慎重に画像評価し、容量負荷の結果のみに依拠しない</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">CP分類と治療方針の3文書一致点</div>
+<p>ESC・ACC・JACC SOTA いずれも以下に明確に<strong>合意</strong>：</p>
+<ol type="1">
+<li><strong>Transient（subacute, inflammatory, LGE+）CP</strong> はまず<strong>抗炎症療法</strong>（NSAID＋コルヒチン±ステロイド／抗IL-1）で 3–6ヵ月トライ → 手術回避を目指す</li>
+<li><strong>Chronic（fibrotic, LGE-）CP</strong> には<strong>心膜剥皮術が唯一の根治的治療</strong></li>
+<li><strong>ECP</strong> は心膜穿刺で液体成分を除去後、抗炎症療法で visceral 収縮の改善を試み、抵抗例のみ visceral pericardiectomy を考慮</li>
+<li><strong>Mixed CP/RCM</strong> は心膜剥皮術の効果限定的 → 内科治療・症例選択を慎重に</li>
+</ol>
+</div>
+
+<hr />
+<h2 id="4-診断アルゴリズムマルチモダリティ画像--心臓カテーテル検査">4. 診断アルゴリズム（マルチモダリティ画像 ＋ 心臓カテーテル検査）</h2>
+<h3 id="4-1-cpの主要診断基準mayo-clinic-echo-diagnostic-criteria">4-1. CPの主要診断基準（Mayo Clinic Echo Diagnostic Criteria）</h3>
+<p>ESC 2025（Section 11.9.3）・JACC 2024 SOTA（Table 1）・ACC 2025（Figure 12）はいずれも <strong>Mayo Clinic Echocardiographic Criteria</strong> を中核診断基準として採用。</p>
+<table>
+<thead>
+<tr>
+<th>基準</th>
+<th>特異度・感度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 心房中隔のrespirophasic shift（吸気時にLV方向へbow）</td>
+<td>感度 87%、特異度 91%</td>
+</tr>
+<tr>
+<td>② mitral inflow E/A &gt;0.8 ＋ 拡張IVC</td>
+<td>スクリーニング</td>
+</tr>
+<tr>
+<td>③ medial mitral annular e' &gt;8 cm/s（tissue Doppler）</td>
+<td>—</td>
+</tr>
+<tr>
+<td>④ Annulus reversus：medial e' &gt; lateral e'</td>
+<td>—</td>
+</tr>
+<tr>
+<td>⑤ Hepatic vein expiratory diastolic reversal/forward velocity ratio ≥0.8</td>
+<td>—</td>
+</tr>
+<tr>
+<td>⑥ Respirophasic variation across mitral inflow（吸気時&gt;25%減少）／三尖弁inflow（&gt;40%増加）</td>
+<td>—</td>
+</tr>
+<tr>
+<td>⑦ Strain reversus（外側壁strain低下、内側壁代償性増加）</td>
+<td>新基準</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">単一所見の限界</div>
+<p>単独で診断的な所見はない（特に心膜肥厚は<strong>18%のCP症例で正常</strong>）。<strong>①＋②＋④の組み合わせ</strong>で特異度99%、PPV 100%（ACC 2025 Figure 12B）。</p>
+</div>
+
+<h3 id="4-2-cmrの役割esc-2025acc-2025-共通推奨">4-2. CMRの役割（ESC 2025・ACC 2025 共通推奨）</h3>
+<table>
+<thead>
+<tr>
+<th>所見</th>
+<th>意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>心膜肥厚 ＞4 mm</strong>（black-blood imaging）</td>
+<td>構造的所見</td>
+</tr>
+<tr>
+<td><strong>Respirophasic septal shift</strong>（free-breathing cine）</td>
+<td>心室相互依存性の動的所見</td>
+</tr>
+<tr>
+<td><strong>LGE +</strong>（pericardial late gadolinium enhancement）</td>
+<td><strong>心膜炎症</strong> → 抗炎症療法で可逆性の可能性、術前にこの所見がある場合は薬物先行</td>
+</tr>
+<tr>
+<td><strong>T2-STIR +</strong>（pericardial edema）</td>
+<td>心膜浮腫 → 急性炎症</td>
+</tr>
+<tr>
+<td><strong>Tagged cine MRI</strong>（NCVC 2022 で活用、感度 97.2%）</td>
+<td>心筋－心膜接着の動的評価。日本独自の運用</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-3-ctの役割">4-3. CTの役割</h3>
+<table>
+<thead>
+<tr>
+<th>所見</th>
+<th>意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>心膜石灰化</strong></td>
+<td>CPの伝統的所見だが、<strong>約半数のみで認める</strong>。胸部単純X線でも側面像で検出可</td>
+</tr>
+<tr>
+<td><strong>心膜厚（≥2 mm）</strong></td>
+<td>構造的所見。CT は MRI より厚みの定量に優れる</td>
+</tr>
+<tr>
+<td><strong>術前評価</strong></td>
+<td>冠動脈バイパスグラフトの位置・冠動脈との関係・胸骨との癒着評価（特に redo 症例）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-4-心臓カテーテル検査侵襲的血行動態評価">4-4. 心臓カテーテル検査（侵襲的血行動態評価）</h3>
+<table>
+<thead>
+<tr>
+<th>所見</th>
+<th>特徴</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>左右心室拡張末期圧の均等化</strong>（≤5 mmHg差）</td>
+<td>古典的所見だが特異度低い</td>
+</tr>
+<tr>
+<td><strong>Dip-and-plateau（square root sign）</strong></td>
+<td>急速拡張早期充満後の平坦相</td>
+</tr>
+<tr>
+<td><strong>Discordant respirophasic LV-RV pressure</strong>（<strong>systolic area index ≥1.1</strong>）</td>
+<td><strong>CPと RCM の鑑別に最も特異的</strong>（Talreja-Geske基準）</td>
+</tr>
+<tr>
+<td><strong>Kussmaul徴候</strong>（吸気時のRAP低下なし）</td>
+<td>拡張障害示唆、CPに特異的ではない</td>
+</tr>
+<tr>
+<td><strong>RAP/PAWP比 ≥0.77</strong></td>
+<td>純粋CP（vs mixed CP/RCM）、術後成績良好を示唆</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ESC 2025 vs ACC 2025 の診断推奨比較</div>
+<ul>
+<li><strong>ESC 2025</strong>：「Cardiac catheterization for haemodynamic assessment should be <strong>considered</strong> in patients with suspected CP <strong>when multimodality imaging is inconclusive</strong>」（<strong>Class IIa, C</strong>）</li>
+<li><strong>ACC 2025</strong>：「Invasive cardiac catheterization for the diagnosis of CP, where noninvasive methods are nondiagnostic or equivocal」（<strong>Recommended</strong>）</li>
+</ul>
+<p>両者とも「<strong>非侵襲的画像で確定できない場合のみ侵襲的検査</strong>」で一致。これは2015年版（ESC）からの大きな転換で、<strong>画像診断が第一線</strong>となった。</p>
+</div>
+
+<hr />
+<h2 id="5-part-i各ドキュメント個別サマリー--推奨内容">5. Part I：各ドキュメント個別サマリー — 推奨内容</h2>
+<hr />
+<h3 id="5-1-esc-2025">5-1. ESC 2025</h3>
+<p><strong>出典：</strong> Section 6.4.2 Pericarditis（外科治療）・Section 11.9 Pericardial constriction and constrictive pericarditis（CP診断・治療）・Recommendation Table 13・Recommendation Table 24</p>
+<p>ESC 2025 は <strong>EACTS（欧州心臓胸部外科学会）の正式 endorsement</strong> を得て発行された。これは2015年版から踏襲された方針で、外科推奨が<strong>心膜炎ガイドラインの中で明確に位置付けられている</strong>唯一の地域文書である。</p>
+<h4 id="5-1-1-recommendation-table-13--外科治療section-64-全体">5-1-1. Recommendation Table 13 — 外科治療（Section 6.4 全体）</h4>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>Class</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>慢性心膜収縮または内科治療抵抗性の収縮性心膜炎患者に対し、症状改善および生存率向上を目的として<strong>外科的心膜剥皮術を推奨</strong></td>
+<td><strong>I</strong></td>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>心膜収縮かつ重度三尖弁逆流を有する患者に対し、症状改善および生存率向上を目的として<strong>三尖弁形成術を推奨</strong></td>
+<td><strong>I</strong></td>
+<td><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="5-1-2-recommendation-table-24--収縮性心膜炎の診断治療">5-1-2. Recommendation Table 24 — 収縮性心膜炎の診断・治療</h4>
+<p><strong>診断：</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>Class</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPが疑われるすべての患者に対し、診断および心膜肥厚・石灰化・活動性炎症の評価のために<strong>マルチモダリティ画像を推奨</strong></td>
+<td><strong>I</strong></td>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>マルチモダリティ画像で診断が不確定な場合、血行動態評価のための<strong>心臓カテーテル検査を考慮</strong></td>
+<td><strong>IIa</strong></td>
+<td><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>治療：</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>Class</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>血行動態的に安定した一過性または新規発症の収縮で、<strong>心膜炎症のエビデンス</strong>（CRP上昇または CMR上の心膜増強）を有する場合、収縮への進行を予防し<strong>心膜剥皮術を回避</strong>するため<strong>抗炎症療法を推奨</strong></td>
+<td><strong>I</strong></td>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>永続的な収縮で<strong>活動性炎症なし</strong>、または <strong>3–6ヵ月の抗炎症療法が奏効しない</strong>場合、<strong>心膜剥皮術を推奨</strong></td>
+<td><strong>I</strong></td>
+<td><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="5-1-3-esc-2025-本文記載の主要原則section-6423-pericardiectomy">5-1-3. ESC 2025 本文記載の主要原則（Section 6.4.2.3 Pericardiectomy）</h4>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>ESC 2025 の見解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>剥皮範囲</strong></td>
+<td><strong>完全心膜剥皮術（complete pericardiectomy）を推奨</strong>。「前面または前下面のみの剥皮は再収縮リスクが高く、長期成績が劣る」と明記。<strong>radical</strong> という用語よりも <strong>complete</strong> を用いる</td>
+</tr>
+<tr>
+<td><strong>早期手術</strong></td>
+<td><strong>症状発症から6ヵ月以内の早期手術が最低死亡率と関連</strong>（参考文献 Murashita 2017, Bertog 2004）</td>
+</tr>
+<tr>
+<td><strong>CPB使用</strong></td>
+<td><strong>2015年版は CPB使用を「困難な出血コントロール時のみ」と限定推奨</strong>していたが、<strong>2025年版は緩和</strong>：「CPBは特定の臨床シナリオで必要となる。dense adhesions、血行動態不安定、後面剥離時の心臓挙上、calcific CP with myocardial involvement、challenging anatomy、同時心臓手術（弁・CABG）に有用」</td>
+</tr>
+<tr>
+<td><strong>CPB の利点</strong></td>
+<td>無血野・後面完全切除・心筋損傷回避・血行動態安定（borderline cardiac output／tamponade physiology で特に有用）</td>
+</tr>
+<tr>
+<td><strong>CPB の欠点</strong></td>
+<td>全ヘパリン化により<strong>心膜剥離面からの出血傾向増加</strong></td>
+</tr>
+<tr>
+<td><strong>Waffle procedure</strong></td>
+<td>心外膜の格子状切開。剥離面がない場合の便宜的アプローチ。<strong>一時的改善のみで再収縮率が高い</strong>ため推奨されない</td>
+</tr>
+<tr>
+<td><strong>三尖弁手術</strong></td>
+<td>CPで TR は annular dilation, RA enlargement, leaflet tethering により多い。<strong>&gt;軽度</strong> で<strong>心膜剥皮術と同時に修復</strong>を推奨。胸が既に開いていれば追加リスク小</td>
+</tr>
+<tr>
+<td><strong>心臓移植</strong></td>
+<td>心膜剥皮術が<strong>不能または完遂不能な選択例</strong>（広範囲石灰化・放射線後・mixed CP/RCM with severe myocardial involvement）における<strong>最終手段</strong></td>
+</tr>
+<tr>
+<td><strong>禁忌・相対的適応外</strong></td>
+<td>重度肝機能障害（肝硬変＋腹水）、コントロール不能感染／敗血症、その他生命予後限定的な疾患</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="5-2-acc-2025-concise-clinical-guidance">5-2. ACC 2025 Concise Clinical Guidance</h3>
+<p><strong>出典：</strong> Section 4.3.3 Constrictive Pericarditis（pp.2707–2715）・Table 11（推奨表）・Figure 14（治療アルゴリズム）</p>
+<p>ACC 2025 は <strong>Wang TKM</strong>（Chair）, <strong>Klein AL</strong>（Vice Chair, Cleveland Clinic）, <strong>Cremer PC</strong>, <strong>Imazio M</strong>（共同責任著者）, <strong>Kohnstamm S</strong>, <strong>Luis SA</strong>, <strong>Mardigyan V</strong> ほかの委員により編纂された。心膜疾患の世界的リーダーが集結した文書である。</p>
+<h4 id="5-2-1-table-11--マルチモダリティ画像評価と-cp管理の推奨">5-2-1. Table 11 — マルチモダリティ画像評価と CP管理の推奨</h4>
+<p><strong>診断：</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>推奨グレード</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CPおよびECPの診断のため、TTEによる非侵襲的血行動態評価</strong></td>
+<td><strong>Recommended</strong></td>
+</tr>
+<tr>
+<td><strong>CMRによる CP の補助診断</strong>（特に TTE不確定例）</td>
+<td><strong>Reasonable</strong></td>
+</tr>
+<tr>
+<td><strong>CMRによる CP の原因としての心膜炎症の同定</strong></td>
+<td><strong>Recommended</strong></td>
+</tr>
+<tr>
+<td><strong>CCTによる心膜石灰化の補助診断・術前評価</strong></td>
+<td><strong>Reasonable</strong></td>
+</tr>
+<tr>
+<td><strong>非侵襲法で診断困難な場合の侵襲的心臓カテーテル検査</strong></td>
+<td><strong>Recommended</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>治療：</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>推奨グレード</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>炎症性CPの第一選択：抗炎症療法</strong></td>
+<td><strong>Recommended</strong></td>
+</tr>
+<tr>
+<td><strong>CPの症状緩和：利尿薬</strong></td>
+<td><strong>Reasonable</strong></td>
+</tr>
+<tr>
+<td><strong>非炎症性CPおよび抗炎症療法不応の炎症性CPに対する根治的心膜剥皮術</strong></td>
+<td><strong>Recommended</strong></td>
+</tr>
+<tr>
+<td><strong>CPに対する partial anterior および／または diaphragmatic pericardiectomy</strong></td>
+<td><strong>Not recommended</strong></td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ACC 2025 の最も明確なメッセージ</div>
+<p>「<strong>Partial anterior and/or diaphragmatic pericardiectomy for constrictive pericarditis — Not recommended</strong>」</p>
+<p>これは <strong>partial 剥皮を明確に推奨外</strong>とした初めての主要米国コンセンサスである。ESC 2025 は本文で「complete を推奨」と記述するが、ACC 2025 は<strong>推奨表で partial を「Not recommended」と明記</strong>している点でより踏み込んでいる。</p>
+</div>
+
+<h4 id="5-2-2-figure-14--cp治療アルゴリズム">5-2-2. Figure 14 — CP治療アルゴリズム</h4>
+<pre><code>                    CP（臨床所見・心エコー±CMR）
+                              ↓
+        ┌─────────────────────┴─────────────────────┐
+        │                                            │
+   Chronic CP                              Subacute CP
+   ・LGE−, T2-STIR− on CMR             ┌─────────────┴─────────────┐
+   ・±心膜肥厚／石灰化            Transient CP                    ECP
+   ・RHC/LHCでCP血行動態          ・LGE+, T2-STIR+              ・RAP高値持続
+                                  ・↑CRP                       ・LGE+, T2-STIR+
+                                                               ・心嚢液 ±↑CRP
+        │                              │                            │
+        │                              │                  心膜穿刺優先
+        │                              │                            │
+        ↓                              ↓                            ↓
+   Management:                    Management:
+   1. 利尿薬                      1. NSAID＋コルヒチン（緩徐減量、3ヵ月以上）
+   2. 病態主原因の把握            2. 抗IL-1またはステロイド追加閾値低く
+      （mixed RCM/CP）            3. 3〜6ヵ月で症状・炎症マーカー・画像で再評価
+   3. 進行例：緩和ケア            4. 利尿薬（必要時）
+   4. 多職種チーム
+                              ↓                ↓
+                ┌─────────────────────────────────────────┐
+                │           Radical Pericardiectomy        │
+                │  ・慢性CP、または内科治療抵抗性の subacute CP │
+                │  ・経験豊富な手術センター（PDC）に紹介    │
+                └─────────────────────────────────────────┘</code></pre>
+<h4 id="5-2-3-acc-2025-が-esc-2025-と差異化される論点">5-2-3. ACC 2025 が ESC 2025 と差異化される論点</h4>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>ACC 2025</th>
+<th>ESC 2025</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Partial pericardiectomy</strong></td>
+<td><strong>明示的に Not recommended</strong></td>
+<td>本文で「劣る」と記載するが推奨表に否定的推奨なし</td>
+</tr>
+<tr>
+<td><strong>CPB</strong></td>
+<td>本文で**「Radical pericardiectomy on cardiopulmonary bypass, if feasible, is the preferred approach」**（Summary Graphic）</td>
+<td>「特定シナリオで必要」と限定的推奨</td>
+</tr>
+<tr>
+<td><strong>PDCへの紹介</strong></td>
+<td>「complicated cases especially」<strong>Refer to PDC</strong>（推奨に近い扱い）</td>
+<td>tertiary referral centre推奨（Section 14）</td>
+</tr>
+<tr>
+<td><strong>抗IL-1薬の位置づけ</strong></td>
+<td>rilonacept・anakinra を <strong>2nd line（炎症性CP）、または NSAID不耐例の代替</strong>として明記</td>
+<td>再発性心膜炎で言及、CPでの位置づけはやや控えめ</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="5-3-jacc-2024-state-of-the-art-review">5-3. JACC 2024 State-of-the-Art Review</h3>
+<p><strong>出典：</strong> Al-Kazaz M, Klein AL, Oh JK, Crestanello JA, Cremer PC, Tong MZ, Koprivanac M, Fuster V, El-Hamamsy I, Adams DH, Johnston DR. <em>Pericardial Diseases and Best Practices for Pericardiectomy: JACC State-of-the-Art Review.</em> J Am Coll Cardiol 2024;84:561–580.</p>
+<p><strong>著者所属：</strong> Cleveland Clinic（Klein, Tong, Koprivanac, Johnston）、Mayo Clinic（Oh, Crestanello, Cremer）、Northwestern（Al-Kazaz）、Mount Sinai（Fuster, El-Hamamsy, Adams）。</p>
+<p>米国の主要心膜疾患センター4施設の合同レビューで、<strong>米国の事実上の外科標準</strong>を示す。ACC/AHA公式ガイドラインが存在しない領域で、本文書が ACC 2025 Consensus と相互補完的に機能している。</p>
+<h4 id="5-3-1-table-3--心膜剥皮術の適応">5-3-1. Table 3 — 心膜剥皮術の適応</h4>
+<table>
+<thead>
+<tr>
+<th>適応</th>
+<th>考慮事項</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>① 慢性CPで NYHA III/IV症状</strong></td>
+<td>Transient CPは CMRで評価し、抗炎症療法の可逆性を判断。重度肝・腎機能障害、悪液質、低CIで慎重評価</td>
+</tr>
+<tr>
+<td><strong>② 内科治療抵抗性の再発性心膜炎（RP）</strong></td>
+<td>内科治療失敗例・不耐例。<strong>経験豊富なセンターで施行</strong>。抗IL-1薬（anakinra, rilonacept）の十分なトライ後</td>
+</tr>
+<tr>
+<td><strong>③ 心膜部分欠損 + 心臓ヘルニア／血行動態障害</strong></td>
+<td>大部分は無症状。心臓構造の嵌頓・大血管捻転・心筋虚血合併例で適応</td>
+</tr>
+<tr>
+<td><strong>④ 再発性心嚢液</strong>（稀）</td>
+<td>主に心膜窓造設で対応。心膜生検必要例・限局性貯留・再発例で稀に根治的剥皮</td>
+</tr>
+</tbody>
+</table>
+<h4 id="5-3-2-central-illustration--リスク層別化と患者選択">5-3-2. Central Illustration — リスク層別化と患者選択</h4>
+<p><strong>心膜剥皮術の適応：</strong></p>
+<ul>
+<li>慢性CPで NYHA III/IV症状</li>
+<li>内科治療抵抗性の RP</li>
+<li>心膜部分欠損 + 心臓ヘルニア／血行動態障害（稀）</li>
+<li>再発性心嚢液（稀）</li>
+</ul>
+<p><strong>リスク層別化に使う因子：</strong></p>
+<ul>
+<li><strong>CPの原因</strong>（idiopathic最良 &gt; postsurgery &gt; postradiation最悪）</li>
+<li>RV機能・TR</li>
+<li>Cardiac index</li>
+<li>内科併存症（ESRD）</li>
+<li><strong>MELD-XIスコア</strong>・肝機能（Child-Pugh）</li>
+<li>栄養状態</li>
+<li>同時心臓手術の有無</li>
+</ul>
+<p><strong>心膜剥皮術の効果限定的 → 慎重に選択：</strong></p>
+<ul>
+<li>「End-stage」CP：重度低栄養・蛋白漏出性腸症・進行性肝硬変・CI &lt;1.2 L/min/m²・anasarca</li>
+<li>Mixed CP with significant RCM（典型：高リスク post-radiation CP）</li>
+<li>ESRD ＋ 進行性肝疾患 with Child-Pugh B/C（score ≥7）または MELD-XI 13.7–30.6</li>
+<li>NYHA I-II で内科治療反応良好：CPET（cardiopulmonary exercise test）で再層別化</li>
+</ul>
+<p><strong>手術上の考慮事項：</strong></p>
+<ul>
+<li>High-volume center の経験豊富な外科医</li>
+<li><strong>Radical pericardiectomy が望ましい</strong>（剥皮範囲）</li>
+<li><strong>CPB使用が望ましい</strong></li>
+<li>TR・MR の同時修復検討</li>
+<li>横隔神経損傷予防</li>
+<li>Epicardial inflammatory rind の対応</li>
+<li>冠動脈損傷予防</li>
+<li>心筋内浸潤石灰化への対応</li>
+</ul>
+<p><strong>術後考慮事項：</strong></p>
+<ul>
+<li>急性 RV/LV 過拡張による LCOS → inotrope ／ MCS（<strong>RAP &lt;12 mmHg, CI 1.8–2.2 L/min/m² 目標</strong>）</li>
+<li>RV不全管理（特に RCM ± 肺高血圧合併例）</li>
+<li>ECMO ／早期 MCS（RV補助含む）</li>
+<li>石灰化関連心筋損傷</li>
+<li>心房性不整脈・出血・vasoplegia（特に肝硬変患者）</li>
+</ul>
+<h4 id="5-3-3-jacc-2024-sota-の手術技術詳細figure-4">5-3-3. JACC 2024 SOTA の手術技術詳細（Figure 4）</h4>
+<p><strong>Radical pericardiectomy の標準手順：</strong></p>
+<ol type="1">
+<li>正中胸骨切開、両胸腔開放、両横隔神経同定</li>
+<li>心膜を innominate vein から横隔膜まで縦切開</li>
+<li><strong>右側へ進む：右横隔神経の脂肪柄温存、右心膜を肺静脈まで切除</strong></li>
+<li>CPBへ移行（既に予防的セットアップ済）</li>
+<li>左側へ進む：左横隔神経・左心房間（肺静脈〜IVC左側まで）の後面心膜を切除</li>
+<li>横隔神経は脂肪柄を残し、心膜を完全 en-bloc 切除</li>
+<li>心外膜の inflammatory rind が剥離不能な場合、「checkerboard 法」で島状切開</li>
+<li>心筋内浸潤石灰化は無理に剥離せず、bridging band を回避</li>
+</ol>
+<hr />
+<h2 id="6-part-ii地域間横断比較">6. Part II：地域間横断比較</h2>
+<hr />
+<h3 id="6-1-心膜剥皮術の適応">6-1. 心膜剥皮術の適応</h3>
+<table>
+<thead>
+<tr>
+<th>適応</th>
+<th>🇪🇺 ESC 2025</th>
+<th>🇺🇸 ACC 2025</th>
+<th>🇺🇸 JACC 2024 SOTA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>慢性CP（非炎症性、線維化／石灰化）</strong></td>
+<td><strong>I, C</strong></td>
+<td><strong>Recommended</strong></td>
+<td><strong>適応</strong>（NYHA III/IV）</td>
+</tr>
+<tr>
+<td><strong>3〜6ヵ月の抗炎症療法不応の炎症性CP</strong></td>
+<td><strong>I, C</strong></td>
+<td><strong>Recommended</strong></td>
+<td><strong>適応</strong>（subacute refractory）</td>
+</tr>
+<tr>
+<td><strong>症状ある transient CP</strong></td>
+<td><strong>抗炎症療法 3〜6ヵ月を先行</strong>（I, C）</td>
+<td><strong>抗炎症療法 First-line</strong>（Recommended）</td>
+<td><strong>CMRで可逆性評価後、薬物先行</strong></td>
+</tr>
+<tr>
+<td><strong>内科治療抵抗性 RP</strong></td>
+<td>言及あり（Section 6.4.2.3、本文）、推奨表に<strong>独立記載なし</strong></td>
+<td>言及なし（CPに焦点）</td>
+<td><strong>適応</strong>（Table 3 ②）</td>
+</tr>
+<tr>
+<td><strong>ECP の難治例（visceral pericardiectomy 必要）</strong></td>
+<td>「Surgery for persistent cases」（Table 18）</td>
+<td>言及あり（本文）</td>
+<td>「Pericardiectomy with extensive epicardiectomy」が必要</td>
+</tr>
+<tr>
+<td><strong>心膜部分欠損 + 心臓ヘルニア</strong></td>
+<td>言及あり（Section 5）</td>
+<td>言及あり</td>
+<td><strong>適応</strong>（Table 3 ③）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">適応合意点</div>
+<p>3文書すべてで以下に合意：</p>
+<ol type="1">
+<li><strong>慢性 fibrotic CP（NYHA III/IV）は心膜剥皮術の絶対適応</strong></li>
+<li><strong>Transient（inflammatory, CMR LGE+）CP は抗炎症療法を3〜6ヵ月先行</strong>し、不応例のみ手術</li>
+<li>ECPは<strong>心膜穿刺＋抗炎症療法</strong>を先行、visceral収縮残存例のみ手術</li>
+<li><strong>Mixed CP/RCM</strong>は慎重な選択。post-radiation で最も多い</li>
+</ol>
+</div>
+
+<hr />
+<h3 id="6-2-剥皮範囲radical-vs-completetotal-vs-partial">6-2. 剥皮範囲（radical vs complete/total vs partial）</h3>
+<table>
+<thead>
+<tr>
+<th>剥皮範囲</th>
+<th>🇪🇺 ESC 2025</th>
+<th>🇺🇸 ACC 2025</th>
+<th>🇺🇸 JACC 2024 SOTA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Radical / Complete pericardiectomy</strong><br>（前面＋後面＋横隔面、横隔神経まで）</td>
+<td><strong>「complete を推奨」</strong>（本文）</td>
+<td><strong>Recommended</strong></td>
+<td><strong>「preferred approach」</strong>（Central Illustration）</td>
+</tr>
+<tr>
+<td><strong>Partial pericardiectomy</strong></td>
+<td>「再収縮リスク高い、長期成績劣る」（本文）</td>
+<td><strong>「Not recommended」</strong>（推奨表で明記）</td>
+<td>言及されるが、radical/complete が標準</td>
+</tr>
+<tr>
+<td><strong>Waffle procedure</strong></td>
+<td>「一時的改善のみ、再収縮率高い」</td>
+<td>言及限定的</td>
+<td>言及あり、剥離面なし時の便宜</td>
+</tr>
+</tbody>
+</table>
+<p><strong>裏付けエビデンス（Koprivanac 2026 Cleveland propensity-matched study, N=89 pairs）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>Radical</th>
+<th>Partial</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>術後 cardiac index 増加（L/min/m²）</td>
+<td><strong>+1.2</strong>（IQR 0.8–1.7）</td>
+<td>+0.5（IQR 0.1–1.0）</td>
+<td>&lt;.001</td>
+</tr>
+<tr>
+<td>術後 CVP 低下（mmHg）</td>
+<td><strong>−12</strong>（SD 5.8）</td>
+<td>−4.8（SD 5.0）</td>
+<td>&lt;.001</td>
+</tr>
+<tr>
+<td>手術死亡率</td>
+<td><strong>3.4%</strong></td>
+<td>17%</td>
+<td><strong>.0029</strong></td>
+</tr>
+<tr>
+<td>5年生存率</td>
+<td><strong>78%</strong></td>
+<td>46%</td>
+<td>&lt;.001（log-rank）</td>
+</tr>
+<tr>
+<td>10年生存率</td>
+<td><strong>61%</strong></td>
+<td>22%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>早期 HR（vs partial）</td>
+<td>reference</td>
+<td><strong>4.2</strong>（95% CI 2.2–8.2）</td>
+<td>—</td>
+</tr>
+<tr>
+<td>晩期 HR（vs partial）</td>
+<td>reference</td>
+<td><strong>3.1</strong>（95% CI 2.1–4.6）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Radical vs Complete vs Total の用語混乱に注意</div>
+<ul>
+<li>ESC 2025は <strong>「complete」</strong> を主に使用</li>
+<li>ACC 2025は <strong>「radical surgical pericardiectomy」</strong> を主に使用</li>
+<li>Cleveland Clinic（JACC 2024 SOTA, Koprivanac 2026）は <strong>「radical」</strong>（横隔神経完全 skeletonization）を最も広範な切除として定義</li>
+<li>Mayo Clinic（Murashita 2017）は <strong>「complete」</strong> という用語を使用するが切除範囲は radical に近い</li>
+</ul>
+</div>
+>
+> **論文を比較する際は施設の定義を確認すること。** Krzelj 2026 SOTA Table 1（術式分類）が現時点で最も整理された定義。
+
+<hr />
+<h3 id="6-3-人工心肺cpb使用の是非">6-3. 人工心肺（CPB）使用の是非</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 ESC 2025</th>
+<th>🇺🇸 ACC 2025</th>
+<th>🇺🇸 JACC 2024 SOTA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CPB使用</strong></td>
+<td>「特定シナリオで必要」（限定推奨）</td>
+<td><strong>「Preferred approach」</strong>（Summary Graphic）</td>
+<td><strong>「Preferred」</strong>（Central Illustration）</td>
+</tr>
+<tr>
+<td><strong>2015年版からの変化</strong></td>
+<td>2015年版「困難な出血制御時のみ」→ 2025年版で<strong>緩和</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>積極使用の根拠</strong></td>
+<td>dense adhesions、後面剥離時の心臓挙上、calcific CP with myocardial involvement、同時心臓手術</td>
+<td>後面剥皮の完遂・心筋損傷予防</td>
+<td>心臓減圧、血行動態安定、完全切除、経験少ない術者にも有用</td>
+</tr>
+<tr>
+<td><strong>使用の欠点</strong></td>
+<td>全ヘパリン化による出血傾向</td>
+<td>同左</td>
+<td>輸血・再開胸出血増加</td>
+</tr>
+</tbody>
+</table>
+<p><strong>裏付けエビデンス：</strong></p>
+<table>
+<thead>
+<tr>
+<th>研究</th>
+<th>N</th>
+<th>CPB使用率</th>
+<th>CPBあり死亡率</th>
+<th>CPBなし死亡率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mayo Murashita 2017（contemporary）</td>
+<td>807</td>
+<td>62.7%</td>
+<td>（HR 2.21 vs 非CPB, p=0.030 単変量；多変量 HR 1.35, p=0.014）</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Cleveland Koprivanac 2026（全コホート）</td>
+<td>534</td>
+<td>77%（413/534）</td>
+<td>5.8%（24/413）</td>
+<td>4.1%（5/121）, p=0.47</td>
+</tr>
+<tr>
+<td><strong>propensity-matched radical w/ vs w/o CPB</strong></td>
+<td>46 pairs</td>
+<td>—</td>
+<td>同等（差なし）</td>
+<td>同等</td>
+</tr>
+<tr>
+<td>NCVC Saito 2022</td>
+<td>44</td>
+<td>13.6%（6/44）</td>
+<td>0%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>Cleveland radical w/ CPB（time trend）</td>
+<td>—</td>
+<td>60% → 95%（2000→2022）</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">CPBに関する近年のパラダイムシフト</div>
+<p>2015年 ESCガイドラインは「avoidance of CPB」を推奨していたが、最近の大規模コホート（Cleveland 534例、Mayo 807例）で <strong>CPB使用は独立した死亡リスクと関連しない</strong>ことが示され、<strong>2025年 ESC ガイドラインで方針転換</strong>。<br />
+Cleveland Clinic では2000年に60%だった radical pericardiectomy の比率が<strong>2022年には95%に上昇</strong>し、同時に CPB使用率も<strong>100%近くに到達</strong>している。</p>
+</div>
+
+<hr />
+<h3 id="6-4-手術タイミング早期-vs-待機">6-4. 手術タイミング（早期 vs 待機）</h3>
+<table>
+<thead>
+<tr>
+<th>タイミング</th>
+<th>🇪🇺 ESC 2025</th>
+<th>🇺🇸 ACC 2025</th>
+<th>🇺🇸 JACC 2024 SOTA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>症状発症から6ヵ月以内の早期手術</strong></td>
+<td>**「最低手術死亡率と関連」**と明記</td>
+<td>アルゴリズム上、refractory subacute → 早期手術へ</td>
+<td><strong>「Early referral is key」</strong></td>
+</tr>
+<tr>
+<td><strong>不可逆所見出現前の手術</strong></td>
+<td>心筋萎縮を伴う前</td>
+<td>end-stage（cardiac cirrhosis, malnutrition）前</td>
+<td>end-organ damage 前</td>
+</tr>
+<tr>
+<td><strong>transient CPでの先行薬物療法</strong></td>
+<td>3〜6ヵ月</td>
+<td>3〜6ヵ月（CRP正常化・症状軽快まで）</td>
+<td>3〜6ヵ月、anti-IL-1 escalation considered</td>
+</tr>
+</tbody>
+</table>
+<p><strong>裏付けエビデンス（Murashita 2017 Mayo, contemporary era N=807）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>30日死亡 因子（univariate）</th>
+<th>HR (95% CI)</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NYHA III vs I-II</td>
+<td>5.79（0.77–43.64）</td>
+<td>&lt;0.001（grouped）</td>
+</tr>
+<tr>
+<td>NYHA IV vs I-II</td>
+<td><strong>22.29</strong>（3.02–164.50）</td>
+<td>&lt;0.001（grouped）</td>
+</tr>
+<tr>
+<td>緊急手術 vs 待機</td>
+<td><strong>3.91</strong>（2.08–7.35）</td>
+<td>&lt;0.001</td>
+</tr>
+<tr>
+<td>透析</td>
+<td>3.56（1.10–11.54）</td>
+<td>0.023</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">「Earlier is better」の臨床判断</div>
+<p>3文書とも一致：「<strong>症状ある慢性CPは進行性疾患</strong>であり、肝うっ血・栄養障害・低拍出に至る前に手術へ向かう」。<br />
+<strong>Murashita 2017 の NYHA IV における 30日死亡 HR=22.3</strong> は劇的な悪化を示し、待機して NYHA進行を許してはならないことを意味する。</p>
+</div>
+
+<hr />
+<h3 id="6-5-同時三尖弁手術の適応">6-5. 同時三尖弁手術の適応</h3>
+<table>
+<thead>
+<tr>
+<th>適応</th>
+<th>🇪🇺 ESC 2025</th>
+<th>🇺🇸 ACC 2025</th>
+<th>🇺🇸 JACC 2024 SOTA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CP + 重度TR（severe）</strong></td>
+<td><strong>I, C</strong>（同時形成術を推奨）</td>
+<td>明示的記載なし（本文で言及）</td>
+<td><strong>「Prophylactic annuloplasty for moderate-or-greater TR」</strong></td>
+</tr>
+<tr>
+<td><strong>中等度TR</strong></td>
+<td>同時形成検討</td>
+<td>同左</td>
+<td>同左</td>
+</tr>
+<tr>
+<td><strong>TR形成術の閾値</strong></td>
+<td>「more than mild」</td>
+<td>—</td>
+<td><strong>「moderate-or-greater」</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>裏付けエビデンス：</strong></p>
+<ul>
+<li>心膜剥皮術後に <strong>約50%でTRが悪化</strong>（Tabucanon 2021）。CP切除により外的拘束効果が失われ、annular dilation を生じるため</li>
+<li>TR悪化群は<strong>生存率低下</strong>と関連</li>
+<li>同時三尖弁形成術は本体手術への追加リスク低く、Mayo / Cleveland いずれも liberal policy を採用</li>
+<li>Mayo Murashita 2017 contemporary era：concomitant tricuspid valve operations 12.4%</li>
+</ul>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">CP + TR の特有病態</div>
+<p>CPでは右側圧上昇による annular dilation、leaflet tethering によりTRを生じる。心膜という外的拘束を剥離すると <strong>RV/RA急性拡張で TR悪化</strong>。<strong>胸腔開放中の同時形成は安全</strong>で、再手術を避けるためにも積極推奨される。</p>
+</div>
+
+<hr />
+<h3 id="6-6-再発性心膜炎rpに対する心膜剥皮術">6-6. 再発性心膜炎（RP）に対する心膜剥皮術</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 ESC 2025</th>
+<th>🇺🇸 ACC 2025</th>
+<th>🇺🇸 JACC 2024 SOTA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RPへの心膜剥皮術の位置づけ</strong></td>
+<td>「Refractory RP は可能な適応」と Section 6.4.2.3 本文に記載。<strong>推奨表に独立記載なし</strong></td>
+<td>CP focusのため言及限定</td>
+<td><strong>適応として明記</strong>（Table 3 ②）</td>
+</tr>
+<tr>
+<td><strong>抗IL-1薬の事前トライ</strong></td>
+<td>rilonacept / anakinra を内科治療抵抗性 RPの選択肢として明記</td>
+<td>rilonacept / anakinra を<strong>2nd or 3rd line</strong></td>
+<td>rilonacept / anakinra <strong>十分なトライ後</strong>に手術</td>
+</tr>
+<tr>
+<td><strong>タイミング</strong></td>
+<td>「最低6ヵ月の症状期間」相当</td>
+<td>抗炎症療法不応・依存・不耐後</td>
+<td>同左、早期紹介推奨</td>
+</tr>
+</tbody>
+</table>
+<p><strong>裏付けエビデンス（Khandaker 2012 Mayo / Gillaspie 2016 Mayo RP cohort N=184）：</strong></p>
+<ul>
+<li>周術期死亡率 <strong>0%</strong></li>
+<li>主要合併症 3%</li>
+<li>平均追跡 5.5 ± 3.5年</li>
+<li>「<strong>安全かつ有効な治療法</strong>で、抗IL-1薬の長期使用・有害事象を回避できる」</li>
+</ul>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">RPに対する心膜剥皮術 — 米国と欧州のスタンス差</div>
+<ul>
+<li><strong>JACC 2024 SOTA（米）</strong>：RPは心膜剥皮術の<strong>明示的な適応</strong>として Table 3 に記載</li>
+<li><strong>ESC 2025（欧）</strong>：Refractory RPを本文で言及するが推奨表に独立記載なし、 anti-IL-1 を優先</li>
+<li><strong>背景</strong>：rilonacept・anakinra の費用、依存性、感染リスク、止め時の再発を考慮し、米国主要施設では<strong>早期外科介入</strong>の傾向が強まりつつある</li>
+</ul>
+</div>
+
+<hr />
+<h3 id="6-7-滲出性収縮性心膜炎ecp">6-7. 滲出性収縮性心膜炎（ECP）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 ESC 2025</th>
+<th>🇺🇸 ACC 2025</th>
+<th>🇺🇸 JACC 2024 SOTA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>第一治療</strong></td>
+<td>心膜穿刺＋抗炎症療法</td>
+<td>心膜穿刺＋抗炎症療法</td>
+<td>心膜穿刺＋抗炎症療法</td>
+</tr>
+<tr>
+<td><strong>手術適応</strong></td>
+<td>「Persistent cases」に手術（Table 18）</td>
+<td>抵抗例に visceral pericardiectomy</td>
+<td><strong>Visceral pericardiectomy with extensive epicardiectomy</strong> が必要</td>
+</tr>
+<tr>
+<td><strong>手術頻度</strong></td>
+<td>比較的稀（先進国でidiopathic多）</td>
+<td>同左</td>
+<td>1〜2%（pericardiocentesis全体に対するECP発生率）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>特殊な術中所見：</strong></p>
+<ul>
+<li>ECPでは visceral 心膜（epicardium）が心筋に強固に癒着</li>
+<li>Parietal 心膜のみの剥皮では不十分（<strong>残存 visceral 収縮</strong>）</li>
+<li><strong>Epicardial inflammatory rind</strong> に対して「checkerboard」technique（島状切開）で対応（JACC 2024 SOTA, Figure 5）</li>
+</ul>
+<hr />
+<h3 id="6-8-心膜剥皮術の禁忌相対的適応外">6-8. 心膜剥皮術の禁忌・相対的適応外</h3>
+<table>
+<thead>
+<tr>
+<th>禁忌・相対的適応外</th>
+<th>🇪🇺 ESC 2025</th>
+<th>🇺🇸 ACC 2025</th>
+<th>🇺🇸 JACC 2024 SOTA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>重度肝機能障害（cirrhosis + ascites）</strong></td>
+<td>明示</td>
+<td>言及</td>
+<td><strong>Child-Pugh B/C（score ≥7）または MELD-XI 13.7–30.6で慎重評価</strong></td>
+</tr>
+<tr>
+<td><strong>コントロール不能感染／敗血症</strong></td>
+<td>明示</td>
+<td>言及</td>
+<td>言及</td>
+</tr>
+<tr>
+<td><strong>生命予後限定的疾患</strong>（進行癌等）</td>
+<td>明示</td>
+<td>言及</td>
+<td>言及</td>
+</tr>
+<tr>
+<td><strong>Mixed CP/RCM with severe myocardial involvement</strong></td>
+<td>心臓移植考慮</td>
+<td>言及</td>
+<td><strong>限定的効果、慎重選択</strong></td>
+</tr>
+<tr>
+<td><strong>End-stage CP</strong>（cachexia, anasarca, CI&lt;1.2）</td>
+<td>明示</td>
+<td>言及</td>
+<td>**明示的に「Limited benefit」**として記載</td>
+</tr>
+<tr>
+<td><strong>NYHA I-II で内科治療反応良好</strong></td>
+<td>—</td>
+<td>—</td>
+<td><strong>CPETで再層別化</strong>を推奨</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MELD-XIスコアと術後成績（Diaz Soto 2021, N=226）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>MELD-XI tertile</th>
+<th>90日死亡率</th>
+<th>術後腎不全</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第1（3.3–10）</td>
+<td>2.7%</td>
+<td>5.3%</td>
+</tr>
+<tr>
+<td>第2（10.4–13.6）</td>
+<td>8.2%</td>
+<td>6.6%</td>
+</tr>
+<tr>
+<td>第3（<strong>13.7–30.6</strong>）</td>
+<td><strong>16.0%</strong></td>
+<td><strong>20.3%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Child-Pugh と5年生存率：</strong></p>
+<ul>
+<li>Class A（&lt;7）：80.8%</li>
+<li><strong>Class B（≥7）：37.9%</strong></li>
+</ul>
+<hr />
+<h2 id="7-周術期管理術後低拍出症候群lcosrv管理">7. 周術期管理：術後低拍出症候群（LCOS）・RV管理</h2>
+<p>3文書すべてが<strong>術後LCOS</strong>を心膜剥皮術後の最重要合併症として位置付けている。</p>
+<h3 id="7-1-lcosの病態">7-1. LCOSの病態</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>発症率</strong></td>
+<td><strong>12–28%</strong>（Krzelj 2026 SOTA）</td>
+</tr>
+<tr>
+<td><strong>病態</strong></td>
+<td>心膜という外的拘束を急激に除去 → <strong>急激な前負荷増加 → RV/LV過拡張 → 駆出力低下 → 体循環低灌流</strong></td>
+</tr>
+<tr>
+<td><strong>特徴</strong></td>
+<td>他の心臓手術の LCOS（虚血性）と異なり、<strong>過拡張が主因</strong>。容量負荷ではなく<strong>容量制限が原則</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-2-周術期管理プロトコル3文書共通">7-2. 周術期管理プロトコル（3文書共通）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>管理目標</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RAP</strong></td>
+<td><strong>&lt;12 mmHg</strong>（容量制限）</td>
+</tr>
+<tr>
+<td><strong>CI</strong></td>
+<td><strong>1.8–2.2 L/min/m²</strong>（術前より少し高めを初期目標、徐々に正常化を待つ）</td>
+</tr>
+<tr>
+<td><strong>輸液</strong></td>
+<td><strong>Dry and tight</strong>：最小限。コロイド・血液製剤優先</td>
+</tr>
+<tr>
+<td><strong>昇圧</strong></td>
+<td>低用量 inotrope（適応時）。重度収縮例では数日の inotropic support</td>
+</tr>
+<tr>
+<td><strong>AVペーシング</strong></td>
+<td>心房ペーシングで stroke volume と CO 最適化</td>
+</tr>
+<tr>
+<td><strong>MCS</strong></td>
+<td>進行性 LCOS には<strong>早期 ECMO/VA-ECMO</strong>（場合により LV vent）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">LCOSの致死率</div>
+<p>Krzelj 2026 SOTA：「LCOSは<strong>最も多い周術期死亡原因</strong>であり、容量過負荷の予防が予後を決定する」。早期 ECMO 導入の閾値を低くすることが<strong>救命に直結</strong>する。</p>
+</div>
+
+<h3 id="7-3-その他の周術期合併症">7-3. その他の周術期合併症</h3>
+<table>
+<thead>
+<tr>
+<th>合併症</th>
+<th>頻度・対応</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>新規心房細動</strong>（NOAF）</td>
+<td>30–40%。レート／リズム管理</td>
+</tr>
+<tr>
+<td><strong>再開胸出血</strong></td>
+<td>CPB群で増加（Cleveland 3.4% with CPB vs 0% without）</td>
+</tr>
+<tr>
+<td><strong>Vasoplegia</strong></td>
+<td>特に<strong>肝硬変患者</strong>で顕著、数日間昇圧</td>
+</tr>
+<tr>
+<td><strong>横隔神経麻痺</strong></td>
+<td>脂肪柄温存で予防（NCVC 2022 で1例）</td>
+</tr>
+<tr>
+<td><strong>腎不全（透析必要）</strong></td>
+<td>MELD-XI高値で増加</td>
+</tr>
+<tr>
+<td><strong>呼吸不全（人工呼吸延長）</strong></td>
+<td>心筋萎縮例で多い</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-術後成績原因別術式別施設別生存率">8. 術後成績：原因別・術式別・施設別生存率</h2>
+<h3 id="8-1-原因別の周術期長期成績murashita-2017-mayo-1066例-contemporary-era-n807-multivariate">8-1. 原因別の周術期・長期成績（Murashita 2017 Mayo 1066例, contemporary era N=807, multivariate）</h3>
+<table>
+<thead>
+<tr>
+<th>病因</th>
+<th>比率（contemporary）</th>
+<th>30日死亡 HR</th>
+<th>全死亡 HR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Idiopathic</td>
+<td>55.4%</td>
+<td>reference</td>
+<td>reference</td>
+</tr>
+<tr>
+<td><strong>Postoperative</strong></td>
+<td>32.3%</td>
+<td>1.59（0.77–3.30）</td>
+<td><strong>1.47</strong>（1.14–1.88, p&lt;0.001）</td>
+</tr>
+<tr>
+<td><strong>Postradiation</strong></td>
+<td>11.4%</td>
+<td><strong>4.35</strong>（2.07–9.15, p&lt;0.001）</td>
+<td><strong>3.93</strong>（2.81–5.49, p&lt;0.001）</td>
+</tr>
+<tr>
+<td>Other（TB, sarcoid等）</td>
+<td>0.9%</td>
+<td>—</td>
+<td>4.33（1.73–10.84）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-2-大規模施設別の長期生存率">8-2. 大規模施設別の長期生存率</h3>
+<table>
+<thead>
+<tr>
+<th>施設・コホート</th>
+<th>N</th>
+<th>期間</th>
+<th>周術期死亡</th>
+<th>5年生存</th>
+<th>10年生存</th>
+<th>注釈</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mayo Clinic — Murashita 2017</strong></td>
+<td>1,066</td>
+<td>1936–2013</td>
+<td>13.5% (historical) → <strong>5.2% (contemporary)</strong></td>
+<td>63.4% (contemporary)<br>71.0% (historical)</td>
+<td>46.0% (contemporary)</td>
+<td>8 decades. 30日死亡半減、長期は contemporary で nonidiopathic 増のため低下</td>
+</tr>
+<tr>
+<td><strong>Mayo Clinic — Gillaspie 2016</strong>（isolated pericardiectomy）</td>
+<td>521</td>
+<td>1993–2013</td>
+<td>—</td>
+<td><strong>80%</strong>（NYHA III/IV-free）</td>
+<td><strong>78%</strong>（NYHA III/IV-free）</td>
+<td>isolated case のみ</td>
+</tr>
+<tr>
+<td><strong>Cleveland Clinic — Koprivanac 2026</strong></td>
+<td>534</td>
+<td>2000–2022</td>
+<td><strong>3.4% (radical) vs 17% (partial)</strong></td>
+<td><strong>78% (radical) vs 46% (partial)</strong></td>
+<td><strong>61% (radical) vs 22% (partial)</strong></td>
+<td>Propensity-matched 89 pairs</td>
+</tr>
+<tr>
+<td><strong>Cleveland — recurrent pericarditis（Khandaker 2012）</strong></td>
+<td>184</td>
+<td>—</td>
+<td><strong>0%</strong></td>
+<td>—</td>
+<td>—</td>
+<td>平均追跡 5.5年</td>
+</tr>
+<tr>
+<td><strong>NCVC Japan — Saito 2022</strong></td>
+<td>44</td>
+<td>2000–2020</td>
+<td><strong>0%</strong></td>
+<td><strong>94.8%</strong></td>
+<td><strong>72.6%</strong></td>
+<td>95% sternotomy, 68% radical, 14% CPB</td>
+</tr>
+<tr>
+<td><strong>Montreal Heart — Vistarini 2015</strong></td>
+<td>—</td>
+<td>24年</td>
+<td>—</td>
+<td>79.4%</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>China Single Center — Li 2024</strong></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-3-全体的傾向">8-3. 全体的傾向</h3>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">30日死亡率の時代推移と内訳</div>
+<ul>
+<li><strong>Mayo 1936–1989</strong>：13.5%</li>
+<li><strong>Mayo 1990–2013</strong>：5.2%</li>
+<li><strong>Cleveland 2000–2022 radical</strong>：3.4%</li>
+<li><strong>NCVC 2000–2020</strong>：<strong>0%</strong></li>
+</ul>
+</div>
+>
+> 周術期死亡の半減は (1) 早期診断、(2) 完全剥皮の徹底、(3) CPB積極使用、(4) 周術期管理の進歩、(5) 患者選択（end-stage手術回避）による。**Idiopathic単独であれば現代の専門施設では <1.5–3.4%**。
+
+<hr />
+<h2 id="9-日本における現状ncvcjatsの位置づけ">9. 日本における現状（NCVC・JATSの位置づけ）</h2>
+<h3 id="9-1-日本における-cp診療のガイドライン上のギャップ">9-1. 日本における CP診療のガイドライン上のギャップ</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>現状</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>JCS 心膜疾患ガイドライン</strong></td>
+<td><strong>存在しない</strong>（2026年5月時点）</td>
+</tr>
+<tr>
+<td><strong>JATS（日本心臓血管外科学会）の指針</strong></td>
+<td>心膜剥皮術に関する独立した指針なし</td>
+</tr>
+<tr>
+<td><strong>JCS 2025 心不全診療ガイドライン</strong></td>
+<td>CPは右心不全の鑑別として記載のみ</td>
+</tr>
+<tr>
+<td><strong>国内臨床実践の根拠</strong></td>
+<td>ESC 2015/2025、AHA関連文書、各施設の経験を組み合わせる</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-2-ncvc-2022-saito-et-al--日本最大単施設経験">9-2. NCVC 2022 Saito et al. — 日本最大単施設経験</h3>
+<p><strong>コホート特性：</strong></p>
+<ul>
+<li>44例（2000–2020、20年間）</li>
+<li>病因：<strong>特発性 59%、術後 32%、結核 7%、放射線後 2.3%</strong>（米国に比べ術後＝心臓手術後の比率高い、放射線後は稀）</li>
+<li>年齢中央値 64歳、男性 79.5%、NYHA III/IV 35%</li>
+<li>術前 BNP中央値 152 pg/mL、心房細動 27%</li>
+</ul>
+<p><strong>術式・手技：</strong></p>
+<ul>
+<li><strong>正中胸骨切開 95%</strong>、左前側方開胸 5%（既往CABG例）</li>
+<li><strong>Radical pericardiectomy 68%</strong>（28/44）</li>
+<li><strong>CPB使用 14%</strong>（術中出血・血行動態不安定・重度石灰化の場合）</li>
+<li>同時心外膜切除 49%</li>
+</ul>
+<p><strong>Tagged cine MRIの活用：</strong></p>
+<ul>
+<li>心膜厚 detection 感度 <strong>97.2%</strong></li>
+<li>心膜癒着の <strong>circumferential adhesion</strong> を 94.4% で検出</li>
+<li><strong>日本独自の運用</strong>（他国の主要施設ではあまり採用されていない）</li>
+</ul>
+<p><strong>成績：</strong></p>
+<ul>
+<li><strong>院内死亡 0%</strong></li>
+<li>晩期死亡 7例（15.9%）、追跡中央値 6.4年</li>
+<li><strong>5年／10年／15年生存率：94.8% / 72.6% / 66.5%</strong></li>
+<li>HF再入院 7例</li>
+<li>完全剥皮（28例）と不完全剥皮（16例）の <strong>HF再入院フリー生存率</strong>（5/10/15年）：
+<ul>
+<li>完全剥皮：<strong>100% / 100% / 88.9%</strong></li>
+<li>不完全剥皮：44.9% / 44.9% / 44.9%</li>
+<li><strong>log-rank p=0.0001</strong></li>
+</ul></li>
+<li>多変量解析の長期死亡リスク：preop low LVEF（HR 8.6）</li>
+<li>HF再入院リスク：不完全剥皮（HR 26.7）、preop inotrope（HR 43.7）</li>
+</ul>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">NCVC 2022 の示唆</div>
+<ul>
+<li><strong>特発性比率が高い日本</strong> では Mayo/Cleveland に匹敵する優れた成績が得られる</li>
+<li><strong>Tagged cine MRI</strong> は心筋－心膜接着の評価に有用で、不完全剥皮による予後不良を防ぐツールとなり得る</li>
+<li><strong>「Pericardiectomy should be performed early and as radically as possible to prevent recurrent heart failure」</strong>（Saito結論）は ESC 2025・ACC 2025 と完全一致</li>
+</ul>
+</div>
+
+<h3 id="9-3-日本における今後の課題">9-3. 日本における今後の課題</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JCS / JATS への期待</div>
+<p>国際ガイドライン（ESC 2025・ACC 2025）の発行を受けて、日本でも以下の取り組みが望まれる：</p>
+<ol type="1">
+<li><strong>JCS 心膜疾患ガイドライン</strong>の策定（または JCS 心不全ガイドライン内での CP独立章設置）</li>
+<li><strong>JATS 国内サーベイ</strong>：本邦における心膜剥皮術の症例数・成績・術式の標準化</li>
+<li><strong>抗IL-1薬（rilonacept, anakinra）の日本での適応外使用</strong>に関する学会推奨</li>
+<li><strong>PDC（Pericardial Diseases Center）モデル</strong>の日本での確立（現在は NCVC、東大、阪大、北大等の心臓血管外科に分散）</li>
+</ol>
+</div>
+
+<hr />
+<h2 id="10-まとめ総括">10. まとめ・総括</h2>
+<h3 id="10-1-3文書の主要合意点">10-1. 3文書の主要合意点</h3>
+<table>
+<thead>
+<tr>
+<th>領域</th>
+<th>3文書共通の推奨</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>慢性CP（NYHA III/IV）に対する治療</strong></td>
+<td><strong>根治的心膜剥皮術（radical / complete）が唯一の根治治療</strong></td>
+</tr>
+<tr>
+<td><strong>Transient（炎症性）CPの初期治療</strong></td>
+<td><strong>抗炎症療法 3〜6ヵ月</strong>（NSAID＋コルヒチン±ステロイド／抗IL-1）→ 不応例のみ手術</td>
+</tr>
+<tr>
+<td><strong>剥皮範囲</strong></td>
+<td><strong>Partial pericardiectomy は再収縮率高く成績不良 → 推奨されない</strong></td>
+</tr>
+<tr>
+<td><strong>手術タイミング</strong></td>
+<td><strong>早期手術が最低死亡率</strong>（症状発症から6ヵ月以内、end-stage前）</td>
+</tr>
+<tr>
+<td><strong>同時三尖弁手術</strong></td>
+<td><strong>moderate以上のTR → 同時形成術</strong>を推奨</td>
+</tr>
+<tr>
+<td><strong>ECP</strong></td>
+<td>心膜穿刺＋抗炎症療法を先行、抵抗例で visceral pericardiectomy</td>
+</tr>
+<tr>
+<td><strong>専門センター紹介</strong></td>
+<td>全例で <strong>心膜疾患専門センター（PDC）／高ボリューム施設</strong>への紹介推奨</td>
+</tr>
+<tr>
+<td><strong>画像診断の中心</strong></td>
+<td>TTE → CMR（炎症評価）→ CT（石灰化・術前評価）→ 必要時 RHC/LHC</td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-2-3文書の主要相違点">10-2. 3文書の主要相違点</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>ESC 2025</th>
+<th>ACC 2025</th>
+<th>JACC 2024 SOTA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Partial pericardiectomy</strong></td>
+<td>「劣る」（本文）</td>
+<td><strong>Not recommended</strong>（推奨表で明記）</td>
+<td>radical 推奨</td>
+</tr>
+<tr>
+<td><strong>CPB</strong></td>
+<td>「特定シナリオで」（限定的推奨）</td>
+<td><strong>「Preferred」</strong></td>
+<td><strong>「Preferred」</strong></td>
+</tr>
+<tr>
+<td><strong>RP（再発性心膜炎）への手術</strong></td>
+<td>本文言及、独立推奨表なし</td>
+<td>CP focus</td>
+<td><strong>Table 3で独立適応</strong></td>
+</tr>
+<tr>
+<td><strong>抗IL-1薬の位置づけ</strong></td>
+<td>慎重</td>
+<td>2nd or 3rd line</td>
+<td>十分なトライ後の手術へ</td>
+</tr>
+<tr>
+<td><strong>用語</strong></td>
+<td>「complete」</td>
+<td>「radical」</td>
+<td>「radical」</td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-3-日本における推奨される実践本資料の総括的提言">10-3. 日本における推奨される実践（本資料の総括的提言）</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">日本のCP診療のための実践的アプローチ</div>
+<ol type="1">
+<li><strong>TTE + CMR + CT</strong> によるマルチモダリティ画像診断を標準化（NCVCの tagged cine MRIは有用なオプション）</li>
+<li><strong>Transient CPは抗炎症療法 3〜6ヵ月</strong> を先行。CMR LGE+ と CRP上昇で見極め</li>
+<li><strong>慢性CPは radical pericardiectomy</strong> を高ボリューム施設で施行。CPB は積極使用</li>
+<li><strong>症状発症から6ヵ月以内</strong>を目安に、NYHA進行・肝うっ血・腎機能低下前に手術へ</li>
+<li><strong>同時三尖弁形成術</strong> を moderate-or-greater TR で考慮</li>
+<li><strong>MELD-XI ≥13.7 または Child-Pugh ≥7</strong> は慎重評価、緩和医療も含めた多職種検討</li>
+<li><strong>post-radiation CP</strong> は mixed CP/RCM の可能性を CMR で評価、心臓移植も視野に</li>
+<li><strong>PDC的体制</strong>（循環器内科・心臓血管外科・放射線科・リウマチ科・腎臓内科・肝臓内科の横断診療）を施設内に構築</li>
+</ol>
+</div>
+
+<h3 id="10-4-領域横断的なメッセージ">10-4. 領域横断的なメッセージ</h3>
+<ul>
+<li><strong>CPは「忘れられた可逆的心不全」</strong>：右心不全症状＋拡張障害でCPを常に鑑別に置く</li>
+<li><strong>CMR は CP診療を変えた</strong>：transient CPの可逆性評価、mixed CP/RCMの鑑別、術前選択の精緻化</li>
+<li>**「Radical, early, at high-volume center」**が現代の3原則</li>
+<li><strong>抗IL-1薬の登場で RP管理は変革</strong>：但し費用・依存性・感染リスクから、適応のある症例は外科適応へ早期紹介</li>
+<li><strong>日本のガイドライン整備は急務</strong>：ESC 2025 / ACC 2025 をベースに JCSによる本邦版の策定が望まれる</li>
+</ul>
+<hr />
+<p><strong>作成参考文献：</strong></p>
+<ol type="1">
+<li>Schulz-Menger J, Collini V, Gröschel J, et al. 2025 ESC Guidelines for the management of myocarditis and pericarditis. <em>Eur Heart J</em> 2025;46:3952–4041.</li>
+<li>Wang TKM, Klein AL, Cremer PC, Imazio M, Kohnstamm S, Luis SA, et al. 2025 Concise Clinical Guidance: An ACC Expert Consensus Statement on the Diagnosis and Management of Pericarditis. <em>J Am Coll Cardiol</em> 2025;86:2691–2719.</li>
+<li>Al-Kazaz M, Klein AL, Oh JK, Crestanello JA, Cremer PC, Tong MZ, Koprivanac M, Fuster V, El-Hamamsy I, Adams DH, Johnston DR. Pericardial Diseases and Best Practices for Pericardiectomy: JACC State-of-the-Art Review. <em>J Am Coll Cardiol</em> 2024;84:561–580.</li>
+<li>Krzelj K, Bakaeen MR, Wang TKM, Klein AL, et al. Pericardiectomy for Constrictive and Recurrent Pericarditis: State of the Art Update. <em>Curr Cardiol Rep</em> 2026;28:14.</li>
+<li>Saito T, Fukushima S, Yamasaki T, et al. Pericardiectomy for constrictive pericarditis at a single Japanese center: 20 years of experience. <em>Gen Thorac Cardiovasc Surg</em> 2022;70:430–438.</li>
+<li>Murashita T, Schaff HV, Daly RC, Oh JK, Dearani JA, Stulak JM, et al. Experience With Pericardiectomy for Constrictive Pericarditis Over Eight Decades. <em>Ann Thorac Surg</em> 2017;104:742–750.</li>
+<li>Koprivanac M, Bauza K, Smedira N, Pettersson G, Unai S, et al. Radical Pericardiectomy and Use of Cardiopulmonary Bypass for Constrictive Pericarditis. <em>Ann Thorac Surg</em> 2026;121:871–880.</li>
+<li>Adler Y, Charron P, Imazio M, et al. 2015 ESC Guidelines for the diagnosis and management of pericardial diseases. <em>Eur Heart J</em> 2015;36:2921–2964.（前版）</li>
+</ol>
+
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
+</body>
+</html>

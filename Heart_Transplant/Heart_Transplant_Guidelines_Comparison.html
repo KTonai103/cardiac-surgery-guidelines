@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>心臓移植 各地域ガイドライン比較</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5c5c5c;
+  --border: #d4d4d4;
+  --accent: #2c3e50;
+  --light-bg: #f7f8fa;
+  --header-bg: #2c3e50;
+  --header-fg: #ffffff;
+  --link: #34495e;
+  --jp-accent: #c0392b;
+  --us-accent: #2980b9;
+  --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
+
+body {
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+  margin: 48px 0 12px;
+}
+
+h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 28px 0 8px;
+}
+
+h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 20px 0 6px;
+}
+
+p { margin: 8px 0; font-size: 0.88rem; }
+strong { color: var(--fg); }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+ul, ol {
+  padding-left: 24px;
+  margin: 8px 0;
+  font-size: 0.88rem;
+}
+
+li { margin-bottom: 4px; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 12px 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+thead th {
+  background: var(--header-bg);
+  color: var(--header-fg);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--light-bg);
+}
+
+tbody tr:nth-child(even) td { background-color: #fafbfc; }
+tbody tr:nth-child(even) td:first-child { background-color: #f0f1f3; }
+tbody tr:hover td { background-color: #eef1f5; }
+tbody tr:hover td:first-child { background-color: #e4e8ed; }
+
+/* Blockquotes (fallback for any not converted to callouts) */
+blockquote {
+  background: var(--light-bg);
+  border-left: 3px solid var(--border);
+  padding: 10px 16px;
+  margin: 12px 0 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+blockquote strong { color: var(--fg); }
+
+/* Highlights */
+mark {
+  background: #fff3cd;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Callout overrides - already inline styled, but ensure nested elements look right */
+.callout p { margin: 4px 0; }
+.callout ul, .callout ol { margin: 4px 0 4px 16px; }
+.callout table { font-size: 0.8rem; }
+
+/* Print */
+@media print {
+  body { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
+@media (max-width: 768px) {
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
+  h1 { font-size: 1.3rem; }
+  table { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-概要本文書の射程と地域差の本質">1. 概要：本文書の射程と「地域差」の本質</a></li>
+      <li class="toc-l3"><a href="#1-1-本文書のスコープ">1-1. 本文書のスコープ</a></li>
+      <li class="toc-l3"><a href="#1-2-なぜ心臓移植は弁膜症や冠動脈疾患以上に地域差が大きいのか">1-2. なぜ心臓移植は「弁膜症や冠動脈疾患以上に地域差が大きい」のか</a></li>
+      <li class="toc-l3"><a href="#1-3-対象ガイドラインの位置づけ">1-3. 対象ガイドラインの位置づけ</a></li>
+      <li class="toc-l2"><a href="#2-star-ドナー供給の地域格差最重要前提">2. ⭐ ドナー供給の地域格差（最重要前提）</a></li>
+      <li class="toc-l3"><a href="#2-1-心臓移植件数の年次推移と人口当たり比率">2-1. 心臓移植件数の年次推移と人口当たり比率</a></li>
+      <li class="toc-l3"><a href="#2-2-ドナー供給差の臨床戦略への波及マッピング">2-2. ドナー供給差の臨床戦略への波及（マッピング）</a></li>
+      <li class="toc-l3"><a href="#2-3-ドナー数が増えない構造的要因地域別">2-3. ドナー数が増えない構造的要因（地域別）</a></li>
+      <li class="toc-l2"><a href="#3-jp-jcs-2025-心臓移植ガイドライン">3. 🇯🇵 JCS 2025 心臓移植ガイドライン</a></li>
+      <li class="toc-l3"><a href="#3-1-文献情報">3-1. 文献情報</a></li>
+      <li class="toc-l3"><a href="#3-2-章構成主要トピック">3-2. 章構成（主要トピック）</a></li>
+      <li class="toc-l3"><a href="#3-3-適応条件表5より要旨">3-3. 適応条件（表5より要旨）</a></li>
+      <li class="toc-l3"><a href="#3-4-絶対的除外条件表6">3-4. 絶対的除外条件（表6）</a></li>
+      <li class="toc-l3"><a href="#3-5-相対的除外条件表7の要点">3-5. 相対的除外条件（表7）の要点</a></li>
+      <li class="toc-l3"><a href="#3-6-レシピエント選択基準厚生労働省告示表9">3-6. レシピエント選択基準（厚生労働省告示・表9）</a></li>
+      <li class="toc-l3"><a href="#3-7-ドナー適応基準表12">3-7. ドナー適応基準（表12）</a></li>
+      <li class="toc-l3"><a href="#3-8-注意を要する拡大基準ドナー表13">3-8. 注意を要する拡大基準ドナー（表13）</a></li>
+      <li class="toc-l3"><a href="#3-9-重要な-ishlt-引用推奨表">3-9. 重要な ISHLT 引用（推奨表）</a></li>
+      <li class="toc-l3"><a href="#3-10-dcd第10章の位置づけ">3-10. DCD（第10章）の位置づけ</a></li>
+      <li class="toc-l3"><a href="#3-11-jcs-2025-が日本固有として強調する事項">3-11. JCS 2025 が日本固有として強調する事項</a></li>
+      <li class="toc-l2"><a href="#4-us-accahahfsa-2022-心不全gl-移植セクション">4. 🇺🇸 ACC/AHA/HFSA 2022 心不全GL 移植セクション</a></li>
+      <li class="toc-l3"><a href="#4-1-文献情報">4-1. 文献情報</a></li>
+      <li class="toc-l3"><a href="#4-2-推奨section-85">4-2. 推奨（Section 8.5）</a></li>
+      <li class="toc-l3"><a href="#4-3-解説本文の要点">4-3. 解説本文の要点</a></li>
+      <li class="toc-l3"><a href="#4-4-米国の特徴">4-4. 米国の特徴</a></li>
+      <li class="toc-l2"><a href="#5-european_union-esc-20212023-心不全gl-移植セクション">5. 🇪🇺 ESC 2021/2023 心不全GL 移植セクション</a></li>
+      <li class="toc-l3"><a href="#5-1-文献情報">5-1. 文献情報</a></li>
+      <li class="toc-l3"><a href="#5-2-推奨table-表外の推奨">5-2. 推奨（Table 表外の推奨）</a></li>
+      <li class="toc-l3"><a href="#5-3-table-17適応と禁忌要旨">5-3. Table 17：適応と禁忌（要旨）</a></li>
+      <li class="toc-l3"><a href="#5-4-解説本文の要点">5-4. 解説本文の要点</a></li>
+      <li class="toc-l3"><a href="#5-5-欧州の特徴">5-5. 欧州の特徴</a></li>
+      <li class="toc-l2"><a href="#6-globe_with_meridians-ishlt-2024-pgdegd-国際コンセンサス">6. 🌐 ISHLT 2024 PGD/EGD 国際コンセンサス</a></li>
+      <li class="toc-l3"><a href="#6-1-文献情報">6-1. 文献情報</a></li>
+      <li class="toc-l3"><a href="#6-2-主要な用語変更pgd--egd">6-2. 主要な用語変更（PGD → EGD）</a></li>
+      <li class="toc-l3"><a href="#6-3-重要度分類の変更2014--2024">6-3. 重要度分類の変更（2014 → 2024）</a></li>
+      <li class="toc-l3"><a href="#6-4-pgdegd-危険因子table-3">6-4. PGD/EGD 危険因子（Table 3）</a></li>
+      <li class="toc-l3"><a href="#6-5-pgdegd-予測スコアと治療">6-5. PGD/EGD 予測スコアと治療</a></li>
+      <li class="toc-l3"><a href="#6-6-治療va-ecmo-中心の階層">6-6. 治療：VA-ECMO 中心の階層</a></li>
+      <li class="toc-l3"><a href="#6-7-ドナー心搬送保存技術">6-7. ドナー心搬送・保存技術</a></li>
+      <li class="toc-l2"><a href="#7-レシピエント適応条件年齢pvr併存症の比較">7. レシピエント適応条件（年齢・PVR・併存症）の比較</a></li>
+      <li class="toc-l3"><a href="#7-1-主要パラメータの地域横断比較">7-1. 主要パラメータの地域横断比較</a></li>
+      <li class="toc-l3"><a href="#7-2-star-年齢に関する地域差の解釈">7-2. ⭐ 年齢に関する地域差の解釈</a></li>
+      <li class="toc-l3"><a href="#7-3-star-pvr-閾値に関する地域差">7-3. ⭐ PVR 閾値に関する地域差</a></li>
+      <li class="toc-l2"><a href="#8-star-ドナー基準とマージナル拡大基準ドナーの比較">8. ⭐ ドナー基準とマージナル／拡大基準ドナーの比較</a></li>
+      <li class="toc-l3"><a href="#8-1-標準ドナー基準の比較">8-1. 標準ドナー基準の比較</a></li>
+      <li class="toc-l3"><a href="#8-2-star-拡大基準ドナー運用の地域差">8-2. ⭐ 「拡大基準ドナー」運用の地域差</a></li>
+      <li class="toc-l3"><a href="#8-3-共通する高リスク因子pgd-危険因子と対応">8-3. 共通する高リスク因子（PGD 危険因子と対応）</a></li>
+      <li class="toc-l2"><a href="#9-star-アロケーション優先順位制度の比較">9. ⭐ アロケーション・優先順位制度の比較</a></li>
+      <li class="toc-l3"><a href="#9-1-アロケーション制度の構造比較">9-1. アロケーション制度の構造比較</a></li>
+      <li class="toc-l3"><a href="#9-2-star-日本の-status-階層の固有性">9-2. ⭐ 日本の Status 階層の固有性</a></li>
+      <li class="toc-l3"><a href="#9-3-star-米国-2018年改正の影響">9-3. ⭐ 米国 2018年改正の影響</a></li>
+      <li class="toc-l2"><a href="#10-star-dcd心停止後ドナー導入状況の地域差">10. ⭐ DCD（心停止後ドナー）導入状況の地域差</a></li>
+      <li class="toc-l3"><a href="#10-1-dcd-導入の地域差">10-1. DCD 導入の地域差</a></li>
+      <li class="toc-l3"><a href="#10-2-dcd-採取法dpp-vs-nrp">10-2. DCD 採取法：DPP vs NRP</a></li>
+      <li class="toc-l3"><a href="#10-3-dcd-心移植の臨床成績">10-3. DCD 心移植の臨床成績</a></li>
+      <li class="toc-l3"><a href="#10-4-star-なぜ日本は-dcd-未導入なのかjcs-2025-第10章">10-4. ⭐ なぜ日本は DCD 未導入なのか（JCS 2025 第10章）</a></li>
+      <li class="toc-l2"><a href="#11-btt橋渡し戦略lvad-装着率と待機期間">11. BTT（橋渡し）戦略：LVAD 装着率と待機期間</a></li>
+      <li class="toc-l3"><a href="#11-1-btt-としての植込型-lvad-の重要性">11-1. BTT としての植込型 LVAD の重要性</a></li>
+      <li class="toc-l3"><a href="#11-2-重要な含意">11-2. 重要な含意</a></li>
+      <li class="toc-l2"><a href="#12-abo-血液型感作脱感作の取り扱い">12. ABO 血液型・感作・脱感作の取り扱い</a></li>
+      <li class="toc-l3"><a href="#12-1-abo-の取り扱い">12-1. ABO の取り扱い</a></li>
+      <li class="toc-l3"><a href="#12-2-感作レシピエントの管理">12-2. 感作レシピエントの管理</a></li>
+      <li class="toc-l2"><a href="#13-心筋保護搬送ex-vivo-perfusionocssherpapak">13. 心筋保護・搬送・ex vivo perfusion（OCS/SherpaPak）</a></li>
+      <li class="toc-l3"><a href="#13-1-心保存技術の比較">13-1. 心保存技術の比較</a></li>
+      <li class="toc-l3"><a href="#13-2-jcs-2025-の記載">13-2. JCS 2025 の記載</a></li>
+      <li class="toc-l2"><a href="#14-primary-graft-dysfunctionpgdegd定義と治療">14. Primary Graft Dysfunction（PGD/EGD）定義と治療</a></li>
+      <li class="toc-l3"><a href="#14-1-定義の地域共通化ishlt-2024-が国際標準">14-1. 定義の地域共通化（ISHLT 2024 が国際標準）</a></li>
+      <li class="toc-l3"><a href="#14-2-治療戦略の比較">14-2. 治療戦略の比較</a></li>
+      <li class="toc-l3"><a href="#14-3-pgdegd-危険因子の臨床的含意">14-3. PGD/EGD 危険因子の臨床的含意</a></li>
+      <li class="toc-l2"><a href="#15-遠隔期合併症拒絶cav感染悪性腫瘍の管理">15. 遠隔期合併症（拒絶・CAV・感染・悪性腫瘍）の管理</a></li>
+      <li class="toc-l3"><a href="#15-1-主要遠隔期合併症3地域共通">15-1. 主要遠隔期合併症（3地域共通）</a></li>
+      <li class="toc-l3"><a href="#15-2-cav-診断基準">15-2. CAV 診断基準</a></li>
+      <li class="toc-l3"><a href="#15-3-ishlt-統計3地域共通参照">15-3. ISHLT 統計（3地域共通参照）</a></li>
+      <li class="toc-l3"><a href="#15-4-日本固有の遠隔期管理課題">15-4. 日本固有の遠隔期管理課題</a></li>
+      <li class="toc-l2"><a href="#16-生存率術後成績の比較">16. 生存率・術後成績の比較</a></li>
+      <li class="toc-l3"><a href="#16-1-短期中期成績">16-1. 短期・中期成績</a></li>
+      <li class="toc-l3"><a href="#16-2-star-なぜ日本の成績は最高水準か">16-2. ⭐ なぜ日本の成績は最高水準か</a></li>
+      <li class="toc-l3"><a href="#16-3-多臓器同時移植">16-3. 多臓器同時移植</a></li>
+      <li class="toc-l2"><a href="#17-日本固有の制度的枠組みjot適応判定委員会施設認定">17. 日本固有の制度的枠組み（JOT・適応判定委員会・施設認定）</a></li>
+      <li class="toc-l3"><a href="#17-1-日本のみが制度的に課す要件">17-1. 日本のみが制度的に課す要件</a></li>
+      <li class="toc-l3"><a href="#17-2-jot-による意思確認プロセス2017年12月の早期化連絡">17-2. JOT による意思確認プロセス（2017年12月〜の早期化連絡）</a></li>
+      <li class="toc-l3"><a href="#17-3-移植適応疾患jcs-2025-表4">17-3. 移植適応疾患（JCS 2025 表4）</a></li>
+      <li class="toc-l2"><a href="#18-クロスガイドライン総括と臨床的含意">18. クロスガイドライン総括と臨床的含意</a></li>
+      <li class="toc-l3"><a href="#18-1-全ガイドライン共通の合意事項">18-1. 全ガイドライン共通の合意事項</a></li>
+      <li class="toc-l3"><a href="#18-2-主要な相違点まとめ">18-2. 主要な相違点まとめ</a></li>
+      <li class="toc-l3"><a href="#18-3-各地域ガイドラインの特徴と臨床的含意">18-3. 各地域ガイドラインの特徴と臨床的含意</a></li>
+      <li class="toc-l3"><a href="#18-4-臨床判断における重要メッセージ">18-4. 臨床判断における重要メッセージ</a></li>
+      <li class="toc-l3"><a href="#18-5-未来展望3地域共通の方向性">18-5. 未来展望：3地域共通の方向性</a></li>
+      <li class="toc-l2"><a href="#関連ノート">関連ノート</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
+<h1 id="心臓移植-各地域ガイドライン比較">心臓移植 各地域ガイドライン比較</h1>
+<p><strong>作成日：</strong> 2026年5月18日 <strong>対象ガイドライン：</strong></p>
+<ul>
+<li>🇯🇵 <strong>JCS/JHFS/JSPCCS 2025</strong>：「2025年改訂版 心臓移植に関するガイドライン」（日本循環器学会／日本心不全学会／日本小児循環器学会 合同、班長：齋木佳克）</li>
+<li>🇺🇸 <strong>ACC/AHA/HFSA 2022</strong>：Heart Failure Guidelines（Section 8.5 Cardiac Transplantation; Circulation 2022;145:e895-e1032）</li>
+<li>🇪🇺 <strong>ESC 2021 / ESC 2023 Focused Update</strong>：HF Guidelines（Section 10.2.3 Heart transplantation）</li>
+<li>🌐 <strong>ISHLT 2024</strong>（米国主導の国際合意）：Consensus Conference on Graft Dysfunction within the First 72 hours after Heart Transplantation: A 10-year Update（J Heart Lung Transplant 2026;45:e149-e171）</li>
+</ul>
+<p><strong>補助参照：</strong></p>
+<ul>
+<li>🇯🇵 JCS 2021 植込型補助人工心臓ガイドライン（BTT 戦略）</li>
+<li>🇺🇸 ISHLT 2023 MCS Guidelines 10-Year Update（移植前 MCS）</li>
+</ul>
+<p><strong>関連ドキュメント：</strong> LVAD ガイドライン比較 · 心筋症ガイドライン比較 · 周術期抗凝固管理比較</p>
+<hr />
+<h2 id="目次">目次</h2>
+<ol type="1">
+<li><a href="#1-概要本文書の射程と地域差の本質">概要：本文書の射程と「地域差」の本質</a></li>
+<li><a href="#2--ドナー供給の地域格差最重要前提">⭐ ドナー供給の地域格差（最重要前提）</a></li>
+<li><a href="#3--jcs-2025-心臓移植ガイドライン">🇯🇵 JCS 2025 心臓移植ガイドライン</a></li>
+<li><a href="#4--accahahfsa-2022-心不全gl-移植セクション">🇺🇸 ACC/AHA/HFSA 2022 心不全GL 移植セクション</a></li>
+<li><a href="#5--esc-20212023-心不全gl-移植セクション">🇪🇺 ESC 2021/2023 心不全GL 移植セクション</a></li>
+<li><a href="#6--ishlt-2024-pgdegd-国際コンセンサス">🌐 ISHLT 2024 PGD/EGD 国際コンセンサス</a></li>
+<li><a href="#7-レシピエント適応条件年齢pvr併存症の比較">レシピエント適応条件（年齢・PVR・併存症）の比較</a></li>
+<li><a href="#8--ドナー基準とマージナル拡大基準ドナーの比較">⭐ ドナー基準とマージナル／拡大基準ドナーの比較</a></li>
+<li><a href="#9--アロケーション優先順位制度の比較">⭐ アロケーション・優先順位制度の比較</a></li>
+<li><a href="#10--dcd心停止後ドナー導入状況の地域差">⭐ DCD（心停止後ドナー）導入状況の地域差</a></li>
+<li><a href="#11-btt橋渡し戦略lvad-装着率と待機期間">BTT（橋渡し）戦略：LVAD 装着率と待機期間</a></li>
+<li><a href="#12-abo-血液型感作脱感作の取り扱い">ABO 血液型・感作・脱感作の取り扱い</a></li>
+<li><a href="#13-心筋保護搬送ex-vivo-perfusionocssherpapak">心筋保護・搬送・ex vivo perfusion（OCS/SherpaPak）</a></li>
+<li><a href="#14-primary-graft-dysfunctionpgdegd-定義と治療">Primary Graft Dysfunction（PGD/EGD）定義と治療</a></li>
+<li><a href="#15-遠隔期合併症拒絶cav感染悪性腫瘍の管理">遠隔期合併症（拒絶・CAV・感染・悪性腫瘍）の管理</a></li>
+<li><a href="#16-生存率術後成績の比較">生存率・術後成績の比較</a></li>
+<li><a href="#17-日本固有の制度的枠組みjot適応判定委員会施設認定">日本固有の制度的枠組み（JOT・適応判定委員会・施設認定）</a></li>
+<li><a href="#18-クロスガイドライン総括と臨床的含意">クロスガイドライン総括と臨床的含意</a></li>
+</ol>
+<hr />
+<h2 id="1-概要本文書の射程と地域差の本質">1. 概要：本文書の射程と「地域差」の本質</h2>
+<h3 id="1-1-本文書のスコープ">1-1. 本文書のスコープ</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">対象範囲</div>
+<p>本文書は <strong>成人脳死下心臓移植</strong> の手術適応・ドナー基準・アロケーション・周術期管理に関する各地域ガイドラインの横断比較である。</p>
+<ul>
+<li><strong>小児心臓移植</strong>：基本骨格は成人と共有するが、サイズマッチング・川崎病・先天性心疾患の詳細は本文書の範囲外</li>
+<li><strong>心肺同時移植</strong>：肺血管抵抗 ≥6 Wood 単位の不可逆例の例外的適応として言及するのみ</li>
+<li><strong>再移植（re-transplantation）</strong>：日本では極めて限定的、欧米でも全体の数%以下</li>
+<li><strong>異種移植（xenotransplantation）</strong>：実験段階（2022年初の遺伝子改変ブタ心移植施行）であり、ガイドライン化されていないため対象外</li>
+</ul>
+</div>
+
+<h3 id="1-2-なぜ心臓移植は弁膜症や冠動脈疾患以上に地域差が大きいのか">1-2. なぜ心臓移植は「弁膜症や冠動脈疾患以上に地域差が大きい」のか</h3>
+
+<div class="callout" style="background:#e1f5fe;border-left:4px solid #00b0ff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00b0ff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">心臓移植の地域差の本質</div>
+<p>弁膜症や冠動脈疾患のガイドラインは「<strong>患者の解剖・病態に対する治療法</strong>」を比較するため、地域差は閾値の細かなチューニングに収まる。一方、心臓移植のガイドラインは以下の三層構造で地域差が累積する：</p>
+</div>
+>
+> 1. **資源の制約（ドナー供給）**：脳死法・臓器提供文化・宗教的背景により、人口当たりの脳死ドナー数が10倍以上の差。日本 0.65 pmp（per million population） vs 米国 ~50 pmp vs スペイン ~50 pmp（2023年）。
+> 2. **制度設計（アロケーション）**：ドナー希少度に応じた優先順位アルゴリズムの設計（Status 階層・血液型一致条件・地理的配分）が国家ごとに最適化されている。
+> 3. **臨床戦略の必然性**：上記の制約のもと、BTT としての LVAD 装着率・拡大基準ドナーの受諾閾値・DCD 導入の必要性が決定される。
+>
+> したがって本文書では、**ドナー供給格差を起点として、それが各国のレシピエント選択基準・アロケーション・BTT 戦略・拡大ドナー利用・DCD 導入にどう波及しているか**を中心軸として比較する。
+
+<h3 id="1-3-対象ガイドラインの位置づけ">1-3. 対象ガイドラインの位置づけ</h3>
+<table>
+<thead>
+<tr>
+<th>ガイドライン</th>
+<th>発行年</th>
+<th>発行学会</th>
+<th>対象範囲</th>
+<th>本文書での位置づけ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🇯🇵 <strong>JCS/JHFS/JSPCCS 2025</strong></td>
+<td>2025</td>
+<td>日本循環器学会／日本心不全学会／日本小児循環器学会 ほか 12学会合同</td>
+<td>心臓移植専用（成人・小児）</td>
+<td>★主要比較対象（移植専用GL）</td>
+</tr>
+<tr>
+<td>🇺🇸 <strong>ACC/AHA/HFSA 2022</strong></td>
+<td>2022</td>
+<td>ACC/AHA/HFSA</td>
+<td>心不全（Section 8.5に移植）</td>
+<td>補助参照（米国の HF 側からの推奨）</td>
+</tr>
+<tr>
+<td>🇪🇺 <strong>ESC 2021</strong></td>
+<td>2021</td>
+<td>European Society of Cardiology</td>
+<td>心不全（10.2.3 に移植）</td>
+<td>補助参照（欧州 HF 側からの推奨）</td>
+</tr>
+<tr>
+<td>🇪🇺 <strong>ESC 2023 Focused Update</strong></td>
+<td>2023</td>
+<td>ESC</td>
+<td>心不全（改訂）</td>
+<td>補助参照</td>
+</tr>
+<tr>
+<td>🌐 <strong>ISHLT 2024 PGD Consensus</strong></td>
+<td>2026 (JHLT 出版)</td>
+<td>ISHLT（国際）</td>
+<td>PGD/EGD（術後72時間以内）</td>
+<td>国際標準として参照</td>
+</tr>
+<tr>
+<td>補助：🌐 <strong>ISHLT 2016 Listing Criteria</strong> (Mehra MR, et al. JHLT 2016)</td>
+<td>2016</td>
+<td>ISHLT</td>
+<td>レシピエント選択基準</td>
+<td>米国・欧州が事実上参照する国際標準</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">米国・欧州のガイドライン構造</div>
+<p>米国も欧州も「<strong>心臓移植専用の国家ガイドライン</strong>」を独立して持たず、HF ガイドラインの一節として位置づけるか、<strong>ISHLT 2016 Listing Criteria</strong> を事実上の国際標準として参照する形式である。本文書では、ACC/AHA/HFSA 2022・ESC 2021/2023 を主推奨ソースとし、ISHLT 2016 の内容を補足として組み込む。一方、<strong>日本は心臓移植専用 GL（JCS 2025）を 139 ページにわたり詳細に整備</strong>しており、この点でもガイドライン文書の重みが地域で対照的である。</p>
+</div>
+
+<hr />
+<h2 id="2-star-ドナー供給の地域格差最重要前提">2. ⭐ ドナー供給の地域格差（最重要前提）</h2>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">すべての地域差は「ドナー供給の格差」から派生する</div>
+<p>本セクションは個別ガイドラインの比較の前提であり、後続セクションの解釈の鍵となる。</p>
+</div>
+
+<h3 id="2-1-心臓移植件数の年次推移と人口当たり比率">2-1. 心臓移植件数の年次推移と人口当たり比率</h3>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>🇯🇵 日本</th>
+<th>🇪🇺 欧州（ET+UK+西）</th>
+<th>🇺🇸 米国</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>年間心臓移植件数（2023年）</strong></td>
+<td>115 例（初の三桁達成）</td>
+<td>約 2,000 例</td>
+<td>約 4,000 例（DCD 含む）</td>
+</tr>
+<tr>
+<td><strong>累積件数（2022年末）</strong></td>
+<td>704 例</td>
+<td>100,000 例超</td>
+<td>90,000 例超（UNOS）</td>
+</tr>
+<tr>
+<td><strong>人口当たり脳死ドナー数（pmp, 2023）</strong></td>
+<td><strong>0.65</strong></td>
+<td>約 18〜49（スペイン最高）</td>
+<td>約 50</td>
+</tr>
+<tr>
+<td><strong>平均待機期間（Status 1 相当）</strong></td>
+<td><strong>1,769 日（≈4.8年）</strong></td>
+<td>約 6〜18 ヵ月</td>
+<td><strong>約 6 ヵ月（2018年制度改正後）</strong></td>
+</tr>
+<tr>
+<td><strong>DCD 心移植件数（年間）</strong></td>
+<td><strong>0 例</strong>（未導入）</td>
+<td>数百例（UK・西・蘭・ベルギー）</td>
+<td><strong>約 1,000 例</strong>（2024年）／全体の25-30%</td>
+</tr>
+<tr>
+<td><strong>施設数</strong></td>
+<td><strong>12 施設</strong>（認定制）</td>
+<td>国別に多数</td>
+<td>約 130 施設</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">待機期間の圧倒的差</div>
+<p>JCS 2025 ガイドラインは、Status 1 平均待機期間が <strong>1,769 日（≈4.8 年）</strong>（2022年末時点）であることを明記し、これを前提とした BTT 戦略（5年超の植込型 LVAD 安全運用）を組み立てている。一方、米国 UNOS 2018年改正後は <strong>約 6 ヵ月</strong>まで短縮しており、待機期間の桁が異なる。</p>
+</div>
+
+<h3 id="2-2-ドナー供給差の臨床戦略への波及マッピング">2-2. ドナー供給差の臨床戦略への波及（マッピング）</h3>
+<pre><code>ドナー供給格差（10倍以上）
+        │
+        ├──→ レシピエント選択基準の厳格化（日本：65歳未満／PVR 6WU厳守）
+        │
+        ├──→ BTT としての植込型 LVAD 装着率の差（日本 &gt;80%, 米国 ~50%, 欧州中間）
+        │
+        ├──→ 拡大基準（マージナル）ドナーの積極的受諾（日本：&gt;50歳ドナー約4割）
+        │
+        ├──→ DCD 心移植の積極導入圧（米国・英国・西は導入、日本は未導入）
+        │
+        ├──→ アロケーションのチューニング（米国：6-tier細分化、日本：Status 1A/1/2/3）
+        │
+        └──→ 制度的安全装置（日本：適応判定委員会の法的位置づけ）</code></pre>
+<h3 id="2-3-ドナー数が増えない構造的要因地域別">2-3. ドナー数が増えない構造的要因（地域別）</h3>
+<table>
+<thead>
+<tr>
+<th>地域</th>
+<th>主な制約</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🇯🇵 <strong>日本</strong></td>
+<td>1997年臓器移植法の施行遅延、本人意思表示主義（2010年法改正で家族同意可となるも依然低調）、脳死判定基準の厳格性、ICU での組織的提供推進体制の遅れ、脳死＝死の文化的受容度の差</td>
+</tr>
+<tr>
+<td>🇪🇺 <strong>欧州</strong></td>
+<td>国別差大。スペインの「opt-out（推定同意）」モデル + 施設内コーディネーター配置で世界最高水準を達成。一方ドイツは opt-in で低調</td>
+</tr>
+<tr>
+<td>🇺🇸 <strong>米国</strong></td>
+<td>OPTN/UNOS による全国ネットワーク統合運用。脳死判定の標準化と臓器提供文化の浸透が進む。近年は DCD・遺伝子改変ブタ心など供給拡大策が積極的</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-jp-jcs-2025-心臓移植ガイドライン">3. 🇯🇵 JCS 2025 心臓移植ガイドライン</h2>
+<h3 id="3-1-文献情報">3-1. 文献情報</h3>
+<ul>
+<li>正式名称：<strong>「2025年改訂版 心臓移植に関するガイドライン」</strong></li>
+<li>発行：2025年3月27日（10月12日更新）</li>
+<li>班長：齋木佳克</li>
+<li>合同学会：日本循環器学会・日本心不全学会・日本小児循環器学会・日本胸部外科学会・日本心臓移植学会・日本移植学会・日本心臓血管外科学会・日本心臓病学会・日本心臓リハビリテーション学会・日本集中治療学会・日本成人先天性心疾患学会・日本臓器移植ネットワーク（JOT）合同</li>
+<li>全 139 ページ・全 11 章構成</li>
+</ul>
+<h3 id="3-2-章構成主要トピック">3-2. 章構成（主要トピック）</h3>
+<table>
+<thead>
+<tr>
+<th>章</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第1章</td>
+<td>心臓移植の歴史と現状（世界・日本）</td>
+</tr>
+<tr>
+<td>第2章</td>
+<td>心臓移植に関わるコーディネーション（JOT・施設認定）</td>
+</tr>
+<tr>
+<td><strong>第3章</strong></td>
+<td><strong>成人心臓移植の適応と術前管理</strong></td>
+</tr>
+<tr>
+<td><strong>第4章</strong></td>
+<td><strong>心臓移植手術の実際（ドナー摘出・心保護・移植手技）</strong></td>
+</tr>
+<tr>
+<td>第5章</td>
+<td>術後・免疫抑制・拒絶反応</td>
+</tr>
+<tr>
+<td>第6章</td>
+<td>在宅治療と遠隔期合併症管理（CAV含む）</td>
+</tr>
+<tr>
+<td>第7章</td>
+<td>小児心臓移植</td>
+</tr>
+<tr>
+<td>第8章</td>
+<td>心肺同時移植</td>
+</tr>
+<tr>
+<td>第9章</td>
+<td>心臓移植と社会（普及啓発）</td>
+</tr>
+<tr>
+<td><strong>第10章</strong></td>
+<td>**今後の課題（<mark>DCDの可能性</mark>・移植内科医） **</td>
+</tr>
+<tr>
+<td>第11章</td>
+<td>補遺</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-3-適応条件表5より要旨">3-3. 適応条件（表5より要旨）</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JCS 2025 適応条件（成人）</div>
+<p><strong>以下のすべてを満たす不治の末期的状態</strong>：</p>
+<ul>
+<li>ガイドラインに定められた標準治療（GDMT）では NYHA 3〜4度から改善しない <strong>ステージD心不全</strong>、または現存治療無効の致死的重症不整脈</li>
+<li>運動耐容能の著しい低下（peak VO₂ &lt;14 mL/kg/min または年齢補正正常値の 50% 未満）、または静注強心薬・補助循環依存状態</li>
+<li><strong>年齢は当面、65歳未満</strong></li>
+<li>本人およびケアギバー（多くは家族）の十分な理解と協力</li>
+</ul>
+</div>
+
+<h3 id="3-4-絶対的除外条件表6">3-4. 絶対的除外条件（表6）</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JCS 2025 絶対的除外条件</div>
+<ul>
+<li><strong>a.</strong> 肝臓・腎臓の不可逆的機能障害（肝硬変、維持透析中）</li>
+<li><strong>b.</strong> 活動性感染症（HIV原則除外／HBV・HCV・HTLV は条件付き）</li>
+<li><strong>c.</strong> 肺高血圧症（血管拡張薬使用下でも <strong>PVR ≥6 Wood 単位</strong>）</li>
+<li><strong>d.</strong> 薬物依存症（禁酒・禁煙宣言が必須）</li>
+<li><strong>e.</strong> 悪性腫瘍（完全寛解後5年以上または5年無再発生存率 ≥95% が条件）</li>
+</ul>
+</div>
+
+<h3 id="3-5-相対的除外条件表7の要点">3-5. 相対的除外条件（表7）の要点</h3>
+<ul>
+<li><strong>腎機能</strong>：eGFR &gt;35 mL/min/1.73 m² が望ましい（30〜35 はシスタチン C eGFR・CCr で個別評価）</li>
+<li><strong>糖尿病</strong>：単純性網膜症は適応除外せず／インスリン依存は専門医意見書必須</li>
+<li><strong>肥満</strong>：<strong>BMI &gt;30 を高度肥満として扱う</strong>（BMI 25〜29 は減量前提）</li>
+<li><strong>特定疾患</strong>：Duchenne 型筋ジストロフィー（適応外）、Marfan（解離拡大大動脈は修復済が条件）、心アミロイドーシス（原則除外）</li>
+</ul>
+<h3 id="3-6-レシピエント選択基準厚生労働省告示表9">3-6. レシピエント選択基準（厚生労働省告示・表9）</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Status 階層（厚生労働省 心臓移植希望者選択基準 令和7年3月7日改正）</div>
+<ul>
+<li><strong>Status 1A</strong>：緊急に心臓移植施行しないと短期間に死亡が予測される（予測余命 1 ヵ月以内・60歳未満）</li>
+<li><strong>Status 1</strong>：(ア) VAD 装着中／(イ) IABP・PCPS・ECMO・Impella／(ウ) 人工呼吸管理／(エ) カテコラミン等強心薬持続点滴のいずれか</li>
+<li><strong>Status 2</strong>：上記以外の待機状態</li>
+<li><strong>Status 3</strong>：感染症等で一時的に待機リスト除外（除外条件解消で復帰）</li>
+</ul>
+</div>
+>
+> **優先順位**：(1) 親族提供意思 → (2) Status 順位 → (3) 年齢（ドナー18歳以上の場合、レシピエント60歳未満を優先） → (4) ABO **一致（identical）が適合（compatible）より優先** → (5) 待機期間
+>
+> ⭐ **日本固有の特徴**：(a) ABO 一致が適合より優先、(b) 年齢ブロック制（60歳・18歳区切り）、(c) HLA は選択基準にしないが必ず登録
+
+<h3 id="3-7-ドナー適応基準表12">3-7. ドナー適応基準（表12）</h3>
+<ul>
+<li>全身性活動性感染症・HIV・HTLV-1・HBs・HCV 陽性・CJD 疑い・悪性腫瘍を除く</li>
+<li><strong>慎重検討要件</strong>：心疾患既往・心電図/心エコー異常・<strong>ドパミン &gt;10 µg/kg/分</strong>・HBc 抗体陽性</li>
+<li><strong>年齢：50歳以下が望ましい</strong>（ただし日本のドナー実態として50歳以上が約4割を占める）</li>
+</ul>
+<h3 id="3-8-注意を要する拡大基準ドナー表13">3-8. 注意を要する拡大基準ドナー（表13）</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JCS 2025 拡大基準ドナーの条件</div>
+<ul>
+<li>高齢、性別ミスマッチ（女性ドナー→男性レシピエント）、&gt;20〜30% 体格差、心肺蘇生既往、ドパミン &gt;10 µg/kg/分、ノルアドレナリン &gt;0.1 µg/kg/分、低心機能、左室肥大、冠動脈病変、心虚血時間 &gt;4 時間</li>
+<li><strong>日本では制度上「拡大基準ドナー」を明示的に運用しており、ISHLT ガイドラインを踏まえつつ国内実態に合わせて受諾</strong></li>
+</ul>
+</div>
+
+<h3 id="3-9-重要な-ishlt-引用推奨表">3-9. 重要な ISHLT 引用（推奨表）</h3>
+<p>JCS 2025 は ISHLT のドナー管理ガイドラインを多数引用：</p>
+<ul>
+<li><strong>臓器灌流維持のため適切な血圧維持</strong>：Class I/C</li>
+<li><strong>適切な一回換気量と PEEP</strong>：Class I/C</li>
+<li><strong>CVP を指標とした輸液管理</strong>：Class I/C</li>
+<li><strong>36.0 ± 0.5℃ の体温維持</strong>：Class I/C</li>
+<li><strong>経胸壁心エコーの反復</strong>：Class I/C</li>
+<li><strong>バソプレシン投与</strong>：Class I/C</li>
+<li><strong>冠動脈 CT/造影による評価</strong>（高リスク例）：Class IIa/C</li>
+<li><strong>漫然と高用量カテコラミン使用を避けるべき</strong>：Class III/C (Harm)</li>
+</ul>
+<h3 id="3-10-dcd第10章の位置づけ">3-10. DCD（第10章）の位置づけ</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">DCD は「今後の課題」として独立章</div>
+<p>JCS 2025 は <strong>第10章「今後の課題」の冒頭に DCD を配置</strong>し、現時点で <strong>日本における心臓 DCD は未導入</strong> であることを明示。</p>
+<ul>
+<li>国内では腎臓・角膜・膵臓では DCD が行われているが、心臓は <strong>未承認</strong></li>
+<li>国際的にはスペイン・英国・米国が積極導入し、cDCD（Controlled DCD; Maastricht III）が主体</li>
+<li><strong>DPP（Direct Procurement and Perfusion）</strong> と <strong>NRP（Normothermic Regional Perfusion）</strong> の2手法を解説</li>
+<li>米国では DCD 心移植が全心移植の <strong>&gt;25%</strong> に達した（2023年 NEJM 報告で6ヵ月生存率は DBD と差なし）</li>
+<li>日本での導入課題：医学的（NRP・EVMP 機器）、生命倫理的、社会的問題、潜在的 DCD 候補推定・障害特定</li>
+</ul>
+</div>
+
+<h3 id="3-11-jcs-2025-が日本固有として強調する事項">3-11. JCS 2025 が日本固有として強調する事項</h3>
+<ul>
+<li><strong>長期 LVAD 待機を前提とした BTT 戦略</strong>：「わが国の心臓移植は、植込型 VAD 装着下での長期待機を要し」と明記</li>
+<li><strong>感作レシピエントの増加</strong>：植込型 VAD 装着 + 反復輸血が感作リスクを高める</li>
+<li><strong>移植内科医（transplant physician）の確保が不可欠</strong>：日本移植学会で2020年に委員会設立</li>
+<li><strong>慢性的で極度なドナー不足</strong>：再移植は「わが国においては現実的ではない」と明言</li>
+</ul>
+<hr />
+<h2 id="4-us-accahahfsa-2022-心不全gl-移植セクション">4. 🇺🇸 ACC/AHA/HFSA 2022 心不全GL 移植セクション</h2>
+<h3 id="4-1-文献情報">4-1. 文献情報</h3>
+<ul>
+<li>正式名称：<strong>2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure</strong></li>
+<li>雑誌：Circulation 2022;145:e895-e1032</li>
+<li>移植セクション：<strong>Section 8.5 Cardiac Transplantation</strong>（ページ e960 周辺、約 1.5 ページ）</li>
+<li>詳細な選択基準は <strong>ISHLT 2016 Listing Criteria</strong> を参照する形式</li>
+</ul>
+<h3 id="4-2-推奨section-85">4-2. 推奨（Section 8.5）</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ACC/AHA/HFSA 2022 心臓移植推奨</div>
+<p><strong>Recommendation 1（Class I, LOE C-LD）</strong>： 「進行性 HF（GDMT 抵抗性）の選択された患者に対し、生存と QOL 改善のため心臓移植が <strong>適応 (indicated)</strong> である」</p>
+</div>
+>
+> **Value Statement（Intermediate Value, C-LD）**：
+> 「ステージ D HF（GDMT 抵抗性）に対する心臓移植は **中等度の経済価値（intermediate economic value）** を提供する」
+
+<h3 id="4-3-解説本文の要点">4-3. 解説本文の要点</h3>
+<ul>
+<li><strong>成人レシピエント生存中央値 &gt;12 年</strong>（ISHLT 統計）／無治療ステージ D HF の中央値は &lt;2 年</li>
+<li><strong>LVAD と比較</strong>：LVAD は3〜4年で死亡リスクが生存を上回る一方、移植は &gt;12 年</li>
+<li><strong>2018 UNOS アロケーション改正</strong>：6-tier 化と地理的共有範囲の拡大
+<ul>
+<li>改正後：(a) 待機リスト死亡率の低下、(b) 一時的補助循環装置の使用増加、(c) グラフト虚血時間の延長、(d) ドナー・移植施設間距離の延長</li>
+<li><strong>長期生存への影響はまだ不確定</strong></li>
+</ul></li>
+<li><strong>2018年実績</strong>：心臓移植全体の <strong>7% が他臓器同時移植</strong>（heart-kidney, heart-liver など）</li>
+<li><strong>2011〜2013年移植コホート</strong>：1年生存率 <strong>90.3%</strong>、3年 <strong>84.7%</strong>、5年 <strong>79.6%</strong></li>
+</ul>
+<h3 id="4-4-米国の特徴">4-4. 米国の特徴</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">米国（UNOS）の制度的特徴</div>
+<ul>
+<li><strong>6-tier Status システム</strong>（2018年〜）：Status 1〜6で細分化（Status 1 = VA-ECMO ≦7日, Status 2 = non-dischargeable BiVAD/temporary MCS, Status 3 = durable LVAD with complications, Status 4 = durable LVAD discretionary, Status 5/6 = stable durable LVAD/listed）</li>
+<li><strong>地理的共有範囲</strong>：250 NM / 500 NM / 1000 NM / 1500 NM / 2500 NM の同心円方式</li>
+<li><strong>ABO 一致と適合の区別なし</strong>（compatible でも同優先）</li>
+<li><strong>施設数</strong>：約 130 センター、年間 4,000 例規模</li>
+<li><strong>待機リスト死亡率の劇的低下</strong>：制度改正後の中心的成果</li>
+</ul>
+</div>
+
+<hr />
+<h2 id="5-european_union-esc-20212023-心不全gl-移植セクション">5. 🇪🇺 ESC 2021/2023 心不全GL 移植セクション</h2>
+<h3 id="5-1-文献情報">5-1. 文献情報</h3>
+<ul>
+<li>🇪🇺 <strong>ESC 2021</strong>：McDonagh TA, et al. 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure. Eur Heart J 2021
+<ul>
+<li>移植セクション：<strong>10.2.3 Heart transplantation</strong>（約 1 ページ + 適応・禁忌一覧の Table 17）</li>
+</ul></li>
+<li>🇪🇺 <strong>ESC 2023 Focused Update</strong>：移植に関する大きな改訂なし</li>
+</ul>
+<h3 id="5-2-推奨table-表外の推奨">5-2. 推奨（Table 表外の推奨）</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ESC 2021 移植推奨</div>
+<p><strong>進行性 HF、薬物・デバイス治療不応で絶対禁忌のない患者</strong>に対し心臓移植を <strong>Class I, LOE C</strong> で推奨</p>
+</div>
+
+<h3 id="5-3-table-17適応と禁忌要旨">5-3. Table 17：適応と禁忌（要旨）</h3>
+<p><strong>適応：</strong></p>
+<ul>
+<li>Advanced HF</li>
+<li>ほかの治療選択肢なし、BTT としての LVAD を除く</li>
+</ul>
+<p><strong>禁忌：</strong></p>
+<ul>
+<li>活動性感染（<strong>相対禁忌</strong>：LVAD 感染例ではむしろ適応となりうる）</li>
+<li>重症 PAD・脳血管疾患</li>
+<li>薬理学的不可逆性肺高血圧症（<strong>LVAD で PVR 改善を検討し再評価</strong>）</li>
+<li>不良予後の悪性腫瘍</li>
+<li>不可逆肝機能障害（肝硬変）・腎機能障害（CrCl &lt;30 mL/min/1.73 m²）→ <strong>複合心-肝・心-腎移植を検討</strong></li>
+<li>多臓器障害を伴う全身疾患</li>
+<li>移植前 <strong>BMI &gt;35</strong>（&lt;35 への減量推奨）</li>
+<li>現行の薬物・アルコール乱用</li>
+<li>アドヒアランス不能な精神不安定</li>
+<li>在宅環境での社会的支援不足</li>
+</ul>
+<h3 id="5-4-解説本文の要点">5-4. 解説本文の要点</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ESC 2021 の臨床的視座</div>
+<ul>
+<li><strong>1年生存率 ~90%、中央値生存 12.5 年</strong></li>
+<li><strong>65 歳未満が望ましいが、絶対的禁忌ではない</strong>：「ほとんどのプログラムは 70 歳まで受諾、<strong>生物学的年齢を考慮</strong>」</li>
+<li><strong>ドナー基準は拡大されつつあり、特に欧州ではドナー年齢上限が引き上げられている</strong></li>
+<li><strong>既往胸骨切開・縦隔放射線・成人先天性心疾患（ACHD）</strong> などの手術複雑性を考慮</li>
+<li><strong>意思決定は個別化</strong>：待機リスト時間・施設の手術経験・リソースが影響</li>
+</ul>
+</div>
+
+<h3 id="5-5-欧州の特徴">5-5. 欧州の特徴</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">欧州（Eurotransplant + 国別アロケーション）の制度的特徴</div>
+<ul>
+<li><strong>Eurotransplant</strong>：オランダ・ベルギー・ドイツ・オーストリア・ルクセンブルク・スロベニア・クロアチア・ハンガリーの8カ国で共有プール（人口約1.4億人）
+<ul>
+<li>Status <strong>HU（High Urgency）/ T（Transplantable）/ NT（Non-Transplantable）</strong> の3階層</li>
+<li>High Urgency は Auditor 委員会承認制</li>
+</ul></li>
+<li><strong>UK NHSBT</strong>：別個の Super Urgent / Urgent / Routine の3階層</li>
+<li><strong>フランス ABM（Agence de la Biomédecine）</strong>：独自の SU / U の階層</li>
+<li><strong>スペイン ONT（Organización Nacional de Trasplantes）</strong>：opt-out（推定同意）と施設内コーディネーター配置で世界最高ドナー数を達成</li>
+<li><strong>DCD 導入</strong>：英国（<strong>2015年〜</strong>）、スペイン（広範）、ベルギー、オランダで標準化／ドイツでは原則禁止</li>
+<li><strong>特徴</strong>：欧州ではドナー年齢上限拡大に対し最も寛容</li>
+</ul>
+</div>
+
+<hr />
+<h2 id="6-globe_with_meridians-ishlt-2024-pgdegd-国際コンセンサス">6. 🌐 ISHLT 2024 PGD/EGD 国際コンセンサス</h2>
+<h3 id="6-1-文献情報">6-1. 文献情報</h3>
+<ul>
+<li>正式名称：<strong>Summary of the International Society for Heart and Lung Transplantation (ISHLT) Consensus Conference on Graft Dysfunction within the First 72 hours after Heart Transplantation: A 10-year Update</strong></li>
+<li>第一著者：Jon Kobashigawa（Cedars-Sinai Smidt Heart Institute）</li>
+<li>雑誌：J Heart Lung Transplant 2026;45:e149-e171（2026年出版）</li>
+<li>カンファレンス日：2024年4月9日</li>
+<li>国際性：<strong>19 米国専門家 + 37 国際専門家</strong>（オーストリア・イタリア・スペイン・フランス・UK・カナダ・オーストラリア・ドイツ等）</li>
+</ul>
+<h3 id="6-2-主要な用語変更pgd--egd">6-2. 主要な用語変更（PGD → EGD）</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">⭐ 2014年定義からの抜本的変更</div>
+<table>
+<thead>
+<tr>
+<th>旧用語（2014）</th>
+<th>新用語（2024）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PGD</strong>（Primary Graft Dysfunction）</td>
+<td><strong>EGD</strong>（Early Graft Dysfunction; &lt;24h, 原因不明）</td>
+</tr>
+<tr>
+<td>—</td>
+<td><strong>sEGD</strong>（Subsequent EGD; 24〜72h, 原因不明）</td>
+</tr>
+<tr>
+<td>（識別可能原因あり）</td>
+<td><strong>SGD</strong>（Secondary Graft Dysfunction）</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="6-3-重要度分類の変更2014--2024">6-3. 重要度分類の変更（2014 → 2024）</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Mild/Moderate/Severe → Non-Severe/Severe の2段階化</div>
+<ul>
+<li><strong>2014</strong>：Mild（軽度）／Moderate（中等度）／Severe（重症）の3段階</li>
+<li><strong>2024</strong>：<strong>Non-Severe / Severe</strong> の2段階に統合
+<ul>
+<li>Severe の条件：LVEF ≤40% + 血行動態障害（RAP &gt;15 mmHg, PCWP &gt;20 mmHg, CI &lt;2.0）+ <strong>左室/両室機械的補助の必要（VA-ECMO・LVAD・BiVAD・新規 IABP）</strong></li>
+<li><strong>inotrope score は使用しない</strong>（ノルアドレナリンの過大計上などで非実用と判断）</li>
+</ul></li>
+</ul>
+</div>
+>
+> Severe EGD-LV はさらに以下に分類：
+> - **EGD-LVip（Immediate Presentation）**：CPB からの離脱失敗（予後悪い）
+> - **EGD-LVdp（Delayed Presentation）**：CPB離脱成功後の遅延発症
+
+<h3 id="6-4-pgdegd-危険因子table-3">6-4. PGD/EGD 危険因子（Table 3）</h3>
+<table>
+<thead>
+<tr>
+<th>ドナー因子</th>
+<th>レシピエント因子</th>
+<th>手技因子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>年齢</td>
+<td>年齢</td>
+<td>ドナー・レシピエント性ミスマッチ（女→男）</td>
+</tr>
+<tr>
+<td>合併症（CAD・糖尿病・高血圧）</td>
+<td><strong>男性レシピエント</strong></td>
+<td>アンダーサイズドナー心</td>
+</tr>
+<tr>
+<td>弁膜症</td>
+<td>BMI</td>
+<td>体重ミスマッチ</td>
+</tr>
+<tr>
+<td>薬物乱用</td>
+<td>腎・肝機能障害・糖尿病</td>
+<td>多臓器同時提供</td>
+</tr>
+<tr>
+<td>死因（頭蓋内出血）</td>
+<td><strong>移植前 VA-ECMO</strong></td>
+<td>採取チームの経験・施設volume</td>
+</tr>
+<tr>
+<td>敗血症</td>
+<td><strong>植込型 LVAD（合併症の有無）</strong></td>
+<td>輸血量増加</td>
+</tr>
+<tr>
+<td>心機能障害・LVH</td>
+<td>移植前人工呼吸</td>
+<td>緊急 vs 待機的移植</td>
+</tr>
+<tr>
+<td>高用量カテコラミン</td>
+<td>移植前透析</td>
+<td>心保護液</td>
+</tr>
+<tr>
+<td><strong>ハイパーオキシア</strong></td>
+<td><strong>不可逆性肺高血圧</strong></td>
+<td><strong>虚血時間延長</strong></td>
+</tr>
+<tr>
+<td><strong>DCD ドナー</strong></td>
+<td>RV 機能障害（CVP/PCWP比）</td>
+<td>CPB 時間延長</td>
+</tr>
+<tr>
+<td><strong>DCD の長期 aWIT</strong></td>
+<td>感染症</td>
+<td>Implant 時間延長</td>
+</tr>
+<tr>
+<td></td>
+<td>感作</td>
+<td>虚血再灌流障害</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>薬剤：RAAS阻害薬・β遮断薬・アミオダロン</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>複雑手術（ACHD・複数胸骨切開・再移植・多臓器同時）</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-5-pgdegd-予測スコアと治療">6-5. PGD/EGD 予測スコアと治療</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">主要 PGD 予測スコア</div>
+<ul>
+<li><strong>RADIAL score</strong>（2010 Segovia, スペイン）：6因子（RAP/Recipient Age/DM/Inotrope dep./Donor Age/Length of ischemic time）</li>
+<li><strong>PREDICTA score</strong>（UK 多施設）：Preoperative MCS, DM, CPB time &gt;180min, Implant Time, Donor Age — <strong>RADIAL より良好（C-statistic 0.704 vs 0.547）</strong></li>
+<li><strong>ABCE score</strong>（Cedars-Sinai 機械学習）：AUC-ROC 0.77</li>
+<li><strong>PGD-AI</strong>（International Consortium）：18因子、最新 era で検証</li>
+</ul>
+</div>
+
+<h3 id="6-6-治療va-ecmo-中心の階層">6-6. 治療：VA-ECMO 中心の階層</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">重症 PGD/EGD への VA-ECMO 中心治療</div>
+<ul>
+<li><strong>VA-ECMO</strong>（central / femoral-femoral / subclavian-femoral）が現代の Severe PGD/EGD の中心治療</li>
+<li>過去10年で VA-ECMO 使用閾値が低下（59% の施設が「VA-ECMO 閾値を下げた」と回答）</li>
+<li>補助治療：<strong>抗胸腺細胞グロブリン（42%）、血漿交換（31%）、レボシメンダン（29%）</strong></li>
+<li>重症 PGD のうち IABP 単独では「Severe」に分類されない（VA-ECMO を要するもののみ）</li>
+</ul>
+</div>
+
+<h3 id="6-7-ドナー心搬送保存技術">6-7. ドナー心搬送・保存技術</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">心保存技術の進歩（2014 → 2024）</div>
+<ul>
+<li><strong>SherpaPak Cardiac Transport System</strong>：4〜8℃ 制御低温保存</li>
+<li><strong>OCS（Organ Care System; TransMedics）</strong>：常温拍動下灌流（DBD・DCD 両方で使用）</li>
+<li><strong>XVIVO Heart Assist Transport™</strong>：低温酸素化灌流（HOPE）</li>
+<li><strong>DCD では DPP（Direct Procurement and Perfusion）</strong>：心保護液注入 → 摘出 → OCS 装着</li>
+<li><strong>DCD では NRP（Normothermic Regional Perfusion）</strong>：心停止後 VA-ECMO で in-situ 評価 → 採取</li>
+<li>米国データ：DCD は DBD より <strong>Severe EGD-LV 発生率が高い（9.5% vs 5.1%）</strong> が、72時間以内の回復率・30日死亡率・在院日数は同等</li>
+</ul>
+</div>
+
+<hr />
+<h2 id="7-レシピエント適応条件年齢pvr併存症の比較">7. レシピエント適応条件（年齢・PVR・併存症）の比較</h2>
+<h3 id="7-1-主要パラメータの地域横断比較">7-1. 主要パラメータの地域横断比較</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2025</th>
+<th>🇪🇺 ESC 2021</th>
+<th>🇺🇸 ACC/AHA 2022 / ISHLT 2016</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>年齢上限</strong></td>
+<td><strong>65歳未満（推奨／"当面"）</strong></td>
+<td><strong>&lt;65 推奨、~70まで受諾</strong>、生物学的年齢を考慮</td>
+<td>年齢制限なし、施設裁量／<strong>70歳超も可</strong></td>
+</tr>
+<tr>
+<td><strong>PVR 閾値（絶対禁忌）</strong></td>
+<td><strong>≥6 Wood 単位</strong>（不可逆）→ 心肺同時移植検討</td>
+<td>「薬理学的不可逆性肺高血圧」（具体的数値示さず）／LVAD で再評価可</td>
+<td>ISHLT 2016：PVR &gt;5 WU または TPG &gt;16 mmHg（薬理試験で改善しない場合）相対禁忌</td>
+</tr>
+<tr>
+<td><strong>eGFR/CrCl 下限</strong></td>
+<td>eGFR <strong>&gt;35</strong>（30〜35 はシスタチン C 評価）</td>
+<td>CrCl <strong>&gt;30 mL/min/1.73 m²</strong>／複合 H-K 移植検討</td>
+<td>ISHLT 2016：eGFR <strong>&gt;30</strong> 推奨／&lt;30 では心-腎同時を検討</td>
+</tr>
+<tr>
+<td><strong>BMI 上限</strong></td>
+<td><strong>&gt;30 を高度肥満</strong>（25〜29 は減量前提）</td>
+<td><strong>&gt;35</strong> が禁忌（&lt;35 へ減量推奨）</td>
+<td>ISHLT 2016：<strong>BMI &lt;35</strong> が推奨</td>
+</tr>
+<tr>
+<td><strong>糖尿病</strong></td>
+<td>単純性網膜症は除外せず／インスリン依存は専門医意見書必須</td>
+<td>末端臓器障害を伴う場合は相対禁忌</td>
+<td>ISHLT 2016：HbA1c <strong>&lt;7.5</strong> 推奨／重症末端臓器障害は相対禁忌</td>
+</tr>
+<tr>
+<td><strong>悪性腫瘍</strong></td>
+<td>完全寛解後 <strong>≥5年</strong> または 5年無再発生存率 <strong>≥95%</strong></td>
+<td>不良予後例は禁忌／腫瘍専門医連携</td>
+<td>ISHLT 2016：5年以上寛解（疾患・ステージ依存）</td>
+</tr>
+<tr>
+<td><strong>薬物・アルコール</strong></td>
+<td>禁酒・禁煙宣言必須</td>
+<td>現行使用は禁忌</td>
+<td>ISHLT 2016：6ヵ月断酒・禁煙が一般的</td>
+</tr>
+<tr>
+<td><strong>アドヒアランス／心理社会</strong></td>
+<td>表7で言及</td>
+<td>表17で言及</td>
+<td>ISHLT 2016：詳細なpsychosocial評価</td>
+</tr>
+<tr>
+<td><strong>HIV</strong></td>
+<td><strong>原則除外</strong></td>
+<td>相対禁忌（コントロール例は検討）</td>
+<td>コントロール HIV は受諾施設増加（ISHLT 2016 改訂後）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-2-star-年齢に関する地域差の解釈">7-2. ⭐ 年齢に関する地域差の解釈</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">なぜ日本だけ「65歳未満」を明示するのか</div>
+<ul>
+<li><strong>米国・欧州</strong>：「生物学的年齢」を強調し、上限を絶対視しない（ドナー供給に余裕があるため、最適化を許容できる）</li>
+<li><strong>日本</strong>：ドナー希少のため、<strong>移植後生存最大化のための厳格な年齢上限</strong>を設けざるを得ない</li>
+<li>結果として、日本では「65歳に達する前に登録 → 5年待機 → 70歳近くで移植」という構造が生じている</li>
+</ul>
+</div>
+
+<h3 id="7-3-star-pvr-閾値に関する地域差">7-3. ⭐ PVR 閾値に関する地域差</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">PVR の取り扱い：日本＝厳格 vs 欧米＝LVAD で改善試行</div>
+<ul>
+<li><strong>日本（JCS 2025）</strong>：<strong>PVR ≥6 WU は絶対除外</strong> → 心肺同時移植の検討へ</li>
+<li><strong>欧米</strong>：LVAD 装着による左房圧低下を介した PVR 改善を試みる戦略が許容される。「不可逆性」の判定が個別化される。</li>
+<li>背景：欧米では LVAD 装着 → 数ヵ月の左房圧低下 → PVR 再評価 → 心移植適応化、というプロセスが日常的。日本でも実施されるが、絶対禁忌の閾値はより保守的。</li>
+</ul>
+</div>
+
+<hr />
+<h2 id="8-star-ドナー基準とマージナル拡大基準ドナーの比較">8. ⭐ ドナー基準とマージナル／拡大基準ドナーの比較</h2>
+<h3 id="8-1-標準ドナー基準の比較">8-1. 標準ドナー基準の比較</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2025（JOT基準・表12）</th>
+<th>🇪🇺 欧州実態</th>
+<th>🇺🇸 ISHLT 2010 / US 実態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>年齢上限（推奨）</strong></td>
+<td><strong>≤50 歳が望ましい</strong>（実態は &gt;50 が約4割）</td>
+<td><strong>≤65 歳まで拡大</strong>（多くの国）</td>
+<td>ISHLT：<strong>&lt;45 歳が Class I</strong>／45歳以上は冠動脈評価で個別判断</td>
+</tr>
+<tr>
+<td><strong>ドナー LVEF</strong></td>
+<td>≥45%</td>
+<td>個別評価</td>
+<td>ISHLT：≥45%（低心機能は反復エコーで評価）</td>
+</tr>
+<tr>
+<td><strong>カテコラミン</strong></td>
+<td>ドパミン <strong>&gt;10 µg/kg/分</strong>は慎重検討</td>
+<td>個別</td>
+<td>ノルアドレナリン <strong>≤0.1 µg/kg/分</strong>が Class I 推奨</td>
+</tr>
+<tr>
+<td><strong>心虚血時間</strong></td>
+<td><strong>≤4時間が望ましい</strong></td>
+<td>≤4時間（OCS で延長可）</td>
+<td>ISHLT 2010 Class I：≤4時間（<strong>現在 OCS/SherpaPak で延長運用</strong>）</td>
+</tr>
+<tr>
+<td><strong>左室肥大</strong></td>
+<td>壁厚 ≥14 mm + 高齢・長虚血時間で転帰悪化</td>
+<td>個別</td>
+<td>ISHLT：壁厚 11-13 軽度／14-16 中等度／≥17 重症</td>
+</tr>
+<tr>
+<td><strong>冠動脈評価</strong></td>
+<td>CT/CAG（高リスク・&gt;50歳）</td>
+<td>国別に異なる</td>
+<td>Class IIa：高リスク例で CT/CAG</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-2-star-拡大基準ドナー運用の地域差">8-2. ⭐ 「拡大基準ドナー」運用の地域差</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">日本＝制度的に拡大基準を明示／米国＝DCD・ex-vivo を新フロンティア</div>
+<ul>
+<li><strong>日本（JCS 2025 表13）</strong>：「注意を要する拡大基準ドナーの条件」として 9 項目を明示的にリスト化し、施設判断で受諾
+<ul>
+<li>背景：標準条件をすべて満たすドナーは少なく、何らかの逸脱要素を持つドナーが大半</li>
+<li>受諾の判断はレシピエント状態に依存し、施設間差が大きい</li>
+</ul></li>
+<li><strong>欧州</strong>：ドナー年齢上限を 65 歳以上に積極拡大、特に英国・スペインで老齢ドナー活用が進む</li>
+<li><strong>米国</strong>：<strong>DCD ドナー</strong>および <strong>HCV+ ドナー</strong>（直接作用型抗ウイルス薬で治癒可能）の活用が急増。**HIV+ → HIV+**移植（HOPE Act 2013）も合法化</li>
+</ul>
+</div>
+
+<h3 id="8-3-共通する高リスク因子pgd-危険因子と対応">8-3. 共通する高リスク因子（PGD 危険因子と対応）</h3>
+<p>3地域共通の警戒ドナー条件：</p>
+<ul>
+<li>高齢（&gt;50 歳）、女性ドナー→男性レシピエント、&gt;20% アンダーサイジング（PHM 計算）、長虚血時間（&gt;4時間）、心肺蘇生既往、高用量カテコラミン、左室肥大、冠動脈病変、敗血症既往、頭蓋内出血死因</li>
+</ul>
+<hr />
+<h2 id="9-star-アロケーション優先順位制度の比較">9. ⭐ アロケーション・優先順位制度の比較</h2>
+<h3 id="9-1-アロケーション制度の構造比較">9-1. アロケーション制度の構造比較</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 日本（JOT/MHLW）</th>
+<th>🇪🇺 Eurotransplant</th>
+<th>🇺🇸 UNOS/OPTN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>管理機関</strong></td>
+<td>日本臓器移植ネットワーク（JOT、公益社団法人）</td>
+<td>Eurotransplant（オランダ・ライデン拠点）</td>
+<td>UNOS（米国臓器分配ネットワーク）</td>
+</tr>
+<tr>
+<td><strong>対象人口</strong></td>
+<td>約1.25億人</td>
+<td>約1.4億人（8ヵ国）</td>
+<td>約3.3億人</td>
+</tr>
+<tr>
+<td><strong>Status 階層</strong></td>
+<td><strong>Status 1A / 1 / 2 / 3</strong> の4段階</td>
+<td><strong>HU / T / NT</strong> の3段階</td>
+<td><strong>6-tier</strong>（Status 1〜6）</td>
+</tr>
+<tr>
+<td><strong>緊急度の判定</strong></td>
+<td>(ア)VAD/(イ)IABP-ECMO-Impella/(ウ)人工呼吸/(エ)強心薬持続</td>
+<td>High Urgency は Auditor 委員会承認制</td>
+<td>Status 1〜4 は時間制限あり（例：VA-ECMO Status 1は7日）</td>
+</tr>
+<tr>
+<td><strong>地理的配分</strong></td>
+<td>全国単一プール（搬送 4 時間以内）</td>
+<td>Eurotransplant 内共有</td>
+<td>250→500→1000→1500→2500 NM の同心円</td>
+</tr>
+<tr>
+<td><strong>ABO 一致 vs 適合</strong></td>
+<td>⭐ <strong>一致が適合より優先</strong></td>
+<td>一致が原則</td>
+<td><strong>区別なし</strong>（compatible で同優先）</td>
+</tr>
+<tr>
+<td><strong>年齢優先</strong></td>
+<td>ドナー18歳以上→レシピエント60歳未満優先／18歳未満→18歳未満優先</td>
+<td>個別</td>
+<td>なし（CPRA・MELD 類似なし）</td>
+</tr>
+<tr>
+<td><strong>待機期間</strong></td>
+<td>第一同位の決定子（最後）</td>
+<td>第一同位の決定子</td>
+<td>第一同位の決定子</td>
+</tr>
+<tr>
+<td><strong>2018年大改正の有無</strong></td>
+<td>軽微（DT・抗血小板等の微調整）</td>
+<td>軽微</td>
+<td><strong>大改正</strong>（3-tier → 6-tier）：待機リスト死亡率↓・虚血時間↑</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-2-star-日本の-status-階層の固有性">9-2. ⭐ 日本の Status 階層の固有性</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JCS 2025 + 厚労省告示の特徴</div>
+<ol type="1">
+<li><strong>Status 1A は ≤60歳のみ</strong>（緊急度判定段階で年齢を組み込み）</li>
+<li><strong>18歳未満ドナーは小児優先</strong>（小児へのアクセス確保）</li>
+<li><strong>ABO 一致 &gt; 適合</strong>の優先付け（米欧では区別しない）</li>
+<li><strong>親族提供意思（臓器移植法第6条の2）の最優先</strong></li>
+<li>平均 Status 1 待機期間 <strong>1,769 日（≈4.8 年）</strong> ← 米国の約 6 ヵ月とは桁違い</li>
+</ol>
+</div>
+
+<h3 id="9-3-star-米国-2018年改正の影響">9-3. ⭐ 米国 2018年改正の影響</h3>
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">UNOS 6-tier 改正（2018年10月18日）</div>
+<ul>
+<li><strong>Status 1</strong>：VA-ECMO（≤7日）、non-dischargeable BiVAD/TAH、機械換気依存等</li>
+<li><strong>Status 2</strong>：non-dischargeable LVAD with 合併症、永続的MCS 合併症、Impella、IABP</li>
+<li><strong>Status 3</strong>：30日間の dischargeable durable LVAD elective、安定MCS 合併症</li>
+<li><strong>Status 4</strong>：dischargeable durable LVAD without 合併症、再移植</li>
+<li><strong>Status 5</strong>：多臓器移植（heart-kidney等）</li>
+<li><strong>Status 6</strong>：その他</li>
+</ul>
+</div>
+>
+> 改正後の効果（複数研究）：
+> - **待機リスト死亡率の低下**（中心的成果）
+> - 一時的補助循環装置（IABP・Impella・VA-ECMO）使用の急増
+> - **グラフト虚血時間の延長**（広域搬送）→ OCS/SherpaPak 普及の背景
+> - 長期生存への影響は **不確定**
+
+<hr />
+<h2 id="10-star-dcd心停止後ドナー導入状況の地域差">10. ⭐ DCD（心停止後ドナー）導入状況の地域差</h2>
+<h3 id="10-1-dcd-導入の地域差">10-1. DCD 導入の地域差</h3>
+<table>
+<thead>
+<tr>
+<th>地域</th>
+<th>心 DCD 導入状況</th>
+<th>件数（2024年概数）</th>
+<th>心移植全体に占める比率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🇯🇵 <strong>日本</strong></td>
+<td><strong>未導入</strong>（議論段階／JCS 2025 第10章で言及）</td>
+<td><strong>0 例</strong></td>
+<td>0%</td>
+</tr>
+<tr>
+<td>🇺🇸 <strong>米国</strong></td>
+<td>2019年〜 急速拡大</td>
+<td>約 <strong>1,000 例/年</strong></td>
+<td><strong>約 25-30%</strong>（2024年）</td>
+</tr>
+<tr>
+<td>🇬🇧 <strong>英国</strong></td>
+<td><strong>2015年〜 確立</strong>（Papworth Hospital が先駆）</td>
+<td>約 100〜150 例/年</td>
+<td>約 30%以上</td>
+</tr>
+<tr>
+<td>🇪🇸 <strong>スペイン</strong></td>
+<td>2014年〜</td>
+<td>数十〜100 例</td>
+<td>約 15%</td>
+</tr>
+<tr>
+<td>🇧🇪 <strong>ベルギー</strong></td>
+<td>2011年〜</td>
+<td>少数</td>
+<td>—</td>
+</tr>
+<tr>
+<td>🇳🇱 <strong>オランダ</strong></td>
+<td>導入</td>
+<td>少数</td>
+<td>—</td>
+</tr>
+<tr>
+<td>🇩🇪 <strong>ドイツ</strong></td>
+<td><strong>原則禁止</strong>（移植法による）</td>
+<td>0 例</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-2-dcd-採取法dpp-vs-nrp">10-2. DCD 採取法：DPP vs NRP</h3>
+<p>JCS 2025 が国際標準として詳細に解説（第10章図42）：</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>DPP（Direct Procurement and Perfusion）</th>
+<th>NRP（Normothermic Regional Perfusion）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>手順</strong></td>
+<td>心停止後、即胸骨切開 → 心保護液注入 → 摘出 → OCS 装着 → 拍動再開・評価 → 移植</td>
+<td>心停止後、大動脈遮断（脳循環遮断）+ VA-ECMO 開始 → 心拍再開 → in-situ 評価 → 心保護液で再停止 → 摘出</td>
+</tr>
+<tr>
+<td><strong>倫理的論点</strong></td>
+<td>比較的少ない</td>
+<td><strong>脳循環遮断の倫理</strong>（"resuscitation of donor" 議論）</td>
+</tr>
+<tr>
+<td><strong>採用国</strong></td>
+<td>米国（広範）、オーストラリア（先駆）</td>
+<td>英国、スペイン、ベルギー、米国（一部）</td>
+</tr>
+<tr>
+<td><strong>使用機器</strong></td>
+<td>OCS / SherpaPak</td>
+<td>VA-ECMO + 心保護液</td>
+</tr>
+<tr>
+<td><strong>温阻血時間（aWIT）への許容</strong></td>
+<td>短い（即心保護）</td>
+<td>やや長い（NRP で再灌流）</td>
+</tr>
+<tr>
+<td><strong>コスト</strong></td>
+<td>高（OCS 1回 ~$45,000）</td>
+<td>中程度</td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-3-dcd-心移植の臨床成績">10-3. DCD 心移植の臨床成績</h3>
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">DCD vs DBD の成績比較（2023年 NEJM 等の主要報告）</div>
+<ul>
+<li><strong>6ヵ月生存率</strong>：<strong>88%（DCD）vs 同等（DBD）</strong> — 差なし</li>
+<li><strong>30日死亡率</strong>：差なし</li>
+<li><strong>在院日数</strong>：差なし</li>
+<li><strong>Severe EGD-LV 発生率</strong>：<strong>9.5%（DCD）vs 5.1%（DBD）, p&lt;0.001</strong>（一過性、回復同等）</li>
+<li><strong>72時間以内のグラフト機能回復率</strong>：同等</li>
+<li><strong>長期生存</strong>：データ蓄積中（5年成績で同等が示唆）</li>
+</ul>
+</div>
+
+<h3 id="10-4-star-なぜ日本は-dcd-未導入なのかjcs-2025-第10章">10-4. ⭐ なぜ日本は DCD 未導入なのか（JCS 2025 第10章）</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JCS 2025 が認める導入障壁</div>
+<ol type="1">
+<li><strong>医学的問題</strong>：死後 VA-ECMO や EVMP（OCS 等）の臓器保護機器の確立・保険償還</li>
+<li><strong>生命倫理的問題</strong>：「死の判定」の社会的受容（脳死導入時の議論再燃の懸念）</li>
+<li><strong>社会的問題</strong>：潜在的 DCD 候補推定の遅滞、家族同意プロセスの未整備</li>
+<li><strong>法的整備</strong>：現行の臓器移植法は脳死下提供と腎・角膜・膵の心停止後提供のみを対象</li>
+</ol>
+</div>
+>
+> JCS 2025 は「導入により慢性的ドナー不足を相当程度改善できる可能性がある」「障害の特定は遅滞なく行えるはず」と前向きに記述するも、**具体的導入時期は示されない**。
+
+<hr />
+<h2 id="11-btt橋渡し戦略lvad-装着率と待機期間">11. BTT（橋渡し）戦略：LVAD 装着率と待機期間</h2>
+<h3 id="11-1-btt-としての植込型-lvad-の重要性">11-1. BTT としての植込型 LVAD の重要性</h3>
+<table>
+<thead>
+<tr>
+<th>地域</th>
+<th>待機平均期間</th>
+<th>BTT としての植込型 LVAD 装着率</th>
+<th>帰結</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🇯🇵 <strong>日本</strong></td>
+<td><strong>約 4.8 年</strong></td>
+<td><strong>&gt;80%</strong></td>
+<td>LVAD 長期運用が前提、感作・脳血管合併症が課題</td>
+</tr>
+<tr>
+<td>🇺🇸 <strong>米国</strong></td>
+<td><strong>約 6 ヵ月</strong></td>
+<td>約 40-50%（減少傾向、2018年改正後）</td>
+<td>短期 MCS（Impella・IABP）使用増加、durable LVAD as DT へシフト</td>
+</tr>
+<tr>
+<td>🇪🇺 <strong>欧州</strong></td>
+<td>6〜18 ヵ月（国別）</td>
+<td>国別差大、平均 30-50%</td>
+<td>中間的、HeartMate 3 が主流</td>
+</tr>
+</tbody>
+</table>
+<h3 id="11-2-重要な含意">11-2. 重要な含意</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">日本の長期 BTT が他地域と異なる課題を生む</div>
+<ul>
+<li><strong>HLA 感作の蓄積</strong>：植込型 LVAD 装着 + 反復輸血 → 抗 HLA 抗体陽性率上昇</li>
+<li><strong>脳血管合併症</strong>：5年規模の LVAD 運用は脳出血・脳梗塞リスクの累積</li>
+<li><strong>拡大基準ドナーの積極的受諾</strong>：「待つほど死亡リスク」のため、サブオプティマルドナーを受諾せざるを得ない</li>
+<li><strong>再開胸の困難</strong>：LVAD 装着患者では再開胸が困難で、摘出術の手技も特殊</li>
+</ul>
+</div>
+>
+> JCS 2025 は「**長期待機期間に対応した在宅 LVAD 管理体制と多職種連携**」を強調し、これは他地域 GL にはない重みである。
+
+<hr />
+<h2 id="12-abo-血液型感作脱感作の取り扱い">12. ABO 血液型・感作・脱感作の取り扱い</h2>
+<h3 id="12-1-abo-の取り扱い">12-1. ABO の取り扱い</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2025</th>
+<th>🇪🇺 ESC</th>
+<th>🇺🇸 ACC/AHA / UNOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>成人 ABO 不適合移植</strong></td>
+<td>行われない／一致 &gt; 適合の優先</td>
+<td>一致原則</td>
+<td>一致原則</td>
+</tr>
+<tr>
+<td><strong>小児 ABO 不適合（infant ABOi）</strong></td>
+<td>実施（適応判定検討）</td>
+<td>実施（西欧で標準化）</td>
+<td><strong>広く実施</strong>（生後12-24ヵ月までの infant で標準的）</td>
+</tr>
+<tr>
+<td><strong>アロケーションの優先順位</strong></td>
+<td><strong>ABO 一致 &gt; 適合</strong>（同 Status・同年齢時の決定因子）</td>
+<td>一致が原則</td>
+<td><strong>区別しない</strong>（compatible は identical と同優先）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-2-感作レシピエントの管理">12-2. 感作レシピエントの管理</h3>
+<p>JCS 2025 の特徴：</p>
+<ul>
+<li><strong>植込型 VAD 装着患者で感作リスク高い</strong>ことを明記（LVAD GL 比較 と整合）</li>
+<li><strong>PRA ≥10%</strong> で抗原同定検査必須</li>
+<li><strong>Virtual PRA / バーチャルクロスマッチ</strong>を実施</li>
+<li>移植前 <strong>脱感作療法</strong>：血漿交換・IVIG・リツキシマブ・ボルテゾミブ（適応外使用）</li>
+<li>ドナー特異的抗体（DSA）陽性例では移植後 AMR 発症リスクのため、より頻回のスクリーニング</li>
+</ul>
+<p>国際的にも同様の枠組み（ISHLT 2018 Sensitization Consensus 等）。</p>
+<hr />
+<h2 id="13-心筋保護搬送ex-vivo-perfusionocssherpapak">13. 心筋保護・搬送・ex vivo perfusion（OCS/SherpaPak）</h2>
+<h3 id="13-1-心保存技術の比較">13-1. 心保存技術の比較</h3>
+<table>
+<thead>
+<tr>
+<th>技術</th>
+<th>🇯🇵 日本での使用</th>
+<th>🇪🇺 欧州での使用</th>
+<th>🇺🇸 米国での使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>氷冷静止保存（Celsior／UW／HTK）</strong></td>
+<td>標準（虚血時間 ≤4時間）</td>
+<td>標準＋拡大利用</td>
+<td>標準</td>
+</tr>
+<tr>
+<td><strong>SherpaPak Cardiac Transport（4-8℃ 制御低温）</strong></td>
+<td>限定的</td>
+<td>一部施設</td>
+<td><strong>広く普及</strong>（虚血時間延長・遠距離搬送に対応）</td>
+</tr>
+<tr>
+<td><strong>OCS（Organ Care System; TransMedics）</strong></td>
+<td>限定的（保険償還未確立）</td>
+<td>一部施設（特に DCD）</td>
+<td><strong>広く普及</strong>（DBD と DCD 両方で使用）</td>
+</tr>
+<tr>
+<td><strong>XVIVO HOPE（低温酸素化灌流）</strong></td>
+<td>限定的</td>
+<td>欧州で開発・使用</td>
+<td>限定的</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-2-jcs-2025-の記載">13-2. JCS 2025 の記載</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">日本における ex-vivo 灌流の位置づけ</div>
+<p>JCS 2025 第10章では「<strong>将来的には、体外臓器灌流装置や DCD からの移植の導入などにより、虚血許容時間の概念が変わるかもしれない</strong>」と展望的に記述。<strong>現時点で日本では OCS/SherpaPak の使用は施設裁量・限定的</strong>であり、4時間虚血許容を守る運用が中心。</p>
+</div>
+
+<hr />
+<h2 id="14-primary-graft-dysfunctionpgdegd定義と治療">14. Primary Graft Dysfunction（PGD/EGD）定義と治療</h2>
+<h3 id="14-1-定義の地域共通化ishlt-2024-が国際標準">14-1. 定義の地域共通化（ISHLT 2024 が国際標準）</h3>
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">定義は ISHLT 2024 EGD 基準が事実上の国際標準</div>
+<p>JCS 2025 も米国・欧州ガイドラインも、PGD/EGD の定義は <strong>ISHLT 2014 PGD コンセンサス → 2024 EGD コンセンサスを参照する</strong>。</p>
+</div>
+>
+> **新定義のキーポイント（再掲）**：
+> - PGD → **EGD（<24h）+ sEGD（24-72h）** に細分化
+> - **inotrope score は使用しない**
+> - 重症度は **Non-Severe / Severe の 2 段階**
+> - Severe は **VA-ECMO・LVAD・BiVAD・新規 IABP のいずれか**が必要
+
+<h3 id="14-2-治療戦略の比較">14-2. 治療戦略の比較</h3>
+<table>
+<thead>
+<tr>
+<th>戦略</th>
+<th>🇯🇵 日本（JCS 2025）</th>
+<th>🇪🇺 欧州</th>
+<th>🇺🇸 米国</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>第一選択 MCS</strong></td>
+<td>VA-ECMO（central・femoral）</td>
+<td>VA-ECMO</td>
+<td><strong>VA-ECMO</strong>（59% の施設が使用閾値を下げた）</td>
+</tr>
+<tr>
+<td><strong>誘導療法（induction）</strong></td>
+<td>施設裁量</td>
+<td>約 70% で使用</td>
+<td><strong>55%</strong> で使用</td>
+</tr>
+<tr>
+<td><strong>抗胸腺グロブリン（ATG）</strong></td>
+<td>限定的使用</td>
+<td>中程度</td>
+<td><strong>42%</strong> で使用</td>
+</tr>
+<tr>
+<td><strong>血漿交換（TPE）</strong></td>
+<td>AMR 治療として</td>
+<td>同左</td>
+<td><strong>31%</strong> で重症 PGD/EGD に使用</td>
+</tr>
+<tr>
+<td><strong>レボシメンダン</strong></td>
+<td>適応外（未承認）</td>
+<td>広く使用</td>
+<td><strong>29%</strong> で使用</td>
+</tr>
+<tr>
+<td><strong>Cytosorb（吸着）</strong></td>
+<td>未承認</td>
+<td>一部施設</td>
+<td>23-30% で使用</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-3-pgdegd-危険因子の臨床的含意">14-3. PGD/EGD 危険因子の臨床的含意</h3>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">日本特有の高リスク背景</div>
+<p>JCS 2025 が他 GL と異なる点：「わが国の心臓移植は、植込型 VAD 装着下での長期待機を要し」と明記。 → <strong>長期 LVAD 装着 + 感作 + 拡大基準ドナー受諾</strong>という日本特有の組み合わせが PGD/EGD リスクを系統的に高める → 結果として、PGD/EGD 治療の重要性が日本では特に高い</p>
+</div>
+
+<hr />
+<h2 id="15-遠隔期合併症拒絶cav感染悪性腫瘍の管理">15. 遠隔期合併症（拒絶・CAV・感染・悪性腫瘍）の管理</h2>
+<h3 id="15-1-主要遠隔期合併症3地域共通">15-1. 主要遠隔期合併症（3地域共通）</h3>
+<table>
+<thead>
+<tr>
+<th>合併症</th>
+<th>発生時期</th>
+<th>主管理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>急性細胞性拒絶反応（ACR）</strong></td>
+<td>1ヵ月〜数年</td>
+<td>心筋生検フォロー、ステロイドパルス</td>
+</tr>
+<tr>
+<td><strong>抗体関連型拒絶（AMR）</strong></td>
+<td>任意の時期</td>
+<td>PRA・DSA モニタリング、TPE・IVIG・リツキシマブ</td>
+</tr>
+<tr>
+<td><strong>CMV 感染</strong></td>
+<td>1〜6ヵ月</td>
+<td>予防投与（バルガンシクロビル）、CMV-DNA モニタリング</td>
+</tr>
+<tr>
+<td><strong>CAV（Cardiac Allograft Vasculopathy）</strong></td>
+<td>1年以降</td>
+<td>CAG / IVUS / OCT、mTOR 阻害薬、PCI/CABG</td>
+</tr>
+<tr>
+<td><strong>CKD（CNI 性腎障害）</strong></td>
+<td>累積</td>
+<td>CNI 減量、mTOR 阻害薬</td>
+</tr>
+<tr>
+<td><strong>悪性腫瘍（PTLD・皮膚癌等）</strong></td>
+<td>累積</td>
+<td>定期スクリーニング、免疫抑制調整</td>
+</tr>
+<tr>
+<td><strong>糖尿病・高血圧・脂質異常</strong></td>
+<td>早期〜累積</td>
+<td>各専門医連携</td>
+</tr>
+</tbody>
+</table>
+<h3 id="15-2-cav-診断基準">15-2. CAV 診断基準</h3>
+<p>ISHLT 2010 CAG 分類（JCS 2025 表24 で和訳記載）：</p>
+<ul>
+<li><strong>CAV0</strong>：病変なし</li>
+<li><strong>CAV1（軽症）</strong>：LMT &lt;50% / 近位部または側枝 &lt;70%、心機能低下なし</li>
+<li><strong>CAV2（中等症）</strong>：近位部1枝または2系統側枝 ≥70%、心機能低下なし</li>
+<li><strong>CAV3（重症）</strong>：LMT ≥50% / 近位部2枝以上または全3系統側枝 ≥70% + 心機能低下、または拘束性血行動態</li>
+</ul>
+<h3 id="15-3-ishlt-統計3地域共通参照">15-3. ISHLT 統計（3地域共通参照）</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ISHLT 統計：心臓移植後の生存と CAV</div>
+<ul>
+<li><strong>1年生存率 約85%</strong>、5年 約75%、その後年 3-4% ずつ低下</li>
+<li><strong>5年 CAV 回避率 約70%</strong>、10年 約50%</li>
+<li><strong>遠隔期主要死因</strong>：CAV、悪性腫瘍、感染症、慢性拒絶</li>
+<li>日本の独自レジストリ（日本心臓移植研究会）では <strong>CAV による死亡は2例のみ</strong>（2022年末／704例中） — 経過観察期間が短いことを反映</li>
+</ul>
+</div>
+
+<h3 id="15-4-日本固有の遠隔期管理課題">15-4. 日本固有の遠隔期管理課題</h3>
+<p>JCS 2025 第6章が強調：</p>
+<ul>
+<li><strong>植込型 VAD 装着期間が長い</strong>ため、移植時点で既に感作・併存症が累積</li>
+<li><strong>個別化される留意点</strong>：感作レシピエント、ドナー由来冠動脈病変、腎機能障害、頻脈</li>
+</ul>
+<hr />
+<h2 id="16-生存率術後成績の比較">16. 生存率・術後成績の比較</h2>
+<h3 id="16-1-短期中期成績">16-1. 短期・中期成績</h3>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>🇯🇵 日本（日本心臓移植研究会）</th>
+<th>🇺🇸 米国（UNOS/ISHLT）</th>
+<th>🇪🇺 欧州（ISHLT 国際）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>30日生存率</strong></td>
+<td><strong>&gt;95%</strong></td>
+<td>約 95%</td>
+<td>約 95%</td>
+</tr>
+<tr>
+<td><strong>1年生存率</strong></td>
+<td><strong>約 95%</strong>（世界最高水準）</td>
+<td>約 90%</td>
+<td>約 90%</td>
+</tr>
+<tr>
+<td><strong>5年生存率</strong></td>
+<td><strong>約 90%</strong>（世界最高水準）</td>
+<td>約 80%</td>
+<td>約 80%</td>
+</tr>
+<tr>
+<td><strong>10年生存率</strong></td>
+<td>約 70-80%（推定）</td>
+<td>約 60%</td>
+<td>約 60%</td>
+</tr>
+<tr>
+<td><strong>生存中央値</strong></td>
+<td><strong>&gt;15年（推定）</strong></td>
+<td><strong>&gt;12年</strong></td>
+<td><strong>約 12.5年</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="16-2-star-なぜ日本の成績は最高水準か">16-2. ⭐ なぜ日本の成績は最高水準か</h3>
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">日本の高い生存率の構造的要因</div>
+<ol type="1">
+<li><strong>厳格なレシピエント選択</strong>：65歳未満、PVR &lt;6 WU、低 BMI、慎重な悪性腫瘍既往スクリーニング</li>
+<li><strong>集約化</strong>：12施設のみで実施 → 各施設の症例数蓄積と専門性</li>
+<li><strong>適応判定の2段階審査</strong>：施設内 + JCS 委員会 → 不適切例の除外</li>
+<li><strong>長期待機の選別効果</strong>：4.8年待機を生存できる患者だけが移植に到達</li>
+<li><strong>多職種連携の制度的義務化</strong>：施設認定要件として</li>
+</ol>
+</div>
+>
+> ただし、この成績は **「ドナー希少 → 厳格選択 → 高成績」というトレードオフの結果**である。米国・欧州の「より多くの患者に移植機会を提供する」アプローチとは哲学が異なる。
+
+<h3 id="16-3-多臓器同時移植">16-3. 多臓器同時移植</h3>
+<table>
+<thead>
+<tr>
+<th>組み合わせ</th>
+<th>🇯🇵 日本</th>
+<th>🇺🇸 米国（2018年実績）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>心-腎同時移植</strong></td>
+<td>極めて稀</td>
+<td>一定数</td>
+</tr>
+<tr>
+<td><strong>心-肝同時移植</strong></td>
+<td>極めて稀</td>
+<td>一定数</td>
+</tr>
+<tr>
+<td><strong>心-肺同時移植</strong></td>
+<td>第8章で扱う、年数例</td>
+<td>一定数</td>
+</tr>
+<tr>
+<td><strong>多臓器移植全体</strong></td>
+<td>&lt;1%</td>
+<td><strong>約 7%</strong>（2018年）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="17-日本固有の制度的枠組みjot適応判定委員会施設認定">17. 日本固有の制度的枠組み（JOT・適応判定委員会・施設認定）</h2>
+<h3 id="17-1-日本のみが制度的に課す要件">17-1. 日本のみが制度的に課す要件</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">日本心臓移植の制度的固有性</div>
+<ol type="1">
+<li><strong>臓器移植法</strong>による法的枠組み（脳死下臓器提供）</li>
+<li>**JOT（日本臓器移植ネットワーク）**による全国一元的あっせん（OPTN/UNOS や Eurotransplant に相当）</li>
+<li><strong>JCS 心臓移植委員会適応検討部会</strong>による中央審査（移植実施50例以上の認定施設は自施設内判定可）</li>
+<li><strong>12 施設の認定制</strong>（成人 11 歳以上、小児 11 歳未満で施設分担）</li>
+<li><strong>2段階審査プロセス</strong>：施設内検討会 → JCS 適応検討部会</li>
+<li><strong>TRACER（2025年〜）</strong>：全臓器死体移植データベース一元化</li>
+<li><strong>インフォームドコンセント・移植承諾書</strong>の標準化</li>
+<li><strong>適応判定後の年1回更新手続き</strong></li>
+</ol>
+</div>
+
+<h3 id="17-2-jot-による意思確認プロセス2017年12月の早期化連絡">17-2. JOT による意思確認プロセス（2017年12月〜の早期化連絡）</h3>
+<ul>
+<li><strong>第1回法的脳死判定後</strong>：JOT から各臓器上位5人の移植施設へ意思確認の早期化連絡</li>
+<li><strong>第2回法的脳死判定後</strong>：正式な意思確認連絡 + DDDS（ドナーデータ伝達システム）</li>
+<li>ドナー早期化連絡により移植施設は受け入れ準備を事前可能</li>
+</ul>
+<h3 id="17-3-移植適応疾患jcs-2025-表4">17-3. 移植適応疾患（JCS 2025 表4）</h3>
+<ul>
+<li>拡張型心筋症、拡張相肥大型心筋症</li>
+<li>虚血性心筋疾患</li>
+<li>その他（JCS および日本小児循環器学会の心臓移植適応検討会で承認する心臓疾患）</li>
+</ul>
+<p>実態（2022年末 704例の内訳）：</p>
+<ul>
+<li>拡張型心筋症 <strong>439例</strong>（62%）／拡張相HCM <strong>72</strong>／拘束型 <strong>15</strong>／虚血性 <strong>69</strong>／心筋炎後 <strong>31</strong>／Becker型筋ジス <strong>19</strong>／Duchenne 保因 <strong>1</strong>／サルコイドーシス <strong>13</strong>／その他</li>
+</ul>
+<hr />
+<h2 id="18-クロスガイドライン総括と臨床的含意">18. クロスガイドライン総括と臨床的含意</h2>
+<h3 id="18-1-全ガイドライン共通の合意事項">18-1. 全ガイドライン共通の合意事項</h3>
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">3地域 + ISHLT の合意事項</div>
+<ol type="1">
+<li><strong>進行性 HF（GDMT・デバイス不応）に対し心臓移植は確立した治療</strong>（Class I 推奨）</li>
+<li><strong>多職種チーム</strong>による評価が必須（HF cardiologist, surgeon, social worker, palliative team, pharmacy）</li>
+<li>**CPET（peak VO₂ &lt;14 mL/kg/min または年齢補正 50% 未満）**が候補者選別の重要指標</li>
+<li><strong>絶対禁忌</strong>の核心：活動性感染、不可逆肺高血圧、不可逆肝/腎不全、進行性悪性腫瘍、アドヒアランス不能</li>
+<li><strong>ISHLT 2014/2024 PGD/EGD 定義</strong>を共通参照（術後72時間以内の機能不全評価）</li>
+<li><strong>免疫抑制の基本骨格</strong>：CNI（タクロリムス）+ 代謝拮抗薬（MMF）± ステロイド + 必要に応じ mTOR 阻害薬</li>
+<li><strong>CAV モニタリング</strong>：ISHLT 2010 CAG 分類 + 早期 IVUS（4-8週・1年・5年）</li>
+<li><strong>CMV モニタリング</strong>と予防投与</li>
+</ol>
+</div>
+
+<h3 id="18-2-主要な相違点まとめ">18-2. 主要な相違点まとめ</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>相違点</th>
+<th>詳細</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>ドナー供給</strong></td>
+<td>🇯🇵 0.65 pmp、4.8年待機 ／ 🇪🇺 18〜49 pmp ／ 🇺🇸 ~50 pmp、6ヵ月待機</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>年齢上限</strong></td>
+<td>🇯🇵 <strong>&lt;65 推奨</strong>（明示）／ 🇪🇺 &lt;65 望ましいが ~70 まで／ 🇺🇸 <strong>絶対上限なし</strong>（生物学的年齢）</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>PVR 絶対閾値</strong></td>
+<td>🇯🇵 <strong>≥6 WU 絶対除外</strong>／ 🇪🇺・🇺🇸 「不可逆性」を個別評価、LVAD で再評価</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>BMI 閾値</strong></td>
+<td>🇯🇵 <strong>&gt;30 が高度肥満</strong>／ 🇪🇺・🇺🇸 <strong>&gt;35</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>アロケーション階層</strong></td>
+<td>🇯🇵 Status 1A/1/2/3（4段階）／ 🇪🇺 HU/T/NT（3段階）／ 🇺🇸 6-tier（2018改正）</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>ABO 一致 vs 適合</strong></td>
+<td>🇯🇵 <strong>一致 &gt; 適合 を優先</strong>／ 🇪🇺 一致原則／ 🇺🇸 <strong>区別しない</strong></td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>DCD 心移植</strong></td>
+<td>🇯🇵 <strong>未導入</strong>／ 🇪🇺 国別（英・西先行）／ 🇺🇸 <strong>全体の 25-30%</strong></td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>BTT 期間と LVAD 装着率</strong></td>
+<td>🇯🇵 <strong>4.8年・&gt;80%</strong>／ 🇪🇺 中間／ 🇺🇸 6ヵ月・40-50%</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>多臓器同時移植</strong></td>
+<td>🇯🇵 &lt;1%／ 🇪🇺 一定数／ 🇺🇸 <strong>7%</strong></td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>施設・制度</strong></td>
+<td>🇯🇵 <strong>12施設・JOT中央あっせん・適応判定委員会</strong>／ 🇪🇺 国別・Eurotransplant プール／ 🇺🇸 130施設・UNOS 6-tier</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>DBD 年齢上限拡大</strong></td>
+<td>🇯🇵 <strong>50歳が望ましい</strong>（実態 &gt;50 が 4 割）／ 🇪🇺 <strong>&gt;65 まで積極拡大</strong>／ 🇺🇸 個別、&gt;50 で評価</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>ex-vivo 灌流（OCS/SherpaPak）</strong></td>
+<td>🇯🇵 限定的／ 🇪🇺 一部施設／ 🇺🇸 <strong>広く普及</strong></td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>HCV+ → HCV- 移植</strong></td>
+<td>🇯🇵 実施せず／ 🇪🇺 一部／ 🇺🇸 <strong>直接作用型抗ウイルス薬で確立</strong></td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>HIV+ → HIV+ 移植</strong></td>
+<td>🇯🇵 原則除外／ 🇪🇺 個別判断／ 🇺🇸 <strong>HOPE Act 2013で合法</strong></td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>1・5年生存率</strong></td>
+<td>🇯🇵 <strong>95% / 90%</strong> (世界最高水準) ／ 🇪🇺・🇺🇸 90% / 80%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="18-3-各地域ガイドラインの特徴と臨床的含意">18-3. 各地域ガイドラインの特徴と臨床的含意</h3>
+
+<div class="callout" style="background:#e1f5fe;border-left:4px solid #00b0ff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00b0ff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">各地域ガイドラインの強み</div>
+<p>🇯🇵 <strong>JCS/JHFS/JSPCCS 2025</strong>：日本独自の制度的枠組み（JOT・施設認定・適応判定委員会・JCS-VAD レジストリ）に強く根ざし、わが国の医療体制に最適化。<strong>心臓移植専用 GL を 139 ページにわたり整備</strong>しているのは世界的にも珍しい。長期 LVAD 待機を前提とした BTT 戦略、拡大基準ドナー受諾、感作レシピエント管理に独自の蓄積。<mark>DCD は 2025 年時点で未導入、第10章「今後の課題」に記載</mark>。生存成績は世界最高水準。</p>
+</div>
+>
+> 🇪🇺 **ESC 2021 / ESC 2023 Focused Update**：HF GL の一節として扱うが、Table 17 で適応・禁忌を簡潔に網羅。**生物学的年齢を強調**し、~70歳まで受諾可とする柔軟性。**ドナー年齢上限を積極的に拡大**する欧州実態を反映。Eurotransplant・UK・スペイン・フランスで国別アロケーション制度を持ち、**スペインの opt-out モデルが世界最高のドナー数**を実現。
+>
+> 🇺🇸 **ACC/AHA/HFSA 2022**：Section 8.5 は簡潔（Class I/C-LD）で、詳細は ISHLT 2016 Listing Criteria を参照する形式。**2018 UNOS アロケーション改正の影響**（待機リスト死亡率↓・虚血時間↑）を強調。**多臓器同時移植 7%**、**DCD 25-30%** という米国独自の実態を背景に持つ。Heart-kidney、Heart-liver の確立。HOPE Act・HCV+ ドナー利用などの供給拡大策の先頭。
+>
+> 🌐 **ISHLT 2024 PGD Consensus**：国際共通の定義基盤として最も重要。**PGD → EGD への用語変更**、**Non-Severe / Severe の2段階化**、**inotrope score の廃止**、**VA-ECMO 中心治療**を提唱。19 米国 + 37 国際専門家による合議で、3地域すべてが受け入れる定義を提供。
+
+<h3 id="18-4-臨床判断における重要メッセージ">18-4. 臨床判断における重要メッセージ</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">臨床判断における優先度</div>
+<ol type="1">
+<li><strong>ドナー希少度がすべての臨床戦略を規定する</strong>：日本では「最大の生存利益を最も適切な患者へ」、欧米では「より多くの候補者へアクセス提供」というアプローチの違いを意識すべき</li>
+<li><strong>PVR ≥6 WU の判定</strong>は日本では絶対除外、欧米では LVAD 装着試行 → 再評価という違いがある</li>
+<li><strong>拡大基準ドナーの受諾判断</strong>は施設経験とレシピエント状態のバランス；日本では実態として &gt;50 歳ドナーが 4 割</li>
+<li><strong>植込型 LVAD 装着患者の感作管理</strong>は日本で特に重要：移植前 PRA・DSA・virtual crossmatch を頻回に</li>
+<li><strong>DCD 心移植は世界的潮流</strong>：日本でも導入準備（医学的・倫理的・制度的）が急務（JCS 2025 第10章）</li>
+<li><strong>アロケーション制度の差</strong>：日本では Status 1A は ≤60 歳のみ・ABO 一致優先、米国では年齢非考慮・ABO 適合同優先</li>
+<li><strong>PGD/EGD の新定義（2024 ISHLT）</strong>：すべての地域で適用、Severe の判定は <strong>MCS（VA-ECMO・新規 IABP含む）の必要性</strong>で行う</li>
+<li><strong>長期待機患者の併存症蓄積</strong>：日本では特に脳血管・腎機能・感作・低栄養への配慮が重要</li>
+<li><strong>心臓移植実施施設の制度的責務（日本）</strong>：適応判定委員会・施設認定・年次レジストリ報告は法的・準法的義務として遵守</li>
+</ol>
+</div>
+
+<h3 id="18-5-未来展望3地域共通の方向性">18-5. 未来展望：3地域共通の方向性</h3>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">心臓移植の将来展望</div>
+<ol type="1">
+<li><strong>DCD の普及</strong>：日本での導入は不可避（時期未定）／米欧でさらなる比率増加</li>
+<li><strong>異種移植（xenotransplantation）</strong>：2022年初の遺伝子改変ブタ心ヒト移植（米国 UMaryland）、2024年実用化試行 → ガイドライン化はまだ</li>
+<li><strong>ex-vivo 灌流の標準化</strong>：OCS・SherpaPak・XVIVO で虚血許容時間が事実上「無制限」化</li>
+<li><strong>機械学習による PGD/EGD 予測</strong>：PGD-AI の臨床実装</li>
+<li><strong>HLA エピトープマッチング</strong>：分子レベルでの DSA リスク予測</li>
+<li><strong>トレラントレジメ</strong>：免疫抑制離脱の試行（一部施設）</li>
+<li><strong>異種臓器・生体心臓臓器バンク</strong>：超長期戦略</li>
+</ol>
+</div>
+
+<hr />
+<h2 id="関連ノート">関連ノート</h2>
+<ul>
+<li>LVAD ガイドライン比較 — BTT 戦略・植込型 LVAD の適応・周術期管理</li>
+<li>心筋症ガイドライン比較 — 心臓移植適応疾患（DCM・dHCM・RCM・ICM）の鑑別</li>
+<li>周術期抗凝固管理比較 — LVAD 装着患者・移植後抗凝固</li>
+<li>複合弁膜症ガイドライン比較</li>
+<li>MR ガイドライン比較</li>
+</ul>
+<hr />
+<p><strong>主要文献：</strong></p>
+<ul>
+<li>日本循環器学会・日本心不全学会・日本小児循環器学会 ほか. 2025年改訂版 心臓移植に関するガイドライン（班長：齋木佳克）. 2025.</li>
+<li>Heidenreich PA, et al. 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure. Circulation 2022;145:e895-e1032.</li>
+<li>McDonagh TA, et al. 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure. Eur Heart J 2021;42:3599-3726.</li>
+<li>McDonagh TA, et al. 2023 Focused Update of the 2021 ESC Guidelines for the treatment of acute and chronic heart failure. Eur Heart J 2023;44:3627-3639.</li>
+<li>Kobashigawa J, et al. Summary of the ISHLT Consensus Conference on Graft Dysfunction within the First 72 hours after Heart Transplantation: A 10-year Update. J Heart Lung Transplant 2026;45:e149-e171.</li>
+<li>Mehra MR, et al. The 2016 International Society for Heart Lung Transplantation listing criteria for heart transplantation: A 10-year update. J Heart Lung Transplant 2016;35:1-23.</li>
+<li>Saeed D, et al. The 2023 International Society for Heart and Lung Transplantation Guidelines for Mechanical Circulatory Support. J Heart Lung Transplant 2023;42:e1-e222.</li>
+<li>Messer S, et al. Outcomes after heart transplantation from donation after circulatory-determined death donors. J Heart Lung Transplant 2017;36:1311-1318.</li>
+<li>Madan S, et al. Outcomes after Transplantation of Donor Hearts with Improving Function during Ex Vivo Machine Perfusion. JACC Heart Fail 2023.</li>
+<li>厚生労働省告示. 心臓移植希望者（レシピエント）選択基準（一部改正，令和7年3月7日 健生発0307第6号）. 2025.</li>
+<li>日本臓器移植ネットワーク. 臓器提供者（ドナー）適応基準. 2024.</li>
+</ul>
+
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
+</body>
+</html>

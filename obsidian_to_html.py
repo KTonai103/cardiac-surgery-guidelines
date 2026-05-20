@@ -742,6 +742,8 @@ def main():
          "Cardiomyopathy/Cardiomyopathy_Guidelines_Comparison.html"),
         ("AR_AVR/AR_Guidelines_Comparison.md",
          "AR_AVR/AR_Guidelines_Comparison.html"),
+        ("Ross_Procedure/Ross_Procedure_Guidelines_Comparison.md",
+         "Ross_Procedure/Ross_Procedure_Guidelines_Comparison.html"),
         ("MR_MV/MR_Guidelines_Comparison.md",
          "MR_MV/MR_Guidelines_Comparison.html"),
         ("Perioperative_Anticoagulation/Perioperative_Anticoagulation_Guidelines_Comparison.md",
@@ -768,6 +770,8 @@ def main():
          "CP_Pericardiectomy/CP_Pericardiectomy_Guidelines_Comparison.html"),
         ("CVCU_Emergency_Response/CVCU_Emergency_Response_Protocol.md",
          "CVCU_Emergency_Response/CVCU_Emergency_Response_Protocol.html"),
+        ("CPB_Management/CPB_Management_Guidelines_Comparison.md",
+         "CPB_Management/CPB_Management_Guidelines_Comparison.html"),
     ]
 
     print("Converting Obsidian MD → styled HTML:")

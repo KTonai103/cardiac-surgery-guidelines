@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ross手術（自己肺動脈弁による大動脈弁置換）：ガイドライン・提言まとめ</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5c5c5c;
+  --border: #d4d4d4;
+  --accent: #2c3e50;
+  --light-bg: #f7f8fa;
+  --header-bg: #2c3e50;
+  --header-fg: #ffffff;
+  --link: #34495e;
+  --jp-accent: #c0392b;
+  --us-accent: #2980b9;
+  --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
+
+body {
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+  margin: 48px 0 12px;
+}
+
+h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 28px 0 8px;
+}
+
+h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 20px 0 6px;
+}
+
+p { margin: 8px 0; font-size: 0.88rem; }
+strong { color: var(--fg); }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+ul, ol {
+  padding-left: 24px;
+  margin: 8px 0;
+  font-size: 0.88rem;
+}
+
+li { margin-bottom: 4px; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 12px 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+thead th {
+  background: var(--header-bg);
+  color: var(--header-fg);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--light-bg);
+}
+
+tbody tr:nth-child(even) td { background-color: #fafbfc; }
+tbody tr:nth-child(even) td:first-child { background-color: #f0f1f3; }
+tbody tr:hover td { background-color: #eef1f5; }
+tbody tr:hover td:first-child { background-color: #e4e8ed; }
+
+/* Blockquotes (fallback for any not converted to callouts) */
+blockquote {
+  background: var(--light-bg);
+  border-left: 3px solid var(--border);
+  padding: 10px 16px;
+  margin: 12px 0 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+blockquote strong { color: var(--fg); }
+
+/* Highlights */
+mark {
+  background: #fff3cd;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Callout overrides - already inline styled, but ensure nested elements look right */
+.callout p { margin: 4px 0; }
+.callout ul, .callout ol { margin: 4px 0 4px 16px; }
+.callout table { font-size: 0.8rem; }
+
+/* Print */
+@media print {
+  body { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
+@media (max-width: 768px) {
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
+  h1 { font-size: 1.3rem; }
+  table { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-ross手術とは--概要と術式の変遷">1. Ross手術とは — 概要と術式の変遷</a></li>
+      <li class="toc-l3"><a href="#1-1-定義と基本コンセプト">1-1. 定義と基本コンセプト</a></li>
+      <li class="toc-l3"><a href="#1-2-術式の変遷subcoronary--root-replacement--補強inclusion">1-2. 術式の変遷（subcoronary → root replacement → 補強・inclusion）</a></li>
+      <li class="toc-l2"><a href="#2-4文書におけるross手術の位置付け">2. 4文書におけるRoss手術の位置付け</a></li>
+      <li class="toc-l2"><a href="#3-ross手術の理論的根拠eacts-consensus-table-1">3. Ross手術の理論的根拠（EACTS Consensus Table 1）</a></li>
+      <li class="toc-l3"><a href="#3-1-ross-vs-機械弁mavr-vs-生体弁bavr">3-1. Ross vs 機械弁(mAVR) vs 生体弁(bAVR)</a></li>
+      <li class="toc-l3"><a href="#3-2-key-messagesコンセンサス全体の4つの要点">3-2. Key Messages（コンセンサス全体の4つの要点）</a></li>
+      <li class="toc-l2"><a href="#4-患者選択eacts-consensus-table-2">4. 患者選択（EACTS Consensus Table 2）</a></li>
+      <li class="toc-l3"><a href="#4-1-年齢">4-1. 年齢</a></li>
+      <li class="toc-l3"><a href="#4-2-性別妊娠">4-2. 性別・妊娠</a></li>
+      <li class="toc-l3"><a href="#4-3-併存疾患rossの利益が減弱回避を要する因子">4-3. 併存疾患（Rossの利益が減弱／回避を要する因子）</a></li>
+      <li class="toc-l3"><a href="#4-4-冠動脈解剖評価必須">4-4. 冠動脈解剖（評価必須）</a></li>
+      <li class="toc-l3"><a href="#4-5-大動脈弁形態">4-5. 大動脈弁形態</a></li>
+      <li class="toc-l3"><a href="#4-6-肺動脈弁形態">4-6. 肺動脈弁形態</a></li>
+      <li class="toc-l3"><a href="#4-7-患者選択アルゴリズムeacts-figure-1の要約">4-7. 患者選択アルゴリズム（EACTS Figure 1の要約）</a></li>
+      <li class="toc-l2"><a href="#5-適応疾患別の推奨">5. 適応疾患別の推奨</a></li>
+      <li class="toc-l2"><a href="#6-手術手技eacts-consensus-table-3">6. 手術手技（EACTS Consensus Table 3）</a></li>
+      <li class="toc-l3"><a href="#6-1-推奨される基本術式">6-1. 推奨される基本術式</a></li>
+      <li class="toc-l3"><a href="#6-2-手技上の必須事項">6-2. 手技上の必須事項</a></li>
+      <li class="toc-l2"><a href="#7-再手術遠隔期成績eacts-consensus-table-4">7. 再手術・遠隔期成績（EACTS Consensus Table 4）</a></li>
+      <li class="toc-l3"><a href="#7-1-autograft左側大動脈側の失敗">7-1. autograft（左側＝大動脈側）の失敗</a></li>
+      <li class="toc-l3"><a href="#7-2-肺動脈ホモグラフトxenograft右側の失敗">7-2. 肺動脈ホモグラフト/xenograft（右側）の失敗</a></li>
+      <li class="toc-l2"><a href="#8-術後管理eacts-consensus-table-5">8. 術後管理（EACTS Consensus Table 5）</a></li>
+      <li class="toc-l2"><a href="#9-ross-centres-of-excellenceeacts-consensus-table-6">9. Ross Centres of Excellence（EACTS Consensus Table 6）</a></li>
+      <li class="toc-l2"><a href="#10-各文書の比較総括">10. 各文書の比較・総括</a></li>
+      <li class="toc-l3"><a href="#10-1-横断比較表">10-1. 横断比較表</a></li>
+      <li class="toc-l3"><a href="#10-2-主要な相違点">10-2. 主要な相違点</a></li>
+      <li class="toc-l3"><a href="#10-3-臨床的含意地域別の特徴">10-3. 臨床的含意（地域別の特徴）</a></li>
+      <li class="toc-l3"><a href="#10-4-臨床判断のフロー4文書統合視点">10-4. 臨床判断のフロー（4文書統合視点）</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
+<h1 id="ross手術自己肺動脈弁による大動脈弁置換ガイドライン提言まとめ">Ross手術（自己肺動脈弁による大動脈弁置換）：ガイドライン・提言まとめ</h1>
+<p><strong>作成日：</strong> 2026年5月20日<br />
+<strong>対象範囲：</strong> 成人Ross手術（小児・先天性は対象外）<br />
+<strong>対象文書：</strong></p>
+<ul>
+<li>🇪🇺 <strong>EACTS 2025 Ross Consensus</strong>（中心文書）：EACTS Expert Consensus Statement on the Ross Procedure in Adult Patients（Vojáček J, Gofuš J, et al. <em>Eur J Cardiothorac Surg</em> 2026;68(2):ezaf295. Advance access 2025年10月9日）— Ross手術を主題とする唯一の国際専門コンセンサス</li>
+<li>🇺🇸 <strong>ACC/AHA 2020</strong>：2020 ACC/AHA Guideline for the Management of Patients With Valvular Heart Disease（VHDガイドライン内でRossに言及）</li>
+<li>🇪🇺 <strong>ESC/EACTS 2025</strong>：2025 ESC/EACTS Guidelines for the management of valvular heart disease（VHDガイドライン内でRossに言及）</li>
+<li>🇯🇵 <strong>JCS 2020</strong>：JCS/JSCS/JATS/JSVS 2020年改訂版 弁膜症治療ガイドライン（成人Rossの明示的記載なし）</li>
+</ul>
+<p><strong>関連ドキュメント：</strong> AS/AVR/TAVIガイドライン比較（第9章にRoss要約あり） · 大動脈弁逆流症ガイドライン比較 · 上行大動脈手術適応比較 · 複合弁膜症ガイドライン比較 · 感染性心内膜炎手術ガイドライン比較 · 術前抗凝固管理比較</p>
+
+<div class="callout" style="background:#e1f5fe;border-left:4px solid #00b0ff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00b0ff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">本まとめの位置付け</div>
+<p>Ross手術（自己肺動脈弁＝pulmonary autograftを大動脈位に移植し、右室流出路を肺動脈ホモグラフト等で再建する術式）について、4文書を横断的に整理する。3地域のVHDガイドライン（JCS / ESC/EACTS / ACC/AHA）はいずれもRossへの言及が限定的であるため、本まとめは2025年に発表された <strong>EACTS成人Ross専門コンセンサス</strong> の推奨（6つのConsensus Statement Table）を中核に据え、各VHDガイドラインとの温度差を明確化する。</p>
+</div>
+
+<hr />
+<h2 id="目次">目次</h2>
+<ol type="1">
+<li><a href="#1-ross手術とは--概要と術式の変遷">Ross手術とは — 概要と術式の変遷</a></li>
+<li><a href="#2-4文書におけるross手術の位置付け">4文書におけるRoss手術の位置付け</a></li>
+<li><a href="#3-ross手術の理論的根拠eacts-consensus-table-1">Ross手術の理論的根拠（EACTS Consensus Table 1）</a></li>
+<li><a href="#4-患者選択eacts-consensus-table-2">患者選択（EACTS Consensus Table 2）</a></li>
+<li><a href="#5-適応疾患別の推奨">適応疾患別の推奨</a></li>
+<li><a href="#6-手術手技eacts-consensus-table-3">手術手技（EACTS Consensus Table 3）</a></li>
+<li><a href="#7-再手術遠隔期成績eacts-consensus-table-4">再手術・遠隔期成績（EACTS Consensus Table 4）</a></li>
+<li><a href="#8-術後管理eacts-consensus-table-5">術後管理（EACTS Consensus Table 5）</a></li>
+<li><a href="#9-ross-centres-of-excellenceeacts-consensus-table-6">Ross Centres of Excellence（EACTS Consensus Table 6）</a></li>
+<li><a href="#10-各文書の比較総括">各文書の比較・総括</a></li>
+</ol>
+<hr />
+<h2 id="1-ross手術とは--概要と術式の変遷">1. Ross手術とは — 概要と術式の変遷</h2>
+<h3 id="1-1-定義と基本コンセプト">1-1. 定義と基本コンセプト</h3>
+<p>Ross手術は、病的な大動脈弁を<strong>患者自身の肺動脈弁（自己肺動脈弁／pulmonary autograft, PA）<strong>で置換し、摘出した肺動脈弁の位置を</strong>肺動脈ホモグラフト等で再建</strong>する術式である（1967年 Donald Rossが報告）。</p>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Ross手術が「生きた弁」である意義</div>
+<p>移植後数年を経た自己肺動脈弁の組織学的検討では、内皮・間質細胞を備えた三層構造が保たれており、Ross手術は**唯一、移植後も自己組織として生存し続ける大動脈弁置換術(AVR)**である。自己肺動脈弁は左室流出路(LVOT)–大動脈基部complexのダイナミクスと連動性を保持し、これが成人での観察された臨床的有益性（優れた血行動態・低い血栓原性・感染抵抗性）の多くを説明すると考えられている。</p>
+</div>
+
+<h3 id="1-2-術式の変遷subcoronary--root-replacement--補強inclusion">1-2. 術式の変遷（subcoronary → root replacement → 補強・inclusion）</h3>
+<table>
+<thead>
+<tr>
+<th>術式</th>
+<th>概要</th>
+<th>現在の位置付け</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Subcoronary (SC)</strong></td>
+<td>原法。自己肺動脈弁を弁尖単位で大動脈弁位に縫着</td>
+<td>大動脈基部形態の影響を受けやすく再現性に乏しいため<strong>徐々に減少</strong></td>
+</tr>
+<tr>
+<td><strong>Root replacement (RR)</strong></td>
+<td>自己肺動脈をfree-standing root として移植。適用範囲が広い</td>
+<td>初期は中期のPA拡張・AR・再手術増加が問題に</td>
+</tr>
+<tr>
+<td><strong>Reinforced root replacement (RR+R)</strong></td>
+<td>RRにbasal ring・STJレベルの補強を追加し弁輪mismatchに対応</td>
+<td><strong>現在の標準術式</strong>（German Ross Registryで非補強RRは再手術6倍）</td>
+</tr>
+<tr>
+<td><strong>Autologous inclusion</strong></td>
+<td>自己肺動脈を患者自身の大動脈根部内に挿入（Skillington法）</td>
+<td>横・縦方向の拡張を抑制。最長30年の良好な耐久性報告</td>
+</tr>
+<tr>
+<td><strong>Prosthetic inclusion</strong></td>
+<td>自己肺動脈をDacron人工血管内に挿入</td>
+<td>弁輪・基部径を安定化。少なくとも10年の安全性・耐久性</td>
+</tr>
+<tr>
+<td><strong>Ross-PEARS</strong></td>
+<td>Personalised External Aortic Root Support でautograftを外部補強</td>
+<td>新規術式。中長期データは限定的</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-4文書におけるross手術の位置付け">2. 4文書におけるRoss手術の位置付け</h2>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">最重要ポイント：ガイドライン間の「温度差」</div>
+<p>3地域のVHDガイドラインはRoss手術に<strong>慎重〜記載なし</strong>であるのに対し、<strong>EACTS 2025 Ross専門コンセンサス</strong>は近年蓄積した長期成績エビデンスに基づき、適切な患者選定と専門施設での実施を条件として<strong>第一選択肢としての考慮</strong>を明示する、より積極的な姿勢をとる。この乖離自体が、Ross手術を巡る現在の臨床的論点である。</p>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>文書</th>
+<th>Ross手術の推奨レベル</th>
+<th>主な記載内容（要点）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🇯🇵 <strong>JCS 2020</strong>（VHD）</td>
+<td><strong>明示的推奨なし</strong></td>
+<td>推奨表・本文に成人Ross手術の解説や推奨クラスの記載は<strong>確認されない</strong>（pulmonary autograftは妊娠関連の参考文献に1件言及のみ）。若年・挙児希望例では抗凝固回避の観点から生体弁(Class IIa)・自己弁温存術が論じられる</td>
+</tr>
+<tr>
+<td>🇪🇺 <strong>ESC/EACTS 2025</strong>（VHD）</td>
+<td><strong>番号付き推奨なし（本文記載）</strong></td>
+<td>「経験豊富な術者により、よく選定された若年症例で行えば、人工弁置換の良い代替となりうる(may also be a good alternative)」。「専門施設で選定患者に施行すれば優れた長期生存と関連」。詳細は専門コンセンサスに委ねる</td>
+</tr>
+<tr>
+<td>🇺🇸 <strong>ACC/AHA 2020</strong>（VHD）</td>
+<td><strong>COR 2b（IIb）／LOE B-NR</strong></td>
+<td>「<strong>50歳未満</strong>で生体弁AVRを希望し<strong>適切な解剖</strong>を有する患者では、自己肺動脈弁による大動脈弁置換（Ross手術）を<strong>Comprehensive Valve Centerで考慮しうる</strong>」。挙児希望の若年女性の重症ASでも代替選択肢として言及</td>
+</tr>
+<tr>
+<td>🇪🇺 <strong>EACTS 2025 Ross Consensus</strong></td>
+<td><strong>専門コンセンサス（6 Statement Table）</strong></td>
+<td><strong>60歳未満・余命15年以上・合併症最小</strong>の選定患者で、shared decision makingを経て<strong>考慮すべき</strong>。患者選択・術式・再手術・術後管理・集約化を体系的に提示</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ACC/AHA推奨の正確な区分について</div>
+<p>2020 ACC/AHA VHDガイドラインの原文推奨表における自己肺動脈弁(Ross)の区分は <strong>COR 2b／LOE B-NR</strong>（原本表記を逐語確認済み）。本まとめではこの検証値を採用する。</p>
+</div>
+
+<hr />
+<h2 id="3-ross手術の理論的根拠eacts-consensus-table-1">3. Ross手術の理論的根拠（EACTS Consensus Table 1）</h2>
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Consensus Statement Table 1 — Ross手術の理論的根拠（成人）</div>
+<ol type="1">
+<li>Ross手術は、<strong>年齢・性別をマッチさせた一般集団と同等の長期余命の回復</strong>と関連する。</li>
+<li>Ross手術は、<strong>あらゆる人工大動脈弁置換オプションと比較して優れた血行動態</strong>を提供する。</li>
+<li>Ross手術は、<strong>弁関連合併症（感染性心内膜炎・PPM）からの解放、（生体弁と比較した）再手術からの解放、（機械弁と比較した）血栓塞栓症・出血からの解放</strong>の改善と関連する。</li>
+</ol>
+</div>
+
+<h3 id="3-1-ross-vs-機械弁mavr-vs-生体弁bavr">3-1. Ross vs 機械弁(mAVR) vs 生体弁(bAVR)</h3>
+<table>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>Ross手術</th>
+<th>mAVR（機械弁）</th>
+<th>bAVR（生体弁）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>長期生存率（vs 年齢・性別マッチ一般集団）</strong></td>
+<td><strong>同等</strong></td>
+<td>過剰死亡あり</td>
+<td>過剰死亡あり（若年で顕著）</td>
+</tr>
+<tr>
+<td><strong>生涯抗凝固療法</strong></td>
+<td>不要</td>
+<td>必須</td>
+<td>不要</td>
+</tr>
+<tr>
+<td><strong>主要出血（15年・El-Hamamsy）</strong></td>
+<td><strong>1.9%</strong></td>
+<td>5.2%</td>
+<td>3.3%</td>
+</tr>
+<tr>
+<td><strong>脳卒中（15年・El-Hamamsy）</strong></td>
+<td><strong>2.1%</strong></td>
+<td>4.8%</td>
+<td>3.3%</td>
+</tr>
+<tr>
+<td><strong>PPM（患者-人工弁不適合）</strong></td>
+<td>ほぼゼロ（小弁輪でも良好）</td>
+<td>あり</td>
+<td>あり</td>
+</tr>
+<tr>
+<td><strong>感染性心内膜炎</strong></td>
+<td>極めて低い（自己組織）</td>
+<td>低い</td>
+<td>やや高い</td>
+</tr>
+<tr>
+<td><strong>ペースメーカー植込み</strong></td>
+<td>一次手術で通常&lt;1%</td>
+<td>—</td>
+<td>比較的少</td>
+</tr>
+<tr>
+<td><strong>再手術</strong></td>
+<td>約<strong>1%/患者年</strong>（経験施設）</td>
+<td>低い</td>
+<td>第2の10年で急増</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">長期生存データ（代表例）</div>
+<ul>
+<li><strong>German Ross Registry（Aboud 2021, n=2,444）</strong>：院内死亡 約1%、生存率 10年 95.4% / 20年 79.4% / 25年 75.8%（ドイツ一般集団と同等）。Ross関連再介入回避率 15年 84.7%。</li>
+<li><strong>無作為化比較試験(El-Hamamsy 2010, n=216, 平均38歳)</strong>：12年生存率はホモグラフト基部置換より有意に良好。</li>
+<li>多くは傾向スコアマッチ解析だが、<strong>bAVR/mAVRと比較して20年で約10〜15%の絶対生存利益</strong>を示す報告が複数。</li>
+</ul>
+</div>
+
+<h3 id="3-2-key-messagesコンセンサス全体の4つの要点">3-2. Key Messages（コンセンサス全体の4つの要点）</h3>
+
+<div class="callout" style="background:#e1f5fe;border-left:4px solid #00b0ff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00b0ff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">EACTS 2025 Ross Consensus — Key Messages</div>
+<ol type="1">
+<li>Ross手術は<strong>年齢・性別マッチ一般集団のレベルへの長期余命の回復</strong>と関連する。</li>
+<li>Ross手術は<strong>あらゆる人工大動脈弁置換と比較して優れた血行動態</strong>を提供する。</li>
+<li>Ross手術は<strong>弁関連合併症（IE・PPM・〔生体弁比〕再手術・〔機械弁比〕血栓塞栓症/出血）からの解放の改善</strong>と関連する。</li>
+<li>Ross手術は<strong>合併症が最小限の60歳未満の成人患者</strong>で、<strong>shared decision making</strong>のプロセスを経て考慮すべきである。</li>
+</ol>
+</div>
+
+<hr />
+<h2 id="4-患者選択eacts-consensus-table-2">4. 患者選択（EACTS Consensus Table 2）</h2>
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Consensus Statement Table 2 — 患者選択</div>
+<ul>
+<li>Ross手術は、<strong>合併症が最小限の60歳未満の成人患者</strong>で、shared decision-makingのプロセスを経て<strong>考慮すべき</strong>である。</li>
+<li>AVRを要する<strong>挙児希望(childbearing age)の女性</strong>では、Ross手術が**第一選択(preferred option)**である。</li>
+<li>Ross手術を考慮する患者では、<strong>冠動脈異常は慎重に</strong>アプローチすべきである。</li>
+<li><strong>最適な適応</strong>は、AS または狭窄優位の混合病変で、<strong>特に大動脈弁輪非拡大例</strong>である。</li>
+<li>AVRの適応とならない<strong>純粋AR患者</strong>は、適切な手術手技を用いれば良好なRoss候補である。</li>
+<li>Ross手術は、<strong>リウマチ性心疾患</strong>または<strong>感染性心内膜炎</strong>の選定患者で考慮しうる。</li>
+<li>Ross手術は、<strong>Marfan症候群など遺伝子確定した症候性大動脈症</strong>患者では<strong>避けるべき</strong>である。</li>
+<li>Ross手術は、<strong>自己免疫疾患</strong>患者では<strong>避けるべき</strong>である。</li>
+</ul>
+</div>
+
+<h3 id="4-1-年齢">4-1. 年齢</h3>
+<table>
+<thead>
+<tr>
+<th>区分</th>
+<th>コンセンサスの推奨</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>&lt;50歳</strong></td>
+<td>強く考慮すべき（strongly considered）。利益は長期に顕在化するため若年で最大</td>
+</tr>
+<tr>
+<td><strong>50–60歳</strong></td>
+<td>合併症最小・余命&gt;15年であれば、選定の上で実施を推奨</td>
+</tr>
+<tr>
+<td><strong>&gt;60歳</strong></td>
+<td>選択的に。身体活動性が高く、長寿の家族歴があり、小さい大動脈弁輪を有する症例で考慮</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Note</div>
+<p>ACC/AHAは「&lt;50歳」をClass IIbの閾値とするのに対し、EACTS Consensusは「&lt;60歳（理想&lt;50歳）」へと適応年齢をやや拡大している点が大きな差異。</p>
+</div>
+
+<h3 id="4-2-性別妊娠">4-2. 性別・妊娠</h3>
+<ul>
+<li><strong>挙児希望年齢の女性に対するRoss手術は理想的な解決策</strong>であり、妊娠中の心・胎児・産科リスクは増加しないとされる。</li>
+<li>成人Ross症例の多数は男性（先天性大動脈弁疾患が男性に多いことを反映）。</li>
+<li>男女間で周術期死亡・合併症に有意差はないが、女性は手術時年齢がやや高く、狭窄/混合病変・小弁輪が多い傾向。</li>
+</ul>
+<h3 id="4-3-併存疾患rossの利益が減弱回避を要する因子">4-3. 併存疾患（Rossの利益が減弱／回避を要する因子）</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Ross手術の利点が減弱する併存疾患（症例毎に慎重評価）</div>
+<p>回復不能なLVEF低下（&lt;30%）／固定性重症肺高血圧／進行した肺・肝・腎疾患／合併症を伴う糖尿病／予後不良のがん／縦隔放射線治療歴（現在または6ヶ月以内）／虚弱（frailty）。これらは長クランプ・人工心肺時間への耐容低下、組織脆弱・癒着、術後合併症リスク増を通じてRossの長期的利益を相殺しうる。</p>
+</div>
+
+<h3 id="4-4-冠動脈解剖評価必須">4-4. 冠動脈解剖（評価必須）</h3>
+<ul>
+<li><strong>全Ross候補で冠動脈評価（心臓CTまたは冠動脈造影）が必須</strong>。</li>
+<li><strong>冠動脈の右室漏斗部前方走行（例：LADから起始する右冠動脈の前方横断）</strong>：autograft採取で必発の冠動脈損傷を来すため<strong>絶対禁忌</strong>。</li>
+<li>右冠動脈の左冠尖起始（interarterial course）や左回旋枝の後方走行（retro-aortic）は<strong>相対禁忌</strong>。unroofingや広範なボタン授動を要することがある。</li>
+</ul>
+<h3 id="4-5-大動脈弁形態">4-5. 大動脈弁形態</h3>
+<table>
+<thead>
+<tr>
+<th>弁形態</th>
+<th>取り扱い</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>二尖弁(BAV)</strong></td>
+<td>Ross症例で最多（GRRで70.9%）。三尖弁と長期autograft成績に明らかな差なし</td>
+</tr>
+<tr>
+<td><strong>一尖弁(unicuspid)</strong></td>
+<td>別個の病態。若年(&lt;35–40歳)・弁輪拡大が高度。Ross症例の27–37%を占め従来想定より多い</td>
+</tr>
+<tr>
+<td><strong>autograftとしての二尖/四尖肺動脈弁の使用</strong></td>
+<td><strong>推奨されない</strong>（技術的には可能で小規模に許容的な中期成績）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-6-肺動脈弁形態">4-6. 肺動脈弁形態</h3>
+<ul>
+<li><strong>術前心エコーで有意な肺動脈弁機能異常</strong>：<strong>厳格な禁忌</strong>。trace〜軽度の中心性逆流は問題なし。</li>
+<li>大動脈弁輪と肺動脈弁輪に**&gt;2 mmの有意なサイズ差**がある場合：大きい大動脈弁輪は遅発性autograft失敗リスクを上げるため、<strong>縮小/安定化（annuloplasty等）の併用</strong>で対応。</li>
+</ul>
+<h3 id="4-7-患者選択アルゴリズムeacts-figure-1の要約">4-7. 患者選択アルゴリズム（EACTS Figure 1の要約）</h3>
+<pre class="mermaid"><code>graph TD
+    A[成人 大動脈弁疾患] --&gt; B{病型}
+    B --&gt;|AS / 狭窄優位mixed| C{年齢&lt;60歳?}
+    B --&gt;|AR| R{弁修復・温存が可能?}
+    R --&gt;|可能| AVrep[大動脈弁修復/温存]
+    R --&gt;|不可能| C
+    C --&gt;|いいえ| CONV[従来型AVR&lt;br&gt;機械弁/生体弁]
+    C --&gt;|はい| D{余命&gt;15年?}
+    D --&gt;|いいえ| CONV
+    D --&gt;|はい| E{重大な併存疾患&lt;br&gt;LVEF&lt;30%/重症PH/進行臓器障害&lt;br&gt;複雑DM/予後不良がん/放射線/虚弱}
+    E --&gt;|あり| CONV
+    E --&gt;|なし| F{結合組織疾患&lt;br&gt;Marfan等?}
+    F --&gt;|あり| CONV
+    F --&gt;|なし| G{活動性自己免疫疾患?}
+    G --&gt;|あり| CONV
+    G --&gt;|なし| H{冠動脈解剖&lt;br&gt;漏斗部前方走行?}
+    H --&gt;|異常あり| CONV
+    H --&gt;|正常| I{肺動脈弁機能&lt;br&gt;異常あり?}
+    I --&gt;|異常| CONV
+    I --&gt;|正常| ROSS[Ross手術&lt;br&gt;専門施設で実施]</code></pre>
+<hr />
+<h2 id="5-適応疾患別の推奨">5. 適応疾患別の推奨</h2>
+<table>
+<thead>
+<tr>
+<th>病態</th>
+<th>EACTS 2025 Ross Consensus の記載</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>大動脈弁狭窄症（AS）</strong></td>
+<td>弁輪非拡大例で<strong>最も理想的な適応（ideal anatomical substrate）</strong>。二尖・一尖を含め弁形態によらず良好な長期成績</td>
+</tr>
+<tr>
+<td><strong>大動脈弁逆流症（AR）</strong></td>
+<td>逆流弁（二尖弁含む）はまず<strong>修復・温存を優先</strong>。修復不能例ではRossが良い候補だが、<strong>弁輪形成術・autograft補強等の手技調整が必須</strong>。弁輪≥27 mm・大きい大動脈基部はリスク因子</td>
+</tr>
+<tr>
+<td><strong>混合弁膜症（mixed）</strong></td>
+<td>狭窄優位型でASと同様に良好な適応</td>
+</tr>
+<tr>
+<td><strong>感染性心内膜炎（IE）</strong></td>
+<td>自己肺動脈は感染抵抗性に優れる。<strong>選定患者・経験施設で考慮可</strong>。人工材料の使用は限定/回避し、複雑手術として専門施設で実施</td>
+</tr>
+<tr>
+<td><strong>リウマチ性弁膜症</strong></td>
+<td>自己免疫機転によるPA障害の懸念。<strong>一般的推奨には至らない</strong>が、発展途上国の選定された若年例で考慮可（限定的耐久性を許容）。penicillin G予防の長期投与を推奨</td>
+</tr>
+<tr>
+<td><strong>結合組織疾患（Marfan等）</strong></td>
+<td>媒体壊死が肺動脈にも及ぶため<strong>禁忌</strong>。基部拡大が病態の場合は自己弁温存基部置換(VSARR)が通常の選択</td>
+</tr>
+<tr>
+<td><strong>自己免疫疾患</strong></td>
+<td>活動期は<strong>禁忌</strong>。Rossの利用は一般推奨できず、個別判断（活動性除外にFDG-PET/CT、寛解確認後に施行＋リウマチ科長期フォロー）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">AR/基部拡大例での要点</div>
+<p>純粋ARや弁輪拡大例でも、<strong>tailored free-standing root replacement＋autograft補強</strong>、<strong>prosthetic/autologous inclusion</strong>、<strong>厳格な血圧管理</strong>を組み合わせれば、良好な遠隔成績が報告されている。詳細は上行大動脈手術適応比較・AR比較も参照。</p>
+</div>
+
+<hr />
+<h2 id="6-手術手技eacts-consensus-table-3">6. 手術手技（EACTS Consensus Table 3）</h2>
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Consensus Statement Table 3 — 手術手技</div>
+<ul>
+<li><strong>Tailored free-standing root replacement・native(autologous) inclusion・prosthetic inclusion</strong>が、現時点でRoss手術の最良の長期成績を得るために最も適切な術式である。</li>
+<li><strong>純粋/優位ARの全患者</strong>、および<strong>大動脈弁輪≥27 mm拡大例</strong>または<strong>大動脈-肺動脈弁輪mismatch例</strong>では、<strong>annuloplastyを実施すべき</strong>である。</li>
+<li>autograftのSTJと上行大動脈のmismatch例では、<strong>interposition graftまたはreduction aortoplasty</strong>を実施すべきである。</li>
+<li><strong>凍結保存肺動脈ホモグラフトが右側再建のgold standard</strong>である。</li>
+<li><strong>xenograft弁</strong>は肺動脈ホモグラフトの代替となるが、<strong>耐久性は劣る</strong>と予想される。</li>
+<li>**脱細胞化(decellularized)**した新鮮または凍結保存ホモグラフトは、標準ホモグラフトより良好な耐久性を提供しうる。</li>
+</ul>
+</div>
+
+<h3 id="6-1-推奨される基本術式">6-1. 推奨される基本術式</h3>
+<table>
+<thead>
+<tr>
+<th>術式</th>
+<th>概要</th>
+<th>主な適応</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tailored free-standing RR（＝RR+R）</strong></td>
+<td>autograftをroot replacementとして移植し、basal ring・STJを補強</td>
+<td><strong>大多数の標準術式</strong></td>
+</tr>
+<tr>
+<td><strong>Autologous inclusion</strong></td>
+<td>autograftを患者自身の大動脈根部内に挿入</td>
+<td>大動脈根部径がPAと適合する症例</td>
+</tr>
+<tr>
+<td><strong>Prosthetic inclusion</strong></td>
+<td>autograftをDacron graft内に挿入（cylinder/scalloped）</td>
+<td>弁輪拡大・AR例で外部支持を要する症例</td>
+</tr>
+<tr>
+<td><strong>Ross-PEARS</strong></td>
+<td>個別作製の外部支持(PEARS)でautograftを補強</td>
+<td>新規術式、中長期データ限定的</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-2-手技上の必須事項">6-2. 手技上の必須事項</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>大動脈弁輪形成（annuloplasty）</strong></td>
+<td>純粋/優位AR全例、弁輪**≥27 mm**、または弁輪mismatch例で実施。autologous inclusionでは内腔弁輪径を男性24–26 mm・女性22–24 mmへ縮小</td>
+</tr>
+<tr>
+<td><strong>STJ補強・上行大動脈対応</strong></td>
+<td>STJ-上行大動脈mismatch（上行径&gt;32–36 mm等）では<strong>interposition graftまたはreduction aortoplasty</strong></td>
+</tr>
+<tr>
+<td><strong>右室流出路(RVOT)再建</strong></td>
+<td><strong>凍結保存肺動脈ホモグラフトがgold standard</strong>。xenograftは代替可だが耐久性劣る。脱細胞化ホモグラフトはより良好な耐久性の可能性</td>
+</tr>
+<tr>
+<td><strong>術中TEE評価・再クランプ</strong></td>
+<td>完全離脱・生理的負荷下で評価。<strong>mild超の残存ARは再手術リスクの予測因子であり再クランプを検討</strong>（AV修復と同じ基準を適用）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">残存ARの扱い</div>
+<p>中心性のtrace〜mild ARは長期的に安定し許容される。しかし<strong>mildを超える残存AR</strong>や偏在性ジェットは技術的問題（弁輪レベルの非対称なautograft移植→cusp prolapse等）を示唆し、再クランプ・修正の対象となる。</p>
+</div>
+
+<hr />
+<h2 id="7-再手術遠隔期成績eacts-consensus-table-4">7. 再手術・遠隔期成績（EACTS Consensus Table 4）</h2>
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Consensus Statement Table 4 — 再手術</div>
+<ul>
+<li>失敗したautograftに対する**弁温存手術(valve-sparing procedures)**は、弁置換の代替として考慮しうる。</li>
+<li>失敗した肺動脈ホモグラフト/xenograftへの再介入は、**しばしば経皮的(percutaneous)**に施行しうる。</li>
+</ul>
+</div>
+
+<h3 id="7-1-autograft左側大動脈側の失敗">7-1. autograft（左側＝大動脈側）の失敗</h3>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>再介入リスク（現代）</strong></td>
+<td>約 <strong>1%/患者年</strong>（許容範囲）</td>
+</tr>
+<tr>
+<td><strong>autograft失敗の発生</strong></td>
+<td>10–25年で約10–30%（術式・患者背景による）</td>
+</tr>
+<tr>
+<td><strong>autograft再介入回避率（Shimamuraメタ解析）</strong></td>
+<td>5年 98% / 10年 95% / 15年 91% / 20年 85%</td>
+</tr>
+<tr>
+<td><strong>GRR（Aboud）</strong></td>
+<td>autograft再介入リスク 0.69%/患者年、Ross関連再介入回避率15年 84.7%</td>
+</tr>
+<tr>
+<td><strong>25年フォロー（Notenboom）</strong></td>
+<td>あらゆる再介入回避率 71.1%</td>
+</tr>
+<tr>
+<td><strong>主なリスク因子</strong></td>
+<td><strong>術前AR・大動脈弁輪拡大</strong>（術式によらず）</td>
+</tr>
+<tr>
+<td><strong>失敗様式</strong></td>
+<td>autograft逆流（弁尖は薄く柔軟なまま保たれることが多い）／PA拡張（非構造的劣化）／両者の複合。石灰化による狭窄化は極めて稀</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">autograft失敗時の選択肢</div>
+<p>弁尖が良好（薄く可動性良好）で弁輪/基部拡張が主体なら、<strong>autograft温存手術（基部リモデリング＋annuloplasty、autograft弁尖再移植＝David型）が弁置換の代替</strong>となりうる。重症PA逆流・弁尖不良例ではmAVR/bAVRを患者背景に応じて選択。再手術は複雑で、<strong>高い外科的専門性</strong>を要する。</p>
+</div>
+
+<h3 id="7-2-肺動脈ホモグラフトxenograft右側の失敗">7-2. 肺動脈ホモグラフト/xenograft（右側）の失敗</h3>
+<ul>
+<li>右側導管再介入回避率：<strong>10年 96% / 15年 90% / 20年 88%</strong>（成人Ross；小児より良好）。</li>
+<li>ホモグラフトは経時的に石灰化・狭窄・逆流を生じうる。<strong>RVOTピーク圧較差&gt;40 mmHg・右室拡大/機能低下・症状</strong>があれば再介入を考慮。</li>
+<li><strong>多くは経皮的（経カテーテル肺動脈弁留置）で対応可能</strong>。バルーン拡張時はLAD・左主幹の損傷やRVOT破裂に注意。</li>
+</ul>
+<hr />
+<h2 id="8-術後管理eacts-consensus-table-5">8. 術後管理（EACTS Consensus Table 5）</h2>
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Consensus Statement Table 5 — 術後管理</div>
+<ul>
+<li>Ross手術後<strong>1年間の綿密な血圧管理</strong>は、autograft拡張のリスクを減らすために望ましい。</li>
+<li>Ross手術後<strong>3–6ヶ月間の経口抗炎症薬投与</strong>は、肺動脈ホモグラフト失敗のリスクを減らしうる。</li>
+<li>Ross手術後の<strong>生涯にわたる臨床的・心エコー的フォローアップは必須</strong>である。</li>
+</ul>
+</div>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">術後管理の3本柱</div>
+<ol type="1">
+<li><strong>厳格な血圧管理（術後1年が最重要）</strong>：収縮期血圧 <strong>&lt;110–115 mmHg</strong> を目標。<strong>β遮断薬を第一選択</strong>（dP/dt・壁応力を低減；不耐/不十分例ではACE-I/ARB）。早期autograft拡張は晩期拡張を予測する。</li>
+<li><strong>抗炎症療法（術後3–6ヶ月）</strong>：<strong>イブプロフェン 5 mg/kg×3回/日</strong>で肺動脈ホモグラフトの長期成績改善の可能性（限定的エビデンス）。アスピリン慢性投与の根拠は不十分で、早期以降は抗炎症薬を中止し無投薬とするのが一般的。</li>
+<li><strong>生涯の経過観察</strong>：退院時 → 術後3–6ヶ月 → 以後年1回の心エコー。評価項目＝autograft（弁輪・基部・STJ・上行大動脈）径、AR程度、autograft圧較差、ホモグラフト機能・圧較差、LVEF・LV/RV径。不明瞭例ではspeckle tracking・心臓MR、IE除外には経食道心エコー・心臓CT。<strong>大動脈基部外科に精通した三次施設でのフォローが望ましい</strong>。</li>
+</ol>
+</div>
+
+<hr />
+<h2 id="9-ross-centres-of-excellenceeacts-consensus-table-6">9. Ross Centres of Excellence（EACTS Consensus Table 6）</h2>
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Consensus Statement Table 6 — 集約化とRoss Centres of Excellence</div>
+<ul>
+<li>Ross手術には、<strong>術者レベル・施設レベルの両方で強い正のvolume-outcome関係</strong>がある。</li>
+<li>Ross手術は、<strong>症例数・周術期死亡率・早期臨床/心エコー成績・縦断的フォローアップ</strong>によって定義される <strong>Ross Centres of Excellence</strong> で提供すべきである。</li>
+</ul>
+</div>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">施設・術者要件</div>
+<ul>
+<li><strong>volume-outcome関係</strong>：年間1–2例の施設は10例超の施設より院内死亡が有意に高い（OR 4.5）。術者レベルでも同様（OR 3.8）。</li>
+<li><strong>学習曲線</strong>：約 <strong>75例</strong> で周術期合併症リスクが最小化。</li>
+<li><strong>新規プログラムの目安</strong>：年間 <strong>10–15例</strong>（理想は20–25例）を維持できる症例数。立ち上げには専門術者の研修・peer-to-peer支援・proctoringが有用。</li>
+<li><strong>チーム構成</strong>：大動脈基部・弁修復に習熟した心臓外科医、多職種画像チーム、周術期TEEに精通した麻酔科医、弁膜症専門の循環器内科医。</li>
+<li><strong>集約化の現状</strong>：北米の上位10施設が2008–2023年のRoss手術の53%を占める。STS Registryでは2017年以降Ross手術が増加傾向。</li>
+<li><strong>透明なデータ報告</strong>がRoss Centres of Excellenceの根幹であり、安全な普及を可能にする。</li>
+</ul>
+</div>
+
+<hr />
+<h2 id="10-各文書の比較総括">10. 各文書の比較・総括</h2>
+<h3 id="10-1-横断比較表">10-1. 横断比較表</h3>
+<table>
+<thead>
+<tr>
+<th>比較軸</th>
+<th>🇯🇵 JCS 2020</th>
+<th>🇪🇺 ESC/EACTS 2025（VHD）</th>
+<th>🇺🇸 ACC/AHA 2020</th>
+<th>🇪🇺 EACTS 2025 Ross Consensus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ross手術の推奨形式</strong></td>
+<td>明示的推奨なし</td>
+<td>番号なし本文記載</td>
+<td><strong>COR 2b / LOE B-NR</strong></td>
+<td>専門コンセンサス（6 Table）</td>
+</tr>
+<tr>
+<td><strong>適応年齢</strong></td>
+<td>—</td>
+<td>「若年」</td>
+<td><strong>&lt;50歳</strong></td>
+<td><strong>&lt;60歳</strong>（理想&lt;50歳）</td>
+</tr>
+<tr>
+<td><strong>施設要件</strong></td>
+<td>—</td>
+<td>経験施設</td>
+<td>Comprehensive Valve Center</td>
+<td><strong>Ross Centres of Excellence（定量基準）</strong></td>
+</tr>
+<tr>
+<td><strong>挙児希望女性</strong></td>
+<td>生体弁(IIa)を主に論じる</td>
+<td>言及限定</td>
+<td>代替選択肢として言及</td>
+<td><strong>第一選択(preferred)</strong></td>
+</tr>
+<tr>
+<td><strong>最適な病態</strong></td>
+<td>—</td>
+<td>AS中心</td>
+<td>適切な解剖</td>
+<td><strong>AS/狭窄優位mixed＋弁輪非拡大</strong></td>
+</tr>
+<tr>
+<td><strong>術式の標準化</strong></td>
+<td>—</td>
+<td>記載なし</td>
+<td>記載なし</td>
+<td><strong>RR+R/autologous/prosthetic inclusionを体系化</strong></td>
+</tr>
+<tr>
+<td><strong>術後管理・再手術・集約化</strong></td>
+<td>—</td>
+<td>概括的</td>
+<td>概括的</td>
+<td><strong>BP管理・抗炎症・経皮的再介入・施設要件を具体化</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-2-主要な相違点">10-2. 主要な相違点</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>相違点</th>
+<th>詳細</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>①</strong></td>
+<td><strong>推奨の積極性</strong></td>
+<td>VHDガイドラインは慎重（IIb〜記載なし）／ Ross専門コンセンサスは選定患者で<strong>第一選択肢として考慮</strong>を明示</td>
+</tr>
+<tr>
+<td><strong>②</strong></td>
+<td><strong>年齢閾値</strong></td>
+<td>ACC/AHA：<strong>&lt;50歳</strong> ／ EACTS Consensus：<strong>&lt;60歳</strong>（理想&lt;50歳、&gt;60歳も選択的に）</td>
+</tr>
+<tr>
+<td><strong>③</strong></td>
+<td><strong>挙児希望女性の位置付け</strong></td>
+<td>EACTS Consensusは<strong>preferred option</strong>と最も積極的。ACC/AHAは代替選択肢、JCSは生体弁を主に論じる</td>
+</tr>
+<tr>
+<td><strong>④</strong></td>
+<td><strong>術式の標準化</strong></td>
+<td>EACTS 2025で初めて<strong>RR+R・autologous/prosthetic inclusion</strong>の3術式とannuloplasty基準（弁輪≥27 mm）を体系的に提示</td>
+</tr>
+<tr>
+<td><strong>⑤</strong></td>
+<td><strong>施設集約化</strong></td>
+<td>EACTS Consensusのみ<strong>学習曲線75例・年間10–15例</strong>等の定量的施設要件を明示</td>
+</tr>
+<tr>
+<td><strong>⑥</strong></td>
+<td><strong>JCSでの扱い</strong></td>
+<td>JCS 2020は成人Rossを推奨表・本文で実質的に扱わず、地域差が最も大きい</td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-3-臨床的含意地域別の特徴">10-3. 臨床的含意（地域別の特徴）</h3>
+
+<div class="callout" style="background:#e1f5fe;border-left:4px solid #00b0ff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00b0ff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">地域別アプローチの特徴</div>
+<ul>
+<li>🇪🇺 <strong>EACTS（Ross専門コンセンサス 2025）</strong>：最も網羅的・積極的。長期生存・血行動態・低合併症のエビデンスを根拠に、<strong>60歳未満の選定患者でshared decision makingを経た第一選択肢</strong>として位置付け、患者選択〜術式〜再手術〜術後管理〜集約化を体系化。</li>
+<li>🇺🇸 <strong>米国（ACC/AHA 2020）</strong>：<strong>&lt;50歳・適切な解剖でComprehensive Valve Center</strong>という条件付きの <strong>Class IIb（B-NR）</strong> を明示。若年低リスク患者のSAVR選択時の現実的選択肢。</li>
+<li>🇪🇺 <strong>欧州VHD（ESC/EACTS 2025）</strong>：本文で「経験施設・選定若年例で人工弁置換の良い代替」と肯定的に言及するが、番号付き推奨は付さず、詳細はRoss専門コンセンサスに委ねる。</li>
+<li>🇯🇵 <strong>日本（JCS 2020）</strong>：成人Rossの明示的推奨は確認されず、若年・挙児希望例では生体弁・自己弁温存術が中心。<strong>EACTSコンセンサスのエビデンスを踏まえ、適応症例の専門施設へのreferralを検討する余地</strong>がある。</li>
+</ul>
+</div>
+
+<h3 id="10-4-臨床判断のフロー4文書統合視点">10-4. 臨床判断のフロー（4文書統合視点）</h3>
+<pre class="mermaid"><code>graph TD
+    A[若年〜中年成人の&lt;br&gt;大動脈弁疾患でAVRが必要] --&gt; B{年齢&lt;60歳&lt;br&gt;かつ余命&gt;15年?}
+    B --&gt;|いいえ| STD[従来型AVR / TAVI&lt;br&gt;年齢・リスクに応じ選択]
+    B --&gt;|はい| C{Ross禁忌の除外&lt;br&gt;Marfan等結合組織疾患&lt;br&gt;活動性自己免疫疾患&lt;br&gt;冠動脈漏斗部前方走行&lt;br&gt;有意な肺動脈弁機能異常}
+    C --&gt;|禁忌あり| STD
+    C --&gt;|禁忌なし| D{病型・解剖}
+    D --&gt;|AS/狭窄優位mixed&lt;br&gt;弁輪非拡大| ROSS[Ross手術&lt;br&gt;専門施設で考慮&lt;br&gt;EACTS:第一選択肢&lt;br&gt;ACC/AHA:Class IIb&lt;50歳]
+    D --&gt;|純粋AR| E{弁修復・温存が可能?}
+    E --&gt;|可能| REPAIR[大動脈弁修復/温存&lt;br&gt;VSARR]
+    E --&gt;|不可能| ROSS2[Ross手術&lt;br&gt;annuloplasty・autograft補強必須]
+    D --&gt;|挙児希望女性| ROSSW[Ross手術&lt;br&gt;EACTS:preferred option]
+    ROSS --&gt; F[shared decision making&lt;br&gt;生涯フォロー・厳格BP管理]
+    ROSS2 --&gt; F
+    ROSSW --&gt; F</code></pre>
+<hr />
+<p><em>本文書は各ガイドライン・コンセンサス原本の推奨事項を忠実に要約したものです。推奨クラス（I, IIa/2a, IIb/2b, III）およびエビデンスレベル（A, B-R, B-NR, C-LD, C-EO）は原文表記に基づきます。Ross手術は技術的に複雑な術式であり、適応判断・術式選択・長期管理のすべてを、大動脈基部外科・弁修復に習熟した経験豊富な専門施設(Ross Centres of Excellence)・Heart Teamにて行うことが強く推奨されます。</em></p>
+<p><strong>参照原本：</strong></p>
+<ul>
+<li>EACTS Expert Consensus Statement on the Ross Procedure in Adult Patients（Vojáček J, Gofuš J, Andreas M, et al. <em>Eur J Cardiothorac Surg</em> 2026;68(2):ezaf295. doi:10.1093/ejcts/ezaf295）</li>
+<li>2020 ACC/AHA Guideline for the Management of Patients With Valvular Heart Disease（Otto CM, Nishimura RA, Bonow RO, et al. <em>Circulation</em> 2021;143:e72–e227 / 自己肺動脈弁の推奨：COR 2b, LOE B-NR）</li>
+<li>2025 ESC/EACTS Guidelines for the management of valvular heart disease（Praz F, Borger M, Lanz J, et al.）</li>
+<li>JCS/JSCS/JATS/JSVS 2020年改訂版 弁膜症治療ガイドライン（成人Ross手術の明示的推奨は確認されず）</li>
+</ul>
+
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
+</body>
+</html>

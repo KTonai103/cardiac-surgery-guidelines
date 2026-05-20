@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>感染性心内膜炎（IE）に対する外科的治療の適応：各地域ガイドライン比較</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5c5c5c;
+  --border: #d4d4d4;
+  --accent: #2c3e50;
+  --light-bg: #f7f8fa;
+  --header-bg: #2c3e50;
+  --header-fg: #ffffff;
+  --link: #34495e;
+  --jp-accent: #c0392b;
+  --us-accent: #2980b9;
+  --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
+
+body {
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+  margin: 48px 0 12px;
+}
+
+h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 28px 0 8px;
+}
+
+h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 20px 0 6px;
+}
+
+p { margin: 8px 0; font-size: 0.88rem; }
+strong { color: var(--fg); }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+ul, ol {
+  padding-left: 24px;
+  margin: 8px 0;
+  font-size: 0.88rem;
+}
+
+li { margin-bottom: 4px; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 12px 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+thead th {
+  background: var(--header-bg);
+  color: var(--header-fg);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--light-bg);
+}
+
+tbody tr:nth-child(even) td { background-color: #fafbfc; }
+tbody tr:nth-child(even) td:first-child { background-color: #f0f1f3; }
+tbody tr:hover td { background-color: #eef1f5; }
+tbody tr:hover td:first-child { background-color: #e4e8ed; }
+
+/* Blockquotes (fallback for any not converted to callouts) */
+blockquote {
+  background: var(--light-bg);
+  border-left: 3px solid var(--border);
+  padding: 10px 16px;
+  margin: 12px 0 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+blockquote strong { color: var(--fg); }
+
+/* Highlights */
+mark {
+  background: #fff3cd;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Callout overrides - already inline styled, but ensure nested elements look right */
+.callout p { margin: 4px 0; }
+.callout ul, .callout ol { margin: 4px 0 4px 16px; }
+.callout table { font-size: 0.8rem; }
+
+/* Print */
+@media print {
+  body { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
+@media (max-width: 768px) {
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
+  h1 { font-size: 1.3rem; }
+  table { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-略語定義">1. 略語・定義</a></li>
+      <li class="toc-l3"><a href="#1-1-疾患病態">1-1. 疾患・病態</a></li>
+      <li class="toc-l3"><a href="#1-2-起炎菌微生物">1-2. 起炎菌・微生物</a></li>
+      <li class="toc-l3"><a href="#1-3-検査スコア">1-3. 検査・スコア</a></li>
+      <li class="toc-l3"><a href="#1-4-治療推奨グレード">1-4. 治療・推奨グレード</a></li>
+      <li class="toc-l2"><a href="#2-ガイドラインの位置づけと推奨グレーディング体系">2. ガイドラインの位置づけと推奨グレーディング体系</a></li>
+      <li class="toc-l2"><a href="#3-ieチーム多職種アプローチ">3. IEチーム・多職種アプローチ</a></li>
+      <li class="toc-l2"><a href="#4-手術タイミングの定義">4. 手術タイミングの定義</a></li>
+      <li class="toc-l2"><a href="#5-術前リスク評価">5. 術前リスク評価</a></li>
+      <li class="toc-l2"><a href="#6-part-i各ガイドライン個別サマリー--手術適応">6. Part I：各ガイドライン個別サマリー — 手術適応</a></li>
+      <li class="toc-l3"><a href="#6-1-jcs-2026">6-1. JCS 2026</a></li>
+      <li class="toc-l4"><a href="#6-1-1-心不全">6-1-1. 心不全</a></li>
+      <li class="toc-l4"><a href="#6-1-2-治療抵抗性感染">6-1-2. 治療抵抗性感染</a></li>
+      <li class="toc-l4"><a href="#6-1-3-塞栓症予防">6-1-3. 塞栓症予防</a></li>
+      <li class="toc-l4"><a href="#6-1-4-脳合併症合併例の手術時期推奨表15">6-1-4. 脳合併症合併例の手術時期（推奨表15）</a></li>
+      <li class="toc-l3"><a href="#6-2-esc-2023">6-2. ESC 2023</a></li>
+      <li class="toc-l4"><a href="#6-2-1-心不全recommendation-table-12--i-heart-failure">6-2-1. 心不全（Recommendation Table 12 — (i) Heart failure）</a></li>
+      <li class="toc-l4"><a href="#6-2-2-治療抵抗性感染recommendation-table-12--ii-uncontrolled-infection">6-2-2. 治療抵抗性感染（Recommendation Table 12 — (ii) Uncontrolled infection）</a></li>
+      <li class="toc-l4"><a href="#6-2-3-塞栓症予防recommendation-table-12--iii-prevention-of-embolism">6-2-3. 塞栓症予防（Recommendation Table 12 — (iii) Prevention of embolism）</a></li>
+      <li class="toc-l4"><a href="#6-2-4-人工弁心内膜炎pverecommendation-table-19">6-2-4. 人工弁心内膜炎（PVE）（Recommendation Table 19）</a></li>
+      <li class="toc-l4"><a href="#6-2-5-右心系ierecommendation-table-21">6-2-5. 右心系IE（Recommendation Table 21）</a></li>
+      <li class="toc-l4"><a href="#6-2-6-脳合併症後の手術時期recommendation-table-17">6-2-6. 脳合併症後の手術時期（Recommendation Table 17）</a></li>
+      <li class="toc-l3"><a href="#6-3-aha-2015">6-3. AHA 2015</a></li>
+      <li class="toc-l4"><a href="#6-3-1-左心系-自己弁ienve-early-valve-surgery">6-3-1. 左心系 自己弁IE（NVE）— Early Valve Surgery</a></li>
+      <li class="toc-l4"><a href="#6-3-2-人工弁iepve-early-valve-surgery">6-3-2. 人工弁IE（PVE）— Early Valve Surgery</a></li>
+      <li class="toc-l4"><a href="#6-3-3-右心系ie三尖弁肺動脈弁のie">6-3-3. 右心系IE（三尖弁・肺動脈弁のIE）</a></li>
+      <li class="toc-l4"><a href="#6-3-4-脳梗塞--出血性脳合併症後の手術時期">6-3-4. 脳梗塞 / 出血性脳合併症後の手術時期</a></li>
+      <li class="toc-l2"><a href="#7-part-ii手術適応-地域間横断比較">7. Part II：手術適応 地域間横断比較</a></li>
+      <li class="toc-l3"><a href="#7-1-心不全に対する手術適応">7-1. 心不全に対する手術適応</a></li>
+      <li class="toc-l3"><a href="#7-2-治療抵抗性感染に対する手術適応">7-2. 治療抵抗性感染に対する手術適応</a></li>
+      <li class="toc-l3"><a href="#7-3-塞栓症予防に対する手術適応">7-3. 塞栓症予防に対する手術適応</a></li>
+      <li class="toc-l3"><a href="#7-4-人工弁心内膜炎pveprosthetic-valve-endocarditis">7-4. 人工弁心内膜炎（PVE：Prosthetic Valve Endocarditis）</a></li>
+      <li class="toc-l3"><a href="#7-5-右心系ie三尖弁肺動脈弁のie">7-5. 右心系IE（三尖弁・肺動脈弁のIE）</a></li>
+      <li class="toc-l3"><a href="#7-6-脳合併症脳梗塞脳出血合併例の手術時期">7-6. 脳合併症（脳梗塞・脳出血）合併例の手術時期</a></li>
+      <li class="toc-l3"><a href="#7-7-cied関連iecardiac-implantable-electronic-device心臓植込み型電子デバイス関連ie">7-7. CIED関連IE（Cardiac Implantable Electronic Device：心臓植込み型電子デバイス関連IE）</a></li>
+      <li class="toc-l2"><a href="#8-術式選択形成術-vs-置換術人工弁選択">8. 術式選択：形成術 vs 置換術・人工弁選択</a></li>
+      <li class="toc-l2"><a href="#9-まとめ総括">9. まとめ・総括</a></li>
+      <li class="toc-l3"><a href="#3ガイドラインの共通点">3ガイドラインの共通点</a></li>
+      <li class="toc-l3"><a href="#主要な相違点">主要な相違点</a></li>
+      <li class="toc-l3"><a href="#臨床的インプリケーション">臨床的インプリケーション</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
+<h1 id="感染性心内膜炎ieに対する外科的治療の適応各地域ガイドライン比較">感染性心内膜炎（IE）に対する外科的治療の適応：各地域ガイドライン比較</h1>
+<p><strong>作成日：</strong> 2026年5月17日<br />
+<strong>対象ガイドライン：</strong></p>
+<ul>
+<li>🇯🇵 <strong>JCS 2026</strong>：2026年改訂版 感染性心内膜炎診療ガイドライン（日本循環器学会ほか10学会合同）</li>
+<li>🇪🇺 <strong>ESC 2023</strong>：2023 ESC Guidelines for the Management of Endocarditis（欧州心臓病学会、EACTS・EANM endorsement）</li>
+<li>🇺🇸 <strong>AHA 2015</strong>：Infective Endocarditis in Adults: Diagnosis, Antimicrobial Therapy, and Management of Complications — AHA Scientific Statement（米国心臓協会）</li>
+</ul>
+<p><strong>関連ドキュメント：</strong> AS/AVR/TAVIガイドライン比較 · AR/AVRガイドライン比較 · MR/僧帽弁ガイドライン比較 · 術前抗凝固管理比較</p>
+<hr />
+<h2 id="目次">目次</h2>
+<ol type="1">
+<li><a href="#1-略語定義">略語・定義</a></li>
+<li><a href="#2-ガイドラインの位置づけと推奨グレーディング体系">ガイドラインの位置づけと推奨グレーディング体系</a></li>
+<li><a href="#3-ieチーム多職種アプローチ">IEチーム・多職種アプローチ</a></li>
+<li><a href="#4-手術タイミングの定義">手術タイミングの定義</a></li>
+<li><a href="#5-術前リスク評価">術前リスク評価</a></li>
+<li><a href="#6-part-i各ガイドライン個別サマリー--手術適応">Part I：各ガイドライン個別サマリー — 手術適応</a>
+<ul>
+<li><a href="#6-1-jcs-2026">6-1. JCS 2026</a></li>
+<li><a href="#6-2-esc-2023">6-2. ESC 2023</a></li>
+<li><a href="#6-3-aha-2015">6-3. AHA 2015</a></li>
+</ul></li>
+<li><a href="#7-part-ii手術適応-地域間横断比較">Part II：手術適応 地域間横断比較</a>
+<ul>
+<li><a href="#7-1-心不全に対する手術適応">7-1. 心不全に対する手術適応</a></li>
+<li><a href="#7-2-治療抵抗性感染に対する手術適応">7-2. 治療抵抗性感染に対する手術適応</a></li>
+<li><a href="#7-3-塞栓症予防に対する手術適応">7-3. 塞栓症予防に対する手術適応</a></li>
+<li><a href="#7-4-人工弁心内膜炎pveprosthetic-valve-endocarditis">7-4. 人工弁心内膜炎（PVE：Prosthetic Valve Endocarditis）</a></li>
+<li><a href="#7-5-右心系ie三尖弁肺動脈弁のie">7-5. 右心系IE（三尖弁・肺動脈弁のIE）</a></li>
+<li><a href="#7-6-脳合併症脳梗塞脳出血合併例の手術時期">7-6. 脳合併症（脳梗塞・脳出血）合併例の手術時期</a></li>
+<li><a href="#7-7-cied関連iecardiac-implantable-electronic-device心臓植込み型電子デバイス関連ie">7-7. CIED関連IE（Cardiac Implantable Electronic Device：心臓植込み型電子デバイス関連IE）</a></li>
+</ul></li>
+<li><a href="#8-術式選択形成術-vs-置換術人工弁選択">術式選択：形成術 vs 置換術・人工弁選択</a></li>
+<li><a href="#9-まとめ総括">まとめ・総括</a></li>
+</ol>
+<hr />
+<h2 id="1-略語定義">1. 略語・定義</h2>
+<h3 id="1-1-疾患病態">1-1. 疾患・病態</h3>
+<table>
+<thead>
+<tr>
+<th>略語</th>
+<th>英語表記</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IE</strong></td>
+<td>Infective Endocarditis</td>
+<td>感染性心内膜炎</td>
+</tr>
+<tr>
+<td><strong>NVE</strong></td>
+<td><strong>N</strong>ative <strong>V</strong>alve <strong>E</strong>ndocarditis</td>
+<td>自己弁心内膜炎（人工弁ではない、自分の弁に生じたIE）</td>
+</tr>
+<tr>
+<td><strong>PVE</strong></td>
+<td><strong>P</strong>rosthetic <strong>V</strong>alve <strong>E</strong>ndocarditis</td>
+<td>人工弁心内膜炎（弁置換術後の人工弁に生じたIE）</td>
+</tr>
+<tr>
+<td><strong>CIED-IE</strong></td>
+<td><strong>C</strong>ardiac <strong>I</strong>mplantable <strong>E</strong>lectronic <strong>D</strong>evice IE</td>
+<td>心臓植込み型電子デバイス関連IE（ペースメーカー、ICD、CRT等のリード・本体感染）</td>
+</tr>
+<tr>
+<td><strong>TAVI / TAVR</strong></td>
+<td><strong>T</strong>ranscatheter <strong>A</strong>ortic <strong>V</strong>alve <strong>I</strong>mplantation / <strong>R</strong>eplacement</td>
+<td>経カテーテル大動脈弁植込み術／置換術（TAVI＝欧州表記、TAVR＝米国表記）</td>
+</tr>
+<tr>
+<td><strong>HF</strong></td>
+<td><strong>H</strong>eart <strong>F</strong>ailure</td>
+<td>心不全</td>
+</tr>
+<tr>
+<td><strong>AVB</strong></td>
+<td><strong>A</strong>trio<strong>v</strong>entricular <strong>B</strong>lock</td>
+<td>房室ブロック</td>
+</tr>
+<tr>
+<td><strong>CNS</strong></td>
+<td><strong>C</strong>entral <strong>N</strong>ervous <strong>S</strong>ystem</td>
+<td>中枢神経系（脳・脊髄）</td>
+</tr>
+<tr>
+<td><strong>TIA</strong></td>
+<td><strong>T</strong>ransient <strong>I</strong>schemic <strong>A</strong>ttack</td>
+<td>一過性脳虚血発作</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-2-起炎菌微生物">1-2. 起炎菌・微生物</h3>
+<table>
+<thead>
+<tr>
+<th>略語</th>
+<th>英語表記</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MRSA</strong></td>
+<td><strong>M</strong>ethicillin-<strong>R</strong>esistant <em><strong>S</strong></em>. <em><strong>aureus</strong></em></td>
+<td>メチシリン耐性黄色ブドウ球菌</td>
+</tr>
+<tr>
+<td><strong>MSSA</strong></td>
+<td><strong>M</strong>ethicillin-<strong>S</strong>ensitive <em><strong>S</strong></em>. <em><strong>aureus</strong></em></td>
+<td>メチシリン感受性黄色ブドウ球菌</td>
+</tr>
+<tr>
+<td><strong>VGS</strong></td>
+<td><strong>V</strong>iridans <strong>G</strong>roup <strong>S</strong>treptococci</td>
+<td>緑色レンサ球菌群（口腔内常在菌、典型的IE起炎菌）</td>
+</tr>
+<tr>
+<td><strong>CoNS</strong></td>
+<td><strong>Co</strong>agulase-<strong>N</strong>egative <strong>S</strong>taphylococci</td>
+<td>コアグラーゼ陰性ブドウ球菌（<em>S. epidermidis</em>など）</td>
+</tr>
+<tr>
+<td><strong>HACEK</strong></td>
+<td><em><strong>H</strong>aemophilus, <strong>A</strong>ggregatibacter, <strong>C</strong>ardiobacterium, <strong>E</strong>ikenella, <strong>K</strong>ingella</em></td>
+<td>培養しにくい5菌種の頭文字。培養陰性IEの一因</td>
+</tr>
+<tr>
+<td><strong>VRE</strong></td>
+<td><strong>V</strong>ancomycin-<strong>R</strong>esistant <strong>E</strong>nterococci</td>
+<td>バンコマイシン耐性腸球菌</td>
+</tr>
+<tr>
+<td><strong>GNR</strong></td>
+<td><strong>G</strong>ram-<strong>N</strong>egative <strong>R</strong>ods</td>
+<td>グラム陰性桿菌</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-3-検査スコア">1-3. 検査・スコア</h3>
+<table>
+<thead>
+<tr>
+<th>略語</th>
+<th>英語表記</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TTE</strong></td>
+<td><strong>T</strong>rans<strong>t</strong>horacic <strong>E</strong>chocardiography</td>
+<td>経胸壁心エコー図検査</td>
+</tr>
+<tr>
+<td><strong>TEE / TOE</strong></td>
+<td><strong>T</strong>rans<strong>e</strong>sophageal / <strong>T</strong>rans<strong>o</strong>esophageal <strong>E</strong>chocardiography</td>
+<td>経食道心エコー図検査（TEE＝米国、TOE＝欧州表記）</td>
+</tr>
+<tr>
+<td><strong>FDG-PET/CT</strong></td>
+<td><strong>F</strong>luoro<strong>d</strong>eoxy<strong>g</strong>lucose <strong>P</strong>ositron <strong>E</strong>mission <strong>T</strong>omography/<strong>CT</strong></td>
+<td>FDG-PET/CT（活動性炎症の検出に使用）</td>
+</tr>
+<tr>
+<td><strong>NIHSS</strong></td>
+<td><strong>N</strong>ational <strong>I</strong>nstitutes of <strong>H</strong>ealth <strong>S</strong>troke <strong>S</strong>cale</td>
+<td>米国国立衛生研究所脳卒中スケール（脳卒中重症度）</td>
+</tr>
+<tr>
+<td><strong>NYHA</strong></td>
+<td><strong>N</strong>ew <strong>Y</strong>ork <strong>H</strong>eart <strong>A</strong>ssociation 心機能分類</td>
+<td>心不全症状の重症度分類（I〜IV度）</td>
+</tr>
+<tr>
+<td><strong>LVEDP</strong></td>
+<td><strong>L</strong>eft <strong>V</strong>entricular <strong>E</strong>nd-<strong>D</strong>iastolic <strong>P</strong>ressure</td>
+<td>左室拡張末期圧</td>
+</tr>
+<tr>
+<td><strong>EuroSCORE</strong></td>
+<td><strong>Euro</strong>pean <strong>S</strong>ystem for <strong>C</strong>ardiac <strong>O</strong>perative <strong>R</strong>isk <strong>E</strong>valuation</td>
+<td>欧州心臓手術リスク評価スコア</td>
+</tr>
+<tr>
+<td><strong>STS score</strong></td>
+<td><strong>S</strong>ociety of <strong>T</strong>horacic <strong>S</strong>urgeons score</td>
+<td>米国胸部外科学会の手術リスクスコア</td>
+</tr>
+<tr>
+<td><strong>AEPEI score</strong></td>
+<td><strong>A</strong>ssociation for the <strong>S</strong>tudy and <strong>P</strong>revention of <strong>I</strong>nfective <strong>E</strong>ndocarditis score</td>
+<td>フランスIE研究グループのIE特化リスクスコア</td>
+</tr>
+<tr>
+<td><strong>PALSUSE</strong></td>
+<td><strong>P</strong>rosthetic valve, <strong>A</strong>ge ≥70, <strong>L</strong>arge intracardiac destruction, <em><strong>S</strong>taphylococcus</em> spp., <strong>U</strong>rgent surgery, <strong>S</strong>ex female, <strong>E</strong>uroSCORE ≥10</td>
+<td>PVE/IE特化リスクスコア</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-4-治療推奨グレード">1-4. 治療・推奨グレード</h3>
+<table>
+<thead>
+<tr>
+<th>略語</th>
+<th>英語表記</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LOE</strong></td>
+<td><strong>L</strong>evel <strong>o</strong>f <strong>E</strong>vidence</td>
+<td>エビデンスレベル（A/B/C）</td>
+</tr>
+<tr>
+<td><strong>COR / Class</strong></td>
+<td><strong>C</strong>lass <strong>o</strong>f <strong>R</strong>ecommendation</td>
+<td>推奨クラス（I / IIa / IIb / III）</td>
+</tr>
+<tr>
+<td><strong>IDU / PWID</strong></td>
+<td><strong>I</strong>njection <strong>D</strong>rug <strong>U</strong>ser / <strong>P</strong>eople <strong>W</strong>ho <strong>I</strong>nject <strong>D</strong>rugs</td>
+<td>静注薬物乱用者（右心系IEの主要リスク群）</td>
+</tr>
+<tr>
+<td><strong>OPAT</strong></td>
+<td><strong>O</strong>utpatient <strong>P</strong>arenteral <strong>A</strong>ntimicrobial <strong>T</strong>herapy</td>
+<td>外来非経口抗菌薬療法</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Duke基準の改訂</div>
+<p>AHA 2015 は<strong>Modified Duke Criteria（2000年Li改訂版）</strong> を使用。ESC 2023 は<strong>2023 ESC修正診断基準</strong>に改訂し、画像診断の追加（FDG-PET/CT・心臓CT）や微生物学的基準の拡大を反映。JCS 2026 は<strong>2023 Duke-ISCVID基準</strong>と<strong>2023 ESC修正基準</strong>の双方を参照し、両者の相違点を明示。</p>
+</div>
+
+<hr />
+<h2 id="2-ガイドラインの位置づけと推奨グレーディング体系">2. ガイドラインの位置づけと推奨グレーディング体系</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2026</th>
+<th>🇪🇺 ESC 2023</th>
+<th>🇺🇸 AHA 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>文書形式</strong></td>
+<td>診療ガイドライン（CQ方式）</td>
+<td>Clinical Practice Guidelines</td>
+<td>Scientific Statement</td>
+</tr>
+<tr>
+<td><strong>発行年</strong></td>
+<td>2026年3月</td>
+<td>2023年8月</td>
+<td>2015年10月</td>
+</tr>
+<tr>
+<td><strong>参加学会</strong></td>
+<td>JCS他10学会（胸部外科・感染症・化学療法・脳卒中等）</td>
+<td>ESC、EACTS endorsement、EANM endorsement</td>
+<td>AHA（IDSA endorsement）</td>
+</tr>
+<tr>
+<td><strong>推奨クラス</strong></td>
+<td>I / IIa / IIb / III（JCS独自のGRADE準拠表記）</td>
+<td>I / IIa / IIb / III</td>
+<td>I / IIa / IIb / III</td>
+</tr>
+<tr>
+<td><strong>エビデンスレベル</strong></td>
+<td>A（高）/ B（中）/ C（低）/ D（非常に低）＋ GRADE確実性</td>
+<td>A / B / C</td>
+<td>A / B / C</td>
+</tr>
+<tr>
+<td><strong>特筆</strong></td>
+<td>CQ方式でシステマティック・レビューを包含。2023 Duke-ISCVID基準を日本初採用</td>
+<td>PVE・TAVI IE・CIED IEを独立セクションで詳述。2023 ESC修正診断基準を新設</td>
+<td>外科治療をNVE・PVE・右心系・脳合併症に細分化。推奨は本文中にClass/LOEを明記</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">推奨体系の読み替え</div>
+<ul>
+<li>JCS 2026 のエビデンスレベルは4段階（A/B/C/D）で、GRADE確実性に基づく。ESC・AHAの3段階（A/B/C）と<strong>直接対応しない</strong></li>
+<li>AHA 2015 の LOE B は「B-R（Randomized）」と「B-NR（Non-Randomized）」に<strong>分化していない</strong>（B-R/B-NR表記は2015年以降のAHA/ACC文書で採用）</li>
+<li>ESC 2023 のLOE B/C は単一カテゴリであり、ACC/AHAのB-R/B-NRに相当する区分はない</li>
+</ul>
+</div>
+
+<hr />
+<h2 id="3-ieチーム多職種アプローチ">3. IEチーム・多職種アプローチ</h2>
+<p>3ガイドラインとも、<strong>IEの治療方針はIEチーム（Endocarditis Team）による集学的決定</strong>を推奨している。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2026</th>
+<th>🇪🇺 ESC 2023</th>
+<th>🇺🇸 AHA 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>推奨クラス</strong></td>
+<td><strong>I, C</strong></td>
+<td><strong>I, B</strong></td>
+<td>— (推奨クラス明記なし、本文中で強調)</td>
+</tr>
+<tr>
+<td><strong>構成</strong></td>
+<td>内科医（循環器内科、感染症内科、神経内科など）＋ 外科医（心臓血管外科、脳神経外科など）</td>
+<td>循環器内科・心臓外科・感染症科・微生物学・画像診断・神経内科・脳外科など</td>
+<td>循環器内科・感染症科・心臓外科・画像専門医</td>
+</tr>
+<tr>
+<td><strong>特記事項</strong></td>
+<td>手術適応を含む治療方針決定を集学的に行う（推奨表13）。外科的治療の適応がガイドラインに基づくにもかかわらず16%の患者で手術が行われなかったと指摘</td>
+<td>Endocarditis Teamの設置を推奨。Reference centreへの紹介基準を明示（Recommendation Table 4）</td>
+<td>Multispecialty teamの重要性を本文で強調</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-手術タイミングの定義">4. 手術タイミングの定義</h2>
+<table>
+<thead>
+<tr>
+<th>タイミング</th>
+<th>🇯🇵 JCS 2026</th>
+<th>🇪🇺 ESC 2023</th>
+<th>🇺🇸 AHA 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>緊急手術（Emergency）</strong></td>
+<td>抗菌薬投与から<strong>24時間以内</strong></td>
+<td><strong>24時間以内</strong></td>
+<td>明確な定義なし（"immediate"）</td>
+</tr>
+<tr>
+<td><strong>準緊急手術（Urgent）</strong></td>
+<td>抗菌薬投与後<strong>数日以内</strong></td>
+<td><strong>3〜5日以内</strong>（within days）</td>
+<td>明確な定義なし</td>
+</tr>
+<tr>
+<td><strong>待機的手術（Elective / Non-urgent）</strong></td>
+<td>抗菌薬投与<strong>1〜2週後</strong></td>
+<td><strong>同一入院中</strong>（same hospital admission）</td>
+<td>"Early surgery" = 初回入院中・抗菌薬全量投与完了前</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">手術タイミングの差異</div>
+<p>ESC 2023 は Emergency / Urgent / Non-urgent を<strong>明確に3分類</strong>している（最も体系的）。JCS 2026 も同様の3分類を採用。AHA 2015 は "early surgery" の概念を使用するが、Emergency/Urgentの時間区分を定義していない。</p>
+</div>
+
+<hr />
+<h2 id="5-術前リスク評価">5. 術前リスク評価</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2026</th>
+<th>🇪🇺 ESC 2023</th>
+<th>🇺🇸 AHA 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>リスクスコア</strong></td>
+<td>JapanSCORE, STS score, EuroSCORE IIに言及。ただし菌種・弁周囲膿瘍の有無などIE特有因子が含まれないため不十分と指摘。IE特化型スコア19種を紹介</td>
+<td>AEPEI, PALSUSE, de Feo, ANCLA scoreなどIE特化型スコアを紹介。Endocarditis Team内で使用を推奨</td>
+<td>STS Endocarditis Scoreに言及。EuroSCOREと組み合わせたリスク層別化を推奨</td>
+</tr>
+<tr>
+<td><strong>手術リスク因子</strong></td>
+<td>高齢者、緊急手術、心原性ショック、S. aureus、真菌/MRSA、人工弁感染、弁輪周囲膿瘍合併、CNS合併、腎不全、糖尿病合併（表21）</td>
+<td>同様の因子をTable 8で列挙</td>
+<td>本文中に記載</td>
+</tr>
+<tr>
+<td><strong>高齢者</strong></td>
+<td>80歳以上・frailtyを有する患者は院内死亡25〜27%と高い。Shared decision makingを推奨</td>
+<td>高齢者における手術の過少施行を指摘。frail高齢者でも手術による生存率改善のエビデンスあり</td>
+<td>加齢は単独では手術禁忌とならないと記載</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-part-i各ガイドライン個別サマリー--手術適応">6. Part I：各ガイドライン個別サマリー — 手術適応</h2>
+<hr />
+<h3 id="6-1-jcs-2026">6-1. JCS 2026</h3>
+<p><strong>出典：</strong> 第5章 外科的治療、推奨表13〜15</p>
+<p>JCS 2026 は手術適応を<strong>3つの主カテゴリ</strong>に分類：①うっ血性心不全、②治療抵抗性感染、③感染性塞栓症予防。推奨表14に一覧化。</p>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JCS 2026 の特徴</div>
+<ul>
+<li>自己弁・人工弁を<strong>特に断りのない限り一括</strong>で記載（PVE独立セクションなし）</li>
+<li>脳合併症に関する推奨が非常に詳細（推奨表15＋図7アルゴリズム）</li>
+<li>手術適応に「緊急度」列を追加（緊急 / 準緊急 / 待機的）</li>
+</ul>
+</div>
+
+<h4 id="6-1-1-心不全">6-1-1. 心不全</h4>
+<table>
+<thead>
+<tr>
+<th>適応</th>
+<th>緊急度</th>
+<th>推奨クラス</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>急性高度弁機能不全や瘻孔形成による心原性ショック、高度肺水腫、新たに発症した重症の心不全状態に対して早期手術を行う</td>
+<td><strong>緊急</strong></td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>内科的治療に抵抗性（難治性）の心不全、重度の弁逆流や心エコー図による血行動態の悪化（拡張末期左室圧の上昇、左房圧の上昇）、中等度〜重度の肺高血圧に対して早期手術を行う</td>
+<td><strong>準緊急</strong></td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-1-2-治療抵抗性感染">6-1-2. 治療抵抗性感染</h4>
+<table>
+<thead>
+<tr>
+<th>適応</th>
+<th>緊急度</th>
+<th>推奨クラス</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>疣腫の増大、弁輪や心筋の膿瘍形成、仮性動脈瘤や心内シャントの形成、心ブロック（房室ブロックや左脚ブロック）の出現に対して早期手術を行う</td>
+<td><strong>緊急/準緊急</strong></td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>適切な抗菌薬投与後も持続する、血行動態に影響を与える敗血症に対して早期手術を行う</td>
+<td><strong>緊急/準緊急</strong></td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>真菌や多剤耐性菌（MRSA、VREなど）による感染に対して早期手術を行う</td>
+<td><strong>準緊急/待機的</strong></td>
+<td><strong>I</strong></td>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>適切な抗菌薬投与後も持続する感染（3〜5日を目安に、血液培養陽性と臨床所見から判断）があり、他に感染巣がない例に対して早期手術を考慮する</td>
+<td><strong>準緊急</strong></td>
+<td><strong>IIa</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>抗菌薬抵抗性のブドウ球菌、非HACEKグループグラム陰性菌による人工弁IEに対して早期手術を考慮する</td>
+<td><strong>準緊急/待機的</strong></td>
+<td><strong>IIa</strong></td>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>人工弁IEの再燃に対して早期手術を考慮する</td>
+<td><strong>準緊急/待機的</strong></td>
+<td><strong>IIa</strong></td>
+<td><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-1-3-塞栓症予防">6-1-3. 塞栓症予防</h4>
+<table>
+<thead>
+<tr>
+<th>適応</th>
+<th>緊急度</th>
+<th>推奨クラス</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>適切な抗菌薬開始後も1回以上の塞栓症が生じ、残存（&gt;10 mm）または増大する疣腫に対して早期手術を行う</td>
+<td><strong>準緊急</strong></td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>10 mmを超える可動性の疣腫を有する進行性弁機能不全に対して早期手術を行う</td>
+<td><strong>準緊急</strong></td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>他の手術適応はなく、手術低リスク患者における10 mmを超える可動性の疣腫に対して早期手術を考慮してもよい</td>
+<td><strong>準緊急</strong></td>
+<td><strong>IIb</strong></td>
+<td><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-1-4-脳合併症合併例の手術時期推奨表15">6-1-4. 脳合併症合併例の手術時期（推奨表15）</h4>
+<table>
+<thead>
+<tr>
+<th>適応</th>
+<th>推奨クラス</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>脳合併症を有する患者に対してIEチームによる手術時期の決定を行う</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>脳合併症を有する患者に対して心不全や治療抵抗性感染、膿瘍、塞栓症リスクどちらかが高い場合は抗菌薬治療を優先し、必要時に手術を検討する</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>開心術を必要とし、各種リスクを有する早期心臓手術を必要とする患者で、無症候性脳塞栓や一過性脳虚血症発作や小範囲の非出血性脳梗塞合併患者に対して速やかに手術を行う</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>各種リスクを有する早期心臓手術を必要とする患者で、生命予後が不良とまでは言えない広範囲非出血性脳梗塞を伴う場合は、抗菌薬治療を優先し神経症状が安定した場合に手術を考慮する</td>
+<td><strong>IIa</strong></td>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>各種リスクを有する早期心臓手術を必要とする患者で、脳出血を伴う場合、神経学的所見が重篤でなく、かつ脳出血の拡大が画像上認定されていない場合は、脳出血発症後2週間以内の手術を考慮する</td>
+<td><strong>IIa</strong></td>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>循環状態が安定し、各種リスクを有する早期心臓手術を必要とする患者で、脳出血でさらに画像上脳出血の拡大が見られる場合は、原則として脳出血発症後4週間以上の抗菌薬治療を先行する</td>
+<td><strong>IIa</strong></td>
+<td><strong>B</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="6-2-esc-2023">6-2. ESC 2023</h3>
+<p><strong>出典：</strong> Section 8（Indications for surgery）、Recommendation Table 12〜17・19・21、Section 10（Surgical therapy）</p>
+<p>ESC 2023 は手術適応を NVE と PVE を<strong>一括</strong>して3主カテゴリ（Heart failure / Uncontrolled infection / Prevention of embolism）で推奨表12に整理し、さらに PVE・右心系IE・CIED IE・神経合併症・TAVI IE を独立セクションで詳述。</p>
+<h4 id="6-2-1-心不全recommendation-table-12--i-heart-failure">6-2-1. 心不全（Recommendation Table 12 — (i) Heart failure）</h4>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>Class</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大動脈弁・僧帽弁のNVE（自己弁IE）またはPVE（人工弁IE）で重度の急性弁逆流、弁閉塞、瘻孔により難治性肺水腫・心原性ショックを生じた場合に<strong>緊急手術</strong>を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>大動脈弁・僧帽弁のNVEまたはPVEで重度弁逆流、弁閉塞によりHF（心不全）症状または血行動態悪化の心エコー所見（LVEDP＝左室拡張末期圧の上昇・左房圧上昇・中等度以上肺高血圧）を呈する場合に<strong>準緊急手術</strong>を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-2-2-治療抵抗性感染recommendation-table-12--ii-uncontrolled-infection">6-2-2. 治療抵抗性感染（Recommendation Table 12 — (ii) Uncontrolled infection）</h4>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>Class</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>局所感染コントロール不良（膿瘍、仮性動脈瘤、瘻孔、疣腫増大、新規AVB＝房室ブロック）に対して<strong>準緊急手術</strong>を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>真菌または多剤耐性菌による感染では、血行動態に応じて<strong>準緊急</strong>または<strong>待機的手術</strong>を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>適切な抗菌薬投与&gt;1週間にもかかわらず持続する血液培養陽性菌血症・敗血症に対し<strong>準緊急手術</strong>を考慮</td>
+<td><strong>IIa</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td><em>S. aureus</em> または非HACEKグラム陰性菌によるPVEでは<strong>準緊急手術</strong>を考慮</td>
+<td><strong>IIa</strong></td>
+<td><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-2-3-塞栓症予防recommendation-table-12--iii-prevention-of-embolism">6-2-3. 塞栓症予防（Recommendation Table 12 — (iii) Prevention of embolism）</h4>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>Class</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大動脈弁または僧帽弁のNVE/PVEで、適切な抗菌薬投与にもかかわらず ≥10 mmの持続する疣腫＋1回以上の塞栓症エピソードに対し<strong>準緊急手術</strong>を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>≥10 mmの疣腫＋他の手術適応を有するIEに対し<strong>準緊急手術</strong>を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>大動脈弁・僧帽弁のIEで ≥10 mmの孤立性疣腫（他の手術適応なし）＋重度弁機能不全なし・塞栓症の臨床的エビデンスなし・手術低リスクの場合に<strong>準緊急手術</strong>を考慮してもよい</td>
+<td><strong>IIb</strong></td>
+<td><strong>B</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-2-4-人工弁心内膜炎pverecommendation-table-19">6-2-4. 人工弁心内膜炎（PVE）（Recommendation Table 19）</h4>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>Class</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>弁置換術後6ヵ月以内の早期PVEに対し、新たな弁置換術＋完全デブリードマンを伴う手術を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-2-5-右心系ierecommendation-table-21">6-2-5. 右心系IE（Recommendation Table 21）</h4>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>Class</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>右心室機能不全に続発する急性重症三尖弁逆流（利尿薬無反応）</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>反復性肺塞栓による呼吸不全で呼吸器サポートを要する持続性疣腫</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>反復性敗血症性肺塞栓後の大きな残存三尖弁疣腫（&gt;20 mm）</td>
+<td><strong>I</strong></td>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>左心系構造への同時波及</td>
+<td><strong>I</strong></td>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>三尖弁形成術を弁置換術より優先すべき（可能な場合）</td>
+<td><strong>IIa</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>適切な抗菌薬&gt;1週間にもかかわらず持続菌血症/敗血症（右心系IEで手術を考慮）</td>
+<td><strong>IIa</strong></td>
+<td><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-2-6-脳合併症後の手術時期recommendation-table-17">6-2-6. 脳合併症後の手術時期（Recommendation Table 17）</h4>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>Class</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一過性脳虚血発作（TIA）の後は、手術適応があれば遅延なく手術を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>脳梗塞後、HF・コントロール不良感染・膿瘍・持続する高い塞栓リスクがあり、昏睡がなく、頭部CT/MRIで脳出血が除外されていれば遅延なく手術を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>頭蓋内出血後は、可能であれば心臓手術を&gt;1ヵ月延期し、頻回な画像再評価を考慮</td>
+<td><strong>IIa</strong></td>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>頭蓋内出血＋血行動態不安定（HF、コントロール不良感染、持続する高い塞栓リスク）＋緊急/準緊急手術が必要 → 意味のある神経学的予後の可能性を考慮して緊急手術を検討</td>
+<td><strong>IIa</strong></td>
+<td><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="6-3-aha-2015">6-3. AHA 2015</h3>
+<p><strong>出典：</strong> Surgical Management セクション（p.1465–1471）</p>
+<p>AHA 2015 は手術適応を<strong>左心系NVE・PVE・右心系IE・脳梗塞/出血合併</strong>の4カテゴリに分けて推奨を記載。推奨はCardiogenic shock/uncontrolled infectionの区分ではなく、<strong>"Early valve surgery"</strong> の適応として一括的に列記。</p>
+<h4 id="6-3-1-左心系-自己弁ienve-early-valve-surgery">6-3-1. 左心系 自己弁IE（NVE）— Early Valve Surgery</h4>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>Class</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>弁機能不全に起因するHF症状・徴候を呈するIEで<strong>初回入院中の早期手術</strong>を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>真菌や高度耐性菌（VRE、多剤耐性GNR）による左心系NVEで<strong>早期手術を特に考慮</strong>すべき</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>心ブロック（房室ブロック＝AVB等の伝導障害）、弁輪部・大動脈周囲膿瘍、穿通性の破壊的病変を合併するIEで<strong>早期手術</strong>を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>適切な抗菌薬開始後 &gt;5〜7日間の持続性菌血症/発熱で、他の感染源を除外したうえで<strong>早期手術</strong>を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>再発性塞栓＋適切な抗菌薬にもかかわらず持続/増大する疣腫に対する早期手術は<strong>妥当</strong></td>
+<td><strong>IIa</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>重症弁逆流＋ &gt;10 mmの可動性疣腫に対する早期手術は<strong>妥当</strong></td>
+<td><strong>IIa</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>&gt;10 mmの可動性疣腫、特に<strong>僧帽弁前尖を侵すもの</strong>＋他の相対的手術適応を伴う場合に早期手術を<strong>考慮してもよい</strong></td>
+<td><strong>IIb</strong></td>
+<td><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-3-2-人工弁iepve-early-valve-surgery">6-3-2. 人工弁IE（PVE）— Early Valve Surgery</h4>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>Class</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>弁機能不全（弁離開、心内瘻孔、重度人工弁機能不全）に起因するHF症状・徴候で<strong>早期手術</strong>を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>適切な抗菌薬 5〜7日投与にもかかわらず持続菌血症＋他の感染源が除外されたPVEで<strong>早期手術</strong>を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>心ブロック、弁輪部・大動脈周囲膿瘍、穿通性破壊的病変を合併するPVEで<strong>早期手術</strong>を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>真菌・高度耐性菌によるPVEで<strong>早期手術</strong>を推奨</td>
+<td><strong>I</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>再発性塞栓にもかかわらず適切な抗菌薬治療を継続しているPVEの早期手術は<strong>妥当</strong></td>
+<td><strong>IIa</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>再燃するPVEの早期手術は<strong>妥当</strong></td>
+<td><strong>IIa</strong></td>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>&gt;10 mmの可動性疣腫を有するPVEの早期手術を<strong>考慮してもよい</strong></td>
+<td><strong>IIb</strong></td>
+<td><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-3-3-右心系ie三尖弁肺動脈弁のie">6-3-3. 右心系IE（三尖弁・肺動脈弁のIE）</h4>
+<p>AHA 2015 は右心系IEの手術適応に対してClass/LOEを推奨文中に直接記載せず、以下を適応として列挙：</p>
+<ul>
+<li>利尿薬不応の急性重症三尖弁逆流に続発する右心不全</li>
+<li>難治性菌（真菌、多剤耐性菌）による持続感染（≥1週間の適切な抗菌薬不応）</li>
+<li>≥20 mmの三尖弁疣腫＋反復性肺塞栓</li>
+<li>呼吸サポートを要する反復性肺塞栓</li>
+<li>左心系構造の同時波及</li>
+</ul>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">AHA 2015 の特徴</div>
+<ul>
+<li>弁形成術を弁置換術より<strong>優先</strong>（<em>Class IIa, C</em>）</li>
+<li><strong>IDU（Injection Drug User：静注薬物乱用者）</strong> 患者ではデバイス（人工弁）留置を避けることが<strong>妥当</strong>（<em>Class IIa, C</em>）。再使用による再感染リスクが高いため</li>
+<li>弁置換術時の人工弁選択は術者判断に委ねる（<em>Class IIa, C</em>）</li>
+</ul>
+</div>
+
+<h4 id="6-3-4-脳梗塞--出血性脳合併症後の手術時期">6-3-4. 脳梗塞 / 出血性脳合併症後の手術時期</h4>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>Class</th>
+<th>LOE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>残存疣腫を伴う脳梗塞・無症候性脳塞栓で、画像上脳出血が除外され神経学的障害が重度でない場合に手術を<strong>考慮してもよい</strong></td>
+<td><strong>IIb</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>大きな虚血性脳梗塞・頭蓋内出血を伴う場合は<strong>少なくとも4週間の手術延期が妥当</strong></td>
+<td><strong>IIa</strong></td>
+<td><strong>B</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-part-ii手術適応-地域間横断比較">7. Part II：手術適応 地域間横断比較</h2>
+<hr />
+<h3 id="7-1-心不全に対する手術適応">7-1. 心不全に対する手術適応</h3>
+<table>
+<thead>
+<tr>
+<th>臨床状況</th>
+<th>🇯🇵 JCS 2026</th>
+<th>🇪🇺 ESC 2023</th>
+<th>🇺🇸 AHA 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>心原性ショック / 高度肺水腫（緊急手術）</strong></td>
+<td><strong>I, B</strong>（緊急）</td>
+<td><strong>I, B</strong>（Emergency）</td>
+<td><strong>I, B</strong>（early surgery）</td>
+</tr>
+<tr>
+<td><strong>HF（心不全）症状 / 血行動態悪化（準緊急手術）</strong></td>
+<td><strong>I, B</strong>（準緊急）</td>
+<td><strong>I, B</strong>（Urgent）</td>
+<td><strong>I, B</strong>（early surgery）</td>
+</tr>
+<tr>
+<td><strong>血行動態安定・内科的管理可能</strong></td>
+<td>経過観察、手術適応なし</td>
+<td>i.v. therapy + echo follow-up → Non-urgent surgery (I)</td>
+<td>early surgery = 入院中</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">3ガイドラインの共通点</div>
+<p>心不全は3ガイドラインすべてにおいて<strong>最も強い手術適応</strong>（Class I）。心原性ショック・肺水腫は緊急手術、NYHA III〜IVの進行性心不全は準緊急手術で一致。</p>
+</div>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">相違点</div>
+<ul>
+<li><strong>手術タイミングの定義精度</strong>：ESC 2023 が最も明確（Emergency=24h、Urgent=3-5日、Non-urgent=同一入院中）。JCS 2026 も同等。AHA 2015 は "early surgery" としてまとめ、時間区分を定義せず</li>
+<li><strong>PVEにおける心不全</strong>：ESC 2023 はNVE/PVEを一括して同一推奨。AHA 2015 はPVEを独立セクションで記載。JCS 2026 は自己弁・人工弁を一括記載</li>
+</ul>
+</div>
+
+<hr />
+<h3 id="7-2-治療抵抗性感染に対する手術適応">7-2. 治療抵抗性感染に対する手術適応</h3>
+<table>
+<thead>
+<tr>
+<th>臨床状況</th>
+<th>🇯🇵 JCS 2026</th>
+<th>🇪🇺 ESC 2023</th>
+<th>🇺🇸 AHA 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>局所コントロール不良（膿瘍・仮性動脈瘤・瘻孔・心ブロック）</strong></td>
+<td><strong>I, B</strong>（緊急/準緊急）</td>
+<td><strong>I, B</strong>（Urgent）</td>
+<td><strong>I, B</strong></td>
+</tr>
+<tr>
+<td><strong>持続性敗血症</strong></td>
+<td><strong>I, B</strong>（緊急/準緊急）</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>真菌 / 多剤耐性菌（MRSA＝メチシリン耐性黄色ブドウ球菌, VRE＝バンコマイシン耐性腸球菌）</strong></td>
+<td><strong>I, C</strong>（準緊急/待機的）</td>
+<td><strong>I, C</strong>（Urgent or Non-urgent）</td>
+<td><strong>I, B</strong></td>
+</tr>
+<tr>
+<td><strong>持続菌血症（&gt;5〜7日）、他の感染巣除外後</strong></td>
+<td><strong>IIa, B</strong>（準緊急）</td>
+<td><strong>IIa, B</strong>（&gt;1 week）</td>
+<td><strong>I, B</strong>（&gt;5-7日）</td>
+</tr>
+<tr>
+<td><strong><em>S. aureus</em>（黄色ブドウ球菌）/ 非HACEK GNR（グラム陰性桿菌）による PVE</strong></td>
+<td><strong>IIa, C</strong></td>
+<td><strong>IIa, C</strong></td>
+<td>— (PVEセクションで対応)</td>
+</tr>
+<tr>
+<td><strong>PVE再燃</strong></td>
+<td><strong>IIa, C</strong></td>
+<td>—</td>
+<td><strong>IIa, C</strong></td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">重要な相違点</div>
+<ul>
+<li><strong>持続菌血症の時間閾値</strong>：AHA 2015 は <strong>&gt;5〜7日</strong> を閾値として <strong>Class I, B</strong> で推奨。ESC 2023 は <strong>&gt;1週間</strong> を閾値として <strong>IIa, B</strong>。JCS 2026 は <strong>3〜5日を目安</strong> として <strong>IIa, B</strong>。<strong>AHAが最も積極的</strong>（Class I vs IIa）</li>
+<li><strong><em>S. aureus</em> NVE</strong>：ESC 2023 は <em>S. aureus</em> を「持続菌血症のリスク因子」として強調するが、<em>S. aureus</em> 自己弁IE単独では手術適応クラスを引き上げていない。AHA 2015 も同様。JCS 2026 は「組織破壊性の強い黄色ブドウ球菌感染」を緊急手術の判断材料として言及</li>
+<li><strong>真菌性IEの推奨強度</strong>：AHA 2015 は真菌性IEの弁手術を <strong>Class I, B</strong> で推奨（最も強い）。ESC 2023 は <strong>I, C</strong>、JCS 2026 は <strong>I, C</strong></li>
+</ul>
+</div>
+
+<hr />
+<h3 id="7-3-塞栓症予防に対する手術適応">7-3. 塞栓症予防に対する手術適応</h3>
+<table>
+<thead>
+<tr>
+<th>臨床状況</th>
+<th>🇯🇵 JCS 2026</th>
+<th>🇪🇺 ESC 2023</th>
+<th>🇺🇸 AHA 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>≥10 mm疣腫 ＋ ≥1回の塞栓症（抗菌薬投与中）</strong></td>
+<td><strong>I, B</strong>（準緊急）</td>
+<td><strong>I, B</strong>（Urgent）</td>
+<td><strong>IIa, B</strong>（reasonable）</td>
+</tr>
+<tr>
+<td><strong>≥10 mm疣腫 ＋ 他の手術適応</strong></td>
+<td><strong>I, B</strong>（準緊急 — 進行性弁機能不全の文脈で）</td>
+<td><strong>I, C</strong>（Urgent）</td>
+<td><strong>IIa, B</strong></td>
+</tr>
+<tr>
+<td><strong>≥10 mm孤立性疣腫（他の適応なし、手術低リスク）</strong></td>
+<td><strong>IIb, C</strong></td>
+<td><strong>IIb, B</strong></td>
+<td><strong>IIb, C</strong></td>
+</tr>
+<tr>
+<td><strong>&gt;10 mm可動性疣腫 ＋ 重症弁逆流</strong></td>
+<td><strong>I, B</strong></td>
+<td><strong>I, C</strong></td>
+<td><strong>IIa, B</strong></td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">塞栓症予防の推奨強度差</div>
+<ul>
+<li><strong>ESC 2023 と JCS 2026 は Class I</strong> で塞栓予防目的の手術を推奨するのに対し、<strong>AHA 2015 は Class IIa</strong>（"reasonable"）にとどまる — これが<strong>3ガイドライン間の最大の相違点</strong>の一つ</li>
+<li>背景：AHA 2015 発行時（2015年）はKang trial（NEJM 2012、早期手術 vs 従来治療のRCT）の結果はあったが、サンプル数少・若年・低リスクが主で一般化に慎重であった。ESC 2023 はKang trial含む後続エビデンスを統合し推奨を格上げ</li>
+<li><strong>JCS 2026 は ESC 2023 と同等の Class I 推奨</strong>を採用。わが国のサーベイランスデータ（全IE患者の61%が手術を受けている）を根拠に、塞栓予防手術を積極的に支持</li>
+</ul>
+</div>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">疣腫サイズ閾値の一致</div>
+<p>≥10 mm（可動性疣腫）を手術適応の閾値とすることは<strong>3ガイドラインで一致</strong>。ESC 2023 は特に僧帽弁疣腫を高リスクとし、<em>S. aureus</em>・<em>S. gallolyticus</em>・VGS・Enterococcus が 10 mm 未満でも塞栓を起こしうることを指摘</p>
+</div>
+
+<hr />
+<h3 id="7-4-人工弁心内膜炎pveprosthetic-valve-endocarditis">7-4. 人工弁心内膜炎（PVE：Prosthetic Valve Endocarditis）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2026</th>
+<th>🇪🇺 ESC 2023</th>
+<th>🇺🇸 AHA 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>独立セクション</strong></td>
+<td>なし（NVEと一括、推奨表14に「人工弁IE」と注記）</td>
+<td>あり（Section 12.1、Rec Table 19）</td>
+<td>あり（Early Valve Surgery in PVEとして独立推奨7項目）</td>
+</tr>
+<tr>
+<td><strong>早期PVE（≤6ヵ月）の手術</strong></td>
+<td>—</td>
+<td><strong>I, C</strong>（新弁置換+完全デブリードマン）</td>
+<td><strong>I, B</strong>（弁機能不全＋HFの場合）</td>
+</tr>
+<tr>
+<td><strong>PVE ＋ HF</strong></td>
+<td><strong>I, B</strong></td>
+<td><strong>I, B</strong>（NVE/PVEとも同一推奨表で対応）</td>
+<td><strong>I, B</strong></td>
+</tr>
+<tr>
+<td><strong>PVE ＋ 持続菌血症</strong></td>
+<td><strong>IIa, B</strong></td>
+<td><strong>IIa, B</strong></td>
+<td><strong>I, B</strong></td>
+</tr>
+<tr>
+<td><strong><em>S. aureus</em> PVE</strong></td>
+<td><strong>IIa, C</strong></td>
+<td><strong>IIa, C</strong></td>
+<td><strong>I, B</strong>（真菌・高度耐性菌と同列）</td>
+</tr>
+<tr>
+<td><strong>PVE再燃</strong></td>
+<td><strong>IIa, C</strong></td>
+<td>—</td>
+<td><strong>IIa, C</strong></td>
+</tr>
+<tr>
+<td><strong>非複雑性・遅発性PVE</strong></td>
+<td>内科的治療優先</td>
+<td>内科的治療可、ただしフォロー必要（Table 13 high-risk factors）</td>
+<td>内科的治療</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">TAVI後IE（経カテーテル大動脈弁植込み後IE）</div>
+<p>ESC 2023 のみ<strong>TAVI後IE（Section 12.3.1）</strong> を独立項目で詳述。局所感染進展例では手術を考慮するが、高齢・多臓器合併症を理由にre-do（再）手術の実施率は低い（3.8〜31.3%）。弁膜症が治癒後の valve-in-valve transcatheter therapy（既存の機能不全弁の中に新しいカテーテル弁を追加挿入する手技）は1〜3ヵ月以降に考慮。JCS 2026・AHA 2015 にはTAVI IE独立セクションなし。</p>
+</div>
+
+<hr />
+<h3 id="7-5-右心系ie三尖弁肺動脈弁のie">7-5. 右心系IE（三尖弁・肺動脈弁のIE）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2026</th>
+<th>🇪🇺 ESC 2023</th>
+<th>🇺🇸 AHA 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>独立セクション</strong></td>
+<td>三尖弁IEとして記載（第5章3.3）</td>
+<td>あり（Section 12.6、Rec Table 21）</td>
+<td>あり（Right-Sided IE）</td>
+</tr>
+<tr>
+<td><strong>手術適応</strong></td>
+<td>僧帽弁IEに準じた手術適応、弁形成術を優先</td>
+<td>詳細な推奨表21（5項目 Class I、3項目 IIa/IIb）</td>
+<td>本文中に適応を列挙（COR/LOE明記なし）</td>
+</tr>
+<tr>
+<td><strong>疣腫サイズ閾値</strong></td>
+<td>—</td>
+<td><strong>&gt;20 mm</strong>（反復性肺塞栓後）</td>
+<td><strong>≥20 mm</strong></td>
+</tr>
+<tr>
+<td><strong>弁形成優先</strong></td>
+<td>明記</td>
+<td><strong>IIa, B</strong>（repair preferred over replacement）</td>
+<td>形成術を優先すべきと記載</td>
+</tr>
+<tr>
+<td><strong>薬物中毒者（IDU：Injection Drug User／PWID：People Who Inject Drugs）</strong></td>
+<td>薬物中毒者のIEは日本では稀（わが国では一般的な術式ではない）と記載</td>
+<td>PWID（静注薬物使用者）関連IEに関する独立セクション（Section 12.6.2）。経口治療も考慮</td>
+<td>可能な限り手術を避ける、人工弁留置を回避するのが<em>reasonable</em>（IIa, C）と明記</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">右心系IEの共通点</div>
+<p>3ガイドラインとも、右心系IEの大部分は抗菌薬治療で管理可能（≈90%）とし、手術は限定的適応。弁形成術の優先は共通。</p>
+</div>
+
+<hr />
+<h3 id="7-6-脳合併症脳梗塞脳出血合併例の手術時期">7-6. 脳合併症（脳梗塞・脳出血）合併例の手術時期</h3>
+<table>
+<thead>
+<tr>
+<th>臨床状況</th>
+<th>🇯🇵 JCS 2026</th>
+<th>🇪🇺 ESC 2023</th>
+<th>🇺🇸 AHA 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TIA（一過性脳虚血発作）/ 小範囲脳梗塞（非出血性）</strong></td>
+<td><strong>速やかに手術（I, B）</strong></td>
+<td><strong>遅延なく手術（I, B）</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>脳梗塞後（非出血性）＋ HF/感染/塞栓リスクあり</strong></td>
+<td>手術を検討（推奨表15に詳細）</td>
+<td><strong>遅延なく手術（I, B）</strong> — 昏睡なし・脳出血除外が条件</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>脳梗塞 ＋ 残存疣腫（出血なし・重度障害なし）</strong></td>
+<td>—</td>
+<td>—</td>
+<td><strong>IIb, B</strong></td>
+</tr>
+<tr>
+<td><strong>広範囲脳梗塞 / 重度脳出血</strong></td>
+<td>抗菌薬先行、神経症状安定後に手術検討（IIa, C）</td>
+<td><strong>&gt;1ヵ月延期を考慮（IIa, C）</strong></td>
+<td><strong>≥4週間延期が妥当（IIa, B）</strong></td>
+</tr>
+<tr>
+<td><strong>出血性脳合併症 ＋ 不安定循環</strong></td>
+<td>2週間以内の準緊急手術を考慮（IIa, C）。脳出血拡大がなければ手術可</td>
+<td>緊急手術を考慮、意味のある神経予後の可能性を条件（IIa, C）</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>感染性脳動脈瘤</strong></td>
+<td>推奨表15の脳動脈瘤治療フローで対応。未破裂でもフォロー要</td>
+<td>脳外科/血管内治療を推奨（I, C）。未破裂は抗菌薬治療で縮小する場合あり</td>
+<td>CT/MR angiography（I, B）、conventional angiography（IIa, B）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">重要な相違点</div>
+<ul>
+<li><strong>ESC 2023 と JCS 2026 は「小範囲脳梗塞後は早期手術可能」を明確にClass I推奨</strong>。AHA 2015 はこの区分を持たず、脳梗塞全般に対して慎重な姿勢（IIb, B または IIa, B for delay）</li>
+<li><strong>脳出血後の待機期間</strong>：AHA 2015 は <strong>≥4週間</strong>、ESC 2023 は <strong>&gt;1ヵ月</strong>（ほぼ同等）、JCS 2026 は<strong>4週間以上の抗菌薬先行</strong>としつつ、出血拡大がなければ2週間以内の手術も考慮（最も柔軟）</li>
+<li><strong>JCS 2026 は図7（アルゴリズム）</strong> で脳合併症合併例の意思決定をフローチャート化 — 臨床的に最も実用的</li>
+</ul>
+</div>
+
+<hr />
+<h3 id="7-7-cied関連iecardiac-implantable-electronic-device心臓植込み型電子デバイス関連ie">7-7. CIED関連IE（Cardiac Implantable Electronic Device：心臓植込み型電子デバイス関連IE）</h3>
+<p><strong>CIED（シーアイイーディー）とは何か：</strong> ペースメーカー、植込み型除細動器（ICD：Implantable Cardioverter Defibrillator）、心臓再同期療法デバイス（CRT：Cardiac Resynchronization Therapy）など、心臓内にリード（電極線）と本体（ジェネレータ）を植込む電子機器の総称。これらに細菌が付着して生じるIEを<strong>CIED-IE</strong>と呼ぶ。ペーシングリードに付着した疣腫が肺塞栓を起こしたり、本体ポケットの皮下感染から血流感染に進展することがある。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2026</th>
+<th>🇪🇺 ESC 2023</th>
+<th>🇺🇸 AHA 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>独立セクション</strong></td>
+<td>なし</td>
+<td>あり（Section 12.4、Rec Table 20）</td>
+<td>本文中で言及（AHA 2010 別文書「心血管植込み型電子デバイス感染」に詳細）</td>
+</tr>
+<tr>
+<td><strong>デバイス完全抜去（リード＋本体すべての摘出）</strong></td>
+<td>—</td>
+<td><strong>I, B</strong>（確定CIED-IE全例で推奨）</td>
+<td>AHA 2010文書で Class I 推奨</td>
+</tr>
+<tr>
+<td><strong>抜去後再植込み時期</strong></td>
+<td>—</td>
+<td>感染徴候消失＋血液培養陰性化後 ≥72時間（疣腫/<em>S. aureus</em>なし）〜≥2週間（疣腫あり）（I, C）</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>経皮的（カテーテルによる）抜去 vs 外科的（開胸）抜去</strong></td>
+<td>—</td>
+<td>経皮的抜去を第一選択。大きな疣腫（&gt;20 mm）や経皮的抜去不成功時に外科的抜去。弁膜症手術が必要なら外科的抜去を推奨</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">Note</div>
+<p>ESC 2023 が CIED-IE に最も詳細。図13のアルゴリズムでグラム陽性菌/陰性菌による管理フローを提示。JCS 2026 はCIED-IEに関するCQ（クリニカル・クエスチョン）・推奨表を設けていない。</p>
+</div>
+
+<hr />
+<h2 id="8-術式選択形成術-vs-置換術人工弁選択">8. 術式選択：形成術 vs 置換術・人工弁選択</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇯🇵 JCS 2026</th>
+<th>🇪🇺 ESC 2023</th>
+<th>🇺🇸 AHA 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>大動脈弁IE</strong></td>
+<td>弁輪部への波及がない場合は人工弁置換術（大動脈弁弁置換術）が一般的。Ross手術は欧米で報告あるがわが国ではグラフトの入手制限あり。自己弁・生体弁・機械弁の選択を個々に検討。TAV-in-SAV等も将来的に考慮</td>
+<td>弁置換術が標準。弁形成術は急性期では稀（isolated AR perforation repairのみ）。ホモグラフトは感染に強いが入手困難。弁周囲進展例ではaortic root replacementを考慮</td>
+<td>弁置換術が標準。弁選択は術者判断（IIa, C）。ホモグラフト・アロシグラフト・ステントレス弁は経験施設で使用</td>
+</tr>
+<tr>
+<td><strong>僧帽弁IE</strong></td>
+<td>弁形成術が望ましい。院内死亡率は形成8.4〜29.7%、置換2.6〜11.6%。形成術の方が再手術率は同等で遠隔生存率が優れる。経験豊富な施設での形成術成功率は68〜82%</td>
+<td>弁形成術を試みるべきだが、急性IEでは置換術も必要になることが多い。形成術のfeasibilityと耐久性に関するエビデンスは限定的</td>
+<td>弁形成術を弁置換術より<strong>優先</strong>（Class IIa, C）。ただし完全な感染組織除去＋耐久的修復が予測される場合に限る</td>
+</tr>
+<tr>
+<td><strong>三尖弁IE</strong></td>
+<td>弁形成術を優先。拡大した三尖弁輪のリング縫縮、穿孔部の心膜パッチ閉鎖、逸脱に対する人工腱索。弁破壊高度例では弁置換術。ブタ弁がウシ心膜弁より耐久性が優れる可能性</td>
+<td>弁形成術を弁置換術より優先（IIa, B）。三尖弁切除術（vegetectomy）は海外で使用されるがわが国では一般的でない</td>
+<td>弁形成術を優先。IDUでは人工弁留置を避けるのがreasonable</td>
+</tr>
+<tr>
+<td><strong>機械弁 vs 生体弁</strong></td>
+<td>機械弁・生体弁の感染制御の優劣についての一定の見解はない。脳出血リスクが高い、消化管出血リスクを有する患者では機械弁の使用は避けるべき</td>
+<td>急性IEでは非機械弁（生体弁）を推奨する要素を Table 12 に列挙（脳出血歴、高齢、長期MCS必要、複雑な術後経過予想、患者希望）。ただし推奨クラスは付与せず</td>
+<td>弁選択は術者判断に委ねる（IIa, C）</td>
+</tr>
+<tr>
+<td><strong>術中TEE</strong></td>
+<td>必須（弁形成後の評価を含む）</td>
+<td>必須。術中TEE post-repair は mandatory（弁修復後のベースライン確立にも必須）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-まとめ総括">9. まとめ・総括</h2>
+<h3 id="3ガイドラインの共通点">3ガイドラインの共通点</h3>
+<ol type="1">
+<li><strong>心不全を伴うIEは全ガイドラインで最も強い手術適応（Class I）</strong> — 心原性ショック・肺水腫は緊急手術、進行性心不全は準緊急/早期手術</li>
+<li><strong>局所感染コントロール不良（膿瘍・仮性動脈瘤・瘻孔・心ブロック）は全ガイドラインで Class I</strong> 推奨</li>
+<li><strong>真菌・多剤耐性菌（MRSA, VRE等）によるIEは全ガイドラインで Class I</strong> — 早期手術を推奨</li>
+<li><strong>疣腫サイズ閾値 ≥10 mm（可動性疣腫）</strong> を手術検討の契機とすることは共通</li>
+<li><strong>IEチーム（多職種チーム）</strong> による治療方針決定は全ガイドラインで強調</li>
+<li><strong>僧帽弁IE・三尖弁IEでは弁形成術を弁置換術より優先</strong> する方針は共通</li>
+<li><strong>脳出血合併例では少なくとも4週間の手術延期</strong> が基本方針</li>
+</ol>
+<h3 id="主要な相違点">主要な相違点</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>相違の内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>塞栓症予防目的の手術</strong></td>
+<td>ESC 2023・JCS 2026 は <strong>Class I</strong> で積極推奨。AHA 2015 は <strong>Class IIa</strong> にとどまる（最大の推奨格差）</td>
+</tr>
+<tr>
+<td><strong>持続菌血症の閾値と推奨強度</strong></td>
+<td>AHA 2015：<strong>&gt;5-7日で Class I, B</strong>（最も積極的）。ESC 2023：&gt;1週間で IIa, B。JCS 2026：3-5日目安で IIa, B</td>
+</tr>
+<tr>
+<td><strong>手術タイミングの定義</strong></td>
+<td>ESC 2023 が最も体系的（Emergency/Urgent/Non-urgent を時間定義）。AHA 2015 は "early surgery" として一括</td>
+</tr>
+<tr>
+<td><strong>脳梗塞後の早期手術</strong></td>
+<td>ESC 2023・JCS 2026：小範囲脳梗塞・TIA後は速やかに手術可能（<strong>I, B</strong>）。AHA 2015：脳梗塞全般に慎重（IIb, B）</td>
+</tr>
+<tr>
+<td><strong>PVEの独立セクション</strong></td>
+<td>ESC 2023・AHA 2015 はPVE独立セクションあり。JCS 2026 はNVE/PVE一括</td>
+</tr>
+<tr>
+<td><strong>TAVI後IE（経カテーテル弁植込み後IE）</strong></td>
+<td>ESC 2023 のみ独立セクション。JCS 2026・AHA 2015 は記載なし</td>
+</tr>
+<tr>
+<td><strong>CIED-IE（心臓植込み型電子デバイス＝ペースメーカー/ICD/CRT 関連IE）</strong></td>
+<td>ESC 2023 が最も詳細（推奨表20、アルゴリズム図13）。JCS 2026 は推奨表なし</td>
+</tr>
+<tr>
+<td><strong>ガイドライン発行年の影響</strong></td>
+<td>AHA 2015 は10年以上前の文書であり、その後蓄積されたエビデンス（Kang trial長期フォロー等）が反映されていない。ESC 2023・JCS 2026 はより新しいエビデンスを統合</td>
+</tr>
+</tbody>
+</table>
+<h3 id="臨床的インプリケーション">臨床的インプリケーション</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">外科医への要点</div>
+<ol type="1">
+<li><strong>疣腫 ≥10 mm ＋ 塞栓症既往</strong>がある場合、ESC 2023・JCS 2026 に基づけば<strong>Class I</strong>（手術すべき）。AHA 2015 のみを参照すると IIa（妥当）になる → 最新ガイドラインを優先して判断すべき</li>
+<li><strong>脳梗塞合併例</strong>：NIHSS（National Institutes of Health Stroke Scale：脳卒中重症度スケール、0〜42点で点数が高いほど重症）≤10 の小範囲梗塞なら、ESC/JCS基準では<strong>IE診断後14日以内の手術が推奨</strong>。AHA 2015 基準では慎重方針となり、この差が実臨床での意思決定に影響</li>
+<li><strong>真菌性IE</strong>は3ガイドラインすべてで Class I の手術適応だが、エビデンスレベルは AHA（B）&gt; ESC/JCS（C）</li>
+<li><strong>右心系IE</strong>の手術適応は限定的であり、三尖弁形成術を優先する方針は世界的に共通。薬物中毒者に関する記載はJCS 2026 では「わが国では稀」として詳細を割愛</li>
+<li><strong>人工弁選択</strong>については明確な推奨格差はなく、施設の経験と患者状態に応じた個別化が推奨される</li>
+</ol>
+</div>
+
+<hr />
+<p><em>本文書は一次資料の忠実なサマリーです。推奨クラスおよびエビデンスレベルは各ガイドラインの原文記載を<strong>そのまま転記</strong>しており、解釈・変更は加えていません。</em></p>
+
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
+</body>
+</html>
