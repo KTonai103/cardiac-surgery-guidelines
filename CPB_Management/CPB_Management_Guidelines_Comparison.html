@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>体外循環（CPB）管理：各地域ガイドライン比較</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5c5c5c;
+  --border: #d4d4d4;
+  --accent: #2c3e50;
+  --light-bg: #f7f8fa;
+  --header-bg: #2c3e50;
+  --header-fg: #ffffff;
+  --link: #34495e;
+  --jp-accent: #c0392b;
+  --us-accent: #2980b9;
+  --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
+
+body {
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+  margin: 48px 0 12px;
+}
+
+h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 28px 0 8px;
+}
+
+h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 20px 0 6px;
+}
+
+p { margin: 8px 0; font-size: 0.88rem; }
+strong { color: var(--fg); }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+ul, ol {
+  padding-left: 24px;
+  margin: 8px 0;
+  font-size: 0.88rem;
+}
+
+li { margin-bottom: 4px; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 12px 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+thead th {
+  background: var(--header-bg);
+  color: var(--header-fg);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--light-bg);
+}
+
+tbody tr:nth-child(even) td { background-color: #fafbfc; }
+tbody tr:nth-child(even) td:first-child { background-color: #f0f1f3; }
+tbody tr:hover td { background-color: #eef1f5; }
+tbody tr:hover td:first-child { background-color: #e4e8ed; }
+
+/* Blockquotes (fallback for any not converted to callouts) */
+blockquote {
+  background: var(--light-bg);
+  border-left: 3px solid var(--border);
+  padding: 10px 16px;
+  margin: 12px 0 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+blockquote strong { color: var(--fg); }
+
+/* Highlights */
+mark {
+  background: #fff3cd;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Callout overrides - already inline styled, but ensure nested elements look right */
+.callout p { margin: 4px 0; }
+.callout ul, .callout ol { margin: 4px 0 4px 16px; }
+.callout table { font-size: 0.8rem; }
+
+/* Print */
+@media print {
+  body { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
+@media (max-width: 768px) {
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
+  h1 { font-size: 1.3rem; }
+  table { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-臨床的背景と各地域ガイドライン体系">1. 臨床的背景と各地域ガイドライン体系</a></li>
+      <li class="toc-l3"><a href="#1-1-各地域の立ち位置">1-1. 各地域の立ち位置</a></li>
+      <li class="toc-l2"><a href="#2-抗凝固管理">2. 抗凝固管理</a></li>
+      <li class="toc-l3"><a href="#2-1-ヘパリン投与とactモニタリング">2-1. ヘパリン投与とACTモニタリング</a></li>
+      <li class="toc-l3"><a href="#2-2-プロタミンによる中和">2-2. プロタミンによる中和</a></li>
+      <li class="toc-l3"><a href="#2-3-ヘパリン代替薬hit等">2-3. ヘパリン代替薬（HIT等）</a></li>
+      <li class="toc-l2"><a href="#3-全身灌流圧map管理">3. 全身灌流圧（MAP）管理</a></li>
+      <li class="toc-l2"><a href="#4-ポンプ流量拍動流目標指向灌流gdpdo₂">4. ポンプ流量・拍動流・目標指向灌流（GDP/DO₂）</a></li>
+      <li class="toc-l3"><a href="#4-1-ポンプ流量">4-1. ポンプ流量</a></li>
+      <li class="toc-l3"><a href="#4-2-目標指向灌流gdpと酸素供給量do₂">4-2. 目標指向灌流（GDP）と酸素供給量（DO₂）</a></li>
+      <li class="toc-l3"><a href="#4-3-拍動流-vs-非拍動流">4-3. 拍動流 vs 非拍動流</a></li>
+      <li class="toc-l2"><a href="#5-温度管理">5. 温度管理</a></li>
+      <li class="toc-l3"><a href="#5-1-温度モニタリング部位">5-1. 温度モニタリング部位</a></li>
+      <li class="toc-l3"><a href="#5-2-高体温の回避と温度勾配">5-2. 高体温の回避と温度勾配</a></li>
+      <li class="toc-l2"><a href="#6-血液希釈ヘマトクリット輸血トリガー">6. 血液希釈・ヘマトクリット・輸血トリガー</a></li>
+      <li class="toc-l3"><a href="#6-1-cpb中のprbc輸血トリガーeacts-2024">6-1. CPB中のPRBC輸血トリガー（EACTS 2024）</a></li>
+      <li class="toc-l3"><a href="#6-2-アンチトロンビンat-ffp">6-2. アンチトロンビン（AT）/ FFP</a></li>
+      <li class="toc-l3"><a href="#6-3-血液保存灌流関連-sts-sabm-2021-pbm-の灌流項目">6-3. 血液保存（灌流関連）― STS-SABM 2021 PBM の灌流項目</a></li>
+      <li class="toc-l2"><a href="#7-臓器保護心筋脳腎肺">7. 臓器保護（心筋・脳・腎・肺）</a></li>
+      <li class="toc-l3"><a href="#7-1-心筋保護cardioplegia">7-1. 心筋保護（cardioplegia）</a></li>
+      <li class="toc-l3"><a href="#7-2-脳保護">7-2. 脳保護</a></li>
+      <li class="toc-l3"><a href="#7-3-腎保護">7-3. 腎保護</a></li>
+      <li class="toc-l3"><a href="#7-4-肺保護">7-4. 肺保護</a></li>
+      <li class="toc-l3"><a href="#7-5-一般的臓器保護薬理">7-5. 一般的臓器保護（薬理）</a></li>
+      <li class="toc-l2"><a href="#8-モニタリング">8. モニタリング</a></li>
+      <li class="toc-l2"><a href="#9-回路プライミング安全装置">9. 回路・プライミング・安全装置</a></li>
+      <li class="toc-l3"><a href="#9-1-回路最適化mieccとプライミング">9-1. 回路最適化（MiECC）とプライミング</a></li>
+      <li class="toc-l3"><a href="#9-2-静脈ドレナージ補助vavdkavd">9-2. 静脈ドレナージ補助（VAVD/KAVD）</a></li>
+      <li class="toc-l3"><a href="#9-3-安全装置--jp-jasect人工心肺における安全装置設置基準第6版">9-3. 安全装置 ― 🇯🇵 JaSECT「人工心肺における安全装置設置基準（第6版）」</a></li>
+      <li class="toc-l2"><a href="#10-cpbからの離脱ウィーニング">10. CPBからの離脱（ウィーニング）</a></li>
+      <li class="toc-l2"><a href="#11-特殊状況弓部手術dhca感染性心内膜炎緊急再cpb">11. 特殊状況（弓部手術・DHCA・感染性心内膜炎・緊急再CPB）</a></li>
+      <li class="toc-l3"><a href="#11-1-弓部手術の灌流戦略eacts-2024-101102">11-1. 弓部手術の灌流戦略（EACTS 2024 §10.1/§10.2）</a></li>
+      <li class="toc-l3"><a href="#11-2-dhca時の薬理学的脳保護104">11-2. DHCA時の薬理学的脳保護（§10.4）</a></li>
+      <li class="toc-l3"><a href="#11-3-酸塩基管理電解質103">11-3. 酸塩基管理・電解質（§10.3）</a></li>
+      <li class="toc-l3"><a href="#11-4-感染性心内膜炎血液浄化910">11-4. 感染性心内膜炎・血液浄化（§9.10）</a></li>
+      <li class="toc-l3"><a href="#11-5-緊急再cpb有害事象91312">11-5. 緊急（再）CPB・有害事象（§9.13/§12）</a></li>
+      <li class="toc-l2"><a href="#12-各地域比較サマリー表">12. 各地域比較サマリー表</a></li>
+      <li class="toc-l3"><a href="#12-1-主要パラメータの地域比較">12-1. 主要パラメータの地域比較</a></li>
+      <li class="toc-l3"><a href="#12-2-強い否定class-iii推奨--やってはいけないことeacts-2024">12-2. 「強い否定（Class III）」推奨 ― やってはいけないこと（EACTS 2024）</a></li>
+      <li class="toc-l2"><a href="#13-まとめ総括">13. まとめ・総括</a></li>
+      <li class="toc-l3"><a href="#全地域で共通する原則">全地域で共通する原則</a></li>
+      <li class="toc-l3"><a href="#主要な相違点">主要な相違点</a></li>
+      <li class="toc-l3"><a href="#臨床的含意">臨床的含意</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
+<h1 id="体外循環cpb管理各地域ガイドライン比較">体外循環（CPB）管理：各地域ガイドライン比較</h1>
+<p><strong>作成日：</strong> 2026年5月20日</p>
+<p><strong>対象ガイドライン：</strong></p>
+<ul>
+<li>🇪🇺 <strong>EACTS/EACTAIC/EBCP 2024</strong>：Guidelines on Cardiopulmonary Bypass in Adult Cardiac Surgery（欧州心臓胸部外科学会 / 欧州心臓胸部麻酔集中治療学会 / 欧州体外循環委員会）― <em>Eur J Cardiothorac Surg 2025;67(2):ezae354</em></li>
+<li>🇺🇸 <strong>STS/SCA/AmSECT 2018</strong>：Clinical Practice Guidelines — Anticoagulation during Cardiopulmonary Bypass（米国胸部外科学会 / 心臓血管麻酔学会 / 米国体外循環技術学会）― <em>J Extra Corpor Technol 2018;50:5–18</em></li>
+<li>🇺🇸 <strong>STS/SCA/AmSECT 2015</strong>：Clinical Practice Guidelines for CPB — Temperature Management during Cardiopulmonary Bypass ― <em>Ann Thorac Surg 2015;100:748–57</em></li>
+<li>🇺🇸 <strong>STS/SCA/AmSECT/SABM 2021</strong>：Update to the Clinical Practice Guidelines on Patient Blood Management ― <em>Ann Thorac Surg 2021;112:981–1004</em></li>
+<li>🇯🇵 <strong>JaSECT 2018/2020</strong>：人工心肺における安全装置設置基準（第6版）（日本体外循環技術医学会）</li>
+<li>🇯🇵 <strong>JaSECT 2016</strong>：補助循環の安全管理基準 ／ <strong>JaSECT 2022</strong>：人工心肺安全ハンドブック（改訂2版）</li>
+</ul>
+<p><strong>関連ドキュメント：</strong> 周術期抗凝固管理比較 · CABG/冠動脈血行再建比較 · CVCU緊急対応プロトコル</p>
+<hr />
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">本ドキュメントの読み方 ― 3地域でガイドラインの「体系」が根本的に異なる</div>
+<p>CPB管理は地域によりガイドラインの作られ方が大きく異なる。比較表を読む前にこの前提を理解されたい。</p>
+<ul>
+<li>🇪🇺 <strong>欧州（EACTS 2024）</strong> ＝ CPB管理<strong>全領域</strong>を class/level 付きで網羅した、事実上唯一の包括的ガイドライン（85頁・推奨表57枚）。本比較の <strong>backbone</strong>。</li>
+<li>🇺🇸 <strong>米国</strong> ＝ 包括的GLは無く、<strong>テーマ別</strong>の個別CPG（抗凝固 2018／温度 2015／血液管理 2021）。それぞれ ACC/AHA 方式の class/level を採用。</li>
+<li>🇯🇵 <strong>日本（JaSECT）</strong> ＝ 臨床推奨ではなく<strong>安全管理基準</strong>が中心。「<strong>必須／強く推奨／推奨</strong>」という独自分類で、回路・安全装置・トラブル対応に特化。</li>
+</ul>
+</div>
+>
+> したがって本比較は **「欧州 vs 米国」の臨床推奨比較を主軸に、日本の安全管理視点を添える**構成となる。臨床閾値（MAP・流量・温度・心筋保護など）の多くで日本には対応する class/level 推奨が存在しないため、その箇所は「**包括的推奨なし（JaSECT安全管理基準に準拠）**」と明記する。
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">推奨分類体系の違い（混同しないこと）</div>
+<table>
+<thead>
+<tr>
+<th>地域</th>
+<th>クラス体系</th>
+<th>エビデンスレベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🇪🇺 EACTS</td>
+<td>Class I / IIa / IIb / III</td>
+<td>Level A / B / C</td>
+</tr>
+<tr>
+<td>🇺🇸 STS系（ACC/AHA方式）</td>
+<td>Class I / IIa / IIb / III</td>
+<td>Level A / B / C（2021 PBMは B-R, B-NR, C-LD 等に細分）</td>
+</tr>
+<tr>
+<td>🇯🇵 JaSECT</td>
+<td><strong>必須 / 強く推奨 / 推奨</strong></td>
+<td>（エビデンスレベル表記なし）</td>
+</tr>
+</tbody>
+</table>
+</div>
+>
+> JaSECTの「必須／強く推奨／推奨」は class/level とは**別体系**であり、Class I/IIa 等に機械的に対応づけない。
+
+<hr />
+<h2 id="目次">目次</h2>
+<ol type="1">
+<li><a href="#1-臨床的背景と各地域ガイドライン体系">臨床的背景と各地域ガイドライン体系</a></li>
+<li><a href="#2-抗凝固管理">抗凝固管理</a></li>
+<li><a href="#3-全身灌流圧map管理">全身灌流圧（MAP）管理</a></li>
+<li><a href="#4-ポンプ流量拍動流目標指向灌流gdpdo">ポンプ流量・拍動流・目標指向灌流（GDP/DO₂）</a></li>
+<li><a href="#5-温度管理">温度管理</a></li>
+<li><a href="#6-血液希釈ヘマトクリット輸血トリガー">血液希釈・ヘマトクリット・輸血トリガー</a></li>
+<li><a href="#7-臓器保護心筋脳腎肺">臓器保護（心筋・脳・腎・肺）</a></li>
+<li><a href="#8-モニタリング">モニタリング</a></li>
+<li><a href="#9-回路プライミング安全装置">回路・プライミング・安全装置</a></li>
+<li><a href="#10-cpbからの離脱ウィーニング">CPBからの離脱（ウィーニング）</a></li>
+<li><a href="#11-特殊状況弓部手術dhca感染性心内膜炎緊急再cpb">特殊状況（弓部手術・DHCA・感染性心内膜炎・緊急再CPB）</a></li>
+<li><a href="#12-各地域比較サマリー表">各地域比較サマリー表</a></li>
+<li><a href="#13-まとめ総括">まとめ・総括</a></li>
+</ol>
+<hr />
+<h2 id="1-臨床的背景と各地域ガイドライン体系">1. 臨床的背景と各地域ガイドライン体系</h2>
+<p>体外循環（CPB）は60年以上の歴史をもつ確立した技術だが、その管理（抗凝固・流量・血圧・温度・臓器保護・離脱）の多くは高いエビデンスレベルのRCTが乏しく、施設間のばらつきが大きい領域である。</p>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">EACTS 2024 は 2019年版の改訂</div>
+<p>本比較の中核となる🇪🇺 EACTS/EACTAIC/EBCP 2024 CPBガイドラインは、2019年版（<em>2019 EACTS/EACTA/EBCP guidelines on CPB</em>）を全面改訂したものである。心臓外科医・心臓麻酔科医・臨床体外循環技士（perfusionist）の<strong>多職種協働</strong>を中心概念に据えている。</p>
+</div>
+
+<h3 id="1-1-各地域の立ち位置">1-1. 各地域の立ち位置</h3>
+<table>
+<thead>
+<tr>
+<th>観点</th>
+<th>🇪🇺 欧州（EACTS 2024）</th>
+<th>🇺🇸 米国（STS系）</th>
+<th>🇯🇵 日本（JaSECT）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>文書の性格</strong></td>
+<td>包括的臨床ガイドライン</td>
+<td>テーマ別の個別CPG（抗凝固/温度/血液管理）</td>
+<td>安全管理基準・トラブル対応集</td>
+</tr>
+<tr>
+<td><strong>網羅範囲</strong></td>
+<td>CPB管理全領域</td>
+<td>各テーマに限定</td>
+<td>回路・安全装置・運用</td>
+</tr>
+<tr>
+<td><strong>推奨の主眼</strong></td>
+<td>臨床判断（何をどう設定するか）</td>
+<td>各テーマの臨床判断</td>
+<td>装置の安全確保（事故防止）</td>
+</tr>
+<tr>
+<td><strong>分類体系</strong></td>
+<td>Class I–III / Level A–C</td>
+<td>Class I–III / Level A–C</td>
+<td>必須／強く推奨／推奨</td>
+</tr>
+<tr>
+<td><strong>作成主体</strong></td>
+<td>外科医＋麻酔科医＋perfusionist</td>
+<td>外科医＋麻酔科医＋perfusionist(＋SABM)</td>
+<td>体外循環技士（CE/perfusionist）中心</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">なぜ日本に包括的CPB臨床ガイドラインが無いのか</div>
+<p>日本では体外循環の臨床管理（流量・温度・心筋保護など）は施設・術者の裁量と教科書的標準に委ねられ、学会としては<strong>安全装置・運用の標準化</strong>（JaSECT）に注力してきた経緯がある。したがって本比較で日本列が実質を持つのは主に**セクション9（回路・安全装置）**と各セクションの安全管理的側面である。</p>
+</div>
+
+<hr />
+<h2 id="2-抗凝固管理">2. 抗凝固管理</h2>
+<p>CPB中の抗凝固は、欧州（EACTS 2024 §9.3）と米国（STS/SCA/AmSECT 2018：抗凝固に特化した唯一の包括的CPG）の双方が詳述する、最も比較しやすい領域である。</p>
+<h3 id="2-1-ヘパリン投与とactモニタリング">2-1. ヘパリン投与とACTモニタリング</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024</th>
+<th>🇺🇸 STS/SCA/AmSECT 2018</th>
+<th>🇯🇵 JaSECT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>抗凝固モニタリングの原則</strong></td>
+<td>ACTを施設プロトコルに基づき定期的にチェックし投与（<mark>I, C</mark>）</td>
+<td>機能的全血凝固検査（clotting time）でCPB開始前・施行中に十分な抗凝固を確認（<mark>Class I, Level C</mark>）</td>
+<td>（臨床推奨なし：SvO₂常時モニター等の装置基準のみ）</td>
+</tr>
+<tr>
+<td><strong>ACT目標値</strong></td>
+<td>CPB中 <mark>ACT &gt;480秒</mark> を適切な閾値とする（コーティングなし回路・カルジオトミー吸引使用時）。開始前目標 480秒（範囲400–500秒）</td>
+<td><mark>ACT &gt;480秒</mark> の維持が妥当。ただし機器バイアスで変動。最大活性化法では &gt;400秒で治療域とされることが多い（<mark>Class IIa, Level C</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>ヘパリン個別化投与</strong></td>
+<td>個別化ヘパリン・プロタミン管理を考慮（凝固異常・出血合併症の低減）（<mark>IIa, B</mark>）</td>
+<td>体重ベースのボーラスは妥当だが反応は不均一。投与量に依らずCPB開始前に機能的検査を要する（<mark>Class IIa, Level C</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>ACT測定法</strong></td>
+<td>―</td>
+<td>「最大活性化（maximally activated）」ACTが妥当（低体温の影響を受けにくく抗FXaと相関）（<mark>Class IIa, Level B</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>ヘパリン用量反応式</strong></td>
+<td>―</td>
+<td>ヘパリン感受性低下の同定に役立つが、体重ベースより有用とは示されていない（<mark>Class IIb, Level B</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>ヘパリン濃度モニタリング</strong></td>
+<td>―</td>
+<td>ACTに加えての使用を考慮可（トロンビン生成・線溶・好中球活性化を抑制。出血・輸血への効果は一定せず）（<mark>Class IIb, Level B</mark>）</td>
+<td>―</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ヘパリンの薬理（共通理解）</div>
+<p>未分画ヘパリン（UFH）はアンチトロンビン（AT）を介してトロンビン・第Xa因子を最大1000倍に阻害する。ATが不足すると十分なACTが得られない（ヘパリン抵抗性）。</p>
+</div>
+
+<h3 id="2-2-プロタミンによる中和">2-2. プロタミンによる中和</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024</th>
+<th>🇺🇸 STS/SCA/AmSECT 2018</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>プロタミン/ヘパリン比</strong></td>
+<td><mark>プロタミン/ヘパリン比 &lt; 1.0</mark> を推奨（プロタミン過量投与の回避）（<mark>I, B</mark>）</td>
+<td><mark>プロタミン/ヘパリン比 &lt; 2.6 mg/100単位</mark> に制限するのが妥当（過量は血小板機能阻害・ACT延長・出血増）（<mark>Class IIa, Level C</mark>）</td>
+</tr>
+<tr>
+<td><strong>個別化中和</strong></td>
+<td>個別化ヘパリン・プロタミン管理を考慮（<mark>IIa, B</mark>）</td>
+<td>既存ヘパリンへの滴定でプロタミン中和量を算出すると有益（出血・輸血減）（<mark>Class IIa, Level B</mark>）</td>
+</tr>
+<tr>
+<td><strong>カルジオトミー吸引</strong></td>
+<td>プロタミン投与開始とともにカルジオトミー吸引を中止すべき（<mark>IIa, C</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>ヘパリンリバウンド</strong></td>
+<td>―</td>
+<td>高用量ヘパリン・長時間CPB例で、低用量プロタミン持続（<mark>25 mg/h、最大6時間</mark>）を多角的血液保存の一環として考慮可（<mark>Class IIb, Level C</mark>）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">プロタミン・アナフィラキシーへの対応（米国 Class I）</div>
+<p>🇺🇸 STS 2018：プロタミン投与直後に肺高血圧・循環虚脱をきたした高リスク例では、<strong>プロタミン中止＋十分な抗凝固下でのCPB再開</strong>を含む蘇生処置が救命的となりうる（<mark>Class I, Level C</mark>）。 🇪🇺 EACTS 2024 も同様に、CPB離脱後の緊急再導入に備え回路を機能維持するよう推奨（§11／§9.13）。</p>
+</div>
+
+<h3 id="2-3-ヘパリン代替薬hit等">2-3. ヘパリン代替薬（HIT等）</h3>
+<table>
+<thead>
+<tr>
+<th>状況</th>
+<th>🇪🇺 EACTS 2024</th>
+<th>🇺🇸 STS/SCA/AmSECT 2018</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>急性HIT type 2 で心臓手術が必要</strong></td>
+<td><mark>ビバリルジン</mark>を第一選択として考慮（<mark>IIa, B</mark>）</td>
+<td>HIT診断例で緊急手術が必要なら<mark>ビバリルジン</mark>が妥当な選択肢（<mark>Class IIa, Level B</mark>）</td>
+</tr>
+<tr>
+<td><strong>HIT＋腎機能障害</strong></td>
+<td><mark>アルガトロバン</mark>を考慮可（<mark>IIb, C</mark>）</td>
+<td>腎機能障害でHIT血清陽性・緊急手術なら、血漿交換・アルガトロバン・ヘパリン＋抗血小板薬（チロフィバン等）を考慮可（<mark>Class IIb, Level C</mark>）</td>
+</tr>
+<tr>
+<td><strong>HIT診断（待機例）</strong></td>
+<td>―</td>
+<td>血小板&gt;50%減少 and/or ヘパリン曝露後5–14日の血栓イベントで抗体検査を考慮（<mark>Class IIa, Level B</mark>）。血清陽性/HIT既往では機能的・抗原検査が陰性化するまで待機的手術を延期（<mark>Class IIa, Level C</mark>）</td>
+</tr>
+<tr>
+<td><strong>ビバリルジン投与法</strong></td>
+<td>ボーラス 1 mg/kg＋持続 2.5 mg/kg/h、回路プライムに50 mg、ACT 2.5×基準値で管理</td>
+<td>同様（CHOOSE-ON/EVOLUTION-ON プロトコル：負荷1.0 mg/kg、持続2.5 mg/kg/h、プライム50 mg、ACT 2.5×基準値）</td>
+</tr>
+<tr>
+<td><strong>重大出血時</strong></td>
+<td>―</td>
+<td>ビバリルジン抗凝固後の過大出血では、修正限外濾過＋血液透析＋遺伝子組換え第VIIa因子＋血液製剤の併用を考慮可（<mark>Class IIb, Level C</mark>）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ビバリルジンには中和薬が無い</div>
+<p>直接トロンビン阻害薬（DTI）の最大の難点は<strong>確実な中和薬が存在しない</strong>こと（半減期約25分、腎排泄に依存）。CPB回路内の停滞血で血栓化しうるため、停滞血の再循環（15–20分毎）やプロタミン投与前の遊離が課題となる。</p>
+</div>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">アンデキサネット アルファとCPBの併用注意（抗凝固薬中和の項・関連）</div>
+<p>🇪🇺 EACTS 2024（周術期/抗凝固中和の文脈）：CPB使用の緊急心臓手術で、CPB離脱前のアンデキサネット アルファ投与は一過性ヘパリン抵抗性のリスクから推奨されない。詳細は 周術期抗凝固管理比較 を参照。</p>
+</div>
+
+<hr />
+<h2 id="3-全身灌流圧map管理">3. 全身灌流圧（MAP）管理</h2>
+<p>CPB中の目標MAPは、欧州が明確な数値範囲と class/level を提示する一方、米国・日本には対応する包括的推奨が無い。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024（§9.4）</th>
+<th>🇺🇸 米国</th>
+<th>🇯🇵 日本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>目標MAP</strong></td>
+<td><mark>MAP 50–80 mmHg</mark> を血管作動薬で維持（麻酔深度・ポンプ流量が十分であることを確認の上）（<mark>I, A</mark>）</td>
+<td>包括的推奨なし</td>
+<td>包括的推奨なし</td>
+</tr>
+<tr>
+<td><strong>高MAP（&gt;80）への昇圧</strong></td>
+<td>血管収縮薬でMAPを<mark>80 mmHg超に上げることは推奨しない</mark>（<mark>III, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>個別化（脳自動調節）</strong></td>
+<td>CPB前に正常炭酸ガス下で測定した<strong>個別の脳血流自動調節域</strong>にMAPを合わせることを、技術・人員が利用可能なら考慮（<mark>IIa, A</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>血管麻痺症候群（vasoplegia）</strong></td>
+<td>α1作動薬 and/or バソプレシンで治療（<mark>I, C</mark>）。難治例ではメチレンブルー／テルリプレシンを考慮（<mark>IIa, B</mark>）。ヒドロキソコバラミン／アンジオテンシンIIを考慮可（<mark>IIb, C</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">「高い灌流圧」より「酸素供給（DO₂）」を重視</div>
+<p>🇪🇺 EACTS 2024 は、腎保護を目的に血管収縮薬で高MAPを目指すことを <strong>III, A で明確に否定</strong>（腎保護効果なし＋脳卒中傾向）。MAPの絶対値より DO₂・組織灌流マーカー（NIRS, SvO₂）の最適化を優先すべきとする（§7.7・§9.7参照）。</p>
+</div>
+
+<hr />
+<h2 id="4-ポンプ流量拍動流目標指向灌流gdpdo₂">4. ポンプ流量・拍動流・目標指向灌流（GDP/DO₂）</h2>
+<h3 id="4-1-ポンプ流量">4-1. ポンプ流量</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024（§9.5）</th>
+<th>🇺🇸 米国</th>
+<th>🇯🇵 日本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>流量設定の基本</strong></td>
+<td>開始前にBSAと予定低体温度から推定流量を決定（<mark>I, C</mark>）。中等度低体温〜常温で通常 <mark>2.2–2.8 L/min/m²</mark></td>
+<td>包括的推奨なし</td>
+<td>包括的推奨なし（遠心ポンプでは流量計設置が<strong>必須</strong>、低流量アラーム<strong>推奨</strong>）</td>
+</tr>
+<tr>
+<td><strong>流量の妥当性評価</strong></td>
+<td>SvO₂・O₂ER・rSO₂・VCO₂・乳酸等の酸素化/代謝指標で評価することを考慮（<mark>IIa, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>肥満患者</strong></td>
+<td>除脂肪体重ベースの流量を下限の目安として考慮可（<mark>IIb, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-2-目標指向灌流gdpと酸素供給量do₂">4-2. 目標指向灌流（GDP）と酸素供給量（DO₂）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024（§9.5/§9.7）</th>
+<th>🇺🇸 米国</th>
+<th>🇯🇵 日本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>最低DO₂</strong></td>
+<td><mark>DO₂ 最低 280 mL/min/m²</mark> を用いてAKIステージ1リスクを低減（<mark>I, A</mark>）</td>
+<td>包括的推奨なし</td>
+<td>包括的推奨なし</td>
+</tr>
+<tr>
+<td><strong>GDPの実施</strong></td>
+<td>GDPは術後早期AKIの低減のため推奨（<mark>I, A</mark>）。DO₂のnadirと低DO₂時間を制限（<mark>I, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>常温CPBのDO₂下限</strong></td>
+<td>常温CPBでは <mark>DO₂ 280–300 mL/min/m²</mark> を下限に維持することを考慮（<mark>IIa, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>個別化DO₂</strong></td>
+<td>術前リスク・末梢酸素化・脈圧から個別DO₂を設定し維持することを考慮可（<mark>IIb, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">DO₂とPRBC輸血トリガーの関係</div>
+<p>DO₂ = ポンプ流量 × 動脈血酸素含量。低Hb時でも<strong>流量を上げればDO₂は維持できる</strong>ため、CPB中の輸血は絶対Hb値でなく DO₂・酸素摂取率で判断する（→ セクション6）。</p>
+</div>
+
+<h3 id="4-3-拍動流-vs-非拍動流">4-3. 拍動流 vs 非拍動流</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024（§9.6）</th>
+<th>🇺🇸 米国</th>
+<th>🇯🇵 日本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>拍動流の適応</strong></td>
+<td>腎灌流改善・術後腎障害低減のため、特に高リスク例で拍動流を考慮（<mark>IIa, B</mark>）</td>
+<td>包括的推奨なし</td>
+<td>包括的推奨なし</td>
+</tr>
+<tr>
+<td><strong>IABP併用例</strong></td>
+<td>術前にIABPを使用している例では、IABP以下のMAPが測定できることを条件に術中の拍動維持を考慮（<mark>IIa, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-温度管理">5. 温度管理</h2>
+<p>温度管理は <strong>欧州（EACTS 2024）と米国（STS/SCA/AmSECT 2015：温度管理に特化したCPG）の双方が詳述</strong>する、比較価値の高い領域。両者の推奨は高い整合性を示す。</p>
+<h3 id="5-1-温度モニタリング部位">5-1. 温度モニタリング部位</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024</th>
+<th>🇺🇸 STS/SCA/AmSECT 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>動脈アウトレット温の常時モニタリング</strong></td>
+<td>人工肺の動脈側アウトレット血温の常時モニタリングを推奨（<mark>I, C</mark>）</td>
+<td>動脈アウトレット血温を<strong>脳温の代用</strong>として用いることを推奨（<mark>Class I, Level C</mark>）</td>
+</tr>
+<tr>
+<td><strong>復温時の補正</strong></td>
+<td>―</td>
+<td>復温時、動脈アウトレット血温は脳灌流温を<strong>過小評価</strong>すると仮定すべき（<mark>Class I, Level C</mark>）</td>
+</tr>
+<tr>
+<td><strong>核心温の測定</strong></td>
+<td>複数部位で患者血液・組織温を同時測定し（局所）高体温を回避（<mark>I, C</mark>）</td>
+<td>肺動脈温または鼻咽頭温（NP）が核心温測定に妥当（<mark>Class IIa, Level C</mark>）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-2-高体温の回避と温度勾配">5-2. 高体温の回避と温度勾配</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024</th>
+<th>🇺🇸 STS/SCA/AmSECT 2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>高体温回避</strong></td>
+<td>動脈アウトレット温を <mark>最大37℃</mark> に制限し、CPB中の全身高体温を回避することを推奨（<mark>I, A</mark>）</td>
+<td>脳の高体温回避のため動脈アウトレット血温を <mark>37℃未満</mark> に制限すべき（<mark>Class I, Level C</mark>）</td>
+</tr>
+<tr>
+<td><strong>常温 vs 低体温</strong></td>
+<td>適切なDO₂が維持できる状況では、術後神経認知機能障害低減のため常温CPBを考慮（<mark>IIa, B</mark>）</td>
+<td>（温度の最適値については推奨なし＝エビデンス不十分）</td>
+</tr>
+<tr>
+<td><strong>冷却時の温度勾配</strong></td>
+<td>（§10.2：熱交換器と動脈流入の温度勾配は<mark>10℃を超えない</mark>）</td>
+<td>冷却時、人工肺の動脈アウトレットと静脈インフローの温度勾配は <mark>10℃を超えない</mark>（気泡発生回避）（<mark>Class I, Level C</mark>）</td>
+</tr>
+<tr>
+<td><strong>復温時の温度勾配</strong></td>
+<td>―</td>
+<td>復温時も動脈アウトレットと静脈インフローの勾配は <mark>10℃を超えない</mark>（脱ガス回避）（<mark>Class I, Level C</mark>）</td>
+</tr>
+<tr>
+<td><strong>復温時の細則（≥30℃）</strong></td>
+<td>―</td>
+<td>動脈アウトレット温 ≥30℃ では、離脱目標温到達のため勾配 <mark>≤4℃</mark>（<mark>Class IIa, Level B</mark>）かつ復温速度 <mark>≤0.5℃/min</mark>（<mark>Class IIa, Level B</mark>）</td>
+</tr>
+<tr>
+<td><strong>復温時の細則（&lt;30℃）</strong></td>
+<td>―</td>
+<td>動脈アウトレット温 &lt;30℃ では、最大勾配 <mark>10℃</mark>（<mark>Class IIa, Level C</mark>）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">温度管理は欧米でほぼ一致</div>
+<p>「動脈アウトレット温を脳温の代用とする」「37℃を超えない」「温度勾配10℃以内」は欧米共通。STS 2015 はさらに**復温速度 ≤0.5℃/min・勾配 ≤4℃（≥30℃時）**という具体的数値を提示しており、緩徐な復温（rapid rewarming による神経障害・脱ガス回避）を重視している。</p>
+</div>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">日本（JaSECT）の温度管理</div>
+<p>JaSECTは温度管理の臨床閾値を定めないが、<strong>人工心肺安全ハンドブック</strong>で「冷却できない／冷却が遅い／復温できない／復温が遅い」を温度異常トラブル（M章）として原因・対処を整理している（安全管理の観点）。</p>
+</div>
+
+<hr />
+<h2 id="6-血液希釈ヘマトクリット輸血トリガー">6. 血液希釈・ヘマトクリット・輸血トリガー</h2>
+<p>CPB中の輸血トリガーは EACTS 2024（§9.9）が CPB特異的な閾値を提示し、米国は PBM ガイドライン（STS/SCA/AmSECT/SABM 2021）が灌流関連の血液保存策を class/level 付きで示す。</p>
+<h3 id="6-1-cpb中のprbc輸血トリガーeacts-2024">6-1. CPB中のPRBC輸血トリガー（EACTS 2024）</h3>
+<table>
+<thead>
+<tr>
+<th>HCT / Hb</th>
+<th>🇪🇺 EACTS 2024 推奨</th>
+<th>クラス</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HCT &lt;18%（Hb 6.0 g/dL）</strong></td>
+<td>PRBC輸血を推奨</td>
+<td><mark>I, C</mark></td>
+</tr>
+<tr>
+<td><strong>HCT 18–24%</strong></td>
+<td>組織酸素化（DO₂ &gt;273 mL/min/m²・脳オキシメトリ良好）の評価に基づき輸血を考慮可</td>
+<td><mark>IIb, B</mark></td>
+</tr>
+<tr>
+<td><strong>HCT &gt;24%</strong></td>
+<td>DO₂と酸素摂取が許容範囲なら輸血は推奨しない</td>
+<td><mark>III, C</mark></td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-2-アンチトロンビンat-ffp">6-2. アンチトロンビン（AT）/ FFP</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024</th>
+<th>🇺🇸 STS-SABM 2021</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AT欠乏の治療</strong></td>
+<td>AT濃縮製剤を第一選択とし、ヘパリン感受性を改善（<mark>I, B</mark>）</td>
+<td>AT濃縮製剤はAT介在性ヘパリン抵抗性で血漿輸血を減らすため適応（<mark>Class I, Level A</mark>）</td>
+</tr>
+<tr>
+<td><strong>AT製剤が無い場合</strong></td>
+<td>FFPでAT欠乏を治療することを考慮（<mark>IIa, C</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>予防的FFP</strong></td>
+<td>出血低減目的の予防的FFPは推奨しない（<mark>III, B</mark>）</td>
+<td>凝固異常の無い予防的血漿投与は適応なし・有害（<mark>Class III: Harm, Level A</mark>）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-3-血液保存灌流関連-sts-sabm-2021-pbm-の灌流項目">6-3. 血液保存（灌流関連）― STS-SABM 2021 PBM の灌流項目</h3>
+<table>
+<thead>
+<tr>
+<th>介入</th>
+<th>🇺🇸 STS-SABM 2021</th>
+<th>🇪🇺 EACTS 2024 対応</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>逆行性自己充填（RAP）</strong></td>
+<td>可能な限り使用すべき（<mark>Class I, Level B-R</mark>）</td>
+<td>自己プライミング（順行/逆行）を血液保存策として推奨（<mark>I, A</mark>）</td>
+</tr>
+<tr>
+<td><strong>プライミング量の削減</strong></td>
+<td>血液希釈を減らすため適応（<mark>Class I, Level B-NR</mark>）</td>
+<td>プライミング量最小化を推奨（<mark>I, A</mark>）</td>
+</tr>
+<tr>
+<td><strong>急性等容性血液希釈（ANH）</strong></td>
+<td>輸血低減に妥当（<mark>Class IIa, Level A</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>MiECC（低侵襲体外循環）</strong></td>
+<td>血液保存策の一環として血液損失・赤血球輸血を減らすのに妥当（<mark>Class IIa, Level B-R</mark>）</td>
+<td>MiECC型アプローチでの回路最適化を推奨（<mark>I, B</mark>）（→ セクション9）</td>
+</tr>
+<tr>
+<td><strong>修正限外濾過（MUF）</strong></td>
+<td>血液保存・術後出血低減に妥当（<mark>Class IIb, Level B-R</mark>）</td>
+<td>高リスク/貧血例でMUFまたはCUF併用を推奨（<mark>I, A</mark>）</td>
+</tr>
+<tr>
+<td><strong>抗線溶薬（TXA/EACA）</strong></td>
+<td>出血・輸血を減らし血液保存に適応（<mark>Class I, Level A</mark>）</td>
+<td>（PBMガイドラインで詳述）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">PBM全般は専用ガイドラインへ</div>
+<p>血液管理の全体像（術前貧血治療・抗血小板薬休薬・止血剤など）は専用GL（🇪🇺 EACTS/EACTAIC 2024 PBM、🇺🇸 STS/SCA/AmSECT/SABM 2021 PBM）に委ねられている。本表はCPB（灌流）に直接関わる項目に限定。</p>
+</div>
+
+<hr />
+<h2 id="7-臓器保護心筋脳腎肺">7. 臓器保護（心筋・脳・腎・肺）</h2>
+<p>臓器保護は EACTS 2024（§7）が最も体系的。米国・日本に対応する包括的 class/level 推奨は乏しい。</p>
+<h3 id="7-1-心筋保護cardioplegia">7-1. 心筋保護（cardioplegia）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024（§7.5）</th>
+<th>🇺🇸 米国</th>
+<th>🇯🇵 日本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>保護戦略の個別化</strong></td>
+<td>固定的な施設標準液に依存せず、臨床・病態・術式の複雑さに応じて<strong>患者中心</strong>に心筋保護戦略を立てることを推奨（<mark>I, C</mark>）</td>
+<td>包括的推奨なし</td>
+<td>包括的推奨なし（心筋保護回路の<strong>注入圧力計（アラーム付）・気泡検出器は必須</strong>＝JaSECT）</td>
+</tr>
+<tr>
+<td><strong>血液心筋保護液</strong></td>
+<td>貧血・低BSA・CKD・複雑手術の選択例で、血液希釈・出血・輸血低減のため血液心筋保護を考慮（<mark>IIa, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>術中の機能評価</strong></td>
+<td>全例でTOEによる術前後のLV/RV機能評価（心筋保護の品質管理）を推奨（<mark>I, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>術後の品質評価</strong></td>
+<td>術後24時間以内にRV/LV機能（特に中隔運動）と心筋逸脱酵素を定期的に評価することを推奨（<mark>I, C</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">心筋保護の数値（EACTS 2024 本文）</div>
+<ul>
+<li>順行性注入圧：大動脈基部 <mark>60–100 mmHg</mark>／逆行性：冠静脈洞圧 <mark>30–50 mmHg</mark>（&gt;50は冠静脈系損傷回避のため避ける）、流量 200–400 mL/min</li>
+<li>del Nido液：単回投与で最大 <mark>90分</mark>の心停止に使用可（血液:晶質 = 1:4）</li>
+<li>HTK（Bretschneider/Custodiol）液：低Na性で低Na血症を生じやすい（補正しない）</li>
+</ul>
+</div>
+
+<h3 id="7-2-脳保護">7-2. 脳保護</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024（§7.6/§6.2）</th>
+<th>米国/日本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>高体温回避</strong></td>
+<td>動脈アウトレット温 <mark>最大37℃</mark> で全身高体温を回避（<mark>I, A</mark>）（→ セクション5）</td>
+<td>（米国 STS 2015 と一致）</td>
+</tr>
+<tr>
+<td><strong>常温CPB</strong></td>
+<td>DO₂維持可能な状況で術後神経認知障害低減のため考慮（<mark>IIa, B</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>NIRS（脳局所酸素飽和度）</strong></td>
+<td>NIRSガイドのアルゴリズムを脳低灌流検出のため考慮（<mark>IIa, B</mark>）</td>
+<td>包括的推奨なし</td>
+</tr>
+<tr>
+<td><strong>DHCA時の脳保護</strong></td>
+<td>（→ セクション11：弓部手術/DHCA）</td>
+<td>―</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-3-腎保護">7-3. 腎保護</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024（§7.7）</th>
+<th>米国/日本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>高MAPによる腎保護</strong></td>
+<td>血管収縮薬でAKI低減目的に高MAPを目指すことは<strong>推奨しない</strong>（<mark>III, A</mark>）</td>
+<td>包括的推奨なし</td>
+</tr>
+<tr>
+<td><strong>静注アミノ酸</strong></td>
+<td>バランスアミノ酸の周術期（CPB中含む）投与をAKI低減のため考慮（<mark>IIa, B</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>N-アセチルシステイン（NAC）</strong></td>
+<td>CKD患者で術後AKI低減のため静注NACを考慮可（<mark>IIb, B</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>GDP・DO₂≥280</strong></td>
+<td>（→ セクション4：GDPがAKI低減の中核）（<mark>I, A</mark>）</td>
+<td>―</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-4-肺保護">7-4. 肺保護</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024（§7.8）</th>
+<th>米国/日本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>選択的肺動脈灌流</strong></td>
+<td>呼吸機能改善のため、特に肺合併症高リスク例で考慮可（<mark>IIb, B</mark>）</td>
+<td>包括的推奨なし</td>
+</tr>
+<tr>
+<td><strong>大動脈遮断中の換気/CPAP</strong></td>
+<td>大動脈遮断中の換気・CPAP継続は<strong>推奨しない</strong>（<mark>III, A</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>ステロイド（肺保護）</strong></td>
+<td>CPBでの肺保護目的のステロイドルーチン使用は<strong>推奨しない</strong>（<mark>III, A</mark>）</td>
+<td>―</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-5-一般的臓器保護薬理">7-5. 一般的臓器保護（薬理）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024（§7.1–7.4）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>遠隔虚血プレコンディショニング（RIPC）</strong></td>
+<td>揮発性麻酔薬下の患者で心筋・腎障害低減のため考慮（<mark>IIa, A</mark>）</td>
+</tr>
+<tr>
+<td><strong>スタチン</strong></td>
+<td>待機的CPB手術直前のスタチン<strong>開始</strong>はAKIリスクから推奨しない（<mark>III, A</mark>）。現用量の継続は考慮（<mark>IIa, B</mark>）</td>
+</tr>
+<tr>
+<td><strong>β遮断薬</strong></td>
+<td>慢性服用者は術後不整脈予防のため継続を推奨（<mark>I, A</mark>）。naïve例への短期低用量経口β遮断は考慮可（<mark>IIb, B</mark>）</td>
+</tr>
+<tr>
+<td><strong>限外濾過（UF）</strong></td>
+<td>高リスク/貧血例でMUFまたはCUF併用MUFを推奨（胸腔ドレーン出血・輸血低減）（<mark>I, A</mark>）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-モニタリング">8. モニタリング</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024（§6）</th>
+<th>🇺🇸 米国</th>
+<th>🇯🇵 JaSECT（安全装置設置基準・第6版）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>動脈ライン血流モニタリング</strong></td>
+<td>超音波法で動脈ラインの患者送血流量をモニタリング（<mark>I, C</mark>）</td>
+<td>―</td>
+<td>遠心ポンプ送血では<strong>流量計の取付＝必須</strong></td>
+</tr>
+<tr>
+<td><strong>圧モニタリング</strong></td>
+<td>動脈ライン（人工肺前後）・心筋保護回路に圧モニタリング機器（<mark>I, C</mark>）</td>
+<td>―</td>
+<td>送血圧力計は送血ポンプと人工肺の間に設置・常時モニター＝<strong>必須</strong>、高圧アラーム＝<strong>必須</strong></td>
+</tr>
+<tr>
+<td><strong>SvO₂・HCT</strong></td>
+<td>SvO₂とHCTを持続モニタリング（<mark>I, B</mark>）</td>
+<td>―</td>
+<td>SvO₂常時モニター＝<strong>必須</strong>、動脈血ガス常時モニター＝<strong>推奨</strong></td>
+</tr>
+<tr>
+<td><strong>血液ガス</strong></td>
+<td>定期的または持続的血液ガス測定（<mark>I, C</mark>）</td>
+<td>―</td>
+<td>（同上）</td>
+</tr>
+<tr>
+<td><strong>温度（多部位）</strong></td>
+<td>複数部位で患者血液・組織温を同時測定し局所高体温を回避（<mark>I, C</mark>）</td>
+<td>NP/PA温が核心温に妥当（2015：<mark>IIa, C</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>脳NIRS（rSO₂）</strong></td>
+<td>脳低灌流検出のためNIRSガイド・アルゴリズムを考慮（<mark>IIa, B</mark>）</td>
+<td>―</td>
+<td>rSO₂装置の故障をハンドブックで扱う</td>
+</tr>
+<tr>
+<td><strong>処理脳波（EEG）</strong></td>
+<td>術中覚醒・過鎮静低減のため処理脳波モニタリングを考慮（<mark>IIa, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>経食道心エコー（TOE）</strong></td>
+<td>絶対禁忌がない限り心臓手術で推奨（<mark>I, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>肺動脈カテーテル（PAC）</strong></td>
+<td>選択例で入院期間短縮のため考慮（<mark>IIa, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>拍出量（パルス輪郭解析）</strong></td>
+<td>選択例で考慮可（<mark>IIb, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>経頭蓋ドプラ（TCD）</strong></td>
+<td>選択的脳灌流例で脳血流評価に考慮可（<mark>IIb, C</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">モニタリングは「臨床推奨（欧）」と「装置必須（日）」が補完関係</div>
+<p>🇪🇺 EACTS は<strong>何を測るべきか</strong>を class/level で示し、🇯🇵 JaSECT は<strong>どの安全装置を設置すべきか</strong>を必須/推奨で定める。例：SvO₂は EACTS で「I, B」、JaSECT で「常時モニター必須」と、両者が同じ方向を異なる体系で支持している。</p>
+</div>
+
+<hr />
+<h2 id="9-回路プライミング安全装置">9. 回路・プライミング・安全装置</h2>
+<p><strong>本セクションは日本（JaSECT）が最も実質を持つ領域。</strong> 欧州は回路最適化（MiECC）・プライミングを class/level で、日本は安全装置を必須/推奨で規定する。</p>
+<h3 id="9-1-回路最適化mieccとプライミング">9-1. 回路最適化（MiECC）とプライミング</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024（§9.1/§9.2）</th>
+<th>🇺🇸 STS-SABM 2021</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>回路最適化</strong></td>
+<td>MiECC型アプローチで回路を最適化し、血液損失・希釈を減らし生体適合性を高めることを推奨（<mark>I, B</mark>）</td>
+<td>MiECCは血液保存策として妥当（<mark>IIa, B-R</mark>）</td>
+</tr>
+<tr>
+<td><strong>MiECC vs 従来CPB</strong></td>
+<td>CABG後の新規AF低減のため、従来CPBよりMiECCを考慮（<mark>IIa, B</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>自己充填（RAP/順行）</strong></td>
+<td>プライミング量最小化と自己充填を血液保存策として推奨（<mark>I, A</mark>）</td>
+<td>RAPは可能な限り使用（<mark>I, B-R</mark>）、プライミング量削減（<mark>I, B-NR</mark>）</td>
+</tr>
+<tr>
+<td><strong>低分子デンプン</strong></td>
+<td>プライミング液への低分子デンプン使用は推奨しない（<mark>III, C</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>マンニトール</strong></td>
+<td>プライミング液へのマンニトールのルーチン使用は推奨しない（<mark>III, B</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>pH管理</strong></td>
+<td>正常pH（7.35–7.45）維持・高Cl性アシドーシス回避を考慮（<mark>IIa, B</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>プライミング薬剤</strong></td>
+<td>プライミングへの薬剤添加は個別化し多職種で議論することを推奨（<mark>I, C</mark>）</td>
+<td>―</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-2-静脈ドレナージ補助vavdkavd">9-2. 静脈ドレナージ補助（VAVD/KAVD）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024（§9.8）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>承認貯血槽の使用</strong></td>
+<td>補助静脈ドレナージには承認された貯血槽を使用（<mark>I, C</mark>）</td>
+</tr>
+<tr>
+<td><strong>陰圧モニタリング</strong></td>
+<td>静脈ラインの陰圧をモニタリング（<mark>I, C</mark>）</td>
+</tr>
+<tr>
+<td><strong>過度の陰圧</strong></td>
+<td>溶血の害から過度の陰圧は推奨しない（<mark>III, B</mark>）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-3-安全装置--jp-jasect人工心肺における安全装置設置基準第6版">9-3. 安全装置 ― 🇯🇵 JaSECT「人工心肺における安全装置設置基準（第6版）」</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JaSECT 分類：必須／強く推奨／推奨</div>
+<ul>
+<li><strong>必須</strong>：安全を確保する上で遵守しなければならない</li>
+<li><strong>強く推奨</strong>：安全上、可能な限り遵守すべきである</li>
+<li><strong>推奨</strong>：理想的には遵守したほうが良い</li>
+</ul>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>安全装置・項目</th>
+<th>JaSECT 分類</th>
+<th>関連するEACTS推奨</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>静脈血酸素飽和度（SvO₂）常時モニター</td>
+<td><strong>必須</strong></td>
+<td>SvO₂持続モニタリング（I, B）</td>
+</tr>
+<tr>
+<td>動脈血ガス分析の常時モニター</td>
+<td><strong>推奨</strong></td>
+<td>定期/持続血液ガス（I, C）</td>
+</tr>
+<tr>
+<td>貯血槽へのレベルセンサー設置</td>
+<td><strong>必須</strong></td>
+<td>（承認貯血槽の使用 I, C）</td>
+</tr>
+<tr>
+<td>レベルセンサーによる送血ポンプ制御</td>
+<td><strong>強く推奨</strong></td>
+<td>―</td>
+</tr>
+<tr>
+<td>送血回路への気泡検出器設置</td>
+<td><strong>必須</strong></td>
+<td>（安全装置全般）</td>
+</tr>
+<tr>
+<td>気泡検出による送血ポンプ制御</td>
+<td><strong>強く推奨</strong></td>
+<td>―</td>
+</tr>
+<tr>
+<td>送血圧力計（送血ポンプ–人工肺間）の常時モニター</td>
+<td><strong>必須</strong></td>
+<td>動脈ライン圧モニタリング（I, C）</td>
+</tr>
+<tr>
+<td>高圧時アラーム機能</td>
+<td><strong>必須</strong></td>
+<td>―</td>
+</tr>
+<tr>
+<td>ローラーポンプ送血の高圧制御</td>
+<td><strong>強く推奨</strong></td>
+<td>―</td>
+</tr>
+<tr>
+<td>遠心ポンプ送血の高圧制御</td>
+<td><strong>推奨</strong></td>
+<td>―</td>
+</tr>
+<tr>
+<td>遠心ポンプ送血の流量計取付</td>
+<td><strong>必須</strong></td>
+<td>超音波流量モニタリング（I, C）</td>
+</tr>
+<tr>
+<td>遠心ポンプの逆流防止策</td>
+<td><strong>強く推奨</strong></td>
+<td>―</td>
+</tr>
+<tr>
+<td>送血フィルターまたはエアトラップの取付</td>
+<td><strong>必須</strong></td>
+<td>―</td>
+</tr>
+<tr>
+<td>心筋保護液回路の注入圧力計（アラーム付）</td>
+<td><strong>必須</strong></td>
+<td>心筋保護回路の圧モニタリング（I, C）</td>
+</tr>
+<tr>
+<td>心筋保護液回路の気泡検出器</td>
+<td><strong>必須</strong></td>
+<td>―</td>
+</tr>
+<tr>
+<td>送血ポンプの手動装置常備／バッテリー内蔵</td>
+<td><strong>必須</strong></td>
+<td>（緊急時：CPB回路の機能維持 I, C）</td>
+</tr>
+<tr>
+<td>ポンプシステム全体のバッテリー／全ポンプ手動操作</td>
+<td><strong>強く推奨</strong></td>
+<td>―</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">日本独自の強み：トラブル対応の体系化</div>
+<p>🇯🇵 JaSECT「人工心肺安全ハンドブック（改訂2版, 2022）」は、CPBトラブルを <strong>A気泡／B停電・装置故障／C回路抜け・破損／D血行動態・圧力異常／E ガス交換／F 装置誤作動／G 吸引・脱血異常／H 凝固・詰まり／I 血液・尿／J 薬・輸血／K 心筋保護／L 製品汚染・破損／M 温度異常／N 血液濃縮回路／O その他</strong> の15カテゴリに分類し、各々を「具体例／結果／原因／予防策／対処」で解説する。欧米GLにはない、現場の安全管理に特化したリスクマネジメント文書である。</p>
+</div>
+
+<hr />
+<h2 id="10-cpbからの離脱ウィーニング">10. CPBからの離脱（ウィーニング）</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024（§11）</th>
+<th>🇺🇸 米国</th>
+<th>🇯🇵 日本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ウィーニングチェックリスト</strong></td>
+<td>CPB離脱前のチェックリスト使用を推奨（チーム連携・安全性向上）（<mark>I, C</mark>）</td>
+<td>包括的推奨なし</td>
+<td>包括的推奨なし（補助循環では離脱時手順をJaSECT基準で規定）</td>
+</tr>
+<tr>
+<td><strong>難離脱の対応</strong></td>
+<td>難離脱では多職種アプローチを推奨（<mark>I, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>高用量薬剤での無理な離脱</strong></td>
+<td>高用量強心薬・血管収縮薬での無理なウィーニングは<strong>推奨しない</strong>（<mark>III, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>短期MCS</strong></td>
+<td>難離脱では短期機械的循環補助（MCS）を考慮（<mark>IIa, B</mark>）</td>
+<td>―</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>残血の再輸血</strong></td>
+<td>CPB回路残血の再輸血を血液管理プログラムの一環として推奨（<mark>I, C</mark>）。処理（cell salvage）後の再輸血を考慮（<mark>IIa, B</mark>）</td>
+<td>RBV処理後の再輸血（→ PBM）</td>
+<td>―</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">EACTS 2024 の難離脱アルゴリズム（Fig 2）</div>
+<p><strong>Step 1</strong>：前負荷・後負荷を最適化しCO/MAPを確保（TOEまたはRV直視）、心拍数・調律を最適化 → <strong>Step 2</strong>：動的・構造的心異常を評価（構造的＝心内シャント・弁逆流・人工弁周囲リーク・グラフト閉塞 → 外科的修正／動的＝LV・RV・拡張障害 → 薬理的対応） → <strong>Step 3</strong>：機械的循環補助（MCS）を考慮。</p>
+</div>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">LCOS（低心拍出量症候群）の薬理対応（§9.11.6）</div>
+<p>🇪🇺 EACTS 2024：LCOS（心係数 &lt;2.4 L/min/m² ＋ 末梢臓器障害）に対し、強心薬 and/or 昇圧薬を第一選択として推奨（<mark>I, A</mark>）。LVEF低下例の単独CABGではレボシメンダンをLCOS低減のため考慮（<mark>IIa, A</mark>）。</p>
+</div>
+
+<hr />
+<h2 id="11-特殊状況弓部手術dhca感染性心内膜炎緊急再cpb">11. 特殊状況（弓部手術・DHCA・感染性心内膜炎・緊急再CPB）</h2>
+<p>弓部大動脈手術と循環停止（DHCA）は EACTS 2024（§10）が詳述。日本では JCS 大動脈瘤・大動脈解離ガイドラインが間接的に脳保護・DHCAに言及する。</p>
+<h3 id="11-1-弓部手術の灌流戦略eacts-2024-101102">11-1. 弓部手術の灌流戦略（EACTS 2024 §10.1/§10.2）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>送血カニュレーション</strong></td>
+<td>弓部関与例では逆行性より<strong>順行性動脈送血</strong>を優先することを考慮（<mark>IIa, B</mark>）</td>
+</tr>
+<tr>
+<td><strong>腋窩動脈送血</strong></td>
+<td>順行性全身灌流に腋窩動脈カニュレーションを考慮（<mark>IIa, B</mark>）</td>
+</tr>
+<tr>
+<td><strong>温度・脳灌流の組合せ</strong></td>
+<td>**中等度低体温（20.1–28℃）＋順行性脳灌流（ACP）**での循環停止を弓部再建で考慮（<mark>IIa, B</mark>）</td>
+</tr>
+<tr>
+<td><strong>順行性脳灌流（ACP）</strong></td>
+<td>複雑弓部手術でACPを考慮（<mark>IIa, B</mark>）</td>
+</tr>
+<tr>
+<td><strong>温度測定</strong></td>
+<td>HCA例では鼻咽頭温＋核心温（直腸/膀胱）測定を推奨（<mark>I, C</mark>）</td>
+</tr>
+<tr>
+<td><strong>神経モニタリング</strong></td>
+<td>弓部手術/DHCAでは両側NIRSでの神経モニタリングを推奨（<mark>I, C</mark>）</td>
+</tr>
+<tr>
+<td><strong>経頭蓋ドプラ（TCD）</strong></td>
+<td>弓部手術/DHCAで脳灌流の個別管理・塞栓検出に考慮可（<mark>IIb, C</mark>）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">EACTS 2024 の低体温分類（Table 3・核心温[直腸/膀胱]）</div>
+<table>
+<thead>
+<tr>
+<th>区分</th>
+<th>温度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>深低体温（Deep）</td>
+<td>14.1–20℃</td>
+</tr>
+<tr>
+<td>低度–中等度（Low-moderate）</td>
+<td>20.1–24℃</td>
+</tr>
+<tr>
+<td>高度–中等度（High-moderate）</td>
+<td>24.1–28℃</td>
+</tr>
+<tr>
+<td>軽度（Mild）</td>
+<td>28.1–34℃</td>
+</tr>
+</tbody>
+</table>
+</div>
+>
+> **DHCAの安全時間**：単独DHCAは 30–40分を超えないことが望ましい。脳代謝率は1℃あたり6–7%低下、25–28℃で脳酸素消費は50–60%減少。
+
+<h3 id="11-2-dhca時の薬理学的脳保護104">11-2. DHCA時の薬理学的脳保護（§10.4）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>チオペンタール</strong></td>
+<td>弓部手術・DHCAで脳保護のため考慮可（<mark>IIb, B</mark>）</td>
+</tr>
+<tr>
+<td><strong>ステロイド</strong></td>
+<td>弓部手術・DHCAで脳保護のため考慮可（<mark>IIb, C</mark>）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="11-3-酸塩基管理電解質103">11-3. 酸塩基管理・電解質（§10.3）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>α-stat管理</strong></td>
+<td>高度–中等度低体温の成人で、神経/神経認知転帰改善のためα-stat酸塩基管理を考慮（<mark>IIa, B</mark>）</td>
+</tr>
+<tr>
+<td><strong>マグネシウム</strong></td>
+<td>術後不整脈予防・心保護/組織酸素化目的に硫酸Mgを考慮可（<mark>IIb, B</mark>）。神経認知障害低減目的でも考慮可（<mark>IIb, B</mark>）</td>
+</tr>
+<tr>
+<td><strong>GIK療法</strong></td>
+<td>LCOS予防のためGIK（グルコース・インスリン・カリウム）療法を考慮可（<mark>IIb, B</mark>）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="11-4-感染性心内膜炎血液浄化910">11-4. 感染性心内膜炎・血液浄化（§9.10）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ヘモアドソープション（HA）のルーチン使用</strong></td>
+<td>CPB中のHAルーチン使用は推奨しない（<mark>III, B</mark>）</td>
+</tr>
+<tr>
+<td><strong>感染性心内膜炎でのHA</strong></td>
+<td>IE患者ではCPB中のHA使用を考慮可（<mark>IIb, B</mark>）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="11-5-緊急再cpb有害事象91312">11-5. 緊急（再）CPB・有害事象（§9.13/§12）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>🇪🇺 EACTS 2024</th>
+<th>🇯🇵 日本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>緊急用CPB回路</strong></td>
+<td>緊急手術に備え組立済みCPB回路を常時利用可能に（<mark>I, C</mark>）</td>
+<td>（JaSECT補助循環基準：緊急対応・離脱後の再循環に備える）</td>
+</tr>
+<tr>
+<td><strong>離脱後の回路維持</strong></td>
+<td>患者の胸郭閉鎖まで回路を機能維持（<mark>I, C</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>ECLS</strong></td>
+<td>ECLSを常時利用可能に（<mark>I, C</mark>）</td>
+<td>―</td>
+</tr>
+<tr>
+<td><strong>有害事象対策</strong></td>
+<td>チェックリスト・標準手順・シミュレーション訓練・多職種評価を推奨（<mark>I, B</mark>）。有害事象報告システムの確立を推奨（<mark>I, C</mark>）</td>
+<td>JaSECT安全ハンドブックがトラブル対応を体系化</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">医原性大動脈解離（iAD）</div>
+<p>🇪🇺 EACTS 2024：iADの発生率は0.06–0.6%（カニュレーション部位による）。早期発見でも死亡率は約30%と推定され、未検出ではさらに高い。TOEが診断に有用。</p>
+</div>
+
+<hr />
+<h2 id="12-各地域比較サマリー表">12. 各地域比較サマリー表</h2>
+<h3 id="12-1-主要パラメータの地域比較">12-1. 主要パラメータの地域比較</h3>
+<table>
+<thead>
+<tr>
+<th>領域</th>
+<th>🇪🇺 欧州（EACTS 2024）</th>
+<th>🇺🇸 米国（STS系）</th>
+<th>🇯🇵 日本（JaSECT）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ACT目標</strong></td>
+<td>&gt;480秒（数値は本文記載／定期ACTチェックが I, C）</td>
+<td>&gt;480秒（&gt;400秒：最大活性化法）（IIa, C）</td>
+<td>規定なし</td>
+</tr>
+<tr>
+<td><strong>プロタミン/ヘパリン比</strong></td>
+<td>&lt;1.0（I, B）</td>
+<td>&lt;2.6 mg/100単位（IIa, C）</td>
+<td>規定なし</td>
+</tr>
+<tr>
+<td><strong>目標MAP</strong></td>
+<td>50–80 mmHg（I, A）</td>
+<td>規定なし</td>
+<td>規定なし</td>
+</tr>
+<tr>
+<td><strong>最低DO₂</strong></td>
+<td>280 mL/min/m²（I, A）</td>
+<td>規定なし</td>
+<td>規定なし</td>
+</tr>
+<tr>
+<td><strong>ポンプ流量</strong></td>
+<td>2.2–2.8 L/min/m²</td>
+<td>規定なし</td>
+<td>流量計＝必須（遠心）</td>
+</tr>
+<tr>
+<td><strong>動脈アウトレット温上限</strong></td>
+<td>37℃（I, A）</td>
+<td>37℃未満（Class I, C）</td>
+<td>規定なし（M章で温度異常対応）</td>
+</tr>
+<tr>
+<td><strong>温度勾配</strong></td>
+<td>10℃以内（§10.2）</td>
+<td>冷却・復温とも10℃以内（I, C）</td>
+<td>規定なし</td>
+</tr>
+<tr>
+<td><strong>復温速度</strong></td>
+<td>常温CPB志向（IIa, B）</td>
+<td>≤0.5℃/min（≥30℃時）（IIa, B）</td>
+<td>規定なし</td>
+</tr>
+<tr>
+<td><strong>PRBC輸血トリガー</strong></td>
+<td>HCT&lt;18%で輸血（I, C）</td>
+<td>PBMで規定</td>
+<td>規定なし</td>
+</tr>
+<tr>
+<td><strong>回路最適化</strong></td>
+<td>MiECC型を推奨（I, B）</td>
+<td>MiECC妥当（IIa, B-R）</td>
+<td>安全装置を必須/推奨で規定</td>
+</tr>
+<tr>
+<td><strong>DHCA脳灌流</strong></td>
+<td>中等度低体温＋ACP（IIa, B）</td>
+<td>規定なし（JCS大動脈GL参照）</td>
+<td>規定なし</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-2-強い否定class-iii推奨--やってはいけないことeacts-2024">12-2. 「強い否定（Class III）」推奨 ― やってはいけないこと（EACTS 2024）</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">EACTS 2024 が Class III（推奨しない）とした項目</div>
+<ul>
+<li>血管収縮薬で MAP を <strong>80 mmHg超</strong>に上げること（III, B）</li>
+<li>血管収縮薬で <strong>高MAPによる腎保護</strong>を狙うこと（III, A）</li>
+<li>大動脈遮断中の <strong>換気・CPAP継続</strong>（III, A）</li>
+<li><strong>肺保護目的のステロイド</strong>ルーチン使用（III, A）</li>
+<li>プライミング液への <strong>低分子デンプン</strong>（III, C）・<strong>マンニトール</strong>ルーチン使用（III, B）</li>
+<li>出血低減目的の <strong>予防的FFP</strong>（III, B）</li>
+<li><strong>過度の陰圧</strong>による静脈ドレナージ（III, B）</li>
+<li>HCT&gt;24%・DO₂良好時の <strong>PRBC輸血</strong>（III, C）</li>
+<li>高用量強心薬・昇圧薬での <strong>無理なウィーニング</strong>（III, B）</li>
+<li>CPB中の <strong>ヘモアドソープション</strong>ルーチン使用（III, B）</li>
+</ul>
+</div>
+
+<hr />
+<h2 id="13-まとめ総括">13. まとめ・総括</h2>
+<h3 id="全地域で共通する原則">全地域で共通する原則</h3>
+<ul>
+<li><strong>動脈アウトレット温 37℃ 未満</strong>・<strong>温度勾配 10℃以内</strong>は欧米で一致（高体温と気泡発生の回避）。</li>
+<li><strong>ACT &gt;480秒</strong>を抗凝固の標準閾値とする点は欧米共通。</li>
+<li><strong>血液保存</strong>（プライミング量最小化・自己充填・MiECC・MUF・残血再輸血）は欧米GLが揃って推奨。</li>
+<li><strong>HIT例ではビバリルジン</strong>が第一選択（欧米一致、いずれも IIa）。</li>
+<li><strong>安全装置</strong>（SvO₂・圧・気泡検出・レベルセンサー）の重要性は、欧州（class/level）・日本（必須/推奨）が異なる体系で同じ方向を支持。</li>
+</ul>
+<h3 id="主要な相違点">主要な相違点</h3>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">1. 包括性の差が最大の相違</div>
+<p>臨床パラメータ（MAP・流量・DO₂・温度勾配・心筋保護など）に <strong>class/level 付きの数値目標</strong>を与えているのは事実上 🇪🇺 EACTS 2024 のみ。米国はテーマ別（抗凝固・温度・血液管理）に限定され、日本は臨床閾値を定めず安全管理に特化する。<strong>「CPB全領域の臨床標準」を一冊で示すのは EACTS 2024 が唯一</strong>である。</p>
+</div>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">2. 「灌流圧」より「酸素供給（DO₂）」へ</div>
+<p>EACTS 2024 は、高MAPによる臓器保護を <strong>III, A で明確に否定</strong>し、**DO₂≥280 mL/min/m²・目標指向灌流（GDP）**を AKI 低減の中核（I, A）に据えた。これは「圧から流量・酸素運搬へ」という現代灌流学のパラダイムシフトを反映する。</p>
+</div>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">3. 日本＝安全管理の体系化に独自の強み</div>
+<p>日本（JaSECT）は臨床推奨こそ持たないが、**安全装置設置基準（必須/強く推奨/推奨）<strong>と</strong>トラブル対応ハンドブック（15カテゴリ）**で、欧米GLが手薄な「<strong>現場のリスクマネジメント・事故防止</strong>」を体系化している。臨床標準は EACTS、安全管理は JaSECT を参照する、という相補的な使い方が実務的。</p>
+</div>
+
+<h3 id="臨床的含意">臨床的含意</h3>
+<ol type="1">
+<li><strong>臨床管理（流量・血圧・温度・抗凝固・臓器保護）の標準化は EACTS 2024 を基軸</strong>に据えるのが合理的。米国の温度（STS 2015）・抗凝固（STS 2018）・血液管理（STS-SABM 2021）は各テーマの裏付けとして併用できる。</li>
+<li>**施設の安全装置・運用基準は JaSECT（安全装置設置基準・安全ハンドブック）**を参照し、必須項目（SvO₂・送血圧・気泡検出・レベルセンサー・心筋保護回路の圧/気泡検出など）の充足を確認する。</li>
+<li>**DO₂ベースの灌流（GDP）**への移行が AKI 低減の鍵。Hb絶対値でなく DO₂・SvO₂・乳酸で輸血・流量を判断する。</li>
+<li><strong>HIT・難離脱・緊急再CPB</strong>など特殊状況の対応は欧米で概ね一致（ビバリルジン／多職種・MCS／回路常時待機）。</li>
+<li>推奨<strong>分類体系の違い</strong>（class/level vs 必須/強く推奨/推奨）に留意し、機械的な等価対応を避ける。</li>
+</ol>
+<hr />
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">出典の正確性について</div>
+<p>本ドキュメントの推奨クラス（I/IIa/IIb/III）・エビデンスレベル（A/B/C、B-R/B-NR/C-LD）・数値（温度℃・流量 L/min/m²・DO₂ mL/min/m²・ACT秒・HCT%・mmHg）は、各原典の表記をそのまま転記している。JaSECTの「必須/強く推奨/推奨」は ACC/AHA・ESC の class/level とは別体系であり、対応づけはしていない。臨床判断にあたっては必ず原典を参照されたい。</p>
+</div>
+
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
+</body>
+</html>
