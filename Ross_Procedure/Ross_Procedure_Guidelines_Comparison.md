@@ -372,3 +372,16 @@ graph TD
 - 2020 ACC/AHA Guideline for the Management of Patients With Valvular Heart Disease（Otto CM, Nishimura RA, Bonow RO, et al. *Circulation* 2021;143:e72–e227 / 自己肺動脈弁の推奨：COR 2b, LOE B-NR）
 - 2025 ESC/EACTS Guidelines for the management of valvular heart disease（Praz F, Borger M, Lanz J, et al.）
 - JCS/JSCS/JATS/JSVS 2020年改訂版 弁膜症治療ガイドライン（成人Ross手術の明示的推奨は確認されず）
+
+
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・数値閾値を、原典（EACTS 2025 Ross 専門コンセンサス／ACC/AHA 2020 VHD／ESC/EACTS 2025 VHD／JCS 2020 VHD）と逐語照合し、**客観的な誤りは認めなかった**。
+>
+> - ACC/AHA 2020 VHD：Ross＝**COR 2b / LOE B-NR**（年齢<50・Comprehensive Valve Center）を確認
+> - EACTS 2025 Ross コンセンサス：年齢<60・余命>15年、annulus ≥27 mm、収縮期血圧 <110–115 mmHg、ibuprofen 5 mg/kg×3、施設要件（OR 4.5/3.8・learning curve ~75例）等を確認
+> - §4-3 合併症リスト（LVEF<30%・固定性肺高血圧・縦隔放射線歴<6ヶ月）は本文に数値記載がないが、**Figure 1（患者選択アルゴリズム）に「Poor non-reversible LVEF (<30%)」「Radiotherapy (current or < 6 months)」と明記**されており正しい
+> - ESC/EACTS 2025 VHD はRossに番号付き推奨なし（本文記載のみ）、JCS 2020 VHD は成人Rossの明示的推奨なし — いずれも本文の記載が正しいことを確認
+>
+> 全ての推奨クラス・レベル・数値閾値が原典と一致。

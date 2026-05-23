@@ -268,7 +268,7 @@ aliases:
 JCS 2018 は数値アルゴリズムを提示していないが、以下の原則を記載：
 - **両心房高度拡大**（病理および心エコー）
 - **特発性 RCM は成人では稀** — 二次性原因の検索が優先
-- **心筋生検**：「原因不明の RCM 様病態を示す心不全」での生検は **Class IIa, LoE C**（表22）
+- **心筋生検**：「原因不明の RCM 様病態を示す心不全」での生検は **Class IIa, LoE C**（表20 クリニカルシナリオによる心筋生検の適応・シナリオ6）
 - 鑑別対象：心アミロイドーシス、心サルコイドーシス、ヘモクロマトーシス、Loeffler 心内膜炎、Fabry 病
 
 ### 5-3. ACC/AHA 2022 — 心アミロイドーシス（RCM 表現型）の独立章
@@ -553,7 +553,7 @@ Therapy：HFrEF treatment for HFrEF。**競技スポーツ回避**、leisure-tim
 | 非虚血性 CM＋NSVT（NYHA II+、LVEF ≤35%、GDMT ≥3ヵ月） | **I, A** | **IIa, A** | **1, A** |
 | 非虚血性 CM（NSVT なし、NYHA II+、LVEF ≤35%、GDMT ≥3ヵ月） | **IIa, A** | **IIa, A** | **1, A** |
 | LVEF ≤30%＋NYHA I＋MI 40 日後 | — | — | **1, B-R** |
-| ICD 適応＋余命 <1 年 | **III No Benefit** | **III, C** | **III** |
+| ICD 適応＋余命 <1 年 | **III No Benefit** | **III, C**（ESC の III, C は NYHA IV 難治例への推奨。>1年生存は Class I 推奨の前提条件） | **3: No Benefit, C-LD** |
 | Genetic AC＋LVEF ≤45%＋high-risk feature | — | — | **2a, B-NR** |
 
 > [!info] JCS 2025 の特徴的改訂（2018 不整脈 GL からのアップデート）
@@ -730,3 +730,16 @@ Therapy：HFrEF treatment for HFrEF。**競技スポーツ回避**、leisure-tim
 
 > [!note] 本文書の制限
 > 本リポジトリには HCM 単独専門ガイドライン（2020 AHA/ACC HCM GL、2023 ESC Cardiomyopathies GL）の PDF が含まれていない。HCM 詳細管理（SCD risk-stratification、家族スクリーニングの最新アルゴリズムなど）は本文書では JCS 2018／2025 を基準として記述しているため、欧米最新版との細部比較が必要な場合は原典 GL を参照のこと。
+
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・数値閾値を、リポジトリ内の原典ガイドラインPDF（JCS 2018 心筋症、JCS 2025 心不全〔HCM 項〕、ESC 2021 HF〔§14.2 心筋症〕、ACC/AHA/HFSA 2022 HF）と逐語照合し、以下を修正のうえ確認済み。
+>
+> - **JCS 2018：原因不明 RCM 様病態の心筋生検の出典表番号**：表22 → **表20（クリニカルシナリオによる心筋生検の適応・シナリオ6）**（Class IIa, LoE C の値自体は正しい。表22 は「心筋生検所見チェックリスト」で推奨クラスを持たない）
+> - **ESC 2021：ICD「余命<1年」行の III, C**：ESC の III, C は **NYHA IV 難治例**（CRT/VAD/移植の候補でない場合）に対する推奨である旨を明記（>1年生存は Class I 推奨の前提条件で、生命予後そのものを対象とした III 推奨は ESC には存在しない）
+> - **ACC/AHA 2022：ICD「余命<1年」**：III → **3: No Benefit, C-LD**（推奨#16「併存症・フレイルにより良好な機能予後での生存が <1年に制限される患者では ICD/CRT-D は適応外」）
+>
+> **検証で誤りでないと確認した点**：ARVC の心筋生検適応「Class IIb, LoE C」は JCS 2018 表20 シナリオ12（ARVC/D が疑われるもの）と一致し**正しい**（捏造ではない）。
+>
+> **検証範囲の制限**：HCM 単独専門 GL（ACC/AHA 2024 HCM、ESC 2023 Cardiomyopathies）の PDF はリポジトリに無く、当該由来の記載は検証不能のため値を改変していない（上記「本文書の制限」参照）。上記以外の推奨クラス・レベル・閾値（HCM 定義・壁厚カットオフ、SRT 表32、SCD/ICD 表29-30、mavacamten 表56、HF 分類等）は原典と一致を確認。

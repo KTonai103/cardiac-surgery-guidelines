@@ -1399,9 +1399,9 @@ mark {
 <td><strong>A</strong></td>
 </tr>
 <tr>
-<td>Aspirin 術後早期再開（可能なら 24 時間以内）</td>
-<td>I</td>
-<td>B</td>
+<td>Aspirin 術後早期再開（可能なら 24 時間以内）※本文記載のみ・推奨クラス付与なし</td>
+<td>—</td>
+<td>—</td>
 </tr>
 <tr>
 <td>グラフト閉塞高リスク・出血低リスクの選択患者で <strong>CABG 後 DAPT</strong></td>
@@ -1434,7 +1434,7 @@ mark {
 <tr>
 <td>ネイティブ血管への PCI（バイパスグラフトへの PCI より）</td>
 <td>IIa</td>
-<td>C</td>
+<td>B</td>
 </tr>
 </tbody>
 </table>
@@ -2790,7 +2790,7 @@ mark {
 <tr>
 <td><strong>IABP（機械的合併症 CS）</strong></td>
 <td><strong>I, C</strong></td>
-<td><strong>I, C</strong></td>
+<td><strong>IIa, C</strong></td>
 <td>（機械的合併症の短期 MCS として <strong>2a, B-NR</strong>）</td>
 </tr>
 <tr>
@@ -3000,7 +3000,7 @@ mark {
 <tr>
 <td><strong>チカグレロル</strong></td>
 <td><strong>中止後 3 日以上</strong></td>
-<td><strong>3–5 日</strong></td>
+<td><strong>3 日以上</strong>（ESC 2024 CCS）</td>
 <td><strong>3–5 日（elective）</strong>／24h 中断（urgent）</td>
 </tr>
 </tbody>
@@ -3028,7 +3028,7 @@ mark {
 <tr>
 <td>Aspirin 術後早期再開（24h 以内）</td>
 <td>推奨</td>
-<td><strong>I, B</strong>（CCS 2024）</td>
+<td>本文記載のみ（CCS 2024、推奨クラス付与なし）</td>
 <td>1 相当</td>
 </tr>
 <tr>
@@ -3267,6 +3267,18 @@ mark {
 <p>本文書は 7 つの主要ガイドライン（JCS 2018 ACS／JCS 2022 安定 CAD／ESC 2023 ACS／ESC 2024 CCS／ACC/AHA 2021 冠動脈血行再建／ACC/AHA 2025 ACS／STS 2016 動脈グラフト）を横断比較したものである。JCS 2018 改訂版「安定冠動脈疾患の血行再建ガイドライン」は本リポジトリ未収載のため、CABG vs PCI モード選択・SYNTAX 閾値・グラフト選択の詳細推奨を要する場合は別途参照を必要とする。各推奨クラス・LoE は原典の表記に忠実に従っており、地域間で表記法（ローマ数字 vs アラビア数字、LoE の細分化）が異なる点に注意。</p>
 </div>
 
+<hr />
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:24px 0 20px;border-radius:4px;font-size:0.9rem;line-height:1.7;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.95rem;">✅ Fact check完了（2026年5月23日）</div>
+<p>本文書の推奨クラス・エビデンスレベル・数値を、原典PDF（JCS 2018 ACS／JCS 2020 抗血栓療法／JCS 2022 安定冠動脈疾患／ESC 2023 ACS／ESC 2024 CCS／ACC・AHA・SCAI 2021 冠動脈血行再建／ACC・AHA・SCAI 2025 ACS／STS 2016 動脈グラフト）と逐語照合し、以下を修正のうえ確認した。</p>
+<ul>
+<li><strong>ESC 2023：機械的合併症に伴うCSへのIABP</strong>：I, C → <strong>IIa, C</strong>（原典「IABP should be considered…IIa C」。ESC 2023 に Class I の IABP 推奨は無く、機械的合併症なしのルーチンIABPは III, B）。§20-2 は既に「許容的、IIa」と正しく、§19-1 のみ不整合だった。</li>
+<li><strong>ESC 2024 CCS：ネイティブ血管へのPCI（バイパスグラフトへのPCIより）</strong>：IIa, C → <strong>IIa, B</strong>（Recommendation Table 30）。</li>
+<li><strong>ESC 2024 CCS：CABG後アスピリン早期再開（24h以内）</strong>：「I, B」→ <strong>本文記載のみ・推奨クラス付与なし</strong>（graded 推奨はアスピリン生涯 I, A／CABG後DAPT IIb, B のみ）。§6-8／§21-2 を修正。</li>
+<li><strong>ESC チカグレロル術前休薬</strong>：「3–5 日」→ <strong>3 日以上</strong>（in-repo の ESC 2024 CCS が「ticagrelor ≥3 days」と明記）。</li>
+</ul>
+<p>§21（CABG周術期抗血小板＝JCS 2020 表23）は commit fb23290 で修正済みであり、表23（IIa/B、休薬日数、術後再開、グラフト開存目的の抗凝固 III/A 等）と完全一致を再確認。ACC/AHA 2021 の生存改善目的CABGの格下げ・左主幹部・糖尿病+多枝LIMA-LAD 1/A、STS 2016 のグラフト各推奨も原典と一致。</p>
+<p><strong>検証範囲の制限</strong>：JCS 2018「安定冠動脈疾患の血行再建ガイドライン」（CABG vs PCI モード選択GL）は本リポジトリ未収載のため検証不能であり、本文書はその旨を明記しモード選択の JCS クラスを捏造していない。ESC 2018 心筋血行再建GLも未収載だが、休薬日数は in-repo の ESC 2024 CCS で裏付けた。</p>
+</div>
 </main>
 </div>
 <script>

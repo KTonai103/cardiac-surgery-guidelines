@@ -122,7 +122,7 @@ aliases:
 
 > [!note] ワルファリン目標INR（JCS 2021本文より）
 > - **術後急性期（〜3ヵ月）**：PT-INR **2.5〜3.0**
-> - **慢性期（3ヵ月以降）**：PT-INR **2.0〜2.5**
+> - **慢性期（3ヵ月以降）**：PT-INR **2.0〜3.0**（JCS 2021本文。EVAHEART 等一部機種では 2.0〜2.5）
 > - **HeartMate 3**：PT-INR **2.0〜3.0**
 > - アスピリン：**100〜300 mg/日** 併用（禁忌がない限り）
 > - ヘパリンは術後ドレーン排液減少後に少量から開始し漸増、経口摂取開始後にワルファリン開始
@@ -159,9 +159,9 @@ EACTS 2019 は欧州の long-term MCS（LT-MCS）に対する初めての包括�
 
 ### 3-3. 抗凝固管理（要旨）
 
-- ワルファリン INR 2.0〜3.0 が標準
-- HeartMate 3 では INR 2.0〜2.5 への低下も提案（MOMENTUM 3 試験以降の傾向）
-- アスピリン 75〜100 mg/日 併用が一般的
+- ワルファリン INR 2.0〜3.0 が標準（"The INR target is between 2.0 and 3.0"、Class I, C）
+- 抗凝固は device specifications に準拠（EACTS 2019 本文に HM3 固有の INR 2.0〜2.5 目標の提案はなし）
+- アスピリンは device 仕様に準じて投与（具体的 mg は明記なし）
 
 ---
 
@@ -186,9 +186,9 @@ EACTS 2019 は欧州の long-term MCS（LT-MCS）に対する初めての包括�
 
 ### 4-3. 抗凝固管理（要旨）
 
-- HeartMate 3：**INR 2.0〜2.5**（低めの目標へシフト、MOMENTUM 3 long-term）
+- HeartMate 3：**INR 2.0〜3.0**（本文記載は "INR between 2 and 3"。正式推奨は device-specific IFU 準拠）
 - HeartMate II 等の旧世代軸流ポンプ：INR 2.0〜3.0
-- アスピリン 81〜100 mg/日 併用が一般的（HeartMate 3 では aspirin-free 戦略の検討も進行中）
+- アスピリン **81〜325 mg/日** 併用が一般的（HeartMate 3 では aspirin-free 戦略の検討も進行中）
 
 ---
 
@@ -229,7 +229,7 @@ EACTS 2019 は欧州の long-term MCS（LT-MCS）に対する初めての包括�
 | **不可逆的肝硬変** | 絶対禁忌 | 絶対禁忌 | 絶対禁忌 |
 | **eGFR ≤30** | 絶対禁忌（不可逆的） | 高リスクとして強調 | 高リスク（透析依存は相対禁忌） |
 | **肺血管抵抗** | ==≥6 Wood単位で除外==（不可逆例） | 高度PHは要慎重評価 | 個別評価（リバースvasoreactivityで除外緩和） |
-| **悪性腫瘍** | 余命5年未満で禁忌 | 余命2年未満で禁忌 | 余命2年未満で禁忌 |
+| **悪性腫瘍** | 余命5年未満で禁忌 | 余命1年未満で禁忌（III, C／>1年は IIb, C） | 余命2年未満で禁忌 |
 | **重度精神疾患・薬物依存** | 禁忌 | 禁忌 | 禁忌 |
 | **ケアギバー不在** | 禁忌 | 禁忌 | 強い相対禁忌 |
 | **==中等度以上のAR==** | ==従来除外基準（見直し中）== | ==Class III LoE C（治療なしのLT-MCS禁忌）== | 同時手術で対応（除外せず） |
@@ -357,7 +357,7 @@ EACTS 2019 は欧州の long-term MCS（LT-MCS）に対する初めての包括�
 | 弁種 | 🇯🇵 JCS 2021 | 🇪🇺 EACTS 2019 | 🇺🇸 ISHLT 2023 | コメント |
 |---|---|---|---|---|
 | **大動脈弁位 機械弁** | ==**通常除外基準**== / 生体弁化必須 | ==**Class I, LoE C**==（生体弁置換推奨） | ==**Class I, LoE B**==（生体弁置換推奨）／パッチ閉鎖は代替 | JCS 最厳格、ISHLT 高エビデンス |
-| **大動脈弁位 機械弁の閉鎖（残置）** | パッチ閉鎖の記載あり | ==**Class III, LoE C**==（機械弁閉鎖は推奨せず） | 代替として言及（IIa） | 学派により異なる |
+| **大動脈弁位 機械弁の閉鎖（残置）** | パッチ閉鎖の記載あり | ==**Class III, LoE C**==（機械弁閉鎖は推奨せず） | 代替として言及（**Class IIb, LoE C**） | 学派により異なる |
 | **僧帽弁位 機械弁** | ==禁忌とはしない==が厳重抗凝固を要する | **Class III, LoE C**（機能的弁の交換は推奨せず） | 機能的弁は留置可 | JCS は許容、欧米は交換せず留置 |
 | **僧帽弁位 生体弁** | 禁忌とせず | **Class I, LoE C**（functional prosthesis 留置） | 留置可 | 一致 |
 | **大動脈弁位 生体弁** | 禁忌とせず | **Class I, LoE C** | 留置可 | 一致 |
@@ -386,14 +386,14 @@ JCS 2021 では独立した推奨記載なし。胸部大動脈瘤は通常リ�
 
 | デバイス | 🇯🇵 JCS 2021 | 🇪🇺 EACTS 2019 | 🇺🇸 ISHLT 2023 | コメント |
 |---|---|---|---|---|
-| **HeartMate 3** | **PT-INR 2.0〜3.0** | INR 2.0〜2.5（傾向） | ==**INR 2.0〜2.5**==（MOMENTUM 3 long-term反映） | ISHLT が最も低めに収斂 |
+| **HeartMate 3** | **PT-INR 2.0〜3.0** | INR 2.0〜3.0 | **INR 2.0〜3.0**（本文記載は "INR between 2 and 3"） | 3 ガイドラインとも本文は 2.0〜3.0／device-specific IFU |
 | **HeartMate II（軸流）** | **急性期 PT-INR 2.5〜3.0 / 慢性期 2.0〜2.5** | INR 2.0〜3.0 | INR 2.0〜3.0 | 概ね一致 |
 | **EVAHEART**（日本独自） | PT-INR 2.0〜3.0 程度 | — | — | 日本デバイス |
-| **アスピリン併用** | 100〜300 mg/日 | 75〜100 mg/日 | 81〜100 mg/日 | 概ね一致、HM3でaspirin-free検討中 |
+| **アスピリン併用** | 100〜300 mg/日 | device 仕様に準拠 | 81〜325 mg/日 | HM3でaspirin-free検討中 |
 | **ヘパリンブリッジ（術後）** | ドレーン排液減少後に開始 | 同様 | 同様 | 早期出血リスクとのバランス |
 
 > [!note] HeartMate 3 における INR 目標の低下傾向
-> MOMENTUM 3 試験以降、HeartMate 3 では脳卒中・血栓性合併症発生率が著明に低下したことから、**INR 目標を 2.0〜2.5 に下げる方向**で各ガイドラインが収斂しつつある。さらに ISHLT 2023 以降、aspirin 併用の必要性自体を再評価する報告（ARIES-HM3 試験等）も登場。
+> MOMENTUM 3 試験以降、HeartMate 3 では脳卒中・血栓性合併症発生率が著明に低下したことから、**実臨床では INR 目標を 2.0〜2.5 に下げる報告**が増えている。ただし ISHLT 2023・EACTS 2019 の本文記載は **INR 2.0〜3.0**（device-specific IFU 準拠）であり、ガイドライン推奨そのものが 2.0〜2.5 に変更されたわけではない。さらに aspirin 併用の必要性自体を再評価する報告（ARIES-HM3 試験等）も登場。
 
 > [!warning] 関連ドキュメント参照
 > - 一般弁膜症術後の INR 管理：[[Mechanical_Valve_Anticoagulation_INR_Targets|機械弁術後INR目標値]]
@@ -462,14 +462,14 @@ JCS 2021 では独立した推奨記載なし。胸部大動脈瘤は通常リ�
 
 | 推奨 | Class | LoE |
 |---|---|---|
-| 強心薬依存例の **durable MCS** | **Class IIa** | **B-R**（randomized） |
-| 最大限の薬物療法・temporary MCS 抵抗性の NYHA IV における durable LVAD | **Class IIa** | **B-R** |
+| 強心薬・temporary MCS 依存例の **durable LVAD** | **Class I** | **A** |
+| 最大限の GDMT 下でも NYHA IV が持続する durable MCS | **Class IIa** | **B-R** |
 | LVAD 適応決定における **多職種チーム評価** | Class I | C |
 
 #### 🇪🇺 ESC 2021 Heart Failure Guidelines + ESC 2023 Focused Update
 
-- ESC 2021：Stage D 心不全の治療選択肢として LVAD（BTT, BTC, DT）を Class IIa, LoE B で推奨
-- ESC 2023 Focused Update：HF with reduced EF の最終治療として MCS / 心移植の言及あり
+- ESC 2021：Stage D 心不全への LVAD は、**DT（移植非適応例）は Class IIa, LoE A**／**BTT は Class IIa, LoE B** で推奨（ESC は両者を区別）
+- ESC 2023 Focused Update：主に SGLT2i 等の薬物治療の更新が中心で、MCS／心移植の推奨改訂は含まない
 - **==ESC 心不全ガイドラインは弁同時手術の詳細推奨を含まず、技術的事項は EACTS LT-MCS Consensus へ参照==**
 
 > [!abstract] HF ガイドラインと MCS 専門ガイドラインの役割分担
@@ -548,3 +548,19 @@ JCS 2021 では独立した推奨記載なし。胸部大動脈瘤は通常リ�
 - Heidenreich PA, et al. 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure. Circulation 2022.
 - McDonagh TA, et al. 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure. Eur Heart J 2021 + 2023 Focused Update.
 - 日本循環器学会 ほか. 2025年改訂版 心不全診療ガイドライン. 2025（DT適応の更新参照）.
+
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・数値閾値を、原典ガイドラインPDF（JCS 2021 植込型VAD、EACTS 2019 Long-Term MCS Consensus、ISHLT 2023 MCS Guidelines、補助的に ACC/AHA 2022 HF §8.4・ESC 2021 HF）と逐語照合し、以下を修正のうえ確認済み。
+>
+> - **ACC/AHA 2022：強心薬・temporary MCS 依存例の durable LVAD**：IIa, B-R → **Class I, A**（§8.4 推奨#1。IIa/B-R は「GDMT 下でも NYHA IV 持続」の別推奨#2）
+> - **EACTS 2019：悪性腫瘍での LT-MCS 禁忌の余命閾値**：余命 <2年 → **余命 <1年（III, C／>1年は IIb, C）**
+> - **ISHLT 2023：大動脈弁位機械弁のパッチ閉鎖**：IIa → **Class IIb, LoE C**
+> - **ISHLT 2023／EACTS 2019：HeartMate 3 の INR 目標**：2.0〜2.5 → **2.0〜3.0**（ISHLT 本文 "INR between 2 and 3"、EACTS "INR target 2.0–3.0"。正式推奨は device-specific IFU 準拠。2.0〜2.5 はガイドライン本文ではなく実臨床/試験の傾向）
+> - **JCS 2021：慢性期 INR**：一律 2.0〜2.5 → **2.0〜3.0**（本文。一部機種で 2.0〜2.5）
+> - **ISHLT 2023：アスピリン用量**：81〜100 → **81〜325 mg/日**
+> - **ESC 2021：長期 MCS の推奨クラス**：一律 IIa, B → **DT（移植非適応例）IIa, A／BTT IIa, B**（ESC は両者を区別）
+> - **ESC 2023 Focused Update**：「MCS/移植を最終治療として言及」→ **薬物治療（SGLT2i 等）が中心で MCS/移植の推奨改訂は含まない**
+>
+> **検証範囲の制限**：MOMENTUM 3 試験原著はリポジトリに無く、「2年生存率 ~83%、脳卒中 ~10%、ポンプ血栓 ~1%」等の試験固有数値は検証不能のため改変していない（参考：ISHLT 本文の 83% は1年生存率）。上記以外（INTERMACS profile 1-3 = I/A・profile 4 = IIb/B、RV 不全予測指標 RVSWI/PAPi、各弁同時手術の推奨、JCS PVR ≥6 WU・悪性腫瘍 <5年、HVAD 販売中止）は原典と一致を確認。

@@ -222,6 +222,30 @@
       border-radius: 999px;
     }
 
+    /* Active filter chip */
+    .chip.is-active {
+      background-color: var(--header-bg);
+      color: #ffffff;
+      border-color: var(--header-bg);
+    }
+
+    .chip.is-active .chip-count {
+      background-color: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+    }
+
+    /* Fact-check filter chip */
+    .chip-fc {
+      color: #1e8449;
+      border-color: rgba(30, 132, 73, 0.5);
+    }
+
+    .chip-fc.is-active {
+      background-color: #1e8449;
+      border-color: #1e8449;
+      color: #ffffff;
+    }
+
     /* ── Main ── */
     main {
       flex: 1;
@@ -374,6 +398,14 @@
       border: 1px solid rgba(39, 174, 96, 0.25);
     }
 
+    /* Fact-check verified badge — deeper green than EU, with a fill on hover-row */
+    .badge-fc {
+      background-color: rgba(30, 132, 73, 0.12);
+      color: #1e8449;
+      border: 1px solid rgba(30, 132, 73, 0.42);
+      font-weight: 600;
+    }
+
     /* ── Open link ── */
     .card-action {
       display: inline-flex;
@@ -512,6 +544,7 @@
             <span class="badge badge-jp">🇯🇵 JCS</span>
             <span class="badge badge-us">🇺🇸 ACC·AHA·STS</span>
             <span class="badge badge-eu">🇪🇺 ESC·EACTS</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -523,6 +556,7 @@
             <span class="badge badge-jp">🇯🇵 JCS 2020</span>
             <span class="badge badge-us">🇺🇸 ACC·AHA 2020</span>
             <span class="badge badge-eu">🇪🇺 ESC·EACTS 2025</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -535,6 +569,7 @@
             <span class="badge badge-us">🇺🇸 ACC·AHA 2020</span>
             <span class="badge badge-eu">🇪🇺 ESC·EACTS 2025</span>
             <span class="badge badge-eu">🇪🇺 EACTS Ross 2025</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -557,6 +592,7 @@
             <span class="badge badge-jp">🇯🇵 JCS</span>
             <span class="badge badge-us">🇺🇸 ACC·AHA·STS</span>
             <span class="badge badge-eu">🇪🇺 ESC·EACTS</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -568,6 +604,7 @@
             <span class="badge badge-jp">🇯🇵 JCS 2020</span>
             <span class="badge badge-us">🇺🇸 ACC·AHA 2020</span>
             <span class="badge badge-eu">🇪🇺 ESC·EACTS 2025</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -577,6 +614,7 @@
           <div class="card-description">ESC/EACTS 2025に基づく心房性二次性僧帽弁逆流の診断基準・形態・治療方針</div>
           <div class="badge-row">
             <span class="badge badge-eu">🇪🇺 ESC·EACTS 2025</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -599,6 +637,7 @@
             <span class="badge badge-jp">🇯🇵 JCS 2020</span>
             <span class="badge badge-us">🇺🇸 ACC·AHA 2020·2026</span>
             <span class="badge badge-eu">🇪🇺 ESC·EACTS 2025</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -621,6 +660,7 @@
             <span class="badge badge-jp">🇯🇵 JCS</span>
             <span class="badge badge-us">🇺🇸 ACC·AHA</span>
             <span class="badge badge-eu">🇪🇺 ESC·EACTS</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -643,6 +683,7 @@
             <span class="badge badge-jp">🇯🇵 JCS 2026</span>
             <span class="badge badge-us">🇺🇸 AHA 2015</span>
             <span class="badge badge-eu">🇪🇺 ESC 2023</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -665,6 +706,7 @@
             <span class="badge badge-jp">🇯🇵 JCS</span>
             <span class="badge badge-us">🇺🇸 ACC·AHA·STS</span>
             <span class="badge badge-eu">🇪🇺 ESC·EACTS</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -687,6 +729,7 @@
             <span class="badge badge-jp">🇯🇵 JCS 2018 / 2022</span>
             <span class="badge badge-us">🇺🇸 ACC·AHA 2021 / 2025 / STS 2016</span>
             <span class="badge badge-eu">🇪🇺 ESC 2023 / 2024</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -709,6 +752,7 @@
             <span class="badge badge-jp">🇯🇵 JCS</span>
             <span class="badge badge-us">🇺🇸 ACC·AHA·STS</span>
             <span class="badge badge-eu">🇪🇺 ESC·EACTS</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -731,6 +775,7 @@
             <span class="badge badge-jp">🇯🇵 JCS 2018·2025</span>
             <span class="badge badge-us">🇺🇸 ACC·AHA·HFSA 2022</span>
             <span class="badge badge-eu">🇪🇺 ESC 2021</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -753,6 +798,7 @@
             <span class="badge badge-jp">🇯🇵 JCS/JHFS 2025</span>
             <span class="badge badge-us">🇺🇸 ACC·AHA·HFSA 2022</span>
             <span class="badge badge-eu">🇪🇺 ESC 2021 / 2023 FU</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -775,6 +821,7 @@
             <span class="badge badge-jp">🇯🇵 JCS 2025</span>
             <span class="badge badge-us">🇺🇸 AHA/ACC 2026 / AHA 2011</span>
             <span class="badge badge-eu">🇪🇺 ESC/ERS 2022 / ESC 2019 / ERS 2021</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -797,6 +844,7 @@
             <span class="badge badge-jp">🇯🇵 JCS 2023</span>
             <span class="badge badge-us">🇺🇸 ISHLT 2023 / STS·AATS 2020·2025</span>
             <span class="badge badge-eu">🇪🇺 EACTS 2025 / ELSO 2020</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -808,6 +856,7 @@
             <span class="badge badge-jp">🇯🇵 JCS 2021</span>
             <span class="badge badge-us">🇺🇸 ISHLT 2023</span>
             <span class="badge badge-eu">🇪🇺 EACTS 2019</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -819,6 +868,7 @@
             <span class="badge badge-jp">🇯🇵 JCS 2025</span>
             <span class="badge badge-us">🇺🇸 ACC·AHA 2022 / ISHLT 2024</span>
             <span class="badge badge-eu">🇪🇺 ESC 2021·2023</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -841,6 +891,7 @@
             <span class="badge badge-jp">🇯🇵 JCSガイドラインなし</span>
             <span class="badge badge-us">🇺🇸 ACC 2025 / JACC 2024 SOTA</span>
             <span class="badge badge-eu">🇪🇺 ESC·EACTS 2025</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -863,6 +914,7 @@
             <span class="badge badge-jp">🇯🇵 JCS</span>
             <span class="badge badge-us">🇺🇸 ACC·AHA·HRS</span>
             <span class="badge badge-eu">🇪🇺 ESC·EACTS</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -873,6 +925,7 @@
           <div class="badge-row">
             <span class="badge badge-jp">🇯🇵 JCS 2020</span>
             <span class="badge badge-eu">🇪🇺 ESC·EACTS 2025</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -906,6 +959,7 @@
             <span class="badge badge-eu">🇪🇺 EACTS·EACTAIC·EBCP</span>
             <span class="badge badge-us">🇺🇸 STS·SCA·AmSECT·SABM</span>
             <span class="badge badge-jp">🇯🇵 JaSECT</span>
+            <span class="badge badge-fc">✅ Fact-check済 2026-05-23</span>
           </div>
           <span class="card-action">→ 開く</span>
         </a>
@@ -954,6 +1008,17 @@
       buildChip(allChip, 'すべて', totalCards);
       chipRow.appendChild(allChip);
 
+      // "✅ Fact-check済" filter chip (verified against source guideline PDFs)
+      var factCheckedCount = cards.filter(function (c) {
+        return !!c.querySelector('.badge-fc');
+      }).length;
+      var fcChip = document.createElement('button');
+      fcChip.type = 'button';
+      fcChip.className = 'chip chip-fc';
+      fcChip.dataset.cat = '__factcheck__';
+      buildChip(fcChip, '✅ Fact-check済', factCheckedCount);
+      chipRow.appendChild(fcChip);
+
       // category chips
       sections.forEach(function (sec) {
         var name = sec.dataset.category;
@@ -989,9 +1054,11 @@
         snapshot(card.querySelector('.card-title'));
         snapshot(card.querySelector('.card-description'));
         card._searchText = card.textContent.toLowerCase().replace(/\s+/g, ' ');
+        card._isFactChecked = !!card.querySelector('.badge-fc');
       });
 
       var currentQuery = '';
+      var factCheckOnly = false;
 
       function escapeRegex(str) {
         return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -1043,7 +1110,8 @@
         var visibleCount = 0;
 
         cards.forEach(function (card) {
-          var visible = q ? card._searchText.indexOf(q) !== -1 : true;
+          var matchesQuery = q ? card._searchText.indexOf(q) !== -1 : true;
+          var visible = matchesQuery && (!factCheckOnly || card._isFactChecked);
           card.classList.toggle('is-hidden', !visible);
           if (visible) visibleCount++;
           highlightElement(card.querySelector('.card-title'), q);
@@ -1060,10 +1128,16 @@
         if (q) {
           resultInfo.textContent = '「' + currentQuery + '」で' + visibleCount + '件ヒット';
           resultInfo.classList.add('is-filtering');
+        } else if (factCheckOnly) {
+          resultInfo.textContent = '✅ Fact-check済（2026-05-23）の' + visibleCount + '件を表示';
+          resultInfo.classList.add('is-filtering');
         } else {
           resultInfo.textContent = totalCards + '件のガイドラインを掲載';
           resultInfo.classList.remove('is-filtering');
         }
+
+        allChip.classList.toggle('is-active', !factCheckOnly && !q);
+        fcChip.classList.toggle('is-active', factCheckOnly);
 
         searchClear.classList.toggle('is-visible', q.length > 0);
       }
@@ -1092,6 +1166,15 @@
       allChip.addEventListener('click', function () {
         searchInput.value = '';
         currentQuery = '';
+        factCheckOnly = false;
+        applyFilter();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      fcChip.addEventListener('click', function () {
+        searchInput.value = '';
+        currentQuery = '';
+        factCheckOnly = !factCheckOnly;
         applyFilter();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });

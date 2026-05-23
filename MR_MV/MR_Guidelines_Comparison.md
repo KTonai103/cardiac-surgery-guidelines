@@ -166,7 +166,7 @@ aliases:
 | 介入トリガー | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |------------|---------|----------------|--------------|
 | **新規発症 AF または安静時 SPAP/PASP >50 mmHg** | **Class IIa, Level B** | **Class IIa, Level B**（PH or AF secondary to MR） | 個別判断（明示的閾値なし、Stage C1 でリスク評価） |
-| **LA 拡大（LAVI ≥60 mL/m² または LA径 ≥55 mm）** | LA容量係数 ≥60 mL/m² → Class IIa, Level C（条件付き） | **Class IIa, Level B**（弁形成 likely な低リスク例） | 早期手術戦略の根拠として記載 |
+| **LA 拡大（LAVI ≥60 mL/m² または LA径 ≥55 mm）** | LA容量係数 ≥60 mL/m² → Class IIb, Level C | **Class IIa, Level B**（弁形成 likely な低リスク例） | 早期手術戦略の根拠として記載 |
 | **LV 機能正常な低リスク例での予防的弁形成（durable repair likely）** | 該当：耐久性ある弁形成が安全に施行可能と判断される場合 → Class IIa, Level C | **Class I, Level B**（AF・PH・LA拡大・中等度以上TR の **3項目以上**を満たし、Heart Valve Centre で durable repair likely） | **Class IIa, Level B-NR**（成功 durable repair 確率 >95%、術死 <1%、Primary or Comprehensive Valve Center） |
 | **進行性に LVEF 低下／LVESD 増大（3回以上のシリアル画像）** | Class IIb, Level C | （継続経過観察の文脈で言及） | **Class IIb, Level C-LD** |
 
@@ -216,7 +216,7 @@ aliases:
 
 | 状況 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |------|---------|----------------|--------------|
-| **CABG 適応 + 重症 MR + LVEF >30%** | **Class I, Level C** | **Class I, Level C**（重症 MR + 他弁術または CABG 時の同時 MV 手術） | **Class IIa, Level B-NR**（重症 SMR + CABG 施行時の MV 手術） |
+| **CABG 適応 + 重症 MR + LVEF >30%** | **Class I, Level C** | **Class I, Level B**（重症心室性 SMR + CABG 同時施行。他弁手術同時施行例は I/C） | **Class IIa, Level B-NR**（重症 SMR + CABG 施行時の MV 手術） |
 | **CABG 適応 + 重症 MR + LVEF ≤30%** | Class IIb, Level C | 個別 Heart Team 判断 | （同上の包括的記載） |
 | **CABG 適応 + 中等症 MR + 後下壁にバイアビリティあり** | **Class IIb, Level B**（CABG単独優先） | **Class IIb, Level B**（中等症 SMR + CABG 時の MV 手術考慮） | （RCT で長期 MR は減るが死亡改善なしと記載） |
 | **CABG 適応 + 中等症 MR + 後下壁にバイアビリティなし** | Class IIb, Level C（CABG + 弁輪形成） | 同上 | 同上 |
@@ -363,7 +363,7 @@ ACC/AHA 2020 はステージ表内に独立分類は設けないが、表18 Stag
 | 選択基準 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |---------|---------|----------------|--------------|
 | **機械弁推奨の年齢** | <65歳（僧帽弁位） | **Class IIa, Level B**：長期 OAC 禁忌でない長期予後例 | 明示的閾値なし、患者希望と長期 OAC 可否で判断 |
-| **生体弁推奨の年齢** | ≥65歳（または抗凝固禁忌/困難） | 高齢・OAC 禁忌・患者希望 | 抗凝固禁忌または患者希望 |
+| **生体弁推奨の年齢** | ≥70歳（僧帽弁位）（または抗凝固禁忌/困難） | 高齢・OAC 禁忌・患者希望 | 抗凝固禁忌または患者希望 |
 | **若年女性（妊娠希望）** | 生体弁考慮（OAC の胎児リスク） | 個別検討 | 個別検討 |
 | **既存長期抗凝固療法（AF 等）** | 機械弁が合理的 | 機械弁が合理的 | 機械弁が合理的 |
 | **僧帽弁位の生体弁** | 大動脈弁位と比較し閉鎖時負荷圧大、耐久性で劣る | 同等の認識 | 同等の認識 |
@@ -440,8 +440,8 @@ JCS・ESC・ACC/AHA とも、妊娠前に重症 MR の治療を完了するこ�
 
 | 適応条件 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |---------|---------|----------------|--------------|
-| GDMT + CRT 最適化（介入前必須） | **I / A** | **I（HF guidelines）** | **I**（暗黙的、Recommendations 内） |
-| CABG 適応 + 重症 SMR + LVEF >30% で MV 手術 | **I / C** | **I / C**（concomitant に MV 手術） | **IIa / B-NR** |
+| GDMT + CRT 最適化（介入前必須） | **I / A** | **I（HF guidelines）** | **I / A**（明示） |
+| CABG 適応 + 重症 SMR + LVEF >30% で MV 手術 | **I / C** | **I / B**（CABG 同時。他弁手術同時施行例は I/C） | **IIa / B-NR** |
 | CABG 適応 + 中等症 SMR（後下壁バイアビリティ あり） | IIb / B（CABG 単独）or IIb / C（弁輪形成同時） | IIb / B | 同様の慎重姿勢 |
 | GDMT/CRT 後持続重症 SMR で TEER（COAPT 基準） | LVEF ≥30%、形態適合で個別判断 | **I / A** | **IIa / B-R** |
 | GDMT/CRT 後持続重症 SMR で外科 MV（CABG 非併施） | LVEF ≤30%：弁膜症チーム判断 | **IIb / C**（TEER 不適例） | **IIb / B-NR**（NYHA III/IV） |
@@ -529,3 +529,14 @@ JCS・ESC・ACC/AHA とも、妊娠前に重症 MR の治療を完了するこ�
 - MITRA-FR Trial：Obadia JF, et al. N Engl J Med 2018; 379:2297
 - RESHAPE-HF2 Trial：Anker SD, et al. N Engl J Med 2024; 391:1799
 - CTSN RCT（虚血性 SMR の MVR vs 形成）：Acker MA, et al. N Engl J Med 2014; 370:23 / Goldstein D, et al. N Engl J Med 2016; 374:344
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・数値閾値を、原典ガイドラインPDF（JCS/JSCS/JATS/JSVS 2020、ESC/EACTS 2025、ACC/AHA 2020）と逐語照合し、以下を修正のうえ確認済み。
+>
+> - **ESC/EACTS 2025：重症心室性 SMR + CABG 同時施行の MV 手術**：I/C → **I/B**（I/C は「他弁手術同時施行例」に適用される推奨）
+> - **JCS 2020：僧帽弁位の生体弁推奨年齢**：≥65歳 → **≥70歳**（≥65歳は大動脈弁位。Table 46）
+> - **ACC/AHA 2020：SMR への GDMT・CRT 最適化**：「暗黙的」→ **明示的 Class I, Level A**（Section 7.3.3）
+> - **JCS 2020：LA拡大（LAVI ≥60 mL/m²）トリガー**：IIa/C → **IIb/C**
+>
+> 上記以外の一次性 MR／二次性（心室性・心房性）MR の推奨クラス・レベル・閾値（COAPT/MITRA-FR 由来の TEER 基準を含む）は原典と一致を確認。

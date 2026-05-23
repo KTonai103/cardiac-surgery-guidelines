@@ -414,7 +414,7 @@ FFR ≤0.80／iFR ≤0.89 を血行再建考慮の閾値と本文中で記述。
 | 推奨内容 | Class | LoE |
 |---|---|---|
 | **CABG 後 aspirin 75–100 mg/日 lifelong** | **I** | **A** |
-| Aspirin 術後早期再開（可能なら 24 時間以内） | I | B |
+| Aspirin 術後早期再開（可能なら 24 時間以内）※本文記載のみ・推奨クラス付与なし | — | — |
 | グラフト閉塞高リスク・出血低リスクの選択患者で **CABG 後 DAPT** | IIb | B |
 
 ### 6-9. CABG 手技関連（CCS 2024 内の限定的記述）
@@ -425,7 +425,7 @@ CCS 2024 は CABG 手技推奨（BITA・橈骨・Off-pump）を **2018 ESC/EACTS
 |---|---|---|
 | 過去 LITA 未使用患者の redo CABG に **LIMA が conduit of choice**（Table 30） | I | B |
 | LIMA-LAD パテントなし患者の redo CABG | IIa | B |
-| ネイティブ血管への PCI（バイパスグラフトへの PCI より） | IIa | C |
+| ネイティブ血管への PCI（バイパスグラフトへの PCI より） | IIa | B |
 
 本文記載（p.3475）："*Arterial grafting with left internal mammary artery (LIMA) to the LAD system and multiple arterial grafting reduces the risk of graft occlusion, thus increasing the longevity of revascularization efficacy after CABG.*" — LIMA-LAD + 多枝動脈グラフトの優位性を本文で確認。
 
@@ -941,7 +941,7 @@ CABG 中もアスピリン継続。術後 24–72h で P2Y12 再開。
 
 | デバイス | 🇯🇵 JCS 2018 | 🇪🇺 ESC 2023 | 🇺🇸 ACC/AHA 2025 |
 |---|---|---|---|
-| **IABP（機械的合併症 CS）** | **I, C** | **I, C** | （機械的合併症の短期 MCS として **2a, B-NR**） |
+| **IABP（機械的合併症 CS）** | **I, C** | **IIa, C** | （機械的合併症の短期 MCS として **2a, B-NR**） |
 | **IABP（治療抵抗性 CS）** | **IIa, C** | **III, B**（機械的合併症なしのルーチン） | **3: No Benefit, B-R**（ルーチン） |
 | **VA-ECMO（薬剤不応性 CS）** | **IIa, C** | **IIb, C** | **3: No Benefit, B-R**（ルーチン、ECLS-SHOCK 反映） |
 | **VA-ECMO（機械的合併症ブリッジ）** | **IIb, C** | （短期 MCS ブリッジとして許容） | **2a, B-NR**（機械的合併症で手術への bridge） |
@@ -1022,7 +1022,7 @@ CABG 中もアスピリン継続。術後 24–72h で P2Y12 再開。
 |---|---|---|---|
 | **クロピドグレル** | **中止後 5 日以上** | **5 日** | **5 日（elective）**／24h 中断（urgent） |
 | **プラスグレル** | **中止後 7 日以上** | **7 日** | **7 日（elective）**／24h 中断（urgent） |
-| **チカグレロル** | **中止後 3 日以上** | **3–5 日** | **3–5 日（elective）**／24h 中断（urgent） |
+| **チカグレロル** | **中止後 3 日以上** | **3 日以上**（ESC 2024 CCS） | **3–5 日（elective）**／24h 中断（urgent） |
 
 > JCS 2020（表 23）は「P2Y12 受容体拮抗薬服用中で CABG を施行される患者に対して、チカグレロルは中止後 3 日以上、クロピドグレルは中止後 5 日以上、プラスグレルは中止後 7 日以上経過した後に CABG を施行することを**考慮する**」（**IIa, B**）と明記。「5 日」の根拠は **CURE 試験 CABG サブ解析**（術前 5 日以上のクロピドグレル休薬で出血性合併症は増加しない）。**原則として術前は P2Y12 受容体拮抗薬を中止**するが、ACS で DAPT 開始後に CABG が必要となった場合は血栓リスクと出血リスクを勘案して施行時期を判断（投与開始後早期例では血小板機能評価が至適時期決定に有用な可能性）。アスピリンは周術期も継続（81–162 mg/日、**I, C**）。
 
@@ -1031,7 +1031,7 @@ CABG 中もアスピリン継続。術後 24–72h で P2Y12 再開。
 | 推奨 | 🇯🇵 JCS 2020 抗血栓療法 FU（表 23） | 🇪🇺 ESC 2023／2024 | 🇺🇸 ACC/AHA 2025 |
 |---|---|---|---|
 | **Aspirin lifelong**（周術期は 81–162 mg/日 継続） | 周術期継続 **I, C**／lifelong は標準 | **I, A**（CCS 2024） | 1 相当 |
-| Aspirin 術後早期再開（24h 以内） | 推奨 | **I, B**（CCS 2024） | 1 相当 |
+| Aspirin 術後早期再開（24h 以内） | 推奨 | 本文記載のみ（CCS 2024、推奨クラス付与なし） | 1 相当 |
 | ステント留置後 DAPT 中の CABG → 術後可及的速やかに負荷投与し P2Y12 再開、推奨 DAPT 期間終了まで継続 | **I, C** | （次行に内包） | 同等推奨 |
 | ACS で CABG → 長期 OAC 不要なら術後速やかに P2Y12 開始、**最長 12 か月** DAPT 継続 | **I, C**（JCS も明示） | **I, C**（ESC 2023 新規） | 同等推奨 |
 | **CABG 後 DAPT**（グラフト開存目的） | 安定 CAD・オフポンプ後の静脈グラフト開存目的で **IIa, B** | **IIb, B**（CCS 2024、グラフト閉塞高リスク・出血低リスク） | 2b 相当 |
@@ -1128,3 +1128,17 @@ JCS 2018 は STEMI の Quality Indicator として door-to-device time を明示
 
 > [!quote] 本文書の位置づけ
 > 本文書は 7 つの主要ガイドライン（JCS 2018 ACS／JCS 2022 安定 CAD／ESC 2023 ACS／ESC 2024 CCS／ACC/AHA 2021 冠動脈血行再建／ACC/AHA 2025 ACS／STS 2016 動脈グラフト）を横断比較したものである。JCS 2018 改訂版「安定冠動脈疾患の血行再建ガイドライン」は本リポジトリ未収載のため、CABG vs PCI モード選択・SYNTAX 閾値・グラフト選択の詳細推奨を要する場合は別途参照を必要とする。各推奨クラス・LoE は原典の表記に忠実に従っており、地域間で表記法（ローマ数字 vs アラビア数字、LoE の細分化）が異なる点に注意。
+
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・数値を、原典PDF（JCS 2018 ACS／JCS 2020 抗血栓療法／JCS 2022 安定冠動脈疾患／ESC 2023 ACS／ESC 2024 CCS／ACC・AHA・SCAI 2021 冠動脈血行再建／ACC・AHA・SCAI 2025 ACS／STS 2016 動脈グラフト）と逐語照合し、以下を修正のうえ確認した。
+>
+> - **ESC 2023：機械的合併症に伴うCSへのIABP**：I, C → **IIa, C**（原典「IABP should be considered…IIa C」。ESC 2023 に Class I の IABP 推奨は存在せず、機械的合併症なしのルーチンIABPは III, B）。§20-2 では既に「許容的、IIa」と正しく記載されており、§19-1 のみ不整合だった。
+> - **ESC 2024 CCS：ネイティブ血管へのPCI（バイパスグラフトへのPCIより）**：IIa, C → **IIa, B**（Recommendation Table 30）。
+> - **ESC 2024 CCS：CABG後アスピリン早期再開（24h以内）**：「I, B」→ **本文記載のみ・推奨クラス付与なし**（CCS 2024 の graded 推奨は「アスピリン生涯 I, A」「CABG後DAPT IIb, B」のみ。24h以内再開は本文の narrative）。§6-8／§21-2 を修正。
+> - **ESC チカグレロル術前休薬**：「3–5 日」→ **3 日以上**（in-repo の ESC 2024 CCS が「ticagrelor ≥3 days」と明記。クロピドグレル≥5日・プラスグレル≥7日は一致）。
+>
+> §21（CABG周術期抗血小板＝JCS 2020 表23）は commit fb23290 で修正済みであり、表23（IIa/B、休薬日数、術後再開、グラフト開存目的の抗凝固 III/A 等）と完全一致を再確認。ACC/AHA 2021 の生存改善目的CABGの格下げ（3枝・正常EFで 2b/B-R 等）、左主幹部、糖尿病+多枝LIMA-LAD 1/A、STS 2016 のグラフト各推奨も原典と一致。
+>
+> **検証範囲の制限**：JCS 2018「安定冠動脈疾患の血行再建ガイドライン」（CABG vs PCI モード選択GL）は本リポジトリ未収載のため検証不能であり、本文書はその旨を明記しモード選択の JCS クラスを捏造していない（妥当）。ESC 2018 心筋血行再建GLも未収載だが、休薬日数は in-repo の ESC 2024 CCS で裏付けた。

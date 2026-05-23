@@ -81,14 +81,14 @@ ACC/AHA 2020は欧州・日本と異なり、AS進行段階を以下のステー
 
 | 推奨事項 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |---------|---------|---------------|-------------|
-| **症候性重度AS（Vmax ≥4.0 m/s or Mean PG ≥40 mmHg）への介入** | Class I, Level B | Class I, Level B | Class I, Level B-R |
+| **症候性重度AS（Vmax ≥4.0 m/s or Mean PG ≥40 mmHg）への介入** | Class I, Level B | Class I, Level B | Class I, Level A |
 | **介入方法の選択** | Heart Teamによる判断 | Heart Teamによる判断（必須） | Heart Teamによる判断 |
 
 ### 2-2. 症候性低流量低圧較差AS（Symptomatic Low-Flow Low-Gradient AS）
 
 | 推奨事項 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |---------|---------|---------------|-------------|
-| **DSEでVmax≥4.0 m/sが確認された場合のAVR（Stage D2相当）** | 手術考慮（慎重） | Class IIa, Level B | Class I, Level B-R |
+| **DSEでVmax≥4.0 m/sが確認された場合のAVR（Stage D2相当）** | 手術考慮（慎重） | Class I, Level B | Class I, Level B-NR |
 | **LVEF保存型（D3相当）への対応** | 詳細評価後に検討 | CT Agatston score等で重症確認後検討 | 重症AS確認後AVR |
 
 ---
@@ -99,7 +99,7 @@ ACC/AHA 2020は欧州・日本と異なり、AS進行段階を以下のステー
 
 | 臨床状況 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |---------|---------|---------------|-------------|
-| **LVEF <50%（EF低下型）** | **Class I, Level B** | **Class I, Level B** | **Class I, Level B-R**（Stage C2） |
+| **LVEF <50%（EF低下型）** | **Class I, Level C** | **Class I, Level B** | **Class I, Level B-NR**（Stage C2） |
 | **LVEF <55%（軽度EF低下）** | 記載なし（<50%が基準） | **Class IIa, Level B** | 記載なし（<50%が基準） |
 
 > [!warning] 差異ポイント①
@@ -109,15 +109,15 @@ ACC/AHA 2020は欧州・日本と異なり、AS進行段階を以下のステー
 
 | 条件 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |------|---------|---------------|-------------|
-| **超重度AS（Vmax ≥5.0 m/s or Mean PG ≥60 mmHg）** | 明示的クラス記載なし（進行速度重視） | Class IIa, Level B | Class IIa, Level B-R（但しClass IIbの記載もあり） |
-| **急速進行（Vmax増加 ≥0.3 m/s/年）** | **Class IIa, Level B** | **Class IIa, Level B** | Class IIb, Level C-LD |
-| **NT-proBNP/BNP の上昇（AS由来）** | 記載なし | **Class IIa, Level B** | 記載なし |
-| **弁の重度石灰化** | CT Agastonスコア参照（記載あり） | **Class IIa, Level B**（石灰化単独） | CT calcium scoringの言及あり |
-| **運動負荷試験での血圧低下（>20 mmHg）** | **Class IIa, Level B** | **Class IIa, Level B** | **Class IIa, Level B-R** |
+| **超重度AS（Vmax ≥5.0 m/s or Mean PG ≥60 mmHg）** | Class IIa, Level B（低リスク） | Class IIa, Level B | Class IIa, Level B-R |
+| **急速進行（Vmax増加 ≥0.3 m/s/年）** | **Class IIb, Level C** | **Class IIa, Level B** | **Class IIa, Level B-NR** |
+| **NT-proBNP/BNP の上昇（AS由来）** | 記載なし | **Class IIa, Level B** | **Class IIa, Level B-NR**（BNP >正常3倍） |
+| **弁の重度石灰化** | CT Agatstonスコア参照（≥2,000 AU(男)/≥1,200 AU(女)） | **Class IIa, Level B**（重度石灰化＋Vmax進行 ≥0.3 m/s/年の併存条件） | CT calcium scoringの言及あり |
+| **運動負荷試験での血圧低下（JCS/ESC: >20 mmHg、ACC/AHA: SBP ≥10 mmHg）** | **Class IIa, Level C** | **Class IIa, Level B** | **Class IIa, Level B-NR** |
 | **低手術リスク患者への予防的介入（上記条件なし）** | **Class IIb, Level C** | **Class IIb, Level C** | **Class IIb, Level C-LD** |
 
 > [!warning] 差異ポイント②
-> ESC/EACTSはBNP/NT-proBNP高値を単独で==Class IIa==適応トリガーとして明示しているが、JCSとACC/AHAは同値への明示的なクラス指定がない。
+> ESC/EACTS（==IIa/B==）とACC/AHA（==IIa/B-NR==、BNP >正常上限の3倍）はともにBNP/NT-proBNP著明高値を無症候性重症ASの介入トリガーとして明示している。JCSは同値への明示的なクラス指定がない。
 
 ---
 
@@ -135,7 +135,7 @@ ACC/AHA 2020は欧州・日本と異なり、AS進行段階を以下のステー
 | 検査 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |-----|---------|---------------|-------------|
 | **低用量ドブタミン負荷試験（DSE）** | AVA ≤1.0 cm²で重症AS確認 | AVA ≤1.0 cm² + 流量増加確認 | Stage D2：DSEでVmax ≥4 m/sを確認 |
-| **CT大動脈弁石灰化スコア（Agatston）** | ≥2,000 AU（男性）で重症示唆 | ≥2,000 AU（男性）、≥1,200 AU（女性） | 補助的に使用 |
+| **CT大動脈弁石灰化スコア（Agatston）** | ≥2,000 AU（男性）、≥1,200 AU（女性） | ≥2,000 AU（男性）、≥1,200 AU（女性） | 補助的に使用 |
 
 ---
 
@@ -145,11 +145,11 @@ ACC/AHA 2020は欧州・日本と異なり、AS進行段階を以下のステー
 
 | 項目                            | JCS 2020                     | ESC/EACTS 2025             | ACC/AHA 2020                             |
 | ----------------------------- | ---------------------------- | -------------------------- | ---------------------------------------- |
-| **TAVI優先年齢の目安**               | **≥75歳**（高リスク or 解剖学的適応があれば） | **≥70歳**（Class I, Level A） | 年齢単独の明示的閾値なし（STS scoreとHeart Teamによる判断）  |
+| **TAVI優先年齢の目安**               | **≥75歳**（高リスク or 解剖学的適応があれば） | **≥70歳**（Class I, Level A） | 明示的な年齢単独閾値は設けず、<65→SAVR / 65–80→いずれか / >80→TAVI を目安にHeart Team判断  |
 | **SAVR優先年齢の目安**               | **<75歳**（低〜中リスク）             | **<70歳**（Class I, Level B） | **<65歳**（STS <4%）でSAVR優先傾向               |
 | **低リスク患者（STS/EuroSCORE <4%）** | SAVR推奨                       | SAVR（<70歳）またはHeart Team判断  | SAVR vs TAVR いずれも可（Class IIa, Level B-R） |
 | **高リスク患者（STS/EuroSCORE ≥4%）** | TAVI推奨                       | TAVI推奨（Class I）            | TAVI推奨（Class I, Level A）                 |
-| **手術禁忌 / 超高リスク**              | TAVI（適応あれば）                  | TAVI推奨                     | TAVI推奨（Class I, Level B-R）               |
+| **手術禁忌 / 超高リスク**              | TAVI（適応あれば）                  | TAVI推奨                     | TAVI推奨（Class I, Level A）               |
 
 > [!warning] 差異ポイント③
 > TAVI優先年齢の閾値がESCは==≥70歳==、JCSは==≥75歳==、ACC/AHAは年齢単独の基準を設けていない点が大きな相違。
@@ -182,9 +182,9 @@ ACC/AHA 2020は欧州・日本と異なり、AS進行段階を以下のステー
 
 | 適応 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |-----|---------|---------------|-------------|
-| **無症候性重度ASの症状評価** | 推奨（症状誘発の確認） | Class I, Level C | Class IIa, Level B-R |
-| **血圧低下（>20 mmHg）を介入トリガーとして使用** | Class IIa, Level B | Class IIa, Level B | Class IIa, Level B-R |
-| **症候性AS患者での運動負荷試験** | 禁忌 | 禁忌 | Class III（有害）, Level C-EO |
+| **無症候性重度ASの症状評価** | 推奨（症状誘発の確認） | Class I, Level C | Class IIa, Level B-NR |
+| **血圧低下を介入トリガーとして使用（JCS/ESC: >20 mmHg、ACC/AHA: SBP ≥10 mmHg）** | Class IIa, Level C | Class IIa, Level B | Class IIa, Level B-NR |
+| **症候性AS患者での運動負荷試験** | 禁忌 | 禁忌 | Class III（有害）, Level B-NR |
 
 ---
 
@@ -195,28 +195,28 @@ ACC/AHA 2020は欧州・日本と異なり、AS進行段階を以下のステー
 | 相違ポイント | JCS 2020（日本） | ESC/EACTS 2025（欧州） | ACC/AHA 2020（米国） |
 |------------|----------------|----------------------|---------------------|
 | **LVEF低下の介入閾値** | <50%（Class I） | **<55%（Class IIa）** / <50%（Class I） | <50%（Class I） |
-| **TAVI優先年齢の目安** | **≥75歳** | **≥70歳** | **年齢単独基準なし** |
-| **BNP/NT-proBNP上昇を介入トリガーに** | 記載なし | **Class IIa（明示的）** | 記載なし |
-| **急速進行（Vmax ≥0.3 m/s/年）** | Class IIa, B | Class IIa, B | Class IIb, C-LD（より弱い推奨） |
+| **TAVI優先年齢の目安** | **≥75歳** | **≥70歳** | **<65→SAVR / 65–80→いずれか / >80→TAVI** |
+| **BNP/NT-proBNP上昇を介入トリガーに** | 記載なし | **Class IIa（明示的）** | **Class IIa（B-NR）** |
+| **急速進行（Vmax ≥0.3 m/s/年）** | Class IIb, C | Class IIa, B | Class IIa, B-NR |
 | **ステージ分類方式** | 重症度別（軽/中/重/超重度） | 重症度別 | **A〜Dのアルファベットステージ分類** |
 | **エビデンスレベル表記** | A/B/C | A/B/C | **B-R/B-NR/C-LD/C-EOと細分化** |
-| **超重度AS（Vmax≥5 m/s）への介入** | 明示的クラス記載なし | Class IIa, B | Class IIa, B-R（一部IIb） |
+| **超重度AS（Vmax≥5 m/s）への介入** | Class IIa, B | Class IIa, B | Class IIa, B-R |
 | **無症候性低リスク患者への予防的介入** | Class IIb, C | Class IIb, C | Class IIb, C-LD |
 | **Heart Team義務化** | 推奨（任意的） | **Class I（義務）** | 推奨（任意的） |
 | **VSARR（弁温存大動脈根部置換）** | 記載あり | **若年患者の選択肢として追記（2025新規）** | 記載あり |
 | **二尖弁（BAV）へのTAVI** | 慎重（症例選択） | 慎重（Heart Teamで判断） | 慎重（解剖学的評価必要） |
-| **CT石灰化スコア閾値（男性/女性）** | ≥2,000 AU（男性のみ言及） | **≥2,000 AU（男性）/ ≥1,200 AU（女性）** | 補助的（明示的閾値の記載弱い） |
+| **CT石灰化スコア閾値（男性/女性）** | **≥2,000 AU（男性）/ ≥1,200 AU（女性）** | **≥2,000 AU（男性）/ ≥1,200 AU（女性）** | 補助的（明示的閾値の記載弱い） |
 
 ### 7-2. 無症候性AS介入適応の比較（LVEF正常例）
 
 | トリガー条件 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |------------|---------|---------------|-------------|
 | 運動負荷試験での症状誘発 | **IIa / B** | **IIa / B** | **IIa / B-R** |
-| 運動時収縮期血圧低下 >20 mmHg | **IIa / B** | **IIa / B** | **IIa / B-R** |
-| 急速進行（Vmax ≥0.3 m/s/年） | **IIa / B** | **IIa / B** | **IIb / C-LD** |
-| 超重度AS（Vmax ≥5 m/s or PG ≥60 mmHg） | 明示的記載なし | **IIa / B** | **IIa / B-R** |
-| BNP/NT-proBNP 上昇（AS由来） | 記載なし | **IIa / B** | 記載なし |
-| 弁の重度石灰化（CT） | CT ≥2,000 AU参照 | **IIa / B** | 補助的に言及 |
+| 運動時収縮期血圧低下（JCS/ESC >20 mmHg、ACC/AHA ≥10 mmHg） | **IIa / C** | **IIa / B** | **IIa / B-NR** |
+| 急速進行（Vmax ≥0.3 m/s/年） | **IIb / C** | **IIa / B** | **IIa / B-NR** |
+| 超重度AS（Vmax ≥5 m/s or PG ≥60 mmHg） | **IIa / B** | **IIa / B** | **IIa / B-R** |
+| BNP/NT-proBNP 上昇（AS由来） | 記載なし | **IIa / B** | **IIa / B-NR** |
+| 弁の重度石灰化（CT）＋Vmax進行 | CT ≥2,000(男)/≥1,200(女) AU参照 | **IIa / B**（石灰化＋進行の併存） | 補助的に言及 |
 | LVEF <55%（正常範囲内の軽度低下） | 記載なし | **IIa / B** | 記載なし |
 | 低手術リスク患者（上記条件なし） | **IIb / C** | **IIb / C** | **IIb / C-LD** |
 
@@ -238,7 +238,7 @@ ACC/AHA 2020は欧州・日本と異なり、AS進行段階を以下のステー
 ### 共通事項
 
 > [!success] 3ガイドライン共通の合意事項
-> 1. **症候性重度AS（Vmax ==≥4.0 m/s== or Mean PG ==≥40 mmHg==）への介入はClass I**（証拠レベルはB/B-R）
+> 1. **症候性重度AS（Vmax ==≥4.0 m/s== or Mean PG ==≥40 mmHg==）への介入はClass I**（エビデンスレベル：JCS B / ESC B / ACC・AHA A）
 > 2. **LVEF <50%の無症候性重度ASへの介入はClass I**
 > 3. **超重度AS（Vmax ≥5.0 m/s）の定義**（AVA閾値等）
 > 4. **低流量低圧較差ASの診断補助としてのDSE・CT石灰化スコアの活用**
@@ -250,13 +250,13 @@ ACC/AHA 2020は欧州・日本と異なり、AS進行段階を以下のステー
 | # | 相違点 | 詳細 |
 |---|--------|------|
 | **①** | **LVEF介入閾値** | ESC/EACTSは「<55%」をClass IIaとするが、JCS・ACC/AHAは「<50%」がClass I基準 |
-| **②** | **TAVI年齢基準** | ESC：70歳以上でTAVI推奨（Class I, A）、JCS：75歳が目安、ACC/AHA：年齢単独基準なし |
-| **③** | **BNP/NT-proBNP** | ESC/EACTSのみが高値をClass IIa適応トリガーとして明示 |
-| **④** | **急速進行の推奨強度** | JCS・ESCはClass IIa / Level B、ACC/AHAはClass IIb / Level C-LD（より弱い） |
+| **②** | **TAVI年齢基準** | ESC：70歳以上でTAVI推奨（Class I, A）、JCS：75歳が目安、ACC/AHA：<65→SAVR / 65–80→いずれか / >80→TAVI（年齢×Heart Team） |
+| **③** | **BNP/NT-proBNP** | ESC/EACTS（IIa/B）とACC/AHA（IIa/B-NR）が高値を介入トリガーとして明示。JCSは明示なし |
+| **④** | **急速進行の推奨強度** | ESC（IIa/B）・ACC/AHA（IIa/B-NR）が同等。JCSがIIb/Cで最も弱い |
 | **⑤** | **Heart Team義務化** | ESC/EACTSがClass Iとして最も強く義務化 |
 | **⑥** | **ステージ分類** | ACC/AHAのみA〜Dアルファベット分類を採用 |
 | **⑦** | **エビデンスレベル細分化** | ACC/AHAはB-R/B-NR/C-LD/C-EOと細分化（日欧はA/B/Cの3段階） |
-| **⑧** | **弁石灰化CT閾値（女性）** | ESC/EACTSのみ女性閾値（≥1,200 AU）を明示（男性は共通して≥2,000 AU） |
+| **⑧** | **弁石灰化CT閾値（女性）** | ESC/EACTSとJCSがともに女性≥1,200 AU・男性≥2,000 AUを明示。ACC/AHAは数値閾値の明示が弱い |
 
 ### 臨床的含意
 
@@ -377,8 +377,8 @@ ACC/AHA 2020は欧州・日本と異なり、AS進行段階を以下のステー
 
 | 部位 | 再手術頻度 | 推奨アプローチ |
 |-----|----------|--------------|
-| **Autograft失敗（大動脈側）** | 5年97%、10年90%、15年84%、20年70%（再手術回避率） | autograft拡張・AR例では**弁温存手術（valve-sparing reoperation）を選択肢として考慮**可。重症AR例ではmAVR/bAVR |
-| **肺動脈ホモグラフト失敗（右側）** | 5年96%、10年90%、15年88%（再手術回避率） | **経皮的介入（transcatheter pulmonary valve replacement）が多くの症例で第一選択** |
+| **Autograft失敗（大動脈側）** | 5年97%、15年90%、20年84%、25年70%（再手術回避率） | autograft拡張・AR例では**弁温存手術（valve-sparing reoperation）を選択肢として考慮**可。重症AR例ではmAVR/bAVR |
+| **肺動脈ホモグラフト失敗（右側）** | 10年96%、15年90%、20年88%（再手術回避率） | **経皮的介入（transcatheter pulmonary valve replacement）が多くの症例で第一選択** |
 
 ---
 
@@ -414,3 +414,33 @@ ACC/AHA 2020は欧州・日本と異なり、AS進行段階を以下のステー
 ---
 
 *本章はEACTS 2025 Expert Consensus Statement on the Ross Procedure in Adult Patients (Vojacek et al., Eur J Cardiothorac Surg 2026;68(2):ezaf295) の主要推奨を要約したものです。Ross手術は技術的に複雑な手術であり、適応判断・術式選択・長期管理のすべてを経験豊富な専門施設・Heart Teamにて行うことが強く推奨されます。*
+
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・数値閾値を、原典ガイドラインPDF（JCS/JSCS/JATS/JSVS 2020 Table 32／ESC/EACTS 2025 推奨表・本文／ACC/AHA 2020 AS推奨表／EACTS 2025 Ross Consensus）と逐語照合し、以下を修正のうえ確認済み。
+>
+> **JCS 2020 列の修正：**
+> - 無症候性重症AS + LVEF<50%：I/B → **I/C**（Table 32）
+> - 急速進行（Vmax ≥0.3 m/s/年）：IIa/B → **IIb/C**
+> - 運動負荷試験での血圧低下：IIa/B → **IIa/C**
+> - 無症候性超重症AS（Vmax ≥5・mPG ≥60・AVA <0.6、低リスク）：「記載なし」→ **IIa/B**（Table 32に明記）
+> - CT石灰化スコアの女性閾値 ≥1,200 AU を追記（JCSも男女別に明記）
+>
+> **ACC/AHA 2020 列の修正：**
+> - 症候性重症AS：I/B-R → **I/A**
+> - 無症候性LVEF<50%（C2）・症候性LF-LG（D2）：B-R → **B-NR**
+> - 急速進行：IIb/C-LD → **IIa/B-NR**（rec #9）
+> - BNP/NT-proBNP著明高値：「記載なし」→ **IIa/B-NR**（rec #8、BNP >正常3倍）
+> - 運動時血圧低下トリガー：>20 mmHg・B-R → **SBP ≥10 mmHg・B-NR**（rec #6）
+> - 症候性ASでの運動負荷試験：III/C-EO → **III(Harm)/B-NR**
+> - 手術禁忌例へのTAVI：Class I, B-R → **Class I, A**
+> - TAVI/SAVR年齢：「年齢単独基準なし」→ **<65→SAVR / 65–80→いずれか / >80→TAVI** の枠組みとして明確化
+>
+> **ESC/EACTS 2025 列の修正：**
+> - 症候性LF-LG・EF低下（D2相当）：IIa/B → **I/B**（IIa/Bは正常EF=D3に該当）
+> - 重度弁石灰化は「単独トリガー」ではなく **重度石灰化＋Vmax進行 ≥0.3 m/s/年の併存条件** であることを明確化
+>
+> **差異ポイントの訂正：** ③（BNP）・④（急速進行）・⑧（女性石灰化閾値）を上記の事実に合わせて訂正。
+>
+> **Ross章：** 再手術回避率の年次ラベルを原典に合わせ修正（autograft：5/15/20/25年＝97/90/84/70%、肺動脈ホモグラフト：10/15/20年＝96/90/88%）。

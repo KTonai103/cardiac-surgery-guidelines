@@ -90,7 +90,7 @@ date: 2026-04-16
   - 弁輪形成術は主機序（弁輪拡大）に直接対処できる
 
 ### カテーテル治療
-- 手術不適例への**TEER**を考慮（Class IIb）
+- 手術不適例への**TEER**を考慮（Class IIb, B）
   - Planar coaptationにより圧較差上昇リスクあり → 適応慎重評価
 
 ---
@@ -100,3 +100,14 @@ date: 2026-04-16
 - [[MS_MV_Surgery_Guidelines_Comparison]]
 - [[AF_Surgery_Indications_Guideline_Comparison]]
 - [[Combined_VHD_Guidelines_Comparison]]
+
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本まとめの定義・診断基準・数値・推奨クラスを、原典 **ESC/EACTS 2025 VHD Guidelines（Section 9.2.3–9.2.5、Figure 12/13、推奨表）** と逐語照合し、**客観的な誤りは認めなかった**。
+>
+> - **診断基準4項目**（LVEF ≥50%／LVEDD <56mm 女・<63mm 男・indexed LVEDV <71・<79 mL/m²／僧帽弁輪AP径 >35mm／LAVI >34 mL/m²）はいずれも原典 Figure 12・本文と一致。
+> - **重症度**（EROA ≥30 mm² および/または RVol ≥45 mL）、**素因**（年齢 ≥65歳・女性・LA拡大・拡張機能障害）も原典と一致。
+> - **外科治療**：MV手術＋外科的AF ablation（適応あれば）＋LAAO ＝ **IIa, B**（推奨表）。**TEER**（手術不適例）＝ **IIb, B**（本まとめは元々LOE未記載だったため B を追記）。
+>
+> 上記のとおり原典と一致しており、TEER の LOE（B）追記以外に修正は不要であった。なお本まとめは ESC/EACTS 2025 VHD のみを引用しており（AATS Mori 2026 心房性MRコンセンサスは本まとめでは未引用）、照合は引用原典に対して実施した。

@@ -223,7 +223,7 @@ JCS 2020 は AF に伴う annular dilatation を主機序とする TR と PH に
 
 | 推奨事項 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |---------|---------|----------------|--------------|
-| **重症 TR（一次性／二次性とも）+ 左側弁手術同時施行** | **Class I, Level B**（Table 37・38） | **Class I, Level B**（Rec Table 9） | **Class I, Level B-NR**（Stage C/D） |
+| **重症 TR（一次性／二次性とも）+ 左側弁手術同時施行** | 一次性 **Class I, Level B**（Table 37）・二次性 **Class I, Level C**（Table 38） | **Class I, Level B**（Rec Table 9） | **Class I, Level B-NR**（Stage C/D） |
 
 > [!success] 共通根拠
 > 1. **重症 TR は左側弁手術単独では改善しない**ことが多い
@@ -622,8 +622,8 @@ JCS Figure 20 の決定アルゴリズム：
 
 | 推奨事項 | JCS 2020 | ESC/EACTS 2025 |
 |---------|---------|---------------|
-| **症候性重症 TS への手術** | Class I, Level C | **Class I, Level C**（Rec Table 10） |
-| **左側弁手術同時の重症 TS への手術** | Class I, Level C | **Class I, Level C**（Rec Table 10） |
+| **症候性重症 TS への手術** | Class I 相当（本文で「推奨」、明示的 COR/LOE なし） | **Class I, Level C**（Rec Table 10） |
+| **左側弁手術同時の重症 TS への手術** | 明示的記載なし | **Class I, Level C**（Rec Table 10） |
 | **TS への balloon valvuloplasty** | リウマチ性 TS + MS で PMC 可なら同時 BTV 可 | **PMC 可能症例で BTV を first approach として試行可** |
 
 > [!note] TS の特性
@@ -668,7 +668,7 @@ JCS Figure 20 の決定アルゴリズム：
 
 | 適応条件 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |---------|---------|----------------|--------------|
-| 重症二次性 TR + 左側弁手術 | **I / B**（Table 38） | **I / B**（Rec Table 9） | **I / B-NR**（Stage C/D） |
+| 重症二次性 TR + 左側弁手術 | **I / C**（Table 38） | **I / B**（Rec Table 9） | **I / B-NR**（Stage C/D） |
 | 軽度二次性 TR + 弁輪拡大（≥40 mm or >21 mm/m²）+ 左側弁手術 | **IIb / C** | **IIb / B** | **IIa / B-NR**（Stage B）|
 | 軽度二次性 TR + 持続性 AF + 左側弁手術 | **IIb / C** | （文脈で考慮） | （Stage B 内）|
 | 症候性重症二次性 TR + 薬物不応（孤立性）| **IIa / C** | **IIa / B** | **IIa / B-NR**（Stage D）|
@@ -768,3 +768,13 @@ JCS Figure 20 の決定アルゴリズム：
 - Benedetto U, et al. (2012) — RCT for TV annuloplasty at MV surgery with dilated annulus
 - Dreyfus GD, et al. Ann Thorac Surg 2005;79:127 — intraoperative TV annular measurement
 - TRI-SCORE：Dreyfus J, et al. (2022)
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・数値閾値を、原典ガイドラインPDF（JCS/JSCS/JATS/JSVS 2020、ESC/EACTS 2025、ACC/AHA 2020、ACC/AHA 2026 三尖弁）と逐語照合し、以下を修正のうえ確認済み。
+>
+> - **JCS 2020：重症「二次性」TR + 左側弁手術同時施行**：I/B → **I/C**（Table 38）。一次性 TR（Table 37）の I/B は正しい（両表の混同を訂正）。
+> - **JCS 2020：三尖弁狭窄（TS）**：症候性重症 TS への手術は本文で「推奨」とのみ記載（明示的 COR/LOE なし）に訂正。左側弁手術同時の重症 TS への手術は JCS に明示的記載がない旨へ訂正。
+> - **補足（ACC/AHA 2020）**：三尖弁輪拡大の indexed カットオフ「>21 mm/m²」は JCS/ESC の基準であり、ACC/AHA 2020 は「>4.0 cm（40 mm）」のみを用いる（各 ACC セルの値は >4.0 cm で既に正確）。
+>
+> 上記以外の重症度分類・一次性/二次性 TR の介入クラス・レベル、孤立性 TR 手術、経カテーテル TR 治療（ACC/AHA 2026 含む）の数値は原典と一致を確認。

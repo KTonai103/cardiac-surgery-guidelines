@@ -68,7 +68,7 @@ ESC/EACTS、JCS、ACC/AHAいずれもCarpentier様の機能分類を採用し、
 | **Type II** | 弁尖逸脱 | 逸脱（cusp prolapse） | 弁尖縫縮・三角切除（valve repair） |
 | **Type III** | 弁尖の運動制限 | 弁尖石灰化・短縮（変性・リウマチ） | 弁置換（AVR）が主体 |
 
-> [!note] 弁形成術（valve repair）が適応となるのは主にType I/II。Geometric height（GH）が十分（≥16 mm目安）であることが弁形成術の成否を決める重要な術前指標である（JCS 2020）。
+> [!note] 弁形成術（valve repair）が適応となるのは主にType I/II。Geometric height（GH）が十分であることが弁形成術の成否を決める重要な術前指標である（JCS 2020は「GHが不足する症例は弁形成に不適」と定性的に記載。GH ≥16 mmは外科領域で広く用いられる目安値であり、ガイドライン本文が明記した数値閾値ではない）。
 
 ---
 
@@ -138,7 +138,7 @@ ACC/AHAは慢性ARに対してAS同様のA〜Dステージ分類を採用して�
 | **LVESDi >25 mm/m²（BSA補正）** | **Class IIb, Level C**（フォロー強化条件付き） | **Class I, Level B**（特にBSA<1.68 m²） | **Class IIa, Level B-NR**（Stage C2） |
 | **LVESDi >22 mm/m²** | 記載なし | **Class IIb, Level B**（特にBSA<1.68 m²） | 記載なし |
 | **LVESVi >45 mL/m²（収縮末期容積指数）** | 記載なし | **Class IIb, Level B** | 記載なし |
-| **LVEDD >65 mm** | **Class IIb, Level C** | 記載なし（LVESD中心） | 記載なし（LVEDDの記載あるが3次的指標） |
+| **LVEDD >65 mm** | **Class IIb, Level C** | 推奨表外に本文記載あり（LVEDD >65 mm＋進行性LV拡大/EF低下を本文で言及） | 記載なし（LVEDDの記載あるが3次的指標） |
 | **安静時 LVEF ≤55%（軽度低下）** | 記載なし | **Class IIb, Level B**（低リスク手術前提） | **Class I, Level B-NR**（即手術適応） |
 | **LVEF 55-60%への進行性低下 + LV severe dilation（LVEDD >65 mm）** | 記載なし | 記載なし | **Class IIb, Level B-NR** |
 
@@ -178,7 +178,7 @@ ACC/AHAは慢性ARに対してAS同様のA〜Dステージ分類を採用して�
 |------|------|------|-------|
 | **大動脈弁置換術（AVR）：機械弁** | 若年（おおむね<60歳）、長期耐久性重視、抗凝固管理可能例 | 長期耐久性 | 生涯ワルファリン療法（[[Mechanical_Valve_Anticoagulation_INR_Targets]]参照） |
 | **大動脈弁置換術（AVR）：生体弁** | 高齢、抗凝固禁忌例、女性で妊娠希望例 | 抗凝固不要（リスク許容内） | 構造的弁劣化（SVD）による再手術リスク |
-| **弁形成術（Aortic Valve Repair）** | Type II（弁尖逸脱）/ 一部Type I、GH ≥16 mm | 抗凝固不要、native valve保存 | 経験豊富施設に限定、長期耐久性データ蓄積中 |
+| **弁形成術（Aortic Valve Repair）** | Type II（弁尖逸脱）/ 一部Type I、GH十分（≥16 mmは一般的な外科的目安） | 抗凝固不要、native valve保存 | 経験豊富施設に限定、長期耐久性データ蓄積中 |
 | **弁温存基部置換（VSARR：Yacoub/David）** | Type Ia/Ib（基部拡大主体、弁尖変性なし）、Marfan等の若年基部拡大例 | native valve保存、抗凝固不要 | 高度な術者技量必要 |
 | **Bentall手術（複合弁付グラフト）** | 弁尖変性 + 基部拡大、高齢、structural valve degeneration | 確立術式、長期成績良好 | 弁＋人工血管同時置換、抗凝固管理（機械弁の場合） |
 
@@ -228,7 +228,7 @@ ACC/AHAは慢性ARに対してAS同様のA〜Dステージ分類を採用して�
 | **LV拡大による介入閾値（LVESD絶対値）** | **>45 mm（IIa）**（日本人体格考慮） | **>50 mm（I）** | **>50 mm（IIa）** |
 | **LVESDi（BSA補正）のクラス** | >25 mm/m² → **IIb**（警告基準） | >25 mm/m² → **I**（特にBSA<1.68 m²） | >25 mm/m² → **IIa** |
 | **LVESDi >22 mm/m² や LVESVi >45 mL/m² の明示** | 記載なし | **Class IIb, B**（明示） | 記載なし |
-| **LVEDD >65 mm の取り扱い** | **IIb, C** | 記載なし（LVESD中心） | LVEDD言及あるが3次的（IIb） |
+| **LVEDD >65 mm の取り扱い** | **IIb, C** | 推奨表外に本文記載あり | LVEDD言及あるが3次的（IIb） |
 | **ステージ分類方式** | 重症度別（軽/中/重症） | 重症度別 | **A〜Dアルファベットステージ分類** |
 | **弁形成術の推奨クラス** | 推奨（明示クラス記載なし） | **Class IIa, B**（明示） | 推奨（明示クラス記載なし） |
 | **VSARRの強調** | 記載あり | **2025改訂で強調** | 記載あり |
@@ -247,7 +247,7 @@ ACC/AHAは慢性ARに対してAS同様のA〜Dステージ分類を採用して�
 | **LVESDi >25 mm/m²** | **IIb / C**（警告） | **I / B**（特に小柄） | **IIa / B-NR** |
 | **LVESDi >22 mm/m²** | 記載なし | **IIb / B** | 記載なし |
 | **LVESVi >45 mL/m²** | 記載なし | **IIb / B** | 記載なし |
-| **LVEDD >65 mm** | **IIb / C** | 記載なし | IIb / B-NR（LVEF低下傾向と併用） |
+| **LVEDD >65 mm** | **IIb / C** | 推奨表外に本文記載あり | IIb / B-NR（LVEF低下傾向と併用） |
 | **他の心臓手術同時施行例の重症AR** | **I / C** | **I / C** | **I / C-EO** |
 | **他の心臓手術同時施行例の中等症AR** | **IIa / C** | Heart Team判断 | **IIa / C-EO** |
 
@@ -257,7 +257,7 @@ ACC/AHAは慢性ARに対してAS同様のA〜Dステージ分類を採用して�
 |---------|---------|---------------|-------------|
 | **若年（<60歳）+ 弁尖正常・基部拡大主体（Type Ia/Ib）** | VSARR検討 | **VSARR推奨（強調）** | VSARR検討 |
 | **Marfan症候群** | 基部置換（VSARR or Bentall） | **VSARR推奨**（弁尖変性ない場合） | VSARR or Bentall |
-| **Type II弁尖逸脱（GH ≥16 mm）** | 弁形成検討 | **弁形成（Class IIa, B）** | 弁形成検討 |
+| **Type II弁尖逸脱（GH十分；≥16 mmは外科的目安）** | 弁形成検討 | **弁形成（Class IIa, B）** | 弁形成検討 |
 | **高齢・弁尖変性主体（Type III）** | AVR（多くは生体弁） | AVR（生体弁中心） | AVR（生体弁中心） |
 | **手術禁忌・超高リスクのAR** | 内科治療中心 | 限定的TAVI考慮 | 内科治療中心（TAVIは極めて限定的） |
 
@@ -314,7 +314,7 @@ graph TD
     E --> K
     G --> K
     I --> K
-    K --> L{Type I/II<br>GH ≥16 mm?}
+    K --> L{Type I/II<br>GH十分?}
     L -->|はい・基部拡大主体| M[VSARR/弁形成<br>ESC: Class IIa, B]
     L -->|いいえ・変性主体| N[AVR<br>機械弁 or 生体弁]
 ```
@@ -327,3 +327,14 @@ graph TD
 - JCS/JSCS/JATS/JSVS 2020 弁膜症治療ガイドライン 第4章 大動脈弁閉鎖不全症 / 大動脈弁逆流症（AR）
 - 2025 ESC/EACTS Guidelines for the management of valvular heart disease, Section 7: Aortic regurgitation
 - 2020 ACC/AHA Guideline for the Management of Patients With Valvular Heart Disease, Section 4: Aortic Regurgitation
+
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・数値閾値を、原典ガイドラインPDF（JCS/JSCS/JATS/JSVS 2020、ESC/EACTS 2025、ACC/AHA 2020）と逐語照合して検証済み。
+>
+> **本検証での修正点：**
+> - Geometric height（GH）≥16 mm はガイドライン本文が明記した数値閾値ではなく、一般的な外科的目安である旨を明確化（弁形成術の記載4箇所）
+> - ESC/EACTS 2025 の LVEDD >65 mm は「記載なし」ではなく推奨表外の本文に記載がある旨へ修正（比較表3箇所）
+>
+> 上記以外の推奨クラス・エビデンスレベル・数値閾値は原典と一致することを確認。

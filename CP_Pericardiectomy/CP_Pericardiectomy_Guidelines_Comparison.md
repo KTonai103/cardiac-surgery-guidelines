@@ -139,14 +139,14 @@ aliases:
 | **発行学会** | ESC（EACTS・AEPC endorsement） | ACC | JACC（査読付き総説、AHA等公式エンドースメントなし） |
 | **対象範囲** | 心筋炎＋心膜炎（包括的、90ページ）| 心膜炎の診断・管理（簡潔型、29ページ）| 心膜疾患全般＋心膜剥皮術の周術期管理（20ページ）|
 | **推奨クラス** | I / IIa / IIb / III | **Recommended / Reasonable / Not recommended**（3段階） | 推奨クラス明記なし（本文中で記述）|
-| **エビデンスレベル** | A / B / C | 記載なし | 記載なし |
+| **エビデンスレベル** | A / B / C | A / B / C（治療表 Table 5 で併記。CP管理表 Table 11 には付さず）| 記載なし |
 | **CPに関する推奨表** | Recommendation Table 13（外科治療）＋ Recommendation Table 24（CP診断・治療）| Table 11（CP診断・管理）| Table 3（心膜剥皮術の適応）＋ Central Illustration |
 | **特筆** | 心膜疾患専門ガイドラインを2015年版以降10年ぶりに改訂。**EACTS endorsement** により外科治療推奨が手厚い | ACC初の**心膜炎単独**コンセンサス文書。Multimodality imaging guided therapeutic approach を強調 | Cleveland Clinic／Mayo／Northwestern／Mount Sinai 合同。**米国の事実上の外科標準**。ACC/AHA公式ガイドラインは未発行 |
 | **JCS対応文書** | **存在しない**（2026年5月時点） | **存在しない** | **存在しない** |
 
 > [!warning] グレーディング体系の読み替え
 > - ESC 2025 は伝統的な ACC/AHA 系の **Class I / IIa / IIb / III** ＋ **LOE A / B / C** を採用。
-> - ACC 2025 Concise Clinical Guidance は簡潔性を優先し、**Recommended / Reasonable / Not recommended の3段階**のみ。Class I/IIa/III に概ね対応するが、LOE は明示されない。
+> - ACC 2025 Concise Clinical Guidance は推奨段階に **Recommended / Reasonable / Not recommended の3段階**を用い、Class I/IIa/III に概ね対応。LOE（A / B / C）は治療表（Table 5）で併記される（例：radical pericardiectomy ＝ LOE C）が、CP管理表（Table 11）には付されない。
 > - JACC 2024 SOTA は推奨クラスを伴わない**状態評価レビュー**であり、本文中で「推奨される（recommended）」「望ましい（preferred）」等の表現を用いる。Central Illustrationに集約された患者選択基準は事実上のベストプラクティス。
 
 > [!important] JCSガイドラインの欠落
@@ -203,7 +203,7 @@ ESC 2025（Section 11.9.3）・JACC 2024 SOTA（Table 1）・ACC 2025（Figure 1
 
 | 基準 | 特異度・感度 |
 |------|------------|
-| ① 心房中隔のrespirophasic shift（吸気時にLV方向へbow） | 感度 87%、特異度 91% |
+| ① 心室中隔のrespirophasic shift／septal bounce（吸気時にLV方向へbow） | ①単独：感度94%・特異度73%（ACC Fig 12B）／①＋③または⑤の組合せで感度87%・特異度91%（ESC 2025、全所見陽性で特異度97%・感度64%）|
 | ② mitral inflow E/A >0.8 ＋ 拡張IVC | スクリーニング |
 | ③ medial mitral annular e' >8 cm/s（tissue Doppler）| — |
 | ④ Annulus reversus：medial e' > lateral e' | — |
@@ -212,7 +212,7 @@ ESC 2025（Section 11.9.3）・JACC 2024 SOTA（Table 1）・ACC 2025（Figure 1
 | ⑦ Strain reversus（外側壁strain低下、内側壁代償性増加）| 新基準 |
 
 > [!note] 単一所見の限界
-> 単独で診断的な所見はない（特に心膜肥厚は**18%のCP症例で正常**）。**①＋②＋④の組み合わせ**で特異度99%、PPV 100%（ACC 2025 Figure 12B）。
+> 単独で診断的な所見はない（特に心膜肥厚は**18%のCP症例で正常**）。**①＋②＋⑤の組み合わせ**で特異度99%、PPV 100%（ACC 2025 Figure 12B「1 with both 2 and 4」）。
 
 ### 4-2. CMRの役割（ESC 2025・ACC 2025 共通推奨）
 
@@ -455,7 +455,7 @@ ACC 2025 は **Wang TKM**（Chair）, **Klein AL**（Vice Chair, Cleveland Clini
 | **慢性CP（非炎症性、線維化／石灰化）** | **I, C** | **Recommended** | **適応**（NYHA III/IV）|
 | **3〜6ヵ月の抗炎症療法不応の炎症性CP** | **I, C** | **Recommended** | **適応**（subacute refractory）|
 | **症状ある transient CP** | **抗炎症療法 3〜6ヵ月を先行**（I, C） | **抗炎症療法 First-line**（Recommended） | **CMRで可逆性評価後、薬物先行** |
-| **内科治療抵抗性 RP** | 言及あり（Section 6.4.2.3、本文）、推奨表に**独立記載なし**| 言及なし（CPに焦点） | **適応**（Table 3 ②）|
+| **内科治療抵抗性 RP** | 言及あり（Section 6.4.2.3、本文）、推奨表に**独立記載なし**| **Reasonable**（高ボリューム施設での最終手段、LOE C） | **適応**（Table 3 ②）|
 | **ECP の難治例（visceral pericardiectomy 必要）** | 「Surgery for persistent cases」（Table 18）| 言及あり（本文） | 「Pericardiectomy with extensive epicardiectomy」が必要 |
 | **心膜部分欠損 + 心臓ヘルニア** | 言及あり（Section 5） | 言及あり | **適応**（Table 3 ③）|
 
@@ -570,7 +570,7 @@ ACC 2025 は **Wang TKM**（Chair）, **Klein AL**（Vice Chair, Cleveland Clini
 
 | 項目 | 🇪🇺 ESC 2025 | 🇺🇸 ACC 2025 | 🇺🇸 JACC 2024 SOTA |
 |------|-------------|-------------|-------------|
-| **RPへの心膜剥皮術の位置づけ** | 「Refractory RP は可能な適応」と Section 6.4.2.3 本文に記載。**推奨表に独立記載なし** | CP focusのため言及限定 | **適応として明記**（Table 3 ②）|
+| **RPへの心膜剥皮術の位置づけ** | 「Refractory RP は可能な適応」と Section 6.4.2.3 本文に記載。**推奨表に独立記載なし** | 内科治療抵抗例に radical pericardiectomy を **Reasonable**（最終手段・高ボリューム施設、LOE C） | **適応として明記**（Table 3 ②）|
 | **抗IL-1薬の事前トライ** | rilonacept / anakinra を内科治療抵抗性 RPの選択肢として明記 | rilonacept / anakinra を**2nd or 3rd line** | rilonacept / anakinra **十分なトライ後**に手術 |
 | **タイミング** | 「最低6ヵ月の症状期間」相当 | 抗炎症療法不応・依存・不耐後 | 同左、早期紹介推奨 |
 
@@ -780,7 +780,7 @@ ACC 2025 は **Wang TKM**（Chair）, **Klein AL**（Vice Chair, Cleveland Clini
 |------|---------|---------|---------|
 | **Partial pericardiectomy** | 「劣る」（本文） | **Not recommended**（推奨表で明記） | radical 推奨 |
 | **CPB** | 「特定シナリオで」（限定的推奨） | **「Preferred」** | **「Preferred」** |
-| **RP（再発性心膜炎）への手術** | 本文言及、独立推奨表なし | CP focus | **Table 3で独立適応** |
+| **RP（再発性心膜炎）への手術** | 本文言及、独立推奨表なし | 難治例に **Reasonable**（最終手段） | **Table 3で独立適応** |
 | **抗IL-1薬の位置づけ** | 慎重 | 2nd or 3rd line | 十分なトライ後の手術へ |
 | **用語** | 「complete」 | 「radical」 | 「radical」 |
 
@@ -815,3 +815,17 @@ ACC 2025 は **Wang TKM**（Chair）, **Klein AL**（Vice Chair, Cleveland Clini
 6. Murashita T, Schaff HV, Daly RC, Oh JK, Dearani JA, Stulak JM, et al. Experience With Pericardiectomy for Constrictive Pericarditis Over Eight Decades. *Ann Thorac Surg* 2017;104:742–750.
 7. Koprivanac M, Bauza K, Smedira N, Pettersson G, Unai S, et al. Radical Pericardiectomy and Use of Cardiopulmonary Bypass for Constrictive Pericarditis. *Ann Thorac Surg* 2026;121:871–880.
 8. Adler Y, Charron P, Imazio M, et al. 2015 ESC Guidelines for the diagnosis and management of pericardial diseases. *Eur Heart J* 2015;36:2921–2964.（前版）
+
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・数値を、原典PDF（ESC 2025 心筋炎・心膜炎ガイドライン／ACC 2025 心膜炎コンセンサス／JACC 2024 心膜剥皮術 State-of-the-Art Review）と逐語照合し、以下を修正のうえ確認した。
+>
+> - **ACC 2025：内科治療抵抗性 再発性心膜炎（RP）への心膜剥皮術**：「言及なし／CP focus」→ **Reasonable**（高ボリューム施設での最終手段、LOE C）。ACC 2025 は治療表・難治例アルゴリズム・本文で radical pericardiectomy を明記（§6-1／§6-6／§10-2 の3か所を修正）。
+> - **ACC 2025：エビデンスレベル**：「記載なし」→ **A / B / C**（治療表 Table 5 で併記。例：radical pericardiectomy ＝ LOE C。ただし CP管理表 Table 11 には付さず）。グレーディング体系の読み替え callout も整合修正。
+> - **Mayo心エコー基準①の感度・特異度**：「① 心房中隔のrespirophasic shift＝感度87%・特異度91%」→ **心室中隔**（septal bounce）に訂正し、87%/91% は ESC 2025 の**複合所見**（①＋③または⑤）の値であることを明記（①単独は感度94%・特異度73%＝ACC Fig 12B）。
+> - **複合診断基準の組合せ参照**：「①＋②＋④で特異度99%・PPV 100%（ACC Fig 12B）」→ **①＋②＋⑤**（ACC Fig 12B「1 with both 2 and 4」＝④の肝静脈逆流＝本資料⑤）に訂正。
+>
+> 上記以外の推奨クラス・レベル・数値（ESC 2025 Recommendation Table 13／24 の I, C 群、ACC 2025 Table 11 の Recommended/Reasonable/Not recommended、JACC SOTA の数値）は原典と一致を確認。
+>
+> **検証範囲の制限**：日本（JCS）には心膜疾患専門ガイドラインが**未発行**（NCVC 2022 単施設論文等はリポジトリ外）。本文書の日本列は原典GLが存在しないため検証不能であり、値は改変していない。JACC 2024 は査読総説（公式推奨クラスを持たない）として数値・記述のみを扱った。

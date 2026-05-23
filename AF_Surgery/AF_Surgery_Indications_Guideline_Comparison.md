@@ -69,7 +69,7 @@ aliases:
 
 | 推奨内容 | Class | LOE | 原文（要旨） |
 |---------|-------|-----|------------|
-| 初回・非永続性AF合併**僧帽弁手術**時の外科的アブレーション | **I** | **A** | Surgical ablation for AF is recommended for first-time nonpermanent AF concomitant mitral operations |
+| 初回・**非緊急**の**僧帽弁手術**合併時の外科的アブレーション | **I** | **A** | Surgical ablation for AF is recommended for first-time nonemergent concomitant mitral operations |
 | 低〜中等度手術リスクの症候性弁疾患＋AF：弁手術＋外科的アブレーション＋LAA除外 vs. 単独TAVR | **IIa** | **B-NR** | Surgical valve repair/replacement with concomitant ablation and LAA exclusion is reasonable over isolated TAVR alone |
 
 #### 1-2. 単独外科的AF治療（Stand-alone）
@@ -78,13 +78,14 @@ aliases:
 |---------|-------|-----|------------|
 | 症候性AFへの単独外科的アブレーション | **IIa** | **B-NR** | Surgical ablation for symptomatic AF is reasonable as a primary stand-alone procedure |
 | 症候性持続性・LSPersAF（構造的心疾患なし） | **IIa** | **B-NR** | Reasonable for symptomatic persistent or LSPersAF without structural heart disease |
-| **LA拡大（>4.5 cm）または中等度以上MR**合併LSPersAF（薬物・カテーテル不応/禁忌、高脳卒中リスク） | **IIb** | **B-NR** | May be considered in LSPersAF with LA >4.5 cm or ≥moderate MR, high stroke risk, AAD failure/contraindication |
+| **LA拡大（≥4.5 cm）または中等度以上MR**合併例での**PVI単独** → 推奨されない | **III** | **C** | Surgical ablation by pulmonary vein isolation alone is not recommended in the setting of LA enlargement (≥4.5 cm) or more than moderate MR |
 
 #### 1-3. LAA管理・チーム医療
 
 | 推奨内容 | Class | LOE |
 |---------|-------|-----|
-| 外科的AF治療施行患者**全例**でのLAA閉鎖/閉塞 | **I** | **A** |
+| 初回・非緊急の心臓手術**全例**でのLAA閉鎖/閉塞 | **I** | **A** |
+| **孤立性**外科的LAA閉鎖術（LSPersAF・高脳卒中リスク・OAC禁忌/不応） | **IIb** | **B-NR** |
 | 多職種チームによる評価・治療計画・長期定期フォロー（持続心電図モニタリング） | **I** | **C** |
 
 #### 1-4. Full Cox-Maze vs LA Maze
@@ -106,11 +107,13 @@ aliases:
 
 | 推奨内容 | Class | LOE | 原文（要旨） |
 |---------|-------|-----|------------|
-| **弁手術（主に僧帽弁）合併**時の外科的AF治療 | **IIa** | **B** | Concomitant surgical ablation of AF is reasonable in patients with AF undergoing cardiac surgery for other indications |
-| **単独外科的AF治療**（カテーテル不応/禁忌/患者希望） | **IIb** | **C** | Stand-alone surgical ablation of AF is considered reasonable in selected patients who (1) failed catheter ablation, (2) are not candidates for catheter ablation, or (3) prefer surgical approach |
-| **CABG合併**時の外科的AF治療 | **IIb** | **C** | Concomitant surgical ablation of AF may be considered in patients with AF undergoing CABG |
+| **開心（僧帽弁等）手術合併**時の外科的AF治療 | **I** | **B-NR** | Surgical ablation is recommended at the time of concomitant open atrial procedures such as mitral valve surgery |
+| **閉鎖型（CABG・AVR）手術合併**時（薬物不応/不耐） | **I** | **B-NR** | Surgical ablation is recommended at the time of concomitant closed atrial procedures (CABG, AVR) for AF refractory/intolerant to ≥1 class I/III AAD |
+| **閉鎖型（CABG・AVR）手術合併**時（薬物未使用・第一選択） | **IIa** | **B-NR** | Surgical ablation is reasonable prior to initiation of AAD therapy |
+| **単独外科的AF治療**：発作性（カテーテル不応/患者希望） | **IIb** | **B-NR** | Stand-alone surgical ablation can be considered for paroxysmal AF after review of catheter vs surgical options |
+| **単独外科的AF治療**：持続性・LSPersAF | **IIa** | **B-NR** | Stand-alone surgical ablation is reasonable for persistent / long-standing persistent AF |
 
-> [!info] HRS/EHRA 2017は2017年時点のコンセンサスであり、STS 2023・ESC/EACTS 2024より推奨が全体的に**控えめ**。僧帽弁手術でもClass IIaに留まる（STS 2023・ESC/EACTS 2024のClass Iより低い）。
+> [!info] HRS/EHRA 2017は**開心（僧帽弁）手術合併時を Class I（B-NR）**、閉鎖型（CABG/AVR）手術合併時も薬物不応例は Class I（B-NR）と推奨しており、STS 2023・ESC/EACTS 2024 の Class I と整合する。単独外科的AF治療は発作性で IIb、持続性・LSPersAF で IIa（いずれも B-NR）。
 
 #### 2-2. Full Cox-Maze vs LA Maze：最小病変セット（Minimum Lesion Set）
 
@@ -169,10 +172,10 @@ aliases:
 | 推奨内容 | Class | LOE | 原文（要旨） |
 |---------|-------|-----|------------|
 | 心臓手術患者への**合併外科的アブレーション** | **2a** | **B-R** | Concomitant surgical ablation can be performed to reduce the risk of AF |
-| 術後の**AAD継続**（最低3ヶ月） | **2a** | **B-NR** | Antiarrhythmic therapy is reasonable for at least 3 months post-surgical ablation |
-| 症候性**発作性AF**への単独外科的アブレーション | **2b** | **B-R** | Stand-alone surgical ablation might be reasonable for symptomatic paroxysmal AF |
+| 外科的アブレーション後の**抗凝固療法継続**（最低3ヶ月） | **2a** | **B-NR** | Anticoagulation therapy is reasonable for at least 3 months after surgical ablation to reduce stroke/systemic embolism |
+| 症候性**持続性AF**（AAD不応）への**ハイブリッド（心外膜＋心内膜）アブレーション** | **2b** | **B-R** | Hybrid epicardial and endocardial ablation might be reasonable for symptomatic persistent AF refractory to AAD |
 
-#### 3-2. 術後心房細動（POAF）予防（Section 10.8）—— 合併Mazeとは別概念
+#### 3-2. 術後心房細動（POAF）予防（Section 10.9.1）—— 合併Mazeとは別概念
 
 | 推奨内容 | Class | LOE |
 |---------|-------|-----|
@@ -184,13 +187,13 @@ aliases:
 ### 4. ESC/EACTS 2024 AF Guidelines
 
 **発行：** ESC・EACTS、2024年  
-**特徴：** 外科的AF治療に最も強い推奨を付与（僧帽弁手術でClass I, B）。「リズムコントロール戦略に適合するAF」の概念を前提条件とする
+**特徴：** 外科的AF治療に最も強い推奨を付与（僧帽弁手術でClass I, A）。「リズムコントロール戦略に適合するAF」の概念を前提条件とする
 
 #### 4-1. 外科的AF治療の推奨
 
 | 推奨内容 | Class | LOE | 原文（要旨） |
 |---------|-------|-----|------------|
-| **僧帽弁手術**時の外科的AFアブレーション（リズムコントロール適応・経験チーム） | **I** | **B** | AF ablation is recommended in patients undergoing MV surgery with AF suitable for rhythm control |
+| **僧帽弁手術**時の外科的AFアブレーション（リズムコントロール適応・経験チーム） | **I** | **A** | Concomitant surgical ablation is recommended in patients undergoing MV surgery with AF suitable for a rhythm control strategy |
 | **その他の心臓手術（AV・CABG等）**時の外科的AFアブレーション（リズムコントロール適応） | **IIa** | **B** | Concomitant surgical ablation should be considered in patients undergoing other cardiac surgery |
 | **外科的LAA閉鎖**（AF患者の心臓手術時；OACの補助） | **I** | **B** | Surgical closure of the LAA is recommended as an adjunct to OAC to prevent perioperative ischemic stroke |
 | 術前TEEによる左心耳血栓スクリーニング | **I** | **C** | Intraoperative TEE for LA thrombus detection is recommended |
@@ -222,8 +225,8 @@ aliases:
 
 | 推奨内容 | Class | LOE | 原文（要旨） |
 |---------|-------|-----|------------|
-| 症候性AF/AFL合併**弁手術**時の合併Maze手術（±LAA閉鎖） | **I** | **C-EO** | Concomitant maze procedure with or without LAA occlusion/exclusion is recommended for symptomatic AF/AFL during valve surgery |
-| 症候性発作性・持続性AF合併**弁手術またはCABG**時の術中カテーテルアブレーション | **2a** | **B-R** | Intraoperative catheter ablation may be beneficial for symptomatic paroxysmal or persistent AF during valvular or CABG surgery |
+| VHD手術が予定されたAF患者で、付随的不整脈手術の利益・リスクを患者と相談 | **1** | **C-LD** | The potential symptomatic benefits and additional procedural risks of adjunctive arrhythmia surgery should be discussed with the patient |
+| 症候性発作性・持続性AF合併**弁手術**時の**外科的肺静脈隔離術またはMaze手術** | **2a** | **B-R** | Surgical pulmonary vein isolation or a maze procedure can be beneficial to reduce symptoms and prevent recurrent arrhythmias |
 
 #### 6-2. LAA管理
 
@@ -241,10 +244,10 @@ aliases:
 | 推奨内容 | Class | LOE | 原文（要旨） |
 |---------|-------|-----|------------|
 | AF患者の**弁手術**時の**外科的LAA閉鎖（切除・縫合）**（OACの補助） | **I** | **B** | Surgical closure of the LA appendage is recommended as an adjunct to OAC in AF patients undergoing valve surgery |
-| CHA₂DS₂-VASc ≥2のAF患者の弁手術時の**LAAOデバイス**（血栓塞栓リスク軽減） | **IIa** | **B** | LAAO should be considered to reduce thromboembolic risk in AF patients with CHA₂DS₂-VASc ≥2 undergoing valve surgery |
+| AF合併**僧帽弁手術**時の合併外科的アブレーション（リズムコントロール適応） | **I** | **A** | Concomitant surgical ablation is recommended in patients undergoing MV surgery with AF suitable for a rhythm control strategy |
 | AF合併**非僧帽弁手術**時の合併外科的アブレーション（リズムコントロール適応） | **IIa** | **B** | Concomitant surgical ablation should be considered in non-MV surgery with AF suitable for rhythm control |
 
-> [!info] 僧帽弁手術時の合併外科的アブレーション推奨はESC/EACTS 2024 AF（Class I, B）に委ねられており、本VHDガイドラインは非僧帽弁手術に焦点を当てる。
+> [!info] ESC/EACTS 2025 VHD は僧帽弁手術合併の外科的アブレーションを **Class I, A**（ESC/EACTS 2024 AF と同一）、非僧帽弁手術を **IIa, B** とする。2021年版にあった「CHA₂DS₂-VASc ≥2 で LAAO デバイスを考慮（IIa, B）」は2025年版で削除され、外科的LAA閉鎖（**I, B**）に一本化された。
 
 ---
 
@@ -259,7 +262,7 @@ aliases:
 |---------|-------|-----|------|
 | 僧帽弁手術時の**慢性/持続性AF**へのMaze手術 | **IIa** | **B** | 考慮してよい（最強推奨） |
 | 僧帽弁手術の**発作性AF**へのMaze手術または肺静脈隔離術 | **IIb** | **C** | 考慮してもよい（弱い推奨） |
-| **大動脈弁手術**時の発作性/持続性AFへのMaze手術 | **IIa** | **C** | 考慮してよい |
+| **大動脈弁手術**時の慢性/持続性AFへのMaze手術 | **IIa** | **C** | 考慮してよい |
 | 弁膜症手術時のAF患者への**左心耳閉鎖または切除術** | **IIa** | **C** | 考慮してよい |
 
 > [!warning] JCS 2020の特異点
@@ -283,14 +286,14 @@ aliases:
 
 | 推奨項目 | STS 2023 | HRS/EHRA 2017 | ACC/AHA/HRS 2023 | ESC/EACTS 2024 |
 |---------|---------|--------------|----------------|--------------|
-| 症候性AF全般 | **IIa, B-NR** | — | **2b, B-R**（PAFのみ） | 記載なし |
-| 症候性PersAF・LSPersAF（構造心疾患なし） | **IIa, B-NR** | — | — | — |
-| 薬物不応・カテーテル不応/禁忌/患者希望 | 根拠として言及 | **IIb, C** | — | — |
-| LA拡大（>4.5 cm）/中等度以上MR合併LSPersAF | **IIb, B-NR** | — | — | — |
-| **立場の要約** | 最も積極的 | 最も保守的（2017年基準） | 控えめ（2b） | 合併手術中心 |
+| 症候性AF全般 | **IIa, B-NR** | 発作性 **IIb, B-NR** | **2b, B-R**（持続性・ハイブリッド） | 記載なし |
+| 症候性PersAF・LSPersAF（構造心疾患なし） | **IIa, B-NR** | **IIa, B-NR** | — | — |
+| 薬物不応・カテーテル不応/禁忌/患者希望 | 根拠として言及 | 上記推奨の前提条件 | — | — |
+| LA拡大（≥4.5 cm）/中等度以上MR：PVI単独 | **III, C**（非推奨） | — | — | — |
+| **立場の要約** | 最も積極的 | 持続性は IIa・発作性は IIb（B-NR） | 控えめ（2b・ハイブリッド） | 合併手術中心 |
 
 > [!info] 解説
-> HRS/EHRA 2017（Class IIb, C）とSTS 2023（Class IIa, B-NR）の間に推奨の差があることに注目。2017年から2023年にかけてエビデンスが蓄積し、推奨が格上げされた経緯を反映する。
+> 単独外科的AF治療は、HRS/EHRA 2017 が持続性・LSPersAF で **IIa, B-NR**（発作性のみ IIb, B-NR）、STS 2023 も **IIa, B-NR** とほぼ同等。ACC/AHA/HRS 2023 は持続性AFのハイブリッドアブレーションを 2b, B-R とより控えめに位置づける。
 
 ---
 
@@ -300,15 +303,16 @@ aliases:
 
 | ガイドライン | Class | LOE | 要件・注記 |
 |------------|-------|-----|----------|
-| **STS 2023** | **I** | **A** | 初回・非永続性AF。最強エビデンス |
-| **ESC/EACTS 2024 AF** | **I** | **B** | リズムコントロール戦略適応AF；経験チーム必須 |
-| **ACC/AHA 2020 VHD** | **I** | **C-EO** | 症候性AF/AFL合併；LOEはエキスパートオピニオン |
+| **STS 2023** | **I** | **A** | 初回・非緊急手術。最強エビデンス |
+| **ESC/EACTS 2024 AF** | **I** | **A** | リズムコントロール戦略適応AF；経験チーム必須 |
+| **ESC/EACTS 2025 VHD** | **I** | **A** | リズムコントロール適応AF（2024 AF と同一） |
+| **ACC/AHA 2020 VHD** | **2a** | **B-R** | 外科的PVIまたはMaze（弁手術時）。別途「相談」推奨は 1, C-LD |
 | **ACC/AHA/HRS 2023 AF** | **2a** | **B-R** | 心臓手術全般（MV特定なし） |
-| **HRS/EHRA 2017** | **IIa** | **B** | 心臓手術全般（MV特定なし）；2017年時点でIIaに留まる |
+| **HRS/EHRA 2017** | **I** | **B-NR** | 開心（僧帽弁）手術合併。STS/ESC の Class I と整合 |
 | **JCS 2020 VHD** | 慢性/持続性：**IIa, B**<br>発作性：**IIb, C** | — | AF typeで推奨が二分；発作性はClass IIbと欧米より大幅に控えめ |
 
 > [!important] 要点
-> STS 2023・ESC/EACTS 2024・ACC/AHA 2020 VHDは==Class I==を付与。HRS/EHRA 2017・ACC/AHA/HRS 2023はClass IIa。==日本JCS 2020のみ発作性AFでClass IIb, C==と明示的に低く、AF typeで推奨が分かれる唯一のガイドライン。
+> 僧帽弁手術合併の外科的アブレーションは STS 2023・ESC/EACTS 2024/2025・**HRS/EHRA 2017** が==Class I==を付与。ACC/AHA 2020 VHD・ACC/AHA/HRS 2023 は Class 2a。==日本JCS 2020のみ発作性AFでClass IIb, C==と明示的に低く、AF typeで推奨が分かれる唯一のガイドライン。
 
 #### B-2. 大動脈弁・その他の弁手術合併時
 
@@ -316,9 +320,9 @@ aliases:
 |------------|-------|-----|----------|
 | **ESC/EACTS 2024 AF** | **IIa** | **B** | リズムコントロール適応AF；その他の心臓手術全般 |
 | **ESC/EACTS 2025 VHD** | **IIa** | **B** | AF合併非MV手術（大動脈弁・三尖弁含む） |
-| **HRS/EHRA 2017** | **IIa** | **B** | 心臓手術全般として記載（弁種の区別なし） |
+| **HRS/EHRA 2017** | 薬物不応：**I**<br>薬物未使用：**IIa** | **B-NR** | 閉鎖型（AVR等）手術合併。薬物不応例は Class I |
 | **JCS 2020 VHD** | **IIa** | **C** | AF合併大動脈弁・三尖弁手術；LOE Cで弱い |
-| **ACC/AHA 2020 VHD** | **I** | **C-EO** | 症候性AF合併弁手術（弁種不問） |
+| **ACC/AHA 2020 VHD** | **2a** | **B-R** | 症候性AF合併弁手術（外科的PVI/Maze、弁種不問） |
 
 ---
 
@@ -328,13 +332,13 @@ aliases:
 |------------|-------|-----|--------------|
 | **ACC/AHA/HRS 2023 AF** | **2a** | **B-R** | 心臓手術（CABG含む）時の合併外科的アブレーション全般 |
 | **ESC/EACTS 2024 AF** | **IIa** | **B** | その他の心臓手術（CABG含む）＋リズムコントロール適応AF |
-| **ACC/AHA 2020 VHD** | **2a** | **B-R** | 症候性発作性・持続性AF合併CABG（術中カテーテルアブレーション） |
-| **HRS/EHRA 2017** | **IIb** | **C** | CABG合併時は最も保守的（IIb）；エビデンス限定的 |
+| **ACC/AHA 2020 VHD** | — | — | VHDの推奨は弁手術が対象。CABG単独の外科的AF治療の明示的推奨なし |
+| **HRS/EHRA 2017** | 薬物不応：**I**<br>薬物未使用：**IIa** | **B-NR** | 閉鎖型（CABG・AVR）手術合併。薬物不応例は Class I |
 | **STS 2023** | — | — | CABG特定の明示的推奨なし（弁手術中心） |
 | **JCS 2020 VHD** | — | — | CABG合併時の記載なし |
 
 > [!info] 解説
-> CABG合併時のMaze手術は全ガイドラインを通じて==最も推奨が弱い領域==。HRS/EHRA 2017はIIb, Cと最も保守的。弁手術合併との比較でエビデンスが明らかに劣る。
+> CABG（閉鎖型手術）合併時の外科的AF治療は、HRS/EHRA 2017 が薬物不応例で **I, B-NR**（第一選択は IIa, B-NR）、ACC/AHA/HRS 2023・ESC/EACTS 2024 が Class 2a/IIa とする。STS 2023・JCS 2020 VHD は CABG単独の明示的推奨を置かず、弁手術合併と比べエビデンスはやや限定的。
 
 ---
 
@@ -385,7 +389,7 @@ aliases:
 |------------|---------|-------|-----|---------|
 | **STS 2023** | 外科的AF治療施行患者**全例** | **I** | **A** | — |
 | **ESC/EACTS 2024 AF** | AF患者の心臓手術時（OAC補助として） | **I** | **B** | OACの代替にはならない |
-| **ESC/EACTS 2025 VHD** | AF患者の弁手術時（外科的閉鎖）<br>CHA₂DS₂-VASc ≥2：LAAOデバイスも追加考慮 | **I（B）**<br>IIa（B） | B | 外科閉鎖とデバイスを区別 |
+| **ESC/EACTS 2025 VHD** | AF患者の弁手術時の**外科的LAA閉鎖**（OAC補助） | **I** | **B** | 2021年版の「CHA₂DS₂-VASc ≥2でLAAOデバイス考慮（IIa, B）」は2025年版で削除 |
 | **HRS/EHRA 2017** | CHA₂DS₂-VASc ≥2の外科的AF治療患者 | 推奨（ClassはExpert Consensusで別形式） | — | **「LAA閉鎖のみではTEリスクを完全に除去できない可能性」** と明記 |
 | **ACC/AHA 2020 VHD** | AF合併大動脈弁・僧帽弁手術 | **2a** | **B-NR** | **AF非合併例：Class 3 Harm ← 有害** |
 | **JCS 2020 VHD** | Maze手術合併として標準的実施 | 記載あり | — | — |
@@ -413,8 +417,8 @@ aliases:
 
 | AF type | 定義 | 合併手術 | 単独手術 | 推奨術式（HRS/EHRA 2017） |
 |---------|------|---------|---------|------------------------|
-| **発作性（PAF）** | <7日 | 全ガイドラインで適応 | STS IIa、ACC/AHA 2b | LA MazeまたはFull Maze（差なし） |
-| **持続性（PersAF）** | ≥7日・<1年 | 全ガイドラインで適応 | STS IIa | Full Maze推奨 |
+| **発作性（PAF）** | <7日 | 全ガイドラインで適応 | STS IIa、HRS IIb | LA MazeまたはFull Maze（差なし） |
+| **持続性（PersAF）** | ≥7日・<1年 | 全ガイドラインで適応 | STS IIa・HRS IIa（ACC/AHAはハイブリッド2b） | Full Maze推奨 |
 | **長期持続性（LSPersAF）** | ≥1年 | 適応あり（弱いエビデンス） | STS IIa/IIb | **Full Maze strongly preferred** |
 | **永続性（Permanent AF）** | リズムコントロール断念 | JCS IIb（慎重に） | 適応なし | — |
 
@@ -452,9 +456,9 @@ aliases:
 |---------|---------|--------------|-------|-----|
 | 術後OAC継続基準 | CHA₂DS₂-VAScスコアに基づく（アブレーション成功の有無に関わらず） | ESC/EACTS 2024 AF | **I** | **C** |
 | 術後最低OAC期間 | 3ヶ月以上（全例） | 各ガイドライン共通 | — | — |
-| 術後AAD継続 | 最低3ヶ月 | ACC/AHA/HRS 2023 | **2a** | **B-NR** |
+| 術後抗凝固療法継続 | 外科的アブレーション後 最低3ヶ月 | ACC/AHA/HRS 2023 | **2a** | **B-NR** |
 | 術後リズムモニタリング | 定期的な持続心電図モニタリング（最低12ヶ月推奨） | STS 2023、HRS/EHRA 2017 | **I** | **C** |
-| LAA閉鎖後もOAC継続 | OACはLAA閉鎖で代替不可；CHA₂DS₂-VASc基準で継続 | ESC/EACTS 2024 AF、HRS/EHRA 2017 | **I** | **B** |
+| LAA閉鎖後もOAC継続 | OACはLAA閉鎖で代替不可；CHA₂DS₂-VASc基準で継続 | ESC/EACTS 2024 AF、HRS/EHRA 2017 | **I** | **C** |
 | 術前TEE | 外科的アブレーション前の左心耳血栓スクリーニング | ESC/EACTS 2024 AF | **I** | **C** |
 | 多職種チーム | 電気生理専門医・外科医によるShared Decision-Making | ESC/EACTS 2024 AF、STS 2023 | **I** | **C** |
 
@@ -533,3 +537,19 @@ ESC 2024は時間的4型分類を維持しつつ、臨床管理に有用な新�
 ---
 
 *本文書は2026年4月11日時点の入手済みガイドライン（計10文書）に基づく。各推奨の詳細は原文ガイドラインを参照のこと。*
+
+
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベルを、原典ガイドラインPDF（STS 2023 外科的AF治療／ACC/AHA/HRS 2023 AF／ESC/EACTS 2024 AF／HRS/EHRA/ECAS 2017／ACC/AHA 2020 VHD／ESC/EACTS 2025 VHD／JCS 2020 VHD）と逐語照合し、以下を修正のうえ確認済み。
+>
+> - **HRS/EHRA 2017（最重要）**：開心（僧帽弁）手術合併＝IIa/B → **I/B-NR**；閉鎖型（CABG/AVR）合併＝IIb/C → 薬物不応 **I/B-NR**・第一選択 **IIa/B-NR**；単独外科治療＝IIb/C → 発作性 **IIb/B-NR**・持続性/LSPers **IIa/B-NR**（表2、B-1、B-2、C）。「2017年は最も保守的」との記述は誤りのため訂正
+> - **ACC/AHA 2020 VHD**：弁手術時Maze「I/C-EO」は原典になし → 実際は「不整脈手術の利益・リスク相談 **1/C-LD**」＋「外科的PVI/Maze **2a/B-R**」。CABG単独の明示的推奨もなし
+> - **STS 2023**：単独治療の「LA≥4.5cm/中等度以上MR → IIb/B-NR」は2推奨の混同 → 「PVI単独は非推奨 **III/C**」＋「孤立性外科的LAA閉鎖 **IIb/B-NR**」。「nonpermanent AF」→「**nonemergent（非緊急）手術**」
+> - **ACC/AHA/HRS 2023**：2b/B-R は「発作性AF単独」ではなく「**持続性AF＋ハイブリッド（心外膜＋心内膜）アブレーション**」。術後3ヶ月の推奨は「AAD」ではなく「**抗凝固療法**」（2a/B-NR）
+> - **ESC/EACTS 2024 AF**：僧帽弁手術合併アブレーション I/B → **I/A**；LAA閉鎖後OAC継続 I/B → **I/C**
+> - **ESC/EACTS 2025 VHD**：「CHA₂DS₂-VASc ≥2 でLAAOデバイス IIa/B」は2021年版・2025年版で削除 → 2025は僧帽弁ablation **I/A**・外科的LAA閉鎖 **I/B**・非僧帽弁ablation **IIa/B**
+> - **JCS 2020 VHD**：大動脈弁手術時Maze「発作性/持続性」→ 原典は「**慢性/持続性（permanent or persistent）**」。POAF予防は §10.9.1
+>
+> 上記以外の推奨クラス・レベルは原典と一致を確認。

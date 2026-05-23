@@ -377,7 +377,7 @@ ESC標準: Class I/IIa/IIb/III、LOE A/B/C
 |---|---|---|---|
 | Aortic root disease | **>=50mm** | **I** | **B** |
 | High-risk features* | **>=45mm** | **IIa** | **C** |
-| Low risk + VSRR可能 | **>=45mm** | **IIb** | **C** |
+| 弓部/下行/腹部大動脈 | **>=50mm** | **IIa** | **C** |
 
 VSRR technique自体はClass I, LOE Bで推奨（root手術が適応となった場合）
 
@@ -467,25 +467,26 @@ TGFBR2は最も攻撃的で、R528H/C変異を持つ小柄な女性では35mmま
 
 ### Loeys-Dietz症候群（Recommendation Table 16 遺伝子別）
 
-| 遺伝子 | RF+ | RF無 | Class | LOE |
-|---|---|---|---|---|
-| **TGFBR2** | **>=40mm** (IIa) | **>=45mm** (IIa) | IIa | C |
-| **TGFBR1** | **>=40mm** (IIa) | **>=45mm** (IIa) | IIa | C |
-| **SMAD3** | — | **>=45-48mm** | IIb | C |
-| **TGFB2** | — | **>=45-48mm** | IIb | C |
+| 遺伝子（変異・条件） | 径閾値 | Class | LOE |
+|---|---|---|---|
+| **TGFBR1 / TGFBR2** | **>=45mm** | **I** | C |
+| **TGFBR1** + high-risk | **>=40mm** | **IIb** | C |
+| **TGFBR2** + high-risk | **>=40mm** | **IIa** | C |
+| **SMAD3** | **>=45mm** | **IIa** | C |
+| **SMAD2 / TGFB2** | **>=45mm** | **IIb** | C |
+| **TGFB3** | **>=50mm** | **IIb** | C |
 
 ### 非症候群性HTAD（Recommendation Table 17）
 
 | 遺伝子 | 径閾値 | Class | LOE |
 |---|---|---|---|
-| **ACTA2** | **>=45mm** | **I** | **C** |
-| **PRKG1** | **>=42mm** | **IIa** | **C** |
-| **MYH11** | **>=50mm** | **IIa** | **C** |
-| **MYLK / MFAP5** | **>=45mm** | **IIb** | **C** |
+| **ACTA2** | **>=45mm** | **IIa** | **C** |
+| **PRKG1** | **>=42mm** | **IIb** | **C** |
+| **MYLK / MYH11** | **>=45mm** | **IIb** | **C** |
 
 ### 大動脈長（Recommendation Table 13）
 
-- 上行大動脈長 **>11cm** を手術のリスク因子として考慮すべき（IIa, C）
+- 上行大動脈長 **>11cm** を手術のリスク因子として考慮すべき（IIa, B）
 - 定義: 大動脈弁輪から腕頭動脈近位端までのcentreline距離
 - Wu et al.のデータで11cmと13cmにhinge pointが存在
 
@@ -493,8 +494,8 @@ TGFBR2は最も攻撃的で、R528H/C変異を持つ小柄な女性では35mmま
 
 1. **大動脈を "organ" として包括**: 外科的視点が中心で、手術手技・灌流・臓器保護を詳述
 2. **ESC 2024 PAADとの相補性**: 推奨内容は概ね一致するが、EACTS/STSはphenotypeごとの条件分けがより詳細
-3. **ACTA2を Class I**: ACC/AHA（IIa）、ESC（IIa）に対しClass Iと最も積極的
-4. **MYH11/MYLK/MFAP5に独立閾値**: 他のガイドラインでは詳細記載なし
+3. **遺伝子別の細分化が最も詳細**: LDS の TGFBR1/TGFBR2（RF無 >=45mm = **I, C**）から ACTA2（IIa）・PRKG1・MYLK/MYH11（IIb）まで、原因遺伝子ごとにClass・閾値を規定（ACTA2 は ACC/AHA・ESC と同じく IIa）
+4. **MYLK/MYH11に独立閾値（>=45mm, IIb, C）**: 他のガイドラインでは詳細記載なし
 
 ### 径の測定方法
 
@@ -537,7 +538,7 @@ TGFBR2は最も攻撃的で、R528H/C変異を持つ小柄な女性では35mmま
 
 本コンセンサスは急性解離管理が主題であり、予防的手術の体系的推奨は含まれないが、以下の関連記載がある:
 
-- ATAADの60%が5.5cm未満で発症 → 予防的手術閾値の限界を示唆
+- 多くのATAADは予防的手術閾値（5.5cm）未満の径で発症することが知られ（IRAD等の知見）、径ベース閾値の限界を示唆（※本コンセンサスが述べる「約60%」は内科＝非手術管理例の死亡率を指す数値であり、発症径の割合ではない）
 
 ### Root置換の適応（Table 5）
 
@@ -557,7 +558,7 @@ Root置換の適応: root内のintimal tear、root動脈瘤、root径 **>45mm**�
 
 - 緊急・待機的大動脈手術の豊富な実績を有する施設
 - ATAAD手術は中央値年間3例と稀、約10%の施設のみが年間10例以上
-- High-volume center（年間>13例）の死亡率10% vs low-volumeの27%
+- High-volume center（年間>13例）の死亡率16% vs low-volumeの27%（経験豊富な専門大動脈センターでは10%未満との報告もある）
 - ATAAD患者のCAC搬送を推奨（IIa, B / IIb, C）
 
 ---
@@ -661,13 +662,13 @@ Root置換の適応: root内のintimal tear、root動脈瘤、root径 **>45mm**�
 
 | 遺伝子 | ACC/AHA 2022 Ao | ESC 2024 PAAD | EACTS/STS 2024 Ao | JCS 2020 Ao | JCS 2020 VHD |
 |---|---|---|---|---|---|
-| **TGFBR1** RF無 | **>=45mm** (I, C-LD) | **>=50mm** | **>=45mm** (IIa, C) | Marfanより小径 (IIa) | **>=45mm** + RF (IIa, C) |
-| **TGFBR1** RF+ | **>=40mm** (IIb, C-EO) | **>=45mm** | **>=40mm** (IIa, C) | -- | -- |
-| **TGFBR2** RF無 | **>=45mm** (I, C-LD) | **>=45mm** | **>=45mm** (IIa, C) | -- | -- |
+| **TGFBR1** RF無 | **>=45mm** (I, C-LD) | **>=50mm** | **>=45mm** (I, C) | Marfanより小径 (IIa) | **>=45mm** + RF (IIa, C) |
+| **TGFBR1** RF+ | **>=40mm** (IIb, C-EO) | **>=45mm** | **>=40mm** (IIb, C) | -- | -- |
+| **TGFBR2** RF無 | **>=45mm** (I, C-LD) | **>=45mm** | **>=45mm** (I, C) | -- | -- |
 | **TGFBR2** RF+ | **>=40mm** (IIa, C-LD) | **>=40mm**; 35mmも | **>=40mm** (IIa, C) | -- | -- |
-| **SMAD3** | **>=45mm** (IIa, C-EO) | **>=45-50mm** | **>=45-48mm** (IIb, C) | -- | -- |
-| **TGFB2** | **>=45mm** (IIb, C-EO) | **>=45-50mm** | **>=45-48mm** (IIb, C) | -- | -- |
-| **TGFB3** | **>=50mm** (IIb, C-EO) | **>=50mm** | -- | -- | -- |
+| **SMAD3** | **>=45mm** (IIa, C-EO) | **>=45-50mm** | **>=45mm** (IIa, C) | -- | -- |
+| **SMAD2 / TGFB2** | **>=45mm** (IIb, C-EO) | **>=45-50mm** | **>=45mm** (IIb, C) | -- | -- |
+| **TGFB3** | **>=50mm** (IIb, C-EO) | **>=50mm** | **>=50mm** (IIb, C) | -- | -- |
 
 > [!note] JCS 2020はLoeys-Dietzに対し遺伝子別の詳細閾値を設定していない。TGFBR1/TGFBR2変異をMarfanの閾値引き下げ因子として位置づけている。
 
@@ -679,12 +680,11 @@ Root置換の適応: root内のintimal tear、root動脈瘤、root径 **>45mm**�
 
 | 遺伝子 | ACC/AHA 2022 Ao | ESC 2024 PAAD | EACTS/STS 2024 Ao | JCS 2020 |
 |---|---|---|---|---|
-| **ACTA2** RF無 | **>=45mm** (IIa, C-LD) | **>=45mm** (IIa, C) | **>=45mm** (I, C) | 詳細記載なし |
+| **ACTA2** RF無 | **>=45mm** (IIa, C-LD) | **>=45mm** (IIa, C) | **>=45mm** (IIa, C) | 詳細記載なし |
 | **ACTA2** RF+ | **>=42mm** (IIb, C-EO) | RF+でより低閾値 | **>=42mm** (IIb, C) | -- |
-| **PRKG1** RF無 | **>=42mm** (IIb, C-LD) | -- | **>=42mm** (IIa, C) | -- |
+| **PRKG1** RF無 | **>=42mm** (IIb, C-LD) | -- | **>=42mm** (IIb, C) | -- |
 | **PRKG1** RF+ | **>=40mm** (IIb, C-EO) | -- | **>=40mm** (IIb, C) | -- |
-| **MYH11** | -- | -- | **>=50mm** (IIa, C) | -- |
-| **MYLK / MFAP5** | -- | -- | **>=45mm** (IIb, C) | -- |
+| **MYLK / MYH11** | -- | -- | **>=45mm** (IIb, C) | -- |
 
 ### 5-2. 非症候群性遺伝性胸部大動脈疾患 (nsHTAD) ― 原因遺伝子未同定
 
@@ -747,7 +747,7 @@ Root置換の適応: root内のintimal tear、root動脈瘤、root径 **>45mm**�
 |---|---|---|---|
 | ACC/AHA 2022 Ao | **>=3.08 cm/m2** (sporadic); **>=2.5 cm/m2** (Turner) | Sporadic (IIb); Turner (IIa/IIb) | C-LD / C-EO |
 | ESC 2024 PAAD | **>23-25 mm/m2** (Turner) | Turner (IIa/IIb) | C |
-| JCS 2020 Ao | **>=4.35 cm/m2** (リスク因子); **>2.5 cm/m2** (Turner) | 全般（リスク因子）; Turner | -- |
+| JCS 2020 Ao | **>2.5 cm/m2** (Turner) | Turner | -- |
 
 ### 8-3. 大動脈身長指数 (Aortic Height Index: AHI = 径/身長)
 
@@ -755,13 +755,14 @@ Root置換の適応: root内のintimal tear、root動脈瘤、root径 **>45mm**�
 |---|---|---|---|
 | ACC/AHA 2022 Ao | **>=3.21 cm/m** | Sporadic | IIb, C-LD |
 | ESC 2024 PAAD | **>23-25 mm/m** | Turner | IIa/IIb, C |
+| JCS 2020 Ao | **>=4.35 cm/m** | 全般（リスク因子・径/身長比） | -- |
 
 ### 8-4. 上行大動脈長 (Ascending Aortic Length)
 
 | ガイドライン | 閾値 | 適用 | Class/LOE |
 |---|---|---|---|
 | ESC 2024 PAAD | **>=11cm** | TAV, BAVのRF | RF扱い |
-| EACTS/STS 2024 Ao | **>=11cm** | TAV, BAVのRF | IIa, C |
+| EACTS/STS 2024 Ao | **>=11cm** | TAV, BAVのRF | IIa, B |
 | ACC/AHA 2022 Ao | 記載なし | -- | -- |
 | JCS 2020 | 記載なし | -- | -- |
 
@@ -819,7 +820,7 @@ AATS 2021は急性A型解離の管理が主題であり、予防的手術の体�
 | A型IMHの高リスク基準 | 大動脈径 **>50mm**, 血腫厚 **>11mm** |
 | VSRR | "experienced centers"で考慮, "experienced surgeons"のみが施行すべき |
 | Comprehensive Aortic Center (CAC) | 複雑症例のCAC搬送を推奨 (IIa/IIb, B/C) |
-| Volume-outcome relationship | High-volume (年間>13例) 死亡率10% vs low-volume 27% |
+| Volume-outcome relationship | High-volume (年間>13例) 死亡率16% vs low-volume 27%（経験豊富な専門大動脈センターでは10%未満との報告も） |
 
 ---
 
@@ -896,9 +897,9 @@ AATS 2021は急性A型解離の管理が主題であり、予防的手術の体�
 | BAV RF+ | 50-54mm (IIa) | 50mm (IIa) | 50mm (IIa) | 50mm (IIa) | 50mm (IIa) |
 | Marfan RF無 | 50mm (I) | 50mm (I) | 50mm (I) | 50mm (I) | 50mm (I) |
 | Marfan RF+ | 45mm (IIa) | 45mm (IIa) | 45mm (IIa) | 45mm (IIa) | 45mm (IIa) |
-| LDS TGFBR1/2 RF無 | 45mm (I) | 45-50mm | 45mm (IIa) | Marfan<径 (IIa) | 45mm+RF (IIa) |
-| LDS TGFBR1/2 RF+ | 40mm (IIa-IIb) | 40-45mm | 40mm (IIa) | -- | -- |
-| ACTA2 RF無 | 45mm (IIa) | 45mm (IIa) | 45mm (I) | -- | -- |
+| LDS TGFBR1/2 RF無 | 45mm (I) | 45-50mm | 45mm (I) | Marfan<径 (IIa) | 45mm+RF (IIa) |
+| LDS TGFBR1/2 RF+ | 40mm (IIa-IIb) | 40-45mm | 40mm (IIb/IIa) | -- | -- |
+| ACTA2 RF無 | 45mm (IIa) | 45mm (IIa) | 45mm (IIa) | -- | -- |
 | Turner RF+ | ASI>=2.5 (IIa) | ASI>23 (IIa) | ASI>=2.5 | ASI>2.5 | -- |
 
 ### 14-2. 弁手術併施時の閾値
@@ -925,3 +926,21 @@ AATS 2021は急性A型解離の管理が主題であり、予防的手術の体�
 
 *最終更新: 2026-04-09*
 *作成: 上記8ガイドラインのPDF原文に基づく*
+
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・径閾値を、原典PDF（JCS 2020 大動脈瘤・大動脈解離／JCS 2020 弁膜症／ACC・AHA 2022 Aortic Disease／ACC・AHA 2020 VHD／ESC 2024 PAAD／EACTS・STS 2024 Aortic Organ／ESC・EACTS 2025 VHD／AATS 2021 ATAAD）と逐語照合し、以下を修正のうえ確認した。**誤りは EACTS/STS 2024 の遺伝性大動脈疾患（LDS／nsHTAD）表に集中**していた。
+>
+> - **EACTS/STS 2024：LDS TGFBR1/TGFBR2（RF無）>=45mm**：IIa → **I, C**（原典「is recommended」）。Part I／Part II §4-1／§14-1 を修正。
+> - **EACTS/STS 2024：TGFBR1＋high-risk >=40mm**：IIa → **IIb, C**（「may be considered」。TGFBR2＋high-risk は IIa, C で正しい）。
+> - **EACTS/STS 2024：SMAD3**：「>=45-48mm, IIb」→ **>=45mm, IIa, C**（「should be considered」。48mm は原典になし）。TGFB2 行も SMAD2/TGFB2・>=45mm に訂正、TGFB3 >=50mm, IIb, C を追加。
+> - **EACTS/STS 2024：ACTA2 >=45mm**：Class I → **IIa, C**（「should be performed」。ACC/AHA・ESC と同一クラス。「ACTA2 を Class I・最も積極的」の記述も訂正）。
+> - **EACTS/STS 2024：PRKG1（RF無）>=42mm**：IIa → **IIb, C**（「may be considered」）。
+> - **EACTS/STS 2024：MYH11**：「>=50mm, IIa」を削除し、原典どおり **MYLK または MYH11 >=45mm, IIb, C** に統合。**存在しない遺伝子「MFAP5」を削除**（原典は MYLK/MYH11）。
+> - **EACTS/STS 2024：上行大動脈長 >11cm**：IIa, C → **IIa, B**（Recommendation Table 13）。
+> - **ESC 2024 PAAD：Marfan**：誤って ESC 列に置かれていた「低リスク＋VSRR可能 >=45mm, IIb, C」（実際は EACTS/STS の推奨）を、ESC 実在の「弓部/下行/腹部大動脈 >=50mm, IIa, C」に置換。
+> - **JCS 2020 Ao：≥4.35**：径/BSA（ASI, cm/m²）表の誤記を、正しく**径/身長（AHI, cm/m）**として §8-3 へ移動。
+> - **AATS 2021：volume-outcome**：高ボリューム施設死亡率「10%」→ **16%**（年間>13例の四分位研究＝16% vs 27%。「<10%」は個別専門センターの別数値）。「ATAADの60%が5.5cm未満で発症」は AATS の「約60%」＝内科管理の死亡率であり発症径割合ではない旨を明記（<5.5cm発症はIRAD等の知見）。
+>
+> 上記以外（ACC/AHA 2022・ACC/AHA 2020 VHD・ESC 2024・JCS 2020 Ao/VHD の各径閾値・COR/LOE、ESC/EACTS 2025 VHD の弁併施 >=45mm 低リスク = IIa, C＝2025年版の値、AATS の Root置換 I/B・IMH 高リスク基準）は原典と一致を確認。AATS 2021 は急性A型解離が主題で予防的閾値の体系的推奨を持たない旨の本文書の記載も妥当。

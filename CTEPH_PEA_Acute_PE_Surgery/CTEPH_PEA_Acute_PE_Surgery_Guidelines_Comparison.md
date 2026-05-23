@@ -483,3 +483,14 @@ aliases:
 
 > [!note] 推奨の転記方針
 > 各推奨クラス（I/IIa/IIb/III）とエビデンスレベルは原典PDFの推奨表から直接転記した（CLAUDE.md準拠）。AHA/ACC 2026 は原典のCOR表記（1/2a/2b/3）と細分化LOE（B-NR等）をそのまま併記。ERS 2021 は推奨クラスを持たない statement のため narrative で要約。
+
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・数値閾値を、原典ガイドラインPDF（JCS 2025 肺血栓塞栓症・肺高血圧症／ESC・ERS 2022 PH／ESC 2019 急性PE／ERS 2021 CTEPH Statement／AHA・ACC 2026 急性PE／AHA 2011 Statement）と逐語照合し、**客観的な誤りは認めなかった**。
+>
+> - **修正なし**：PEA・外科的塞栓摘除・VA-ECMO の COR/LOE、CTEPH operability・専門センター基準、急性PEのリスク層別化（massive/submassive と high/intermediate・A–E カテゴリの対応）、mPAP・PVR 閾値はいずれも原典と一致を確認。
+> - AHA/ACC 2026 の外科的塞栓摘除推奨表は原典で2ページに分割されているが、カテゴリA-C3＝**3: No Benefit／C-EO**、カテゴリE2非MCS＝**3: No Benefit／B-NR** を本文サマリー行列（治療×リスクカテゴリ表）とも突き合わせて再確認した。
+> - ESC・ERS 2022 PH は新旧併記（2015 vs 2022）の推奨表だが、転記値は 2022 年版列と一致。AHA 2011 は単一カテゴリLOE（A/B/C、B-R/B-NR 細分なし）の Scientific Statement であることも確認。
+>
+> 上記のとおり推奨クラス・レベル・閾値は原典と一致を確認したため、本文書への修正は行っていない。

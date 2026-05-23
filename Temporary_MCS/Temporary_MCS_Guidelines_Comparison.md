@@ -356,7 +356,7 @@ aliases:
 ### 5-2. PC-ECLS の疫学的背景
 
 > [!example] PC-ECLS の現状（2020 コンセンサス）
-> - 開心術後ECLSの導入率は **2-20%**（手術種別・施設で大きく変動）
+> - 開心術後ECLSの導入率は **0.3-3.6%**（PC failure 全体でも **<4%**。限定的だが施設で変動）
 > - **生存率 25-42%**（離脱可能でも院内死亡率高い）
 > - 最頻適応：CABG > 弁手術 > 弁＋CABG
 > - **末梢アクセスが79%**（中央アクセス（central）も依然使用）
@@ -460,8 +460,8 @@ aliases:
 
 | 推奨 | Class | Level |
 |---|---|---|
-| 進行性心不全（NYHA IIIB-IV）で薬物治療抵抗性・強心薬依存・**T-MCS 装着**例は **BTT/BTC 目的の DMCS を考慮** | **I** | A |
-| 進行性心不全で薬物治療抵抗性・強心薬依存・T-MCS 装着例は **長期DMCS（移植不可能例）も考慮** | **I** | A |
+| **INTERMACS profile 1-3**（critical CS／進行性心不全／強心薬・T-MCS 依存例を含む）は LVAD 植込みで生存利益（BTT/BTC を含む） | **I** | A |
+| **強心薬依存例**は DMCS を考慮（移植不可能例の長期 DMCS は急性 CS で T-MCS 離脱不能例等に限定 = IIa, C） | **IIa** | **B** |
 | 多臓器不全・敗血症・人工呼吸器装着患者では、長期デバイス植込み前に **T-MCS で臨床状態と神経学的評価を可能にすることを強く考慮** | - | C |
 | **臓器障害高度で T-MCS 必要量を維持できない／T-MCS 離脱不能** の患者は、長期 DMCS の限定的候補とする | - | C |
 
@@ -764,8 +764,8 @@ aliases:
 
 ## 17. 下肢虚血予防（distal perfusion cannula）の比較
 
-> [!important] distal perfusion cannula は EACTS 2025 の **唯一の Class I-A 推奨**
-> EACTS 2025 では推奨表全体で Level A は1つのみ（distal perfusion catheter）。これは下肢虚血が VA-ECLS の最も再現性高い合併症であり、メタアナリシスで保護効果が示されていることを反映する。
+> [!important] distal perfusion catheter は EACTS 2025 の数少ない **Class I-A 推奨** の一つ
+> EACTS 2025 で Level A が付された推奨は少数で、下肢灌流カテーテル（**I-A**）のほか、RRT 導入（**I-A**）・脳卒中疑い時の緊急 CTA（**IIa-A**）等がある。下肢虚血は VA-ECLS の最も再現性高い合併症であり、メタアナリシスで保護効果が示されていることを反映する。
 
 | 項目 | JCS 2023 | EACTS 2025 | PC-ECLS 2020 |
 |---|---|---|---|
@@ -882,7 +882,7 @@ aliases:
 > [!success] 4ガイドラインで一致している主要原則
 > 1. **心原性ショックでは臓器障害発生前の早期 tMCS 開始**：EACTS 2025（I-B）、PC-ECLS 2020（I-B、乳酸<4 mmol/L）、JCS 2023（SCAI Stage E では即時VA-ECMO）
 > 2. **目撃あり心停止での ECPR は60分以内なら考慮**：EACTS 2025（IIa-B）、PC-ECLS 2020（IIa-C）、JCS 2023（推奨クラスなしで言及）
-> 3. **distal perfusion catheter の予防的使用**：EACTS 2025（**I-A**、唯一の Level A）、JCS 2023（4-7 Fr シース推奨）
+> 3. **distal perfusion catheter の予防的使用**：EACTS 2025（**I-A**。Level A 推奨の一つ。他に RRT 導入 I-A 等）、JCS 2023（4-7 Fr シース推奨）
 > 4. **心筋回復可能性低 + dMCS/HTx 候補での tMCS は推奨**：EACTS 2025（I-C）、PC-ECLS 2020（I-C）、ISHLT 2023（IIa-C）
 > 5. **AMI-CS への IABP ルーチン使用は推奨されない**：4ガイドラインすべてが IABP-SHOCK II 以降の格下げを反映
 
@@ -904,7 +904,7 @@ aliases:
 > 2. **IMPELLA の使用には J-PVAD 適正使用指針 + 認定施設 + J-PVAD 登録の3要件**。欧米と比較して制度的ハードルが高いが、レジストリデータの透明性は利点。
 > 3. **post-cardiotomy LCOS では PC-ECLS 2020 の Class I-B 推奨を理解しつつ、JCS 2023 の central ECMO 適応（表2）を選択肢として併用**。EACTS 2025 Table 5 の手術シナリオ別 tMCS 選択は実用的。
 > 4. **心臓移植適応取得（BTT）における tMCS**：日本は LVAD（durable）BTT が90%以上、米国2018改正後は VA-ECLS BTT が増加 → 日本の戦略は欧米と異なる位置づけ。
-> 5. **distal perfusion catheter は EACTS 2025 唯一の Class I-A 推奨**。施設プロトコルへの組み込みが標準化されるべき。
+> 5. **distal perfusion catheter は EACTS 2025 の数少ない Class I-A 推奨の一つ**（他に RRT 導入 I-A 等）。施設プロトコルへの組み込みが標準化されるべき。
 > 6. **Takotsubo + CS への active LV unloading（Class I-B、EACTS 2025）** は新規重要推奨。JCS 2023 には記載なし。
 > 7. **dLVAD 後 RV failure に対する index 手術と同時 tRVAD（Class I-B、EACTS 2025）** は LVAD 植込み戦略を変える可能性がある。
 
@@ -926,3 +926,14 @@ aliases:
 > 3. Lorusso R, Whitman G, Milojevic M, et al. 2020 EACTS/ELSO/STS/AATS expert consensus on post-cardiotomy extracorporeal life support in adult patients. Eur J Cardiothorac Surg 2021;59:12-53.
 > 4. Saeed D, Feldman D, El Banayosy A, et al. The 2023 International Society for Heart and Lung Transplantation Guidelines for Mechanical Circulatory Support. J Heart Lung Transplant 2023;42:e1-e222.
 > 5. JCS/JSCVS. 2021年改訂版 重症心不全に対する植込型補助人工心臓治療ガイドライン. 2021.
+
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・数値閾値を、原典ガイドラインPDF（JCS 2023 PCPS/ECMO/Impella〔和文＋英語要約〕、EACTS/STS/AATS 2025 Temporary MCS、EACTS/ELSO/STS/AATS 2020 Post-Cardiotomy ECLS、ISHLT 2023 MCS、補助的に ESC 2023 ACS）と逐語照合し、以下を修正のうえ確認済み。
+>
+> - **EACTS 2025：「Level A 推奨は distal perfusion catheter のみ」という記述（3箇所）**：→ **誤り**。Level A は複数存在（下肢灌流カテーテル **I-A**、RRT 導入 **I-A**、脳卒中疑い時の緊急 CTA **IIa-A** 等）。distal perfusion catheter は「数少ない Class I-A の一つ」と修正
+> - **ISHLT 2023：BTT/BTC 目的 DMCS の推奨クラス**：「I, A」（強心薬・T-MCS 依存例）→ I/A は **INTERMACS profile 1-3 の LVAD 生存利益**に対する推奨。**強心薬依存例の DMCS 考慮は IIa, B**、急性 CS で T-MCS 離脱不能例の長期 DMCS は IIa, C
+> - **PC-ECLS 2020：開心術後 ECLS 導入率**：2-20% → **0.3-3.6%**（PC failure 全体でも **<4%**）
+>
+> **検証範囲の制限**：DanGer Shock 試験原著（180日死亡率 45.8% vs 58.5%）はリポジトリに無く検証不能のため改変していない（公表値と整合）。なお JCS 2023 は自前の推奨クラスを付さない方針だが、AMI 機械的合併症の項では他ガイドラインのクラスを引用している（IABP 推奨クラス I／手術までの V-A ECMO 推奨クラス IIb）。上記以外（J-PVAD 生存率、EACTS 2025 各表のクラス/レベル、PC-ECLS 2020 各表、ESC 2023 ACS の IABP III-B、IABP-SHOCK II 39.7% vs 41.3%）は原典と一致を確認。

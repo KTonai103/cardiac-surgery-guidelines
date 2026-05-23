@@ -154,24 +154,24 @@ ESC/EACTS 2025ではWilkinsスコアに加えてCormierスコア（蛍光透視�
 
 | 推奨事項 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |---------|---------|---------------|-------------|
-| **PTMC/PMC：MVA ≦1.5 cm² + 形態適合（Wilkins ≦8）** | **Class I, Level B** | **Class I, Level B** | **Class I, Level B-NR** |
-| **手技の前提条件** | 左房血栓なし、MR <2+、Wilkins ≦8 | 左房血栓なし、MR <2+、交連癒合の存在確認 | 左房血栓なし、MR ≦1+、良好な形態 |
+| **PTMC/PMC：MVA ≦1.5 cm² + 形態適合（Wilkins ≦8）** | **Class I, Level B** | **Class I, Level B** | **Class I, Level A** |
+| **手技の前提条件** | 左房血栓なし、MR ≦grade III（>grade III は禁忌）、Wilkins ≦8 | 左房血栓なし、MR <2+、交連癒合の存在確認 | 左房血栓なし、MR ≦1+、良好な形態 |
 
 ### 3-2. 症候性MS（形態不良例・高外科的リスク例）
 
 | 推奨事項 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |---------|---------|---------------|-------------|
-| **外科的高リスク例でのPTMC（形態不問）** | 緩和目的で考慮（クラス明示なし） | **Class I, Level C** | **Class IIa, Level C-EO** |
+| **外科的高リスク/手術禁忌例でのPTMC（ESC: 形態不問、ACC/AHA: 準最適形態が前提）** | 緩和目的で考慮（クラス明示なし） | **Class I, Level C** | **Class IIb, Level B-NR** |
 | **形態不良だが臨床的禁忌なし（準最適解剖）** | 個別判断 | **Class IIa, Level C** | — |
 
 ### 3-3. 軽症MS（MVA >1.5 cm²）への介入
 
 | 推奨事項 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |---------|---------|---------------|-------------|
-| **運動負荷で mPG >15 mmHg または SPAP ≥60 mmHg** | **Class IIb, Level C** | 重症MSの定義に含まず（対象外） | ステージBは介入の推奨なし |
+| **運動負荷で mPG >15 mmHg または SPAP ≥60 mmHg** | **Class IIb, Level C** | 重症MSの定義に含まず（対象外） | Class IIb, Level C-LD（運動時 PAWP >25 or mPG >15） |
 
 > [!warning] 差異ポイント②
-> JCSは軽症MS（MVA >1.5 cm²）でも運動負荷試験陽性であれば介入を考慮するが（==Class IIb==）、ESC/EACTSとACC/AHAは基本的にMVA ≦1.5 cm²を介入対象とする。
+> JCSは軽症MS（MVA >1.5 cm²）でも運動負荷試験陽性であれば介入を考慮するが（==Class IIb==）、ACC/AHAも運動時 PAWP >25 mmHg または mPG >15 mmHg を呈する症候性 MVA >1.5 例に PMBC を IIb/C-LD で考慮しうる。ESC/EACTSは基本的に MVA ≦1.5 cm² を介入対象とする。
 
 ---
 
@@ -187,7 +187,7 @@ ESC/EACTS 2025ではWilkinsスコアに加えてCormierスコア（蛍光透視�
 
 | 項目 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |-----|---------|---------------|-------------|
-| **形成術の位置付け** | 直視下僧帽交連切開術（OMC）を推奨 | 形成術は技術的に困難（リウマチ性病変）。経験豊富なセンターで試みる。 | 技術的に可能な場合は形成術を優先（Class IIa, Level C-EO） |
+| **形成術の位置付け** | 直視下僧帽交連切開術（OMC）を推奨 | 形成術は技術的に困難（リウマチ性病変）。経験豊富なセンターで試みる。 | 手術（形成・交連切開・置換）を Class I, Level B-NR で推奨（形成を優先する明示的クラス推奨はなし） |
 | **PTMCとの成績比較** | RCTでPTMCとOMCは同等の成績 [JCS] | 直接比較はPMCが低侵襲 | — |
 | **形成術が困難な場合** | 弁置換術（MVR）へ移行 | MVRが一般的 | MVRへ移行 |
 | **若年者への意義** | 将来の機械弁置換回避として有力 | 経験センターで有用 | — |
@@ -199,7 +199,7 @@ ESC/EACTS 2025ではWilkinsスコアに加えてCormierスコア（蛍光透視�
 | **PTMCが不成功または禁忌** | **Class I, Level B** | **Class I, Level C** | **Class I, Level B-NR** |
 | **高度弁下組織病変・著明石灰化** | MVR選択 | MVR選択 | MVR選択 |
 | **弁形成後の再狭窄例** | MVR | **通常MVRが必要** | MVR |
-| **合併 MR >2+** | PTMC禁忌→MVRまたは形成術 | PMC禁忌→手術（MV repair or MVR） | PMBCの禁忌→手術 |
+| **合併 高度 MR（ESC/ACC: >2+、JCS: >grade III）** | PTMC禁忌→MVRまたは形成術 | PMC禁忌→手術（MV repair or MVR） | PMBCの禁忌→手術 |
 | **肺高血圧合併MSへのMVR** | 注意（術死リスク11.7% [JCS引用]） | 個別リスク評価 | 個別リスク評価 |
 
 ---
@@ -210,7 +210,7 @@ ESC/EACTS 2025ではWilkinsスコアに加えてCormierスコア（蛍光透視�
 
 | 肺動脈圧条件 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |------------|---------|---------------|-------------|
-| **安静時 SPAP >50 mmHg（PASP >50 mmHg）** | **Class IIa, Level B** | **Class IIa, Level C（高血行動態リスク）** | **Class IIa, Level C-EO**（Stage C） |
+| **安静時 SPAP >50 mmHg（PASP >50 mmHg）** | **運動時 mPG >15 or PASP >60 で IIa/B（安静時 SPAP >50 単独の規定なし）** | **Class IIa, Level C（高血行動態リスク）** | **Class IIa, Level B-NR**（Stage C、PASP >50） |
 | **運動負荷時 SPAP ≥60 mmHg** | **Class IIa, Level B** | 言及あり（高リスクマーカー） | 明示なし |
 | **運動負荷時 mPG >15 mmHg** | **Class IIa, Level B** | 言及あり | 明示なし |
 
@@ -218,13 +218,13 @@ ESC/EACTS 2025ではWilkinsスコアに加えてCormierスコア（蛍光透視�
 
 | AF関連状況 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |----------|---------|---------------|-------------|
-| **新規発症 AF** | **Class IIb, Level C** | **Class IIa, Level C（塞栓症リスク高）** | **Class IIa, Level C-EO** |
+| **新規発症 AF** | **Class IIb, Level C** | **Class IIa, Level C（塞栓症リスク高）** | **Class IIb, Level C-LD** |
 | **発作性 AF** | — | **Class IIa, Level C** | — |
 | **心房細動での塞栓症歴（OAC適切下）** | **Class IIb, Level C** | **Class IIa, Level C** | — |
 | **LA内濃厚なエコーコントラスト** | — | **Class IIa, Level C** | — |
 
 > [!warning] 差���ポイント③
-> ESC/EACTSは新規発症AFや塞栓症リスクを==**Class IIa**==として明示しているが、JCSは==**Class IIb**==（弱い推奨）にとどま���。
+> ESC/EACTSは新規発症AF・塞栓症リスクを==**Class IIa**==（C）として明示。JCS（IIb/C）と ACC/AHA（IIb/C-LD）は弱い推奨にとどまる。
 
 ### 5-3. 塞栓症リスクに関わる無症候性MS
 
@@ -301,7 +301,7 @@ ESC/EACTS 2025ではWilkinsスコアに加えてCormierスコア（蛍光透視�
 | 選択基準 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |---------|---------|---------------|-------------|
 | **機械弁推奨の年齢** | **<65歳**（僧帽弁位） | 弁位・年齢・患者希望で判断 | 患者希望・長期抗凝固可能な場合（年齢の明示的閾値なし） |
-| **生体弁推奨の年齢** | **≥65歳**（または抗凝固禁忌/困難） | 高齢・抗凝固禁忌・患者希望 | 抗凝固禁忌または患者希望 |
+| **生体弁推奨の年齢** | **≥70歳（僧帽弁位）**（または抗凝固禁忌/困難） | 高齢・抗凝固禁忌・患者希望 | 抗凝固禁忌または患者希望 |
 | **若年女性（妊娠希望）** | 機械弁より生体弁を考慮（OACの胎児リスク） | 個別検討 | 個別検討 |
 | **既存の長期抗凝固療法（AF等）** | 機械弁が合理的 | 機械弁が合理的 | 機械弁が合理的 |
 | **抗凝固療法の禁忌・困難** | 生体弁 | 生体弁 | 生体弁 |
@@ -320,15 +320,15 @@ ESC/EACTS 2025ではWilkinsスコアに加えてCormierスコア（蛍光透視�
 | **「重症」MVA閾値** | **<1.0 cm²**（独自・厳格） | ≦1.5 cm² | ≦1.5 cm² |
 | **介入検討の実際の閾値** | ≦1.5 cm²（中等症以上） | ≦1.5 cm² | ≦1.5 cm²（Stage C） |
 | **PASP/SPAP介入トリガー** | **運動時 ≥60 mmHg**（IIa/B） | **安静時 >50 mmHg**（IIa/C） | 安静時 PASP >50 mmHg（Stage C/D定義） |
-| **新規 AF での介入推奨** | **Class IIb, Level C** | **Class IIa, Level C** | Class IIa, Level C-EO |
+| **新規 AF での介入推奨** | **Class IIb, Level C** | **Class IIa, Level C** | Class IIb, Level C-LD |
 | **塞栓症既往での介入** | **Class IIb, Level C** | **Class IIa, Level C** | 個別判断 |
 | **LA内エコーコントラスト** | 記載なし | **Class IIa, Level C（独自）** | 記載なし |
-| **軽症MS（MVA >1.5 cm²）への介入** | **Class IIb, Level C**（運動負荷陽性時） | 対象外 | 対象外（Stage Bは介入推奨なし） |
+| **軽症MS（MVA >1.5 cm²）への介入** | **Class IIb, Level C**（運動負荷陽性時） | 対象外 | Class IIb, Level C-LD（症候性＋運動時 PAWP >25/mPG >15） |
 | **低圧較差MSの定義** | 定義なし | **明示あり（mPG <10 mmHg + MVA <1.5）** | 定義なし |
 | **MAC へのTMVI** | 言及なし | **Class IIb, Level C（独自）** | 高リスクで考慮 |
 | **重症度分類システム** | 軽症/中等症/重症 | 重症/非重症（2区分） | **A〜Dのステージ分類** |
-| **形成術 vs 置換術** | OMCとPTMCは同等、若年者でOMC意義あり | 形成術は技術的困難（リウマチ性）、MVRが一般的 | 形成術を優先（可能な場合、IIa/C-EO） |
-| **弁選択年齢の明示** | **<65歳 機械弁 / ≥65歳 生体弁** | 患者・術者因子で判断（明示的閾値なし） | 明示的閾値なし |
+| **形成術 vs 置換術** | OMCとPTMCは同等、若年者でOMC意義あり | 形成術は技術的困難（リウマチ性）、MVRが一般的 | 手術は repair/commissurotomy/replacement を 1/B-NR で推奨（形成優先のクラス推奨なし） |
+| **弁選択年齢の明示** | **<65歳 機械弁 / ≥70歳 生体弁（僧帽弁位）** | 患者・術者因子で判断（明示的閾値なし） | 明示的閾値なし |
 | **Cormierスコア** | 使用なし | **使用（スコア3 = PMC禁忌）** | 使用なし（Wilkinsのみ） |
 | **Heart Team** | 推奨 | **弁膜症チーム評価が原則** | 推奨 |
 
@@ -336,19 +336,19 @@ ESC/EACTS 2025ではWilkinsスコアに加えてCormierスコア（蛍光透視�
 
 | 推奨事項 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |---------|---------|---------------|-------------|
-| PTMC/PMC/PMBC（形態適合、禁忌なし） | **I / B** | **I / B** | **I / B-NR** |
-| PTMC/PMC（高外科的リスク） | 考慮（クラス不明示） | **I / C** | **IIa / C-EO** |
+| PTMC/PMC/PMBC（形態適合、禁忌なし） | **I / B** | **I / B** | **I / A** |
+| PTMC/PMC（高外科的リスク） | 考慮（クラス不明示） | **I / C** | **IIb / B-NR（準最適形態）** |
 | 外科的手術（PTMC/PMC不適） | **I / B** | **I / C** | **I / B-NR** |
-| 外科的形成術の位置付け | OMCは有効な選択肢 | 経験センターで考慮、MVRが主流 | **可能な場合に優先（IIa / C-EO）** |
+| 外科的形成術の位置付け | OMCは有効な選択肢 | 経験センターで考慮、MVRが主流 | **手術全体を I/B-NR で推奨（形成優先のクラス推奨なし）** |
 
 ### 9-3. 無症候性MS（Stage C / 中等症以上無症候性）への介入比較
 
 | トリガー条件 | JCS 2020 | ESC/EACTS 2025 | ACC/AHA 2020 |
 |------------|---------|---------------|-------------|
-| 安静時 SPAP（PASP） >50 mmHg | **IIa / B** | **IIa / C** | **IIa / C-EO** |
+| 安静時 SPAP（PASP） >50 mmHg | 運動時 IIa/B（安静時>50単独なし） | **IIa / C** | **IIa / B-NR** |
 | 運動時 SPAP ≥60 mmHg | **IIa / B** | 高リスクマーカーとして言及 | 明示なし |
 | 運動時 mPG >15 mmHg | **IIa / B** | 言及あり | 明示なし |
-| 新規/発作性 AF | **IIb / C** | **IIa / C** | **IIa / C-EO** |
+| 新規/発作性 AF | **IIb / C** | **IIa / C** | **IIb / C-LD** |
 | 塞栓症既往（OAC下） | **IIb / C** | **IIa / C** | 個別判断 |
 | LA内濃厚エコーコントラスト | 記載なし | **IIa / C** | 記載なし |
 | 大きな非心臓外科手術前 | 個別判断 | **IIa / C** | 術前評価・検討 |
@@ -375,22 +375,40 @@ ESC/EACTS 2025ではWilkinsスコアに加えてCormierスコア（蛍光透視�
 |---|--------|------|
 | **①** | **「重症」MVA定義** | JCSは<1.0 cm²（厳格）、ESC/EACTSとACC/AHAは≦1.5 cm²。ただし介入の実際の閾値は3ガイドライン共通でMVA ≦1.5 cm² |
 | **②** | **肺高血圧の介入トリガー** | JCSは運動時SPAPを重視（≥60 mmHg）、ESC/EACTSとACC/AHAは安静時PASP >50 mmHgを基準とする |
-| **③** | **新規AFの介入推奨強度** | ESC/EACTSとACC/AHAはClass IIaとして明示的だが、JCSはClass IIb（弱い推奨）にとどまる |
+| **③** | **新規AFの介入推奨強度** | ESC/EACTSが Class IIa（C）として明示的。JCS（IIb/C）と ACC/AHA（IIb/C-LD）は弱い推奨 |
 | **④** | **塞栓症リスクの扱い** | ESC/EACTSはLA内濃厚エコーコントラスト単独をClass IIaのトリガーとして明示（JCS・ACC/AHAは記載なし） |
-| **⑤** | **軽症MSへの介入** | JCSのみが運動負荷陽性の軽症MS（MVA >1.5 cm²）への介入をClass IIbとして記載 |
+| **⑤** | **軽症MSへの介入** | JCS（IIb/C）と ACC/AHA（IIb/C-LD）が症候性 MVA >1.5 cm²（運動時 PAWP >25/mPG >15）への PMBC を弱く考慮。ESC/EACTSは MVA ≦1.5 を介入対象とする |
 | **⑥** | **低圧較差MSの定義** | ESC/EACTSのみが「低圧較差重症MS（mPG <10 mmHg）」を明示的に定義（JCS・ACC/AHAに独立定義なし） |
 | **⑦** | **MAC/非リウマチ性MSへのTMVI** | ESC/EACTSのみがClass IIb, Level Cとして経カテーテル的弁植え込みを明示 |
-| **⑧** | **形成術 vs 置換術** | ACC/AHAは形成術を可能な場合に優先（Class IIa）、ESC/EACTSはリウマチ性MSにおける形成術の技術的困難を強調してMVRが主流 |
-| **⑨** | **弁選択の年齢基準** | JCSのみが明示的閾値（<65歳 機械弁、≥65歳 生体弁）を記載 |
+| **⑧** | **形成術 vs 置換術** | ACC/AHA はリウマチ性 MS の手術を repair/commissurotomy/replacement として 1/B-NR で推奨（形成を優先する明示的クラス推奨はなし）。ESC/EACTSはリウマチ性 MS の形成術の技術的困難を強調し MVR が主流 |
+| **⑨** | **弁選択の年齢基準** | JCSのみが明示的閾値（僧帽弁位：<65歳 機械弁、≥70歳 生体弁）を記載 |
 | **⑩** | **重症度分類システム** | ACC/AHAのみがA〜Dのアルファベットステージ分類を採用（日欧は軽症/中等症/重症の数値基準） |
 
 ### 臨床的含意
 
 > [!abstract] 地域別アプローチの特徴
 > - 🇪🇺 **欧州（ESC/EACTS 2025）** は無症候性MSへの介入適応が最も積極的で、塞栓症リスク（LA内エコーコントラスト、新規AF）を強調し、低圧較差MSやMACへのTMVIなど先進的な概念を盛り込んでいる。また、高外科的リスク患者でも形態不問でPMCを推奨（==Class I==）している点が他ガイドラインと大きく異なる。
-> - ��🇸 **米国（ACC/AHA 2020）** はA〜Dステージ分類による明確な患者層別が特徴で、症候性（Stage D）への介入はClass I B-NRと強く推奨。一方で無症候性への介入はClass IIa以下で慎重。形成術の優先を明示している点も特徴的。
+> - 🇺🇸 **米国（ACC/AHA 2020）** はA〜Dステージ分類による明確な患者層別が特徴で、症候性（Stage D）の PMBC を Class I, Level A、外科手術を Class I, B-NR で強く推奨。一方で無症候性への介入は Class IIa 以下で慎重。
 > - 🇯🇵 **日本（JCS 2020）** は「重症」の定義がMVA ==<1.0 cm²== と最も厳格で、軽症MS（MVA >1.5 cm²）への介入（Class IIb）を独自に記載している。無症候性MSへのAF起因介入はClass IIb（他の2ガイドラインよりやや慎重）。リウマチ性MSへの対応として若年者でのOMCの意義を強調している点が日本特有の状況を反映している。
 
 ---
 
 *本文書は各ガイドライン原本の推奨事項を忠実に要約したものです。推奨クラス（I, IIa, IIb, III）およびエビデンスレベルは原文に基づいています。実際の臨床判断は各症例の状況を踏まえ、弁膜症チーム（Heart Teamまたは専門医間の協議）にて総合的に行うことが推奨されます。*
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・数値閾値を、原典ガイドラインPDF（JCS/JSCS/JATS/JSVS 2020、ESC/EACTS 2025、ACC/AHA 2020）と逐語照合し、以下を修正のうえ確認済み（修正は主に ACC/AHA 列に集中）。
+>
+> **ACC/AHA 2020 列の修正：**
+> - 症候性重症MSへの PMBC：I/B-NR → **I/A**（rec #1）
+> - 高外科的リスク/手術禁忌例の PMBC：IIa/C-EO「形態不問」→ **IIb/B-NR**（準最適形態が前提、rec #6）
+> - 無症候性・新規発症 AF：IIa/C-EO → **IIb/C-LD**（rec #4）
+> - 症候性 MVA >1.5 cm²：「対象外」→ **IIb/C-LD**（運動時 PAWP >25 mmHg または mPG >15 mmHg、rec #5）
+> - 「形成術を IIa/C-EO で優先」という推奨は原典に存在せず → 手術（形成・交連切開・置換）を一括して **I/B-NR** で推奨と訂正
+>
+> **JCS 2020 列の修正：**
+> - 僧帽弁位の生体弁推奨年齢：≥65歳 → **≥70歳**（≥65歳は大動脈弁位、Table 46）
+> - 安静時 SPAP >50 mmHg を独立トリガーとする記載を訂正（JCS は運動時 mPG >15 または PASP >60 で IIa/B）
+> - PTMC の合併 MR 禁忌基準：「MR >2+」→ **MR >grade III**
+>
+> **差異ポイントの訂正：** ③（新規AFの推奨強度：ACC/AHA も IIb/C-LD）・⑤（軽症MS：ACC/AHA も IIb/C-LD）・⑧（形成術優先の表現）を上記の事実に合わせて訂正。

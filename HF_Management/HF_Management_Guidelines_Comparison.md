@@ -119,7 +119,7 @@ aliases:
 > 2. **静注鉄剤（鉄欠乏）のクラス**：ESC 2023 FU = **Class I/A**（症状改善目的）vs ACC 2022 = **Class 2a B-R** vs JCS 2025 = **Class IIa B-R**
 > 3. **イバブラジン適応の心拍数閾値**：JCS 2025 = **>75 bpm** vs ESC 2021 = **≥70 bpm** vs ACC 2022 = **≥70 bpm**
 > 4. **β遮断薬の選択**：JCS 2025 は**カルベジロール／ビソプロロールの 2 剤のみ**（保険適用最大量カルベジロール 20 mg/日・ビソプロロール 5 mg/日）vs 欧米は **3 剤**（+ メトプロロールコハク酸塩 CR/XL）
-> 5. **女性 LBBB + CRT**：JCS 2025 = LVEF ≤30% + LBBB + QRS 120-149 ms で**女性のみ Class I（A）**を明示 vs 欧米は性差を class で区別せず
+> 5. **女性 LBBB + CRT**：JCS 2025 = LVEF ≤35% + LBBB + QRS 120-149 ms で**女性のみ Class I（A）**を明示 vs 欧米は性差を class で区別せず
 > 6. **CABG vs PCI in ICM**：JCS 2025 = **CABG Class I, B-R**／PCI Class IIb（STICHES + REVIVED-BCIS2 反映）vs ESC 2021 = CABG Class IIa, B／PCI Class IIb（REVIVED-BCIS2 出版前）vs ACC 2022 = CABG Class 1, B-R／PCI 記載なし
 > 7. **finerenone の HFmrEF/HFpEF 適応**：JCS 2025 = HFmrEF/HFpEF とも **Class IIa, B-R**（FINEARTS-HF 反映、2025年5月時点保険適用外）vs ESC 2023 FU = **T2DM+CKD のみ Class I/A** vs ACC 2022 = 言及なし
 > 8. **HFrEF への ARNI 第一選択**：ACC 2022 = **入院中 de novo 開始可（Class 1, A）**／JCS 2025 = **ACEI/ARB から切替が原則**（保険適用上の制限）／ESC 2021 = **ACEI/ARB からの "replacement"**（Class I, B）
@@ -272,7 +272,7 @@ aliases:
 | **アミオダロン** | IIa, B-R（重症心室不整脈・心停止既往） | （言及） | （言及） |
 | **抗不整脈薬 Ic 群** | **III Harm, A** | III, A | 3: Harm, A |
 | **非ジヒドロピリジン系 Ca 拮抗薬** | **III Harm, A** | III, A | 3: Harm, A |
-| **チアゾリジン誘導体**（ピオグリタゾン） | （言及） | III, A | **3: Harm, B-R**（HF 入院増加） |
+| **チアゾリジン誘導体**（ピオグリタゾン） | （言及） | III, A | **3: Harm, A**（HF 入院増加） |
 
 > [!note] イバブラジン心拍閾値の地域差
 > JCS 2025 のみ **>75 bpm**、ESC・ACC は **≥70 bpm**。SHIFT 試験のサブ解析（HR ≥75 bpm でより明確な効果）を JCS が反映した結果。臨床的には実質的差異は少ない。
@@ -495,27 +495,27 @@ ESC 2021/2023 では HFimpEF の独立した class 推奨はないが、本文�
 | 条件（LVEF / QRS / LBBB／NYHA） | JCS 2025（推奨表29, p.83） | ESC 2021（p.29） | ACC 2022（§7.4.1, p.e941） |
 |---|---|---|---|
 | **NYHA III-IV ambulatory** | | | |
-| LVEF ≤35% + LBBB + QRS ≥150 ms | **I, A** | **I, A** | **1, A** |
-| LVEF ≤35% + non-LBBB + QRS ≥150 ms | IIa, B-R | **IIa, B** | 2a, B-NR |
+| LVEF ≤35% + LBBB + QRS ≥150 ms | **I, A** | **I, A** | **1, B-R** |
+| LVEF ≤35% + non-LBBB + QRS ≥150 ms | IIa, B-R | **IIa, B** | 2a, B-R |
 | LVEF ≤35% + LBBB + QRS 120-149 ms | **I, A** | **IIa, B** | **2a, B-NR** |
 | LVEF ≤35% + non-LBBB + QRS 120-149 ms | IIb, B-NR | IIb, B | 2b, B-NR |
 | **NYHA II** | | | |
-| LVEF ≤30% + LBBB + QRS ≥150 ms | **I, A** | I, A | 1, A |
-| LVEF ≤30% + non-LBBB + QRS ≥150 ms | IIa, B-R | IIa, B | 2a, B-NR |
-| LVEF ≤30% + LBBB + QRS 120-149 ms（女性） | **I, A** | — | — |
+| LVEF ≤30% + LBBB + QRS ≥150 ms | **I, A** | I, A | 1, B-R |
+| LVEF ≤30% + non-LBBB + QRS ≥150 ms | IIa, B-R | IIa, B | 2a, B-R |
+| LVEF ≤35% + LBBB + QRS 120-149 ms（女性） | **I, A** | — | — |
 | LVEF ≤35% + LBBB + QRS 120-149 ms | IIa, B-R | IIa, B | 2a, B-NR |
 | LVEF ≤30% + non-LBBB + QRS 120-149 ms | IIb, B-NR | IIb | 2b, B-NR |
 | **AF 合併** | | | |
 | LVEF ≤35% + LBBB + QRS ≥120 ms（AF） | IIa, B-NR | I, A（ペーシング依存） | 2a, B-NR |
-| **房室結節アブレーション + CRT**（rate control 失敗） | — | I, A | **2a, B-R** |
+| **房室結節アブレーション + CRT**（rate control 失敗） | — | I, A | **2a, B-NR** |
 | **デバイス交換時に CRT へアップグレード** | — | IIa, B | 2a, B-NR |
-| **完全 AV ブロック + LVEF 36-50%** | — | — | **2a, B-NR** |
+| **完全 AV ブロック + LVEF 36-50%** | — | — | **2a, B-R** |
 | **QRS <130 ms + 高度 AVB なし** | III No benefit | **III, A** | **3: No Benefit, B-R** |
 
 ### 8-2. JCS 2025 の独自性 — 女性 LBBB QRS 120-149 ms の Class I
 
 > [!quote] JCS 2025 推奨表29 p.83
-> 「GDMT・洞調律・LVEF ≤30%・LBBB・QRS 120-149 ms（**女性**）：**推奨クラス I、エビデンスレベル A**」
+> 「GDMT・洞調律・LVEF ≤35%・LBBB・QRS 120-149 ms（**女性**）：**推奨クラス I、エビデンスレベル A**」
 
 ESC 2021・ACC 2022 は性差を明示的に class 区別していない。JCS 2025 は MADIT-CRT・REVERSE のサブ解析で女性で QRS が短くても CRT 効果が大きいことを反映し、**世界で唯一性差を class で区別**した。
 
@@ -720,7 +720,7 @@ JCS 2025 図27（p.91）：血行動態不安定 → 電気的除細動。安定
 > [!quote] JCS 2025 推奨表35 p.92／推奨表41 p.104
 > - 頻脈性 AF で血行動態破綻 → 緊急電気的除細動：**I, C-EO**
 > - 心拍数調節目的の **ランジオロール静注**：**IIa, B-R**
-> - 心拍数調節目的のジゴキシン静注：IIa, C-EO
+> - 心拍数調節目的のジゴキシン静注：IIa, B-NR
 > - **心機能低下例での頻脈性 AF への経口 β 遮断薬の急性期新規投与は禁忌**
 > - 非ジヒドロピリジン系 Ca 拮抗薬の静注は推奨されない：**III Harm**
 
@@ -770,7 +770,7 @@ JCS 2025 図30（p.97）は **MR.CHAMPH** を採用：**M**yocarditis／**R**igh
 
 | 推奨 | JCS 2025（推奨表46, p.111） | ESC 2021 | ACC 2022 |
 |---|---|---|---|
-| 呼吸不全（RR >25, SpO₂ <90%）→ **NPPV** | **I, A** | IIa, B（NPPV） | **1, B-R** |
+| 呼吸不全（RR >25, SpO₂ <90%）→ **NPPV** | **I, A** | IIa, B（NPPV） | （記載なし） |
 | SpO₂ <90% or PaO₂ <60 → 酸素 | I, C-EO | I, C | 1, C-LD |
 | NPPV 無効・意識障害・血行動態不安定 → 気管挿管 | I, C-EO | I, C | 1, C-LD |
 | **HFNC**（マスク困難例） | IIb, C-LD | （言及） | （言及） |
@@ -837,6 +837,9 @@ JCS 2025 図30（p.97）は **MR.CHAMPH** を採用：**M**yocarditis／**R**igh
 | **遺伝子検査で確診の遺伝性 hATTR-CM + NYHA I-II → tafamidis** | （言及） | **I, B** | **1, B-R** |
 | **wtATTR-CM + NYHA I-II → tafamidis** | （言及） | **I, B** | **1, B-R** |
 | **心アミロイドーシス + AF → 抗凝固**（CHA₂DS₂-VASc 不問） | （言及） | （言及） | **2a, C-LD** |
+
+> [!note] NYHA 範囲の差
+> 表中の「NYHA I-II」は ESC 2021 の適応範囲。**ACC/AHA 2022 の tafamidis 推奨は wtATTR/variant ATTR を1推奨で包括し、NYHA class I〜III**（1, B-R）。ACC では NYHA III まで適応に含む。
 
 > [!quote] ACC/AHA/HFSA 2022 §7.8.2 Synopsis (p.e954)
 > "In the ATTR-ACT clinical trial, tafamidis resulted in lower all-cause mortality (29.5% vs 42.9%) and lower cardiovascular-related hospitalization (0.48 vs 0.70 per year) after 30 months."
@@ -1006,3 +1009,20 @@ JCS 2025 でも ATTR-CM の章で tafamidis を主要治療として記載。詳
 - ESC 2021：Table 3 p.15、Figure 3 p.26、Table 13 p.40、Table 16 p.44、§6.1 ICD p.27-29、§6.2 CRT p.29-30、§12.2.2 血行再建 p.64、§12.3.3 MR p.66-67
 - ESC 2023 FU：Recommendation Tables 1-5 p.3633-3637（HFmrEF/HFpEF SGLT2i、STRONG-HF、T2DM+CKD、IV鉄）
 - ACC/AHA/HFSA 2022：Top 10 Take-Home Messages p.e897-e898、Table 3 ステージ p.e904、Table 4 LVEF 分類 p.e905、§7.3 GDMT p.e928-e933、Figure 6 治療アルゴリズム p.e924、Table 14 用量 p.e938、§7.4.1 ICD/CRT p.e941-e944、§7.4.3 CABG p.e945、§7.5 MR/AS p.e946-e948、§7.7.1 HFpEF p.e949-e952、§7.8 アミロイドーシス p.e952-e955、§8 進行 HF p.e955-e960、§9 入院 p.e960-e969、§10 併存疾患 p.e969-e973、§13 緩和ケア p.e980-e984
+
+---
+
+> [!success] ✅ Fact check完了（2026年5月23日）
+> 本文書の推奨クラス・エビデンスレベル・数値閾値を、原典ガイドラインPDF（JCS/JHFS 2025 心不全、ESC 2021 HF、ESC 2023 HF Focused Update、ACC/AHA/HFSA 2022 HF）と逐語照合し、以下を修正のうえ確認済み。
+>
+> - **ACC/AHA 2022：CRT（LBBB + QRS ≥150 ms, NYHA II/III/ambulatory IV）**：1, A → **1, B-R**（推奨#4）
+> - **ACC/AHA 2022：CRT（non-LBBB + QRS ≥150 ms）**：2a, B-NR → **2a, B-R**（推奨#6）
+> - **ACC/AHA 2022：CRT（房室結節アブレーション/AF + CRT）**：2a, B-R → **2a, B-NR**（推奨#9）
+> - **ACC/AHA 2022：CRT（完全房室ブロック + LVEF 36-50%）**：2a, B-NR → **2a, B-R**（推奨#7）
+> - **JCS 2025：CRT 女性・LBBB・QRS 120-149 ms の LVEF 閾値**：≤30% → **≤35%**（推奨表29／表21。≤30% は非LBBB 行の値）
+> - **JCS 2025：心拍数調節目的のジゴキシン静注**：IIa, C-EO → **IIa, B-NR**（推奨表41）
+> - **ACC/AHA 2022：NPPV**：1, B-R → **記載なし**（ACC HF 2022 に NPPV の COR/LOE 付き推奨は存在せず、略語脚注のみ）
+> - **ACC/AHA 2022：チアゾリジン誘導体（HFrEF）**：3: Harm, B-R → **3: Harm, A**（HFrEF 推奨#5。B-R は LVEF <50% の別推奨）
+> - **ACC/AHA 2022：tafamidis の NYHA 範囲**：NYHA I-II → **NYHA I–III**（注記追加。wtATTR/variant ATTR を1推奨で包括、Class 1, B-R）
+>
+> 上記以外の推奨クラス・レベル・閾値（GDMT 4本柱、ICD一次予防、HFpEF/HFmrEF SGLT2i・finerenone、二次性MR TEER（COAPT）、ATTR-ACT 数値、進行HF 紹介基準等）は原典と一致を確認。
