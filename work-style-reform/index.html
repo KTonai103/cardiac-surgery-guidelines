@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="color-scheme" content="light only">
+<meta name="format-detection" content="telephone=no">
+<title>心臓血管外科 働き方改革 — 決定事項 (2026-05-26 会議)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #f5f6f8; --card: #fff; --navy: #1a3056; --navy-light: #2a4a7f;
+  --blue: #0670c7; --blue-bg: #f0f6fd; --blue-light: #e8f2fc;
+  --red: #c8102e; --red-light: #fbeaed;
+  --green: #1b7340; --green-light: #e6f9ed;
+  --gold: #b8860b; --gold-bg: #fff8e1;
+  --orange: #d97706; --orange-bg: #fff4e6;
+  --purple: #6b46c1; --purple-bg: #f3edff;
+  --text: #2c3340; --text2: #5a6373; --text3: #8c95a4;
+  --border: #dfe2e8; --border-light: #eceef2;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06); --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+  --radius: 6px; --radius-lg: 10px;
+  --mono: 'SF Mono','Fira Code','Consolas',monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  font-family: 'Noto Sans JP', -apple-system, 'Hiragino Kaku Gothic ProN', sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  /* iPhone 安全領域 (ノッチ / ホームインジケータ) */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+  overflow-x: hidden;
+}
+button, a { touch-action: manipulation; }
+
+/* ── Top bar ── */
+.top-bar { background: var(--card); border-bottom: 3px solid var(--red); box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 200; }
+.top-bar-inner { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; height: 52px; gap: 1rem; }
+.top-bar-title { font-size:.9rem; font-weight:700; color:var(--navy); white-space:nowrap; }
+.top-bar-title span { color:var(--red); margin-right:.3rem; }
+.top-bar-nav { display:flex; gap:3px; overflow-x:auto; flex-wrap:wrap; margin-left:auto; }
+.top-bar-nav a { font-size:.72rem; font-weight:500; color:var(--text2); padding:5px 10px; border-radius:4px; text-decoration:none; white-space:nowrap; border:1px solid transparent; transition:all .15s; }
+.top-bar-nav a:hover { background:var(--blue-light); color:var(--blue); border-color:var(--blue); }
+
+/* ── Hero ── */
+.hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #3663a8 100%); color:#fff; padding:2.6rem 2rem 2.1rem; position:relative; }
+.hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:4px; background:linear-gradient(90deg, var(--red), #a00d24, var(--red)); }
+.hero-inner { max-width:1180px; margin:0 auto; }
+.hero h1 { font-size:1.55rem; font-weight:700; letter-spacing:-.02em; line-height:1.35; margin-bottom:.4rem; }
+.hero .sub { font-size:.9rem; font-weight:300; opacity:.88; }
+.hero .meta-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:1rem; }
+.hero .meta-tag { background:rgba(255,255,255,.15); padding:4px 13px; border-radius:14px; font-size:.74rem; font-weight:500; }
+
+/* ── Main layout ── */
+.main { max-width:1180px; margin:0 auto; padding:1.5rem; }
+
+/* ── Notice / background ── */
+.notice { background: linear-gradient(135deg,#fffbeb,#fef9c3); border:1px solid #fbbf24; border-radius:var(--radius-lg); padding:1.1rem 1.3rem; margin-bottom:1.5rem; font-size:.86rem; line-height:1.85; color:#78350f; }
+.notice strong { color:#92400e; font-weight:700; }
+
+/* ── Why-now card (key facts grid) ── */
+.why-card { background:#fff; border:1px solid var(--border); border-left:5px solid var(--red); border-radius:var(--radius-lg); padding:1.2rem 1.4rem 1.3rem; margin-bottom:2rem; box-shadow:var(--shadow-sm); }
+.why-card h3 { font-size:1.02rem; color:var(--navy); margin-bottom:.85rem; padding-bottom:.45rem; border-bottom:1px solid var(--border-light); letter-spacing:.01em; }
+.why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem; }
+.why-tile { background:#fafcff; border:1px solid var(--border-light); border-radius:var(--radius); padding:.75rem .9rem .8rem; display:flex; flex-direction:column; gap:.25rem; }
+.why-tile .why-key { font-size:.95rem; font-weight:700; color:var(--red); letter-spacing:-.01em; line-height:1.25; }
+.why-tile .why-label { font-size:.78rem; font-weight:700; color:var(--navy); }
+.why-tile .why-desc { font-size:.76rem; color:var(--text); line-height:1.7; }
+.why-tile .why-desc strong { color:var(--navy); font-weight:700; }
+.why-foot { margin-top:.9rem; padding:.7rem .9rem; background:var(--blue-bg); border:1px solid var(--blue-light); border-radius:var(--radius); font-size:.82rem; line-height:1.8; color:var(--text); }
+.why-foot strong { color:var(--navy); font-weight:700; }
+
+/* ── Quick summary chips ── */
+.summary-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.2rem 1.4rem; margin-bottom:2rem; box-shadow:var(--shadow-sm); }
+.summary-card h3 { font-size:.98rem; color:var(--navy); margin-bottom:.85rem; padding-bottom:.4rem; border-bottom:1px solid var(--border-light); }
+.summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:.75rem; }
+.summary-chip { display:flex; gap:.6rem; align-items:flex-start; padding:.65rem .85rem; background:#fafcff; border:1px solid var(--border-light); border-radius:var(--radius); font-size:.82rem; line-height:1.55; }
+.summary-chip .chip-num { font-weight:700; color:#fff; background:var(--navy); border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-size:.72rem; flex-shrink:0; margin-top:1px; }
+
+/* ── Section ── */
+.section-wrap { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); margin-bottom:1.4rem; box-shadow:var(--shadow-sm); overflow:hidden; }
+.sec-header { padding:1rem 1.4rem; display:flex; align-items:center; gap:.85rem; border-bottom:1px solid var(--border-light); cursor:pointer; user-select:none; transition:background .15s; }
+.sec-header:hover { background:#fafbfc; }
+.sec-num { width:38px; height:38px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:.9rem; font-weight:700; color:#fff; flex-shrink:0; }
+.sec-header h2 { font-size:1.02rem; font-weight:700; color:var(--navy); flex:1; line-height:1.35; }
+.sec-tag { font-size:.7rem; font-weight:600; padding:3px 10px; border-radius:11px; flex-shrink:0; }
+.sec-tag.now { background:var(--red-light); color:var(--red); border:1px solid #f3c2c9; }
+.sec-tag.soon { background:var(--orange-bg); color:var(--orange); border:1px solid #f5d8a8; }
+.sec-tag.confirm { background:var(--blue-bg); color:var(--blue); border:1px solid var(--blue-light); }
+.sec-tag.done { background:var(--green-light); color:var(--green); border:1px solid #bfe6cd; }
+.sec-toggle { font-size:.8rem; color:var(--text3); transition:transform .2s; }
+.sec-body { padding:1.3rem 1.6rem; }
+.section-wrap.collapsed .sec-body { display:none; }
+.section-wrap.collapsed .sec-toggle { transform:rotate(180deg); }
+
+/* ── Decision blocks ── */
+.decision { background:#fafcff; border:1px solid var(--border-light); border-left:4px solid var(--blue); border-radius:var(--radius); padding:.9rem 1.1rem; margin-bottom:.85rem; }
+.decision:last-child { margin-bottom:0; }
+.decision .d-title { font-size:.92rem; font-weight:700; color:var(--navy); margin-bottom:.4rem; display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
+.decision .d-title::before { content:'✔'; color:var(--green); font-weight:700; }
+.decision .d-body { font-size:.85rem; line-height:1.8; color:var(--text); }
+.decision ul { padding-left:1.4rem; margin-top:.3rem; }
+.decision li { margin-bottom:.25rem; }
+.decision .d-meta { font-size:.74rem; color:var(--text2); margin-top:.55rem; padding-top:.4rem; border-top:1px dashed var(--border-light); display:flex; gap:.7rem; flex-wrap:wrap; }
+.decision .d-meta span { display:inline-flex; align-items:center; gap:.3rem; }
+.decision .d-meta strong { color:var(--navy); font-weight:600; }
+
+.decision.warn { border-left-color:var(--red); background:var(--red-light); }
+.decision.warn .d-title::before { content:'⚑'; color:var(--red); }
+.decision.gold { border-left-color:var(--gold); background:var(--gold-bg); }
+.decision.gold .d-title::before { content:'★'; color:var(--gold); }
+.decision.todo { border-left-color:var(--orange); background:var(--orange-bg); }
+.decision.todo .d-title::before { content:'⚙'; color:var(--orange); }
+.decision.note { border-left-color:#94a3b8; background:#f8fafc; }
+.decision.note .d-title::before { content:'ℹ'; color:#64748b; }
+
+/* ── Tag / pill ── */
+.pill { display:inline-block; font-size:.7rem; font-weight:600; padding:2px 9px; border-radius:11px; margin-left:.3rem; vertical-align:middle; }
+.pill-imm { background:var(--red-light); color:var(--red); border:1px solid #f3c2c9; }
+.pill-soon { background:var(--orange-bg); color:var(--orange); border:1px solid #f5d8a8; }
+.pill-confirm { background:var(--blue-bg); color:var(--blue); border:1px solid var(--blue-light); }
+.pill-trial { background:var(--purple-bg); color:var(--purple); border:1px solid #d8c8f3; }
+.pill-rule { background:#eef2f7; color:var(--navy); border:1px solid var(--border); }
+
+/* ── Tables ── */
+.tbl-wrap { overflow-x:auto; margin:.6rem 0 .3rem; }
+table.deck { width:100%; border-collapse:collapse; font-size:.81rem; background:#fff; }
+table.deck th, table.deck td { border:1px solid var(--border); padding:7px 10px; text-align:left; vertical-align:top; line-height:1.65; }
+table.deck th { background:#eef3f9; color:var(--navy); font-weight:700; }
+table.deck tbody tr:nth-child(2n) { background:#fafbfd; }
+
+/* ── Pending / open issues ── */
+.pending-card { background: linear-gradient(135deg,#fff,#fafcff); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.3rem 1.5rem; margin-bottom:2rem; box-shadow:var(--shadow-sm); }
+.pending-card h3 { font-size:1rem; color:var(--navy); margin-bottom:.85rem; padding-bottom:.4rem; border-bottom:2px solid var(--gold); }
+.pending-card ul { padding-left:1.4rem; font-size:.86rem; line-height:1.9; }
+.pending-card li { margin-bottom:.35rem; color:var(--text); }
+.pending-card li strong { color:var(--navy); }
+
+/* ── Footer ── */
+.footer { text-align:center; font-size:.75rem; color:var(--text3); padding:1.5rem 1rem 2.5rem; }
+
+/* ── Responsive (tablet) ── */
+@media (max-width:900px) {
+  .main { padding: 1rem; }
+  .hero { padding: 2rem 1.2rem 1.6rem; }
+  .why-grid { grid-template-columns:repeat(2,1fr); }
+}
+
+/* ── Responsive (phone) ── */
+@media (max-width:700px) {
+  .hero { padding: 1.6rem 1rem 1.4rem; }
+  .hero h1 { font-size:1.12rem; line-height:1.4; letter-spacing:-.01em; }
+  .hero .sub { font-size:.78rem; }
+  .hero .meta-tag { font-size:.66rem; padding:3px 10px; }
+  .hero .meta-row { gap:5px; margin-top:.7rem; }
+
+  /* トップバーは ナビをスクロール式に */
+  .top-bar { padding-top: env(safe-area-inset-top); }
+  .top-bar-inner { padding: 0 .9rem; height: 48px; gap:.6rem; }
+  .top-bar-title { font-size:.78rem; }
+  .top-bar-nav { gap:2px; flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .top-bar-nav::-webkit-scrollbar { display:none; }
+  .top-bar-nav a { font-size:.7rem; padding:6px 9px; min-height:30px; display:inline-flex; align-items:center; }
+
+  .main { padding: .9rem .8rem 1rem; }
+
+  .notice { font-size:.78rem; padding:.85rem 1rem; line-height:1.75; }
+
+  .bg-card { padding:1rem 1.1rem; }
+  .bg-card h3 { font-size:.96rem; }
+  .bg-card p { font-size:.82rem; line-height:1.8; }
+
+  .summary-card { padding:1rem 1.1rem; }
+  .summary-card h3 { font-size:.92rem; }
+  .summary-grid { grid-template-columns:1fr; gap:.55rem; }
+  .summary-chip { font-size:.78rem; padding:.6rem .75rem; }
+  .summary-chip .chip-num { width:24px; height:24px; font-size:.7rem; }
+
+  .section-wrap { margin-bottom:1rem; border-radius:8px; }
+  .sec-header { padding:.85rem 1rem; gap:.7rem; min-height:56px; /* タップ領域確保 */ }
+  .sec-num { width:34px; height:34px; font-size:.82rem; }
+  .sec-header h2 { font-size:.92rem; line-height:1.35; }
+  .sec-tag { font-size:.63rem; padding:2px 8px; }
+  .sec-body { padding:.95rem 1rem 1.1rem; }
+
+  .decision { padding:.8rem .9rem; margin-bottom:.7rem; border-left-width:3px; }
+  .decision .d-title { font-size:.85rem; gap:.4rem; line-height:1.5; }
+  .decision .d-body { font-size:.79rem; line-height:1.8; }
+  .decision ul { padding-left:1.2rem; }
+  .decision .d-meta { font-size:.7rem; flex-direction:column; gap:.25rem; }
+
+  .pending-card { padding:1rem 1.1rem; }
+  .pending-card h3 { font-size:.94rem; }
+  .pending-card ul { font-size:.8rem; line-height:1.85; padding-left:1.2rem; }
+
+  .why-card { padding:1rem 1.1rem; }
+  .why-card h3 { font-size:.94rem; }
+  .why-grid { grid-template-columns:1fr; gap:.55rem; }
+  .why-tile { padding:.7rem .8rem; }
+  .why-tile .why-key { font-size:.9rem; }
+  .why-tile .why-label { font-size:.76rem; }
+  .why-tile .why-desc { font-size:.74rem; }
+  .why-foot { font-size:.78rem; padding:.6rem .8rem; }
+
+  .footer { font-size:.7rem; padding:1rem .8rem 1.5rem; }
+
+  /* テーブル: 端末幅で読みやすく */
+  .tbl-wrap { -webkit-overflow-scrolling:touch; }
+  table.deck { font-size:.76rem; }
+  table.deck th, table.deck td { padding:5px 7px; }
+}
+
+/* ── 極小 iPhone (SE 等, ≤375px) ── */
+@media (max-width:380px) {
+  .hero h1 { font-size:1.02rem; }
+  .top-bar-title { font-size:.72rem; }
+  .top-bar-nav a { font-size:.66rem; padding:5px 7px; }
+  .sec-header h2 { font-size:.86rem; }
+  .decision .d-title { font-size:.82rem; }
+  .decision .d-body { font-size:.76rem; }
+  .summary-chip { font-size:.76rem; }
+}
+
+@media print {
+  .top-bar { display:none; }
+  .sec-body { display:block !important; }
+  body { background:#fff; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <span class="top-bar-title"><span>◆</span>働き方改革 決定事項 共有版</span>
+    <nav class="top-bar-nav">
+      <a href="#summary">サマリ</a>
+      <a href="#sec1">§1 当直明け・緊急オペ明け帰宅</a>
+      <a href="#sec2">§2 手術参加BC運用</a>
+      <a href="#sec3">§3 術後検討会Web化</a>
+      <a href="#sec4">§4 書類業務DX</a>
+      <a href="#sec5">§5 同意書動画 / 入院セット</a>
+      <a href="#sec6">§6 商品説明会</a>
+      <a href="#sec7">§7 NP / 特定認定看護師</a>
+      <a href="#sec8">§8 麻酔科・付き添い業務</a>
+      <a href="#sec9">§9 超過勤務面談運用</a>
+      <a href="#sec10">§10 文化醸成</a>
+      <a href="#pending">§11 継続検討</a>
+    </nav>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>心臓血管外科 働き方改革 — 2026-05-26 会議 決定事項まとめ</h1>
+    <div class="sub">医局内共有用ダイジェスト / 6月医局会でリフレッシュ&運用開始予定</div>
+    <div class="meta-row">
+      <span class="meta-tag">対象: 心臓血管外科 全クラス (A / B / C / 手配師)</span>
+      <span class="meta-tag">背景: 2024年医師働き方改革・特定機関病院化対応</span>
+      <span class="meta-tag">上限: 月100h / 半月50h / 連続24h後インターバル9h</span>
+      <span class="meta-tag">運用開始: 6月医局会後</span>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+<div class="notice">
+  <strong>本ドキュメントについて：</strong>
+  2026-05-26 に行われた働き方改革会議の内容を、同僚共有用に再構成したものです。発言録ベースの一次まとめのため、運用詳細は今後の医局会で確定します。
+  各セクションのタグは
+  <span class="pill pill-imm">即時運用</span> = 次週から開始 /
+  <span class="pill pill-soon">準備中</span> = 6月医局会で運用開始 /
+  <span class="pill pill-confirm">要確認</span> = 他科・看護部と要調整 /
+  <span class="pill pill-trial">試行</span> = まず回してみて評価
+  を表しています。
+</div>
+
+<!-- ── なぜ今この議論が重要か ── -->
+<div class="why-card" id="why-now">
+  <h3>なぜ今この議論が重要か</h3>
+  <div class="why-grid">
+
+    <div class="why-tile">
+      <div class="why-key">2024.04.01〜</div>
+      <div class="why-label">罰則付き上限規制の適用開始</div>
+      <div class="why-desc">5年間の猶予期間が満了。労基法36条違反で <strong>6か月以下の懲役または30万円以下の罰金</strong>、法人にも両罰規定。</div>
+    </div>
+
+    <div class="why-tile">
+      <div class="why-key">年 960h</div>
+      <div class="why-label">A水準の時間外労働上限</div>
+      <div class="why-desc">大学病院本院は <strong>連携B水準(年1,860h)</strong> が典型。月100h以上見込み時は <strong>事前の面接指導が義務</strong>。</div>
+    </div>
+
+    <div class="why-tile">
+      <div class="why-key">24h / 9h</div>
+      <div class="why-label">連続勤務後インターバル</div>
+      <div class="why-desc">通常勤務・許可ある宿日直後は<strong>始業から24時間以内に9時間の継続休息</strong>。A水準は努力義務、B/C水準は義務。</div>
+    </div>
+
+    <div class="why-tile">
+      <div class="why-key">2026.06.01</div>
+      <div class="why-label">診療報酬改定 本体施行</div>
+      <div class="why-desc"><strong>地域医療体制確保加算2 新設 (720点)</strong>。時間外労働実績要件が <strong>1,635h以下</strong> に引下げ(2027年度1,560h以下)。働き方改革の達成度が病院収入に直結。</div>
+    </div>
+
+    <div class="why-tile">
+      <div class="why-key">2035年度末</div>
+      <div class="why-label">B水準・連携B水準の終了予定</div>
+      <div class="why-desc">最終的には<strong>全医師がA水準(年960h)に統一</strong>される方向。今からの体制づくりが必要。</div>
+    </div>
+
+    <div class="why-tile">
+      <div class="why-key">過去事例</div>
+      <div class="why-label">送検 / 行政処分のリスク</div>
+      <div class="why-desc">関西医大研修医過労死事件(2001年送検)。違反時は労基署勧告 → 送検 → 罰金/懲役、医療法に基づく<strong>改善命令・指定取消し</strong>もあり得る。</div>
+    </div>
+
+  </div>
+
+  <div class="why-foot">
+    本会議では「やりやすい所から確実に効かせる」方針で、
+    <strong>当直明け帰宅</strong> / <strong>手術参加 B/C の絞り込み</strong> / <strong>会議の Web 化</strong>
+    の3点を最優先とし、書類業務 DX・NP 確保・他科との業務分掌見直しを並行して進めることが合意された。
+  </div>
+</div>
+
+<!-- ── 決定事項サマリ ── -->
+<div class="summary-card" id="summary">
+  <h3>決定事項サマリ</h3>
+  <div class="tbl-wrap">
+    <table class="deck">
+      <thead>
+        <tr><th style="width:3em;">No.</th><th>項目</th><th>要旨</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>当直明け / 緊急オペ明けの帰宅</td><td>正午までに帰宅することを原則化。手配師がピッチを預かり徹底する。</td></tr>
+        <tr><td>2</td><td>緊急オペにおけるセカンド対応</td><td>2nd が緊急オペに入った場合も同様に翌12時帰宅。両者帰宅で業務が回らない場合は疲弊度の高い方を優先帰宅とする。</td></tr>
+        <tr><td>3</td><td>手術参加 B/C の絞り込み</td><td>定期・緊急ともに B/C はどちらか1名のみが手術に入る。2人体制は原則廃止。</td></tr>
+        <tr><td>4</td><td>手術担当の明示</td><td>毎朝のカンファレンスにて、その日の定期手術担当を手配師が発表する。</td></tr>
+        <tr><td>5</td><td>B/C のチーム横断運用</td><td>定期手術の B/C はチームを固定せず、その日勤務可能な者で柔軟に充当する。</td></tr>
+        <tr><td>6</td><td>術後検討会のオンライン化および回診体制</td><td>術後検討会を Teams にて完全 Web 化。木曜日朝の回診を中止し、回診は月・火・金の3日とする。</td></tr>
+        <tr><td>7</td><td>術前ブリーフィング</td><td>術前カンファに手術担当 B/C が出席していなかった場合、麻酔導入中に執刀医・指導医より戦略および注意事項を共有・教育する。</td></tr>
+        <tr><td>8</td><td>同意書取得業務</td><td>手術同意書以外の輸血等の同意書類は入院時セットに同梱し、説明は QR コード動画にて代替。入院時のクラーク業務として正式に依頼する。</td></tr>
+        <tr><td>9</td><td>商品説明会の開催形態</td><td>夜間開催を改め、月曜昼(血管チーム向け)・木曜昼(成人チーム向け)へ移行する。</td></tr>
+        <tr><td>10</td><td>超過勤務面談者への対応</td><td>面談対象者を医局会で取り上げ、超過の経緯について本人および周囲から意見を聴取・検討する。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- ════════════════ §1 ════════════════ -->
+<div class="section-wrap" id="sec1">
+  <div class="sec-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <div class="sec-num" style="background:var(--red)">1</div>
+    <h2>当直明け・緊急手術明けの帰宅ルール</h2>
+    <span class="sec-tag now">即時運用</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="decision warn">
+      <div class="d-title">病棟当直明けは <span style="color:var(--red)">12時に必ず帰宅</span></div>
+      <div class="d-body">
+        当直翌日の手術担当の有無に関わらず、<strong>正午までに病院を出る</strong>のを原則化。
+        本来は連続勤務24h後+インターバル9hを満たす朝7時前後の帰宅が法令上の理想だが、
+        いきなりの完全運用は厳しいため、<strong>まず「12時帰宅」を全員が守る</strong>段階運用とする。
+        <div class="d-meta">
+          <span><strong>運用主体:</strong> 手配師がピッチを預かり、必要なら電源を切って強制帰宅</span>
+          <span><strong>適用範囲:</strong> 病棟当直 (CVC当直)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="decision warn">
+      <div class="d-title">緊急手術で2nd(セカンド)が呼ばれた場合も<span style="color:var(--red)">同様に12時帰宅</span></div>
+      <div class="d-body">
+        当直医(ファースト)に加えてセカンドが緊急手術に入った場合、<strong>翌日は両者とも12時帰宅</strong>を原則とする。
+        <ul>
+          <li>セカンドが「やる気があるから残る」は不可。<strong>本人が帰りたがらなくても手配師が強制帰宅</strong>。</li>
+          <li>「自宅で痛吻合の練習でもしておけ」というメッセージで送り出す。</li>
+        </ul>
+        <div class="d-meta">
+          <span><strong>背景:</strong> 浜ちゃんを筆頭に「居たら全部自分でやってしまう」文化を断つ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="decision todo">
+      <div class="d-title">2人とも帰すと回らない場合は<strong>片方残留</strong>の例外運用 (暫定)</div>
+      <div class="d-body">
+        平日日中の業務がまったく回らない事態が想定される場合は、暫定的に
+        <strong>緊急手術で疲弊度の高い方を優先帰宅</strong>し、もう片方は残留する運用を許容する。
+        <ul>
+          <li>これは「ベストではないがファースト+セカンド両帰宅で病棟が崩れるよりはマシ」の妥協ライン。</li>
+          <li>恒常運用ではない。中長期的には<strong>小児チームからの応援</strong>等で2人帰宅を成立させる方向。</li>
+        </ul>
+        <div class="d-meta">
+          <span><strong>判断:</strong> 手配師 + 執刀医 (Aクラス)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="decision note">
+      <div class="d-title">ドクタージョイ (勤怠) 上の "退勤" 操作も自分でやる</div>
+      <div class="d-body">
+        12時に帰宅したらドクタージョイ上で<strong>退勤申請を自分で行う</strong>こと。
+        「持って帰っているだけで時間が積み上がる」を防ぐ。
+        <ul>
+          <li>消化器外科でかつて行われたとされる「ドクタージョイを科で集めて金属箱に保管」のような
+              <strong>不正運用は絶対にやらない</strong> — 内部告発リスクが極めて高い。</li>
+          <li>正々堂々と、実態に即した打刻でいく。</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════ §2 ════════════════ -->
+<div class="section-wrap" id="sec2">
+  <div class="sec-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <div class="sec-num" style="background:var(--blue)">2</div>
+    <h2>手術参加 B/C の運用 — "BCどちらか1人だけ" を徹底</h2>
+    <span class="sec-tag now">即時運用</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="decision">
+      <div class="d-title">定期手術・緊急手術ともに <strong>B/Cはどちらか1人</strong> が手術に入る</div>
+      <div class="d-body">
+        現状はB+C両方が入っているケースが多いが、必要なのは1人で十分。
+        <ul>
+          <li>サフェナ採取や最初のポンプ乗せなどCクラス一人では難しい局面は、<strong>AクラスがB/Cの代わりに補助</strong>。</li>
+          <li>結果として術中6人体制になっているのを<strong>2〜3人体制</strong>へ。</li>
+          <li>外していない方のB/Cは病棟業務に張り付き、カンファシート作成・術前資料作成等を日中に終わらせる。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decision">
+      <div class="d-title">毎朝のカンファレンスで <strong>その日の手術担当を手配師が発表</strong></div>
+      <div class="d-body">
+        「だらだら全員が入る」を防ぐため、毎朝、手配師がその日の定期手術一覧と<strong>誰が入るかを明言</strong>する。
+        <ul>
+          <li>例: 「本日の OPCAB は B 担当◯◯、Aクラスは△△と◇◇」のように1件ずつ明示。</li>
+          <li>全員がそれを認識することで、無駄入りが減り当事者意識も上がる。</li>
+        </ul>
+        <div class="d-meta">
+          <span><strong>運用主体:</strong> 手配師</span>
+          <span><strong>適用:</strong> 朝カンファ (全チーム横断)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="decision">
+      <div class="d-title">定期手術のB/Cは <strong>他チームでも柔軟に</strong> — その日働ける人で回す</div>
+      <div class="d-body">
+        従来は成人チーム・血管チーム等の<strong>チーム制で固定</strong>されていたが、当直明け帰宅運用との両立のため、
+        定期手術のB/C枠は<strong>チーム横断で融通</strong>する。
+        <ul>
+          <li>例: 血管チームの当直明けで枠が空けば、成人チームのBが血管手術に入る等。</li>
+          <li>緊急手術ではすでに当直・セカンドがチーム関係なく対応しており、その感覚を平日日中まで拡張する。</li>
+          <li>チーム制そのものの完全廃止は当面しない (病棟管理・カンファ運営との整合性のため)。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decision note">
+      <div class="d-title">術前カンファ非出席例に対する<strong>術前ブリーフィング</strong>の運用</div>
+      <div class="d-body">
+        術前カンファに手術担当の B/C が出席していなかった場合、<strong>麻酔導入中の時間を用いて執刀医および指導医からブリーフィング</strong>を行い、
+        手術戦略・注意事項を情報共有するとともに教育機会として活用する。
+        <ul>
+          <li>共有内容: 手術戦略、術中の注意点、看護師への事前準備依頼、想定される合併症への対処方針など。</li>
+          <li>術前カンファシートそのものは引き続き作成する (公的文書およびスタッフ確認用)。</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════ §3 ════════════════ -->
+<div class="section-wrap" id="sec3">
+  <div class="sec-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <div class="sec-num" style="background:var(--purple)">3</div>
+    <h2>術後検討会の完全Web化 + 木曜朝回診の中止</h2>
+    <span class="sec-tag soon">準備中</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="decision">
+      <div class="d-title">術後検討会を <strong>Teamsで完全オンライン化</strong></div>
+      <div class="d-body">
+        24時間勤務+9時間インターバル運用のため、夜間に手術を担当したメンバーが翌朝の検討会のために病院に残らずに済む形に切り替える。
+        <ul>
+          <li>コロナ期に Zoom で運用していた実績あり。今回は <strong>Teams</strong> で常設化する。</li>
+          <li>資料は <strong>OneDrive で共有</strong>。</li>
+          <li>個人情報保護の観点から、<strong>アーカイブの可否は要検討</strong>。</li>
+        </ul>
+        <div class="d-meta">
+          <span><strong>カルテ表示:</strong> 電子カルテPC + 別PCをミラーリングして Teams 配信 (白川先生に技術相談)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="decision warn">
+      <div class="d-title"><span style="color:var(--red)">木曜日の朝回診は中止</span> — 回診は月・火・金のみ</div>
+      <div class="d-body">
+        術後検討会Web化に伴い、これまで木曜朝に集合形式で行っていた回診は<strong>廃止</strong>。
+        <ul>
+          <li>新スケジュール: <strong>月・火・金の3日のみ朝回診</strong>。水曜・木曜は回診なし。</li>
+          <li>リスクマネジメント上、<strong>状態の悪い患者は術後検討会(木)の中で個別共有</strong>することで把握漏れを防ぐ。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decision note">
+      <div class="d-title">夕方申し送り・重回は <strong>現状追認</strong> (個別連絡で十分機能している)</div>
+      <div class="d-body">
+        夕方の集合申し送り・重回は<strong>すでに文化的に消滅</strong>しており、現在はB同士の個別連絡で運用されている。
+        集合形式より効率的との認識で一致したため、このまま個別運用を継続する。
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+<!-- ════════════════ §4 ════════════════ -->
+<div class="section-wrap" id="sec4">
+  <div class="sec-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <div class="sec-num" style="background:var(--green)">4</div>
+    <h2>書類業務の DX 化 / 業務の非医師化</h2>
+    <span class="sec-tag soon">準備中</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="decision">
+      <div class="d-title">退院サマリ — <strong>自動生成 + 承認権限を医師以外にも</strong></div>
+      <div class="d-body">
+        DPC等の登録項目を埋めれば退院サマリの大半が自動出力される現状を活かし、
+        <strong>「医師が一行一行書く」運用から「クラーク・補助員が叩き台を作り、誰かが承認する」運用</strong>に移行。
+        <ul>
+          <li>承認権限を誰が持てるかを <strong>病院側に確認</strong> (医師以外でも可能か)。</li>
+          <li>タイムリーに退院後1〜2日以内で確定させ、80〜90%止まり問題を解消。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decision">
+      <div class="d-title">術前資料・紹介状返書 — <strong>クラーク叩き台 + AI支援</strong></div>
+      <div class="d-body">
+        <ul>
+          <li>術前資料 (CT・エコー・STSスコア等): クリック数回でレイアウト整形される現状の仕組みをそのまま使う。<strong>体裁を整える時間は最小化</strong>。</li>
+          <li>紹介状返書: クラーク・補助員が下書き → 主治医確認の流れを定着。</li>
+          <li>退院サマリの症状承知欄も同様にクラーク経由で。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decision todo">
+      <div class="d-title">病棟クラーク <strong>増員を病院に要望</strong></div>
+      <div class="d-body">
+        現状の病棟クラークは離職が続いており(5月いっぱいで1名離職予定)、業務が病棟医に戻ってきている。
+        <strong>外来クラークがそのまま病棟業務にスライドできる形での補充</strong>を病院に正式要望する。
+        <ul>
+          <li>「コストは安い」業務分類なので、病院側にも合理性を訴求できる。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decision note">
+      <div class="d-title">術前カンファシートも段階的に自動化候補</div>
+      <div class="d-body">
+        久保先生らが進めている「数値を入れると叩き台が出来上がる」方式を拡張し、原料の血液データ・超音波サマリーをチェックでポンと埋まる形を目指す。
+        <strong>その日の病棟当番が "何日後のオペのデータを全部埋める"</strong> ようなルール化も検討。
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════ §5 ════════════════ -->
+<div class="section-wrap" id="sec5">
+  <div class="sec-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <div class="sec-num" style="background:var(--gold)">5</div>
+    <h2>同意書動画 + 入院時セット同梱の徹底</h2>
+    <span class="sec-tag soon">準備中</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="decision gold">
+      <div class="d-title">手術同意書以外の同意書類を<strong>入院時セットに同梱</strong>、説明は<strong>QRコード動画</strong>で代替</div>
+      <div class="d-body">
+        輸血同意書をはじめとした入院ごとに必ず取得する細々した同意書類は、
+        <strong>入院時セットに同梱</strong>して入院時に一括して交付し、説明は<strong>QRコード経由の動画</strong>で視聴してもらう運用とする。
+        <ul>
+          <li>外来または入院時に QR コード付き案内紙を配布。病棟内にも QR コードを掲示し、オプトアウト形式で視聴を案内する。</li>
+          <li>同意書本体への書き込み欄(主治医名・指導医名・IC日付等)は事前にテンプレ化して印字。</li>
+          <li>従来 C クラスが1枚ずつ印刷・記名していた業務を、<strong>入院時のクラーク業務として正式に依頼</strong>する。</li>
+        </ul>
+        <div class="d-meta">
+          <span><strong>調整先:</strong> 病棟クラーク + 入院受付</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════ §6 ════════════════ -->
+<div class="section-wrap" id="sec6">
+  <div class="sec-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <div class="sec-num" style="background:var(--orange)">6</div>
+    <h2>商品説明会の昼開催化 — 夜の縛りから解放</h2>
+    <span class="sec-tag soon">準備中</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="decision">
+      <div class="d-title">商品説明会を <strong>月曜・木曜の昼開催</strong> に変更</div>
+      <div class="d-body">
+        現状の夜間運用(成人チーム木曜17時〜、血管チーム月曜17:30〜)は終了時刻が21〜22時に及ぶケースがあり、
+        これを <strong>昼休み枠 (Web併用)</strong> に切り替える。
+        <ul>
+          <li><strong>月曜の昼</strong>: 血管チーム向け(案)。</li>
+          <li><strong>木曜の昼</strong>: 成人チーム向け。</li>
+          <li>術前カンファ自体(成人木16時〜、血管月17:30〜)は引き続き運用するが、<strong>B/Cは早く返す</strong>方針 (§9 参照)。</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════ §7 ════════════════ -->
+<div class="section-wrap" id="sec7">
+  <div class="sec-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <div class="sec-num" style="background:var(--navy)">7</div>
+    <h2>NP / 特定認定看護師の確保 — 機関病院化への必須要件</h2>
+    <span class="sec-tag confirm">要確認</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="decision">
+      <div class="d-title">特定認定看護師を <strong>各チーム1名・合計3名体制</strong> へ</div>
+      <div class="d-body">
+        特定機関病院化に向けて、NP / 特定認定看護師の<strong>専属配置</strong>が要件化されてくる。
+        現在SQで1名が育成中の段階で、本格運用直前に離脱する可能性が指摘された。
+        <ul>
+          <li><strong>成人 / 血管 / 末梢血管 の各チームに最低1名、計3名</strong>を病院に要望予定。</li>
+          <li>業務想定: Aライン採取、ドレーン抜去、足の処置 (末梢血管の患者)、その他医師業務の代行が可能なもの。</li>
+          <li>麻酔科では既に特定看護師 (周麻酔看護師) が運用されており、これを参考にする。</li>
+        </ul>
+        <div class="d-meta">
+          <span><strong>要請先:</strong> 病院長 + 看護部長</span>
+          <span><strong>論拠:</strong> 機関病院化 + 働き方改革の両輪</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="decision todo">
+      <div class="d-title">看護部対応が難しい場合は <strong>教室雇用のNP</strong> を検討</div>
+      <div class="d-body">
+        看護部経由での確保が難しい場合、過去にあった阪大NP志望者などをルートに、
+        <strong>心臓血管外科教室として直接雇用</strong>するオプションも視野に入れる。
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════ §8 ════════════════ -->
+<div class="section-wrap" id="sec8">
+  <div class="sec-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <div class="sec-num" style="background:var(--blue)">8</div>
+    <h2>麻酔科関連業務・他科付き添いの見直し</h2>
+    <span class="sec-tag confirm">要確認</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="decision todo">
+      <div class="d-title">麻酔科の <strong>局麻 (パラバー等) への主科付き添い</strong> ── 必要性を確認</div>
+      <div class="d-body">
+        現状、麻酔科の局麻症例にも主科が呼ばれる文化があり、Cクラスの手が大きく取られている。
+        <ul>
+          <li><strong>明文ルールなのか・現場の慣習(マスタード)なのかを確認</strong>する。</li>
+          <li>麻酔科がいるなら麻酔科が責任を持つべき領域があるはず。</li>
+        </ul>
+        <div class="d-meta">
+          <span><strong>確認先:</strong> 麻酔科医局長 (明日の医局会で打診)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="decision todo">
+      <div class="d-title">ICU患者の <strong>CT搬送への主科付き添い</strong> ── 集中治療科との分掌見直し</div>
+      <div class="d-body">
+        ICU患者がCT検査に出棟する際、現状は「集中治療科医師+主科医師」の同伴が必須となっている。
+        <ul>
+          <li>集中治療科の CT 出棟患者はハイリスク症例が多く、<strong>運用緩和は難しいだろう</strong>との結論に至った。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decision todo">
+      <div class="d-title">呼吸器外科依頼のドレーン留置・気管切開等への付き添い</div>
+      <div class="d-body">
+        呼吸器外科に依頼するドレーン留置や気管切開等については、<strong>体外式VAD・ECMO等を装着している患者でない限り、主科の付き添いは不要かもしれない</strong>。
+        <ul>
+          <li><strong>呼吸器外科教授の新谷先生に確認</strong>のうえ、運用見直しを進める。</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════ §9 ════════════════ -->
+<div class="section-wrap" id="sec9">
+  <div class="sec-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <div class="sec-num" style="background:var(--red)">9</div>
+    <h2>超過勤務面談対象者への運用</h2>
+    <span class="sec-tag now">即時運用</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="decision warn">
+      <div class="d-title">超過勤務上限 — <strong>月100時間 / 半月50時間</strong></div>
+      <div class="d-body">
+        この上限を超えると面談対象になる。<strong>そもそも面談に引っかからないのが本来あるべき姿</strong>。
+        現状この数字を知らない若手が多いため、医局会で明示する。
+      </div>
+    </div>
+
+    <div class="decision">
+      <div class="d-title">面談対象者は <strong>会議で取り上げて検討 + 個別書面交付</strong></div>
+      <div class="d-body">
+        毎月の面談で同じ者が繰り返し対象となる現状を改める。
+        <ul>
+          <li>面談対象になった時点で、<strong>会議の場で取り上げて検討</strong>する。</li>
+          <li><strong>なぜ100時間を超えたのか</strong>、本人および周囲から意見を聴取する。</li>
+          <li>注意喚起の<strong>書面 (上限値・遵守義務)</strong> を都度交付する。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decision">
+      <div class="d-title">血管チーム術前カンファでも <strong>B/Cは早く返す</strong></div>
+      <div class="d-body">
+        術前カンファ・プレカンファが長引くケースで<strong>B/Cは途中で先に帰す</strong>運用にする。
+        <ul>
+          <li>スタッフ層(上級医)同士の議論は残ってやればよい。</li>
+          <li>B/Cは病棟業務 → 帰宅へ。</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════ §10 ════════════════ -->
+<div class="section-wrap" id="sec10">
+  <div class="sec-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <div class="sec-num" style="background:var(--green)">10</div>
+    <h2>文化醸成 — "だらだら残り" を組織で止める</h2>
+    <span class="sec-tag now">即時運用</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="decision">
+      <div class="d-title">上級医は <strong>「残るな」「早く帰れ」を声に出す</strong></div>
+      <div class="d-body">
+        若手が「上級医が残っているから帰りにくい」とは思っていない、というのが会議内の認識。
+        とはいえ上級医側からも<strong>明示的に「強要しない、早く帰れ」を発信</strong>することで安全側に倒す。
+        <ul>
+          <li>残る若手にはピッチを取り上げてでも帰す (§1 と連動)。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decision">
+      <div class="d-title">手配師の役割を <strong>恒久ルール化</strong> ── 引き継ぎを明文化</div>
+      <div class="d-body">
+        手配師の運用が変わるとせっかく作った文化が消える、という指摘があった。
+        <ul>
+          <li>手配師業務 (帰宅指示、手術担当発表、ピッチ預かり等) を<strong>マニュアル化</strong>して引き継ぎ可能に。</li>
+          <li>「万年手配師」状態にせず、ローテーションでも維持できる形にする。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decision note">
+      <div class="d-title">6月の医局会で <strong>本決定事項を一括リフレッシュ</strong></div>
+      <div class="d-body">
+        以上の決定事項を医局会で一括提示し、最後の5分で
+        <strong>「これで決まっているからよろしくね」</strong> と全員に再確認をかける。
+        小手先のルール改定にせず、文化レベルで定着させる方針。
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════ §11 Pending ════════════════ -->
+<div class="pending-card" id="pending">
+  <h3>🔎 §11 継続検討 / 要確認事項</h3>
+  <ul>
+    <li><strong>麻酔科の業務分掌</strong> — 局麻パラバー、CT搬送付き添いを麻酔科医局長に確認・交渉 (§8)。</li>
+    <li><strong>集中治療科のCT搬送付き添い</strong> — ハイリスク患者が多く運用緩和は困難の見込み(§8)。</li>
+    <li><strong>呼吸器外科依頼のドレーン留置・気管切開等</strong> — 体外式VAD・ECMO等装着患者以外の付き添い必要性を呼吸器外科教授 新谷先生に確認 (§8)。</li>
+    <li><strong>退院サマリ承認権限</strong> — 医師以外にも承認権限を付与できるか病院側に確認 (§4)。</li>
+    <li><strong>術後検討会の Teams カルテ表示</strong> — 電カルPCのミラーリング運用を白川先生に技術相談 (§3)。</li>
+    <li><strong>Teams アーカイブの可否</strong> — 個人情報保護観点で要検討 (§3)。</li>
+    <li><strong>特定認定看護師3名要求</strong> — 院長/看護部長への正式要請、ダメな場合の教室雇用ルート確認 (§7)。</li>
+    <li><strong>小児チームの特定認定看護師需要</strong> — 採血等の業務が制約あり、活用余地を要再評価 (§7)。</li>
+    <li><strong>ドクタージョイ 代休申請</strong> — 12時帰宅時の打刻・代休申請運用について情報共有体制を整備 (§1)。</li>
+    <li><strong>手配師マニュアル</strong> — 帰宅指示・担当発表・引き継ぎ手順の文書化 (§10)。</li>
+  </ul>
+</div>
+
+
+<div class="footer">
+  心臓血管外科 働き方改革 — 2026-05-26 会議 決定事項共有版 (v1) /
+  内容に齟齬があれば手配師まで
+</div>
+
+</div><!-- /main -->
+
+<script>
+// セクション開閉: ヘッダー直接 click でも動くが、ハッシュ遷移で勝手に開く挙動を追加
+document.addEventListener('DOMContentLoaded', () => {
+  // すべて開いた状態でスタート
+  document.querySelectorAll('.section-wrap').forEach(s => s.classList.remove('collapsed'));
+
+  // ハッシュ付きで来たら該当セクションへスクロール
+  if (location.hash) {
+    const el = document.querySelector(location.hash);
+    if (el && el.classList.contains('section-wrap')) el.classList.remove('collapsed');
+  }
+
+  // ナビからの遷移でも対象セクションを開く
+  document.querySelectorAll('.top-bar-nav a').forEach(a => {
+    a.addEventListener('click', () => {
+      const href = a.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      const el = document.querySelector(href);
+      if (el && el.classList.contains('section-wrap')) el.classList.remove('collapsed');
+    });
+  });
+});
+</script>
+
+</body>
+</html>
