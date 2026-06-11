@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成人心臓外科 術後不整脈 統合ガイド</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5c5c5c;
+  --border: #d4d4d4;
+  --accent: #2c3e50;
+  --light-bg: #f7f8fa;
+  --header-bg: #2c3e50;
+  --header-fg: #ffffff;
+  --link: #34495e;
+  --jp-accent: #c0392b;
+  --us-accent: #2980b9;
+  --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
+
+body {
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+  margin: 48px 0 12px;
+}
+
+h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 28px 0 8px;
+}
+
+h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 20px 0 6px;
+}
+
+p { margin: 8px 0; font-size: 0.88rem; }
+strong { color: var(--fg); }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+ul, ol {
+  padding-left: 24px;
+  margin: 8px 0;
+  font-size: 0.88rem;
+}
+
+li { margin-bottom: 4px; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 12px 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+thead th {
+  background: var(--header-bg);
+  color: var(--header-fg);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--light-bg);
+}
+
+tbody tr:nth-child(even) td { background-color: #fafbfc; }
+tbody tr:nth-child(even) td:first-child { background-color: #f0f1f3; }
+tbody tr:hover td { background-color: #eef1f5; }
+tbody tr:hover td:first-child { background-color: #e4e8ed; }
+
+/* Blockquotes (fallback for any not converted to callouts) */
+blockquote {
+  background: var(--light-bg);
+  border-left: 3px solid var(--border);
+  padding: 10px 16px;
+  margin: 12px 0 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+blockquote strong { color: var(--fg); }
+
+/* Highlights */
+mark {
+  background: #fff3cd;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Callout overrides - already inline styled, but ensure nested elements look right */
+.callout p { margin: 4px 0; }
+.callout ul, .callout ol { margin: 4px 0 4px 16px; }
+.callout table { font-size: 0.8rem; }
+
+/* Print */
+@media print {
+  body { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
+@media (max-width: 768px) {
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
+  h1 { font-size: 1.3rem; }
+  table { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#凡例推奨度corclassとエビデンスレベルloelevel">凡例：推奨度（COR/Class）とエビデンスレベル（LOE/Level）</a></li>
+      <li class="toc-l2"><a href="#第i部-総論">第I部　総論</a></li>
+      <li class="toc-l3"><a href="#1-術後不整脈の全体像">1. 術後不整脈の全体像</a></li>
+      <li class="toc-l3"><a href="#2-モニタリングと一時心外膜ペーシングワイヤー">2. モニタリングと一時心外膜ペーシングワイヤー</a></li>
+      <li class="toc-l3"><a href="#3-抗凝固出血のバランス術後特有の制約">3. 抗凝固・出血のバランス（術後特有の制約）</a></li>
+      <li class="toc-l2"><a href="#第ii部-不整脈別-各論">第II部　不整脈別 各論</a></li>
+      <li class="toc-l3"><a href="#1-術後心房細動poaf最重点">1. 術後心房細動（POAF）★最重点</a></li>
+      <li class="toc-l4"><a href="#1-1-発生率発症タイミング">1-1. 発生率・発症タイミング</a></li>
+      <li class="toc-l4"><a href="#1-2-リスク因子sts-2026">1-2. リスク因子（STS 2026）</a></li>
+      <li class="toc-l4"><a href="#1-3-予後への影響">1-3. 予後への影響</a></li>
+      <li class="toc-l4"><a href="#1-4-予防">1-4. 予防</a></li>
+      <li class="toc-l4"><a href="#1-5-急性期マネジメント">1-5. 急性期マネジメント</a></li>
+      <li class="toc-l4"><a href="#1-6-抗凝固療法">1-6. 抗凝固療法</a></li>
+      <li class="toc-l3"><a href="#2-心房粗動心房頻拍">2. 心房粗動・心房頻拍</a></li>
+      <li class="toc-l3"><a href="#3-発作性上室頻拍avnrt--avrt">3. 発作性上室頻拍（AVNRT / AVRT）</a></li>
+      <li class="toc-l3"><a href="#4-心室期外収縮非持続性vt">4. 心室期外収縮・非持続性VT</a></li>
+      <li class="toc-l3"><a href="#5-持続性vtvfelectrical-storm">5. 持続性VT・VF・electrical storm</a></li>
+      <li class="toc-l4"><a href="#診断初期対応">診断・初期対応</a></li>
+      <li class="toc-l4"><a href="#electrical-storm24時間以内に3回以上の持続性vaesc-2022">Electrical storm（24時間以内に3回以上の持続性VA：ESC 2022）</a></li>
+      <li class="toc-l4"><a href="#vtvfへの抗不整脈薬jcs-2020">VT/VFへの抗不整脈薬（JCS 2020）</a></li>
+      <li class="toc-l3"><a href="#6-torsades-de-pointestdp-qt延長">6. Torsades de Pointes（TdP）/ QT延長</a></li>
+      <li class="toc-l3"><a href="#7-徐脈性不整脈洞機能不全房室ブロックと一時恒久ペーシング">7. 徐脈性不整脈（洞機能不全・房室ブロック）と一時/恒久ペーシング</a></li>
+      <li class="toc-l4"><a href="#発生背景">発生・背景</a></li>
+      <li class="toc-l4"><a href="#急性期対応">急性期対応</a></li>
+      <li class="toc-l4"><a href="#恒久ペースメーカppmの判断--観察期間が鍵">恒久ペースメーカ（PPM）の判断 — 観察期間が鍵</a></li>
+      <li class="toc-l4"><a href="#tavi後の伝導障害esc-2021">TAVI後の伝導障害（ESC 2021）</a></li>
+      <li class="toc-l4"><a href="#ペーシング様式">ペーシング様式</a></li>
+      <li class="toc-l3"><a href="#8-術後心停止cals--csu-als-プロトコル">8. 術後心停止（CALS / CSU-ALS プロトコル）</a></li>
+      <li class="toc-l2"><a href="#第iii部-薬剤各論--日本採用薬一般名商品名希釈方法投与方法">第III部　薬剤各論 — 日本採用薬（一般名・商品名・希釈方法・投与方法）</a></li>
+      <li class="toc-l3"><a href="#a-レートコントロール薬">A. レートコントロール薬</a></li>
+      <li class="toc-l4"><a href="#a-1-ランジオロール塩酸塩-日本の術後レートコントロール第一選択">A-1. ランジオロール塩酸塩 ★日本の術後レートコントロール第一選択</a></li>
+      <li class="toc-l4"><a href="#a-2-ビソプロロールカルベジロール経口β遮断薬">A-2. ビソプロロール／カルベジロール（経口β遮断薬）</a></li>
+      <li class="toc-l4"><a href="#a-3-ジルチアゼム塩酸塩非dhp-ca拮抗薬">A-3. ジルチアゼム塩酸塩（非DHP Ca拮抗薬）</a></li>
+      <li class="toc-l4"><a href="#a-4-ベラパミル塩酸塩非dhp-ca拮抗薬">A-4. ベラパミル塩酸塩（非DHP Ca拮抗薬）</a></li>
+      <li class="toc-l4"><a href="#a-5-ジゴキシンジギタリス">A-5. ジゴキシン（ジギタリス）</a></li>
+      <li class="toc-l3"><a href="#b-リズムコントロール薬">B. リズムコントロール薬</a></li>
+      <li class="toc-l4"><a href="#b-1-アミオダロン塩酸塩-難治性vtvf術後不安定afの要">B-1. アミオダロン塩酸塩 ★難治性VT/VF・術後不安定AFの要</a></li>
+      <li class="toc-l4"><a href="#b-2-ニフェカラント塩酸塩-日本独自の純粋ikr遮断薬">B-2. ニフェカラント塩酸塩 ★日本独自の純粋IKr遮断薬</a></li>
+      <li class="toc-l4"><a href="#b-3-ピルシカイニド塩酸塩水和物-日本独自の純粋クラスic">B-3. ピルシカイニド塩酸塩水和物 ★日本独自の純粋クラスIc</a></li>
+      <li class="toc-l4"><a href="#b-4-プロカインアミド塩酸塩クラスia">B-4. プロカインアミド塩酸塩（クラスIa）</a></li>
+      <li class="toc-l4"><a href="#b-5-リドカイン塩酸塩クラスib">B-5. リドカイン塩酸塩（クラスIb）</a></li>
+      <li class="toc-l4"><a href="#b-6-その他のリズムコントロール薬">B-6. その他のリズムコントロール薬</a></li>
+      <li class="toc-l3"><a href="#c-電解質">C. 電解質</a></li>
+      <li class="toc-l4"><a href="#c-1-硫酸マグネシウム">C-1. 硫酸マグネシウム</a></li>
+      <li class="toc-l4"><a href="#c-2-カリウム">C-2. カリウム</a></li>
+      <li class="toc-l3"><a href="#d-徐脈蘇生上室頻拍停止">D. 徐脈・蘇生・上室頻拍停止</a></li>
+      <li class="toc-l4"><a href="#d-1-アトロピン硫酸塩水和物">D-1. アトロピン硫酸塩水和物</a></li>
+      <li class="toc-l4"><a href="#d-2-l-イソプレナリン塩酸塩イソプロテレノール">D-2. l-イソプレナリン塩酸塩（イソプロテレノール）</a></li>
+      <li class="toc-l4"><a href="#d-3-アデノシン三リン酸二ナトリウム水和物atp">D-3. アデノシン三リン酸二ナトリウム水和物（ATP）</a></li>
+      <li class="toc-l4"><a href="#d-4-アドレナリンエピネフリン">D-4. アドレナリン（エピネフリン）</a></li>
+      <li class="toc-l2"><a href="#第iv部-早見表">第IV部　早見表</a></li>
+      <li class="toc-l3"><a href="#4-1-poaf予防--学会推奨-早見">4-1. POAF予防 — 学会推奨 早見</a></li>
+      <li class="toc-l3"><a href="#4-2-主要iv薬-希釈投与-早見日本添付文書表74">4-2. 主要IV薬 希釈・投与 早見（日本添付文書/表74）</a></li>
+      <li class="toc-l2"><a href="#出典注記">出典・注記</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
+<h1 id="成人心臓外科-術後不整脈--発生率リスク対応薬剤-統合ガイド">成人心臓外科 術後不整脈 — 発生率・リスク・対応・薬剤 統合ガイド</h1>
+<blockquote>
+<p>成人心臓外科の術後不整脈について、<strong>各不整脈の発生率・リスク・診断・対応</strong>を主要ガイドライン横断でまとめ、<strong>日本で採用されている薬剤の一般名・商品名・製造販売元・希釈方法・投与方法・用量</strong>を一次資料（PMDA電子添文）まで遡って記載した統合リファレンス。</p>
+</blockquote>
+<p><strong>対象：</strong> 成人（後天性）心臓外科術後。小児／先天性心疾患術後のJET等は対象外。 <strong>最重点：</strong> 術後心房細動（POAF）。 <strong>作成：</strong> 2026-06-11 ／ ✅ <strong>Fact-check済 2026-06-11</strong>（COR/LOE・発生率・薬剤用量を収載PDF＋PMDA添付文書と照合。末尾callout参照）。薬剤用量・希釈は臨床使用前に必ず最新の添付文書で確認すること。</p>
+<hr />
+<h2 id="凡例推奨度corclassとエビデンスレベルloelevel">凡例：推奨度（COR/Class）とエビデンスレベル（LOE/Level）</h2>
+<p>学会ごとに格付け方式が異なる。<strong>原文の表記をそのまま保持</strong>している。</p>
+<table>
+<thead>
+<tr>
+<th>体系</th>
+<th>推奨度</th>
+<th>エビデンスレベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACC/AHA・STS・JCS</td>
+<td>COR <strong>I / IIa / IIb / III(No Benefit) / III(Harm)</strong></td>
+<td>LOE <strong>A / B-R / B-NR / C-LD / C-EO</strong></td>
+</tr>
+<tr>
+<td>ESC・EACTS</td>
+<td>Class <strong>I / IIa / IIb / III</strong></td>
+<td>Level <strong>A / B / C</strong></td>
+</tr>
+<tr>
+<td>ERAS/STS 2023</td>
+<td>GRADE（Low / Moderate / High）※COR/LOE非使用</td>
+<td>—</td>
+</tr>
+<tr>
+<td>EACTS 2009 CALS</td>
+<td>コンセンサス（クラス付与なし）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>出典PDF（本リポジトリ収載）：</strong> STS 2026 POAF／ESC・EACTS 2024 AF／ACC・AHA・ACCP・HRS 2023 AF／ESC 2022 VA-SCD／STS 2017 CSU-ALS／EACTS 2009 CALS／AHA 2025 ALS Part9／ERAS Cardiac 2019・ERAS/STS 2023・EACTS 2024 周術期薬剤／JCS・JHRS 2020 不整脈薬物治療(表74)・2019非薬物・2021非薬物FU・2024不整脈治療／JCS 2022周術期(非心臓手術)／ESC 2021 ペーシング／HRS・APHRS・LAHRS 2023生理的ペーシング／POAF一次文献（PASCAL, PLATON, Cafaro, Kowalik, Daoud, Miller, Cook, PALACS, Floria）／PMDA電子添文（ランジオロール・アミオダロンIV・ニフェカラント・ピルシカイニド・ジゴキシン・ジルチアゼム）。</p>
+<hr />
+<h2 id="第i部-総論">第I部　総論</h2>
+<h3 id="1-術後不整脈の全体像">1. 術後不整脈の全体像</h3>
+<p>心臓外科術後は、<strong>炎症・カテコラミン・電解質変動・心房伸展・心膜液貯留・虚血再灌流</strong>を背景に不整脈が高頻度に発生する。臨床的に重要なのは下記。</p>
+<table>
+<thead>
+<tr>
+<th>不整脈</th>
+<th>術後の概略</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>心房細動（POAF）</strong></td>
+<td>最多。術後2–4日にピーク、術式により15–50%。後述（第II部1）</td>
+</tr>
+<tr>
+<td>心房粗動・心房頻拍</td>
+<td>POAFと連続的。切開瘢痕起源の心房内リエントリーを含む</td>
+</tr>
+<tr>
+<td>発作性上室頻拍（AVNRT/AVRT）</td>
+<td>比較的低頻度。アデノシン/ATP・Ca拮抗薬が中心</td>
+</tr>
+<tr>
+<td>心室期外収縮・非持続性VT</td>
+<td>高頻度だが多くは良性。電解質・虚血の評価が要</td>
+</tr>
+<tr>
+<td>持続性VT・VF・electrical storm</td>
+<td>低頻度だが致死的。虚血・グラフト不全・電解質を除外</td>
+</tr>
+<tr>
+<td>Torsades de Pointes（TdP）</td>
+<td>QT延長薬・低K/低Mgが誘因。Mg・心拍数上げが要</td>
+</tr>
+<tr>
+<td>徐脈（洞機能不全・房室ブロック）</td>
+<td>弁手術（特に大動脈弁・三尖弁）後に多い。一時心外膜ペーシングで対応、遷延例は恒久ペースメーカ</td>
+</tr>
+<tr>
+<td>術後心停止</td>
+<td>専用蘇生プロトコル（CALS/CSU-ALS）が一般ACLSと異なる（第II部8）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-モニタリングと一時心外膜ペーシングワイヤー">2. モニタリングと一時心外膜ペーシングワイヤー</h3>
+<ul>
+<li>術直後は<strong>持続心電図モニタリング</strong>が標準。POAFは70%が術後4日以内・90%が7日以内に発生するため、この期間の監視が重要。</li>
+<li><strong>一時心外膜ペーシングワイヤー</strong>（心房・心室）はCABG/弁手術で広く留置される。徐脈・房室ブロック時の即時ペーシングに加え、心房ワイヤーは<strong>心房電位の記録（P波同定による上室性 vs 心室性の鑑別）<strong>や</strong>overdrive pacing</strong>にも有用。</li>
+<li>術後心停止時には心外膜ワイヤーを<strong>DDD 80–100 bpm・最大出力</strong>で接続する（STS 2017：Class I, Level C）。</li>
+</ul>
+<h3 id="3-抗凝固出血のバランス術後特有の制約">3. 抗凝固・出血のバランス（術後特有の制約）</h3>
+<p>術後早期は<strong>外科的出血リスク</strong>があるため、抗凝固開始は「出血リスクが落ち着いてから」が原則。POAFの抗凝固は塞栓リスクと出血リスクを個別に天秤にかける（第II部1-6）。</p>
+<hr />
+<h2 id="第ii部-不整脈別-各論">第II部　不整脈別 各論</h2>
+<h3 id="1-術後心房細動poaf最重点">1. 術後心房細動（POAF）★最重点</h3>
+<h4 id="1-1-発生率発症タイミング">1-1. 発生率・発症タイミング</h4>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>値（出典）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全体発生率</td>
+<td><strong>20–50%</strong>（STS 2026）。<strong>30–50%</strong>（ESC 2024）。<strong>15–50%</strong>（EACTS 2024）</td>
+</tr>
+<tr>
+<td>術式別</td>
+<td>単独CABG <strong>20–30%</strong> / 単独弁手術 <strong>30–40%</strong> / 複合手術 <strong>40–50%</strong>（STS 2026）</td>
+</tr>
+<tr>
+<td>発症タイミング</td>
+<td>術後 <strong>2–4日</strong>にピーク。<strong>70%が4日以内、90%が7日以内</strong>（STS 2026）。EACTS：<strong>約90%が術後6日以内</strong></td>
+</tr>
+<tr>
+<td>性状</td>
+<td>多くは発作性・速い心室応答。連続モニタ研究では多くが短時間（中央値4分、累積中央値50分）</td>
+</tr>
+<tr>
+<td>退院後</td>
+<td>20–30%が退院後も持続・再発</td>
+</tr>
+</tbody>
+</table>
+<h4 id="1-2-リスク因子sts-2026">1-2. リスク因子（STS 2026）</h4>
+<ul>
+<li><strong>術前：</strong> 高齢、左房拡大、肥満、睡眠時無呼吸、左室収縮/拡張障害、既存の無症候性上室性不整脈、COPD、糖尿病、慢性腎臓病、β遮断薬の中断。</li>
+<li><strong>術中：</strong> 人工心肺、大動脈遮断時間延長、術式の複雑さ。</li>
+<li><strong>術後：</strong> 静注カテコラミンの使用、心膜液/血液の貯留。</li>
+</ul>
+<h4 id="1-3-予後への影響">1-3. 予後への影響</h4>
+<table>
+<thead>
+<tr>
+<th>アウトカム</th>
+<th>関連（出典）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>周術期死亡</td>
+<td>OR 1.92（STS 2026）</td>
+</tr>
+<tr>
+<td>脳卒中</td>
+<td>OR 2.17（STS 2026）／OR 4.09・4倍（EACTS 2024）</td>
+</tr>
+<tr>
+<td>心筋梗塞</td>
+<td>OR 1.28</td>
+</tr>
+<tr>
+<td>急性腎障害</td>
+<td>OR 2.74</td>
+</tr>
+<tr>
+<td>長期</td>
+<td>再発AFが <strong>4–5倍/5年（ESC 2024）〜8倍/6年（EACTS 2024）</strong>／10年死亡 <strong>29% vs 23%（OR 1.51）</strong>（EACTS 2024）</td>
+</tr>
+<tr>
+<td>医療費</td>
+<td>米国で年間20億ドル超</td>
+</tr>
+</tbody>
+</table>
+<h4 id="1-4-予防">1-4. 予防</h4>
+<p><strong>(a) 薬物予防 — 各学会推奨</strong></p>
+<table>
+<thead>
+<tr>
+<th>介入</th>
+<th>STS 2026</th>
+<th>ESC/EACTS 2024 AF</th>
+<th>ACC/AHA 2023</th>
+<th>EACTS 2024 周術期薬剤</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>アミオダロン</strong>（周術期）</td>
+<td>経口アミオダロンで予防：<strong>COR I, LOE B-R</strong></td>
+<td>周術期アミオダロン：<strong>Class I, Level A</strong></td>
+<td>β or アミオダロン（高リスク）：<strong>COR 2a, B-R</strong></td>
+<td>アミオダロン：<strong>Class IIb, Level A</strong></td>
+</tr>
+<tr>
+<td><strong>β遮断薬</strong></td>
+<td><strong>COR IIa, LOE B-R</strong></td>
+<td>（非心臓手術でのルーチンβ予防は <strong>Class III, B</strong>）</td>
+<td>同上 <strong>2a, B-R</strong></td>
+<td>周術期継続：<strong>Class I, Level A</strong>／β naiveに短期低用量：<strong>IIb, B</strong></td>
+</tr>
+<tr>
+<td>非DHP Ca拮抗薬</td>
+<td><strong>COR IIb, LOE C-LD</strong></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>グルココルチコイド</td>
+<td><strong>COR IIb, LOE B-R</strong></td>
+<td>—</td>
+<td>—</td>
+<td>ステロイド早期開始は <strong>Class III, A（非推奨）</strong></td>
+</tr>
+<tr>
+<td><strong>IV マグネシウム</strong></td>
+<td><strong>COR IIb, LOE B-R</strong></td>
+<td>（根拠不十分）</td>
+<td>レートコントロールへのMg追加：<strong>COR 2a, A</strong></td>
+<td>RCT結果不一致で推奨保留</td>
+</tr>
+<tr>
+<td><strong>コルヒチン</strong></td>
+<td><strong>COR IIb, LOE B-R</strong></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>カリウム ルーチン補充</td>
+<td><strong>COR III(No Benefit), LOE B-R</strong></td>
+<td>—</td>
+<td>—</td>
+<td>TIGHT-K：差なし</td>
+</tr>
+<tr>
+<td>高用量抗酸化ビタミン/代謝補助</td>
+<td><strong>COR III(No Benefit), LOE B-R</strong></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>スタチン早期開始</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td><strong>Class III, A（非推奨）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>(b) 非薬物予防</strong></p>
+<table>
+<thead>
+<tr>
+<th>介入</th>
+<th>STS 2026</th>
+<th>ESC 2024</th>
+<th>ACC/AHA 2023</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>後（左）心膜切開</strong></td>
+<td><strong>COR IIa, LOE B-R</strong></td>
+<td><strong>Class IIa, Level B</strong></td>
+<td><strong>COR 2a, B-R</strong></td>
+</tr>
+<tr>
+<td>両心房ペーシング</td>
+<td><strong>COR IIb, LOE B-R</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>心外膜脂肪体へのボツリヌス毒素</td>
+<td><strong>COR III(No Benefit), LOE C</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(c) 予防の主要エビデンス（本リポジトリ収載の一次文献）</strong></p>
+<table>
+<thead>
+<tr>
+<th>試験</th>
+<th>介入</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PASCAL</strong>（Sezai 2011, JTCVS）</td>
+<td>ランジオロール持続静注（CABG, n=140）</td>
+<td>POAF <strong>34.3%→10%</strong></td>
+</tr>
+<tr>
+<td><strong>PLATON</strong>（Sezai 2015, JTCVS）</td>
+<td>低用量ランジオロール（LVEF&lt;35%, n=60）</td>
+<td>POAF <strong>40%→10%</strong>、血圧低下なし</td>
+</tr>
+<tr>
+<td>Cafaro 2023（CanJAnaesth, メタ）/ Kowalik 2024（BJA, メタ）</td>
+<td>ランジオロール</td>
+<td>POAF予防効果をプール</td>
+</tr>
+<tr>
+<td>⚠️ <strong>LANDIPROTEC</strong>（Amour 2026, BJA）※未収載</td>
+<td>低用量landiolol（2 µg/kg/min, 非アジア人）</td>
+<td><strong>POAF抑制せず</strong>＝民族差・用量依存の重要な反証</td>
+</tr>
+<tr>
+<td><strong>Daoud 1997</strong>（NEJM）</td>
+<td>術前アミオダロン（n=124）</td>
+<td>POAF <strong>53%→25%</strong></td>
+</tr>
+<tr>
+<td>PAPABEAR（Mitchell 2005, JAMA）※未収載</td>
+<td>周術期経口アミオダロン（n=601）</td>
+<td>心房頻脈性不整脈 <strong>29.5%→16.1%</strong></td>
+</tr>
+<tr>
+<td><strong>PALACS</strong>（Gaudino 2021, Lancet）</td>
+<td>後左側心膜切開</td>
+<td>POAF <strong>32%→17%（RR 0.55）</strong></td>
+</tr>
+<tr>
+<td>COPPS-2（Imazio 2014, JAMA）※未収載</td>
+<td>コルヒチン</td>
+<td>POAF抑制（on-treatment）、消化器系副作用</td>
+</tr>
+<tr>
+<td><strong>Miller 2005</strong>（Heart, メタ）/ <strong>Cook 2013</strong>（Ann Thorac Surg, メタ）</td>
+<td>マグネシウム</td>
+<td>陽性 vs 陰性で結論が分かれる</td>
+</tr>
+</tbody>
+</table>
+<h4 id="1-5-急性期マネジメント">1-5. 急性期マネジメント</h4>
+<pre><code>POAF 発症
+  │
+  ├─ 血行動態 不安定（低血圧・心不全・虚血）
+  │     └─ 同期電気的除細動（100–200 J 二相性）★STS2026: COR I, LOE C-EO
+  │         （+ 抗不整脈薬併用：ACC/AHA 2023 COR 1, B-R）
+  │
+  └─ 血行動態 安定
+        ├─ レートコントロール（目標 HR&lt;100 bpm）… 第III部の β/Ca/ジギタリス
+        │     ACC/AHA: β遮断 COR 1(A)、非DHP CCB COR 1(B-R)
+        │     EACTS: 安定・無症候はレートコントロール Class IIa, B
+        └─ リズムコントロール（薬理学的/電気的除細動）
+              EACTS: 安定POAFはリズムコントロール Class I, B
+              STS2026: レート vs リズムは どちらも妥当 COR IIb, LOE B-R
+              （CTSN RCT n=523: 60日洞調律 84.2% vs 86.9%、有意差なし）</code></pre>
+<ul>
+<li><strong>DC除細動前</strong>：AF&gt;48時間かつ抗凝固未施行例では、左心耳血栓を画像で除外（ACC/AHA 2023, COR 1, B-R）。</li>
+<li><strong>30–60日フォロー</strong>：レートコントロール例で洞調律に戻らなければ、十分な抗凝固後に除細動を検討（ACC/AHA, COR 2a, C-LD）。</li>
+</ul>
+<h4 id="1-6-抗凝固療法">1-6. 抗凝固療法</h4>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th>出典・格付け</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POAFへのルーチン経口抗凝固（塞栓リスクと出血を勘案）</td>
+<td>STS 2026：<strong>COR IIb, LOE B-NR</strong></td>
+</tr>
+<tr>
+<td>DOAC &gt; VKA（出血リスク低減）</td>
+<td>STS 2026：<strong>COR IIb, LOE B-NR</strong>（メタ解析で出血RR 0.74）</td>
+</tr>
+<tr>
+<td>高リスク例で長期OAC</td>
+<td>ESC 2024：<strong>Class IIa, Level B</strong></td>
+</tr>
+<tr>
+<td>持続POAF退院時 → OAC ≥4週、その後再評価</td>
+<td>EACTS 2024：<strong>Class I, Level B</strong></td>
+</tr>
+<tr>
+<td>洞調律退院時 → OAC ≥4週 考慮</td>
+<td>EACTS 2024：<strong>Class IIb, Level B</strong></td>
+</tr>
+<tr>
+<td>術後60日間の抗凝固（出血が許容されれば）、その後再評価</td>
+<td>ACC/AHA 2023：<strong>COR 2a, LOE B-NR</strong></td>
+</tr>
+<tr>
+<td>POAF発症24時間以内の治療用量UFH/LMWH</td>
+<td>EACTS 2024：<strong>Class IIa, Level C</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>開始タイミング</strong>：外科的出血が落ち着いてから。<strong>機械弁置換後はワーファリン必須</strong>。</li>
+</ul>
+<hr />
+<h3 id="2-心房粗動心房頻拍">2. 心房粗動・心房頻拍</h3>
+<ul>
+<li>POAFと連続的に扱われることが多く、<strong>レートコントロール・リズムコントロールの原則はPOAFに準じる</strong>。</li>
+<li>JCS 2020（薬物治療）：
+<ul>
+<li>血行動態<strong>安定</strong>の心房粗動 → IV/経口 <strong>ジルチアゼムまたはベラパミルでレートコントロール：COR I, LOE A</strong>。</li>
+<li>血行動態<strong>不安定</strong>の心房粗動 → IV <strong>ランジオロール：COR IIa, LOE B</strong>。</li>
+<li>症候性心房粗動の停止に IV <strong>アミオダロンまたはニフェカラント：COR IIa, LOE C</strong>（IVクラスIIIはNHI適応外の点に注意）。</li>
+<li>薬剤抵抗性/禁忌の術後遷延性粗動 → <strong>DC除細動：COR IIa, LOE C</strong>。</li>
+</ul></li>
+<li>切開瘢痕起源の心房内リエントリー頻拍は薬剤抵抗性のことがあり、難治例はカテーテルアブレーションが選択肢。</li>
+</ul>
+<hr />
+<h3 id="3-発作性上室頻拍avnrt--avrt">3. 発作性上室頻拍（AVNRT / AVRT）</h3>
+<ul>
+<li>頻度は高くないが、規則的なnarrow QRS頻拍として術後にみられる。</li>
+<li><strong>第一選択：迷走神経刺激 → アデノシン三リン酸（ATP）急速静注</strong>（第III部）。
+<ul>
+<li>日本では海外のadenosineに代えて**ATP製剤（アデホス-Lコーワ注 等）**を急速ワンショット静注＋後押しフラッシュで使用。⚠️ <strong>PSVTは添付文書上の適応外</strong>。</li>
+</ul></li>
+<li>ATP無効/再発例：<strong>ベラパミル（ワソラン静注）</strong>（第III部）。</li>
+<li>WPW併存のAFには房室結節抑制薬（ジゴキシン・非DHP CCB・β遮断薬）を<strong>避ける</strong>（順行伝導促進の危険）。</li>
+</ul>
+<hr />
+<h3 id="4-心室期外収縮非持続性vt">4. 心室期外収縮・非持続性VT</h3>
+<ul>
+<li>術後早期は高頻度。多くは良性だが、<strong>虚血（グラフト不全）・電解質異常（低K・低Mg）・カテコラミン過剰</strong>を評価。</li>
+<li>まず<strong>是正可能な誘因の補正</strong>（K ≥4.0–4.5 mmol/L、Mg補正）。</li>
+<li>症候性/頻発例で器質的心疾患がある場合は β遮断薬。基礎心機能低下例ではクラスIC薬を避ける（JCS 2020）。</li>
+</ul>
+<hr />
+<h3 id="5-持続性vtvfelectrical-storm">5. 持続性VT・VF・electrical storm</h3>
+<h4 id="診断初期対応">診断・初期対応</h4>
+<ul>
+<li>血行動態不安定なVT/VF → <strong>即時電気的除細動</strong>。術直後は第II部8（術後心停止プロトコル）に従う。</li>
+<li>必ず<strong>可逆的誘因</strong>（虚血/グラフト不全、タンポナーデ、電解質、低酸素、QT延長薬）を検索。</li>
+</ul>
+<h4 id="electrical-storm24時間以内に3回以上の持続性vaesc-2022">Electrical storm（24時間以内に3回以上の持続性VA：ESC 2022）</h4>
+<table>
+<thead>
+<tr>
+<th>介入</th>
+<th>ESC 2022</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>鎮静（軽度〜中等度）</td>
+<td><strong>Class I, Level C</strong></td>
+</tr>
+<tr>
+<td><strong>β遮断薬（非選択的が望ましい）＋IVアミオダロン</strong></td>
+<td><strong>Class I, Level B</strong></td>
+</tr>
+<tr>
+<td>同期電気的除細動</td>
+<td><strong>Class I, Level B</strong></td>
+</tr>
+<tr>
+<td>incessant VT/storm（SMVT, 薬剤抵抗性）へのカテーテルアブレーション</td>
+<td><strong>Class I, Level B</strong></td>
+</tr>
+<tr>
+<td>難治例の機械的循環補助（MCS）</td>
+<td><strong>Class IIb</strong></td>
+</tr>
+<tr>
+<td>アミオダロン抵抗性stormに <strong>ランジオロール</strong></td>
+<td>有効性の記載あり（narrative）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="vtvfへの抗不整脈薬jcs-2020">VT/VFへの抗不整脈薬（JCS 2020）</h4>
+<ul>
+<li>電気的除細動後の持続性/反復性・血行動態不安定VT蘇生に <strong>IVアミオダロンまたはニフェカラント：COR IIa, LOE A</strong>。</li>
+<li>血行動態<strong>安定</strong>のmonomorphic持続性VTに <strong>IVプロカインアミド：COR IIa, LOE A</strong>。</li>
+</ul>
+<hr />
+<h3 id="6-torsades-de-pointestdp-qt延長">6. Torsades de Pointes（TdP）/ QT延長</h3>
+<ul>
+<li>誘因：QT延長薬（<strong>ソタロール、ベプリジル、一部の抗菌薬・制吐薬</strong>等）、低K・低Mg、徐脈。</li>
+<li>対応（ESC 2022）：
+<ul>
+<li><strong>IVマグネシウム＋カリウム補充：Class I, Level C</strong>。</li>
+<li><strong>心拍数を上げる</strong>（イソプロテレノール or overdrive 経静脈/心外膜ペーシング）：後天性LQTの反復TdPに <strong>Class I, Level C</strong>。</li>
+<li><strong>アミオダロン・ソタロールは禁忌</strong>（QTをさらに延長）。</li>
+</ul></li>
+<li>原因薬の中止とQT監視。</li>
+</ul>
+<hr />
+<h3 id="7-徐脈性不整脈洞機能不全房室ブロックと一時恒久ペーシング">7. 徐脈性不整脈（洞機能不全・房室ブロック）と一時/恒久ペーシング</h3>
+<blockquote>
+<p>一次資料：<strong>ESC 2021ペーシングGL・JCS/JHRS 2019非薬物治療GL・HRS/APHRS/LAHRS 2023生理的ペーシングGL</strong>（いずれも本リポジトリ収載）。</p>
+</blockquote>
+<h4 id="発生背景">発生・背景</h4>
+<ul>
+<li>房室ブロック（AVB）は <strong>心臓手術後の約14%、再弁手術後の約8%</strong> に生じる（ESC 2021）。洞機能不全（SND）は <strong>右側房切開や経中隔上方アプローチ（僧帽弁手術）</strong> の後にみられる。</li>
+<li>ペースメーカ植込みは <strong>CABGより弁手術後に多い</strong>（ESC 2021）。<strong>大動脈弁置換（石灰化重度・再手術）・三尖弁手術</strong>で頻度が高く、TAVI後の新規LBBB・高度AVブロックも臨床的に重要。</li>
+</ul>
+<h4 id="急性期対応">急性期対応</h4>
+<ul>
+<li><strong>一時心外膜ペーシング</strong>で即時対応（DDDで房室同期を維持）。</li>
+<li>薬物的ブリッジ：<strong>アトロピン</strong>（迷走神経性/症候性徐脈）、無効時 <strong>イソプレナリン</strong>（第III部）。JCS 2020：交感神経刺激薬またはアトロピンをペースメーカへのブリッジに <strong>COR IIa, LOE C</strong>。</li>
+<li>薬剤抵抗性で血行動態を損なう徐脈性不整脈には <strong>一時経静脈ペーシング</strong>：ESC 2021 <strong>Class I, Level C</strong>。</li>
+</ul>
+<h4 id="恒久ペースメーカppmの判断--観察期間が鍵">恒久ペースメーカ（PPM）の判断 — 観察期間が鍵</h4>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th>格付け</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>術後の高度/完全AVB：<strong>少なくとも5日間の臨床観察</strong>を行い一過性か（回復するか）を評価。ただし補充調律が低/欠如で回復が見込めない完全AVBでは観察期間を短縮しうる</td>
+<td>ESC 2021：<strong>Class I, Level C</strong></td>
+</tr>
+<tr>
+<td><strong>術後に回復が期待できない</strong>高度/完全AVB → 恒久ペースメーカ</td>
+<td>JCS 2019（表7）：<strong>COR I, LOE C</strong></td>
+</tr>
+<tr>
+<td>機械弁三尖弁置換後にペーシングを要する場合、<strong>経弁的RVリードは避ける</strong></td>
+<td>ESC 2021：<strong>Class III, Level C</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>補足（ESC 2021）：臨床的には通常 <strong>3–7日の観察</strong>。完全AVBが術後24時間以内に発生し48時間持続する場合は1–2週以内の回復が見込み薄く、早期植込みを考慮。一方で <strong>SND植込み例の60–70%・AVB植込み例の最大25%はフォロー時にペースメーカ非依存</strong>であり、過剰植込みに注意。</li>
+</ul>
+<h4 id="tavi後の伝導障害esc-2021">TAVI後の伝導障害（ESC 2021）</h4>
+<table>
+<thead>
+<tr>
+<th>推奨</th>
+<th>格付け</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAVI後 <strong>24–48時間持続</strong>する完全/高度AVB → 恒久ペーシング</td>
+<td><strong>Class I, Level B</strong></td>
+</tr>
+<tr>
+<td>TAVI後の <strong>新規・交代性脚ブロック</strong> → 恒久ペーシング</td>
+<td><strong>Class I, Level C</strong></td>
+</tr>
+<tr>
+<td>RBBBがありペーシング適応のない患者への <strong>TAVI前の予防的PPMは不要</strong></td>
+<td><strong>Class III, Level C</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="ペーシング様式">ペーシング様式</h4>
+<ul>
+<li>高頻度の心室ペーシングが見込まれる場合は、<strong>ペーシング誘発心筋症の回避</strong>の観点から His束/左脚領域ペーシング・CRTを考慮（HRS/APHRS/LAHRS 2023）。</li>
+</ul>
+<hr />
+<h3 id="8-術後心停止cals--csu-als-プロトコル">8. 術後心停止（CALS / CSU-ALS プロトコル）</h3>
+<p>心臓外科術後の心停止は<strong>一般ACLSと異なる専用プロトコル</strong>で対応する（STS 2017 CSU-ALS／EACTS 2009 CALS）。AHA 2025もこれをPart10へ委譲。詳細な薬剤希釈は本リポジトリの <code>CVCU_Emergency_Response_Protocol.md</code> を参照。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>推奨（STS 2017）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VF/無脈性VT</strong></td>
+<td><strong>3連続ショックを心臓マッサージ介在なしで先行</strong>：Class I, Level B（除細動のためECMを最大1分まで遅らせてよい：Class IIA, Level B）</td>
+</tr>
+<tr>
+<td>3回失敗後</td>
+<td><strong>緊急再開胸（5分以内）</strong>：Class I（Level B／5分以内 Level C）</td>
+</tr>
+<tr>
+<td>動脈圧 &lt; 60 mmHg</td>
+<td>速やかに再開胸を考慮</td>
+</tr>
+<tr>
+<td><strong>asystole/高度徐脈</strong></td>
+<td>心外膜ペーシングワイヤーを <strong>DDD 80–100 bpm・最大出力</strong>で接続：Class I, Level C</td>
+</tr>
+<tr>
+<td><strong>エピネフリン/バソプレシン</strong></td>
+<td><strong>ルーチン投与は推奨しない：Class III(Harm), Level C</strong>（経験者の判断で少量 50–300 µg のみ）</td>
+</tr>
+<tr>
+<td>アトロピン</td>
+<td>ルーチン非推奨：Class III(No Benefit), Level C</td>
+</tr>
+<tr>
+<td>全持続注入薬</td>
+<td>心停止時は<strong>いったん停止</strong>：Class IIA, Level C</td>
+</tr>
+<tr>
+<td>IABP</td>
+<td>圧トリガーモードに：Class IIA, Level C</td>
+</tr>
+<tr>
+<td>AED</td>
+<td>心臓外科患者には<strong>使用しない</strong>：Class III(Harm), Level C</td>
+</tr>
+<tr>
+<td>抗不整脈</td>
+<td>アミオダロン 300mg→（再発時）150mg→900mg/24h、リドカイン 1 mg/kg</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="第iii部-薬剤各論--日本採用薬一般名商品名希釈方法投与方法">第III部　薬剤各論 — 日本採用薬（一般名・商品名・希釈方法・投与方法）</h2>
+<blockquote>
+<p>用量・希釈は <strong>PMDA電子添文（収載6剤）</strong> および <strong>JCS/JHRS 2020不整脈薬物治療GL 表74</strong> を原典とする。⚠️ <strong>適応外</strong>・<strong>販売中止</strong>は明記。臨床使用前に最新添付文書で確認すること。</p>
+</blockquote>
+<h3 id="a-レートコントロール薬">A. レートコントロール薬</h3>
+<h4 id="a-1-ランジオロール塩酸塩-日本の術後レートコントロール第一選択">A-1. ランジオロール塩酸塩 ★日本の術後レートコントロール第一選択</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> オノアクト点滴静注用 50mg / 150mg（小野薬品工業）</li>
+<li><strong>特徴：</strong> 超短時間作用型・高β1選択性（半減期約4分、エステラーゼ代謝）。<strong>心機能低下例でも血圧低下が少ない</strong>ため術後に好適。</li>
+<li><strong>適応：</strong> 手術時／<strong>手術後の循環動態監視下における頻脈性不整脈</strong>、心機能低下例の頻脈性不整脈（AF/AFL/洞性頻脈）等。</li>
+<li><strong>希釈方法：</strong> 50mg を生理食塩液等で溶解（添文記載の調製例：<strong>50mgを5mLに溶解＝10mg/mL</strong>、または20mL／心機能低下例は<strong>50mgを50mLに溶解＝1mg/mL</strong>）。</li>
+<li><strong>投与方法（用法・用量）：</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>状況</th>
+<th>レジメン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>手術後の頻脈性不整脈（緊急処置）</strong></td>
+<td><strong>0.06 mg/kg/min を1分間 → 0.02 mg/kg/min</strong> で持続。5–10分で目標徐拍が得られなければ <strong>0.125 mg/kg/min を1分間 → 0.04 mg/kg/min</strong>。以後 0.01–0.04 mg/kg/min で調節</td>
+</tr>
+<tr>
+<td>手術時の頻脈性不整脈</td>
+<td>0.125 mg/kg/min を1分間 → 0.04 mg/kg/min、0.01–0.04で調節</td>
+</tr>
+<tr>
+<td>心機能低下例の頻脈性不整脈</td>
+<td><strong>1 µg/kg/min</strong> 開始 → 1–10 µg/kg/min で調節</td>
+</tr>
+<tr>
+<td>生命に危険のある難治性不整脈</td>
+<td>1 µg/kg/min 開始 → 1–10、VF/不安定VT再発時は<strong>最大 40 µg/kg/min</strong></td>
+</tr>
+<tr>
+<td>敗血症に伴う頻脈性不整脈</td>
+<td>1 µg/kg/min 開始 → <strong>最大 20 µg/kg/min</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>注意：</strong> 目標心拍数到達後は維持に必要な最低速度で。血圧低下に注意。</li>
+</ul>
+<h4 id="a-2-ビソプロロールカルベジロール経口β遮断薬">A-2. ビソプロロール／カルベジロール（経口β遮断薬）</h4>
+<ul>
+<li><strong>ビソプロロールフマル酸塩：</strong> メインテート錠 0.625/2.5/5mg（田辺ファーマ＝旧田辺三菱）、<strong>ビソノテープ 2/4/8mg</strong>（トーアエイヨー、貼付剤＝NPO例に有用）。頻脈性心房細動に適応。</li>
+<li><strong>カルベジロール：</strong> アーチスト錠 1.25/2.5/10/20mg（第一三共）。<strong>低心機能/慢性心不全合併</strong>のレートコントロールに。慢性心不全では 1.25mg×2/日から漸増。</li>
+<li>POAF予防・退院後レートコントロールの経口主力。</li>
+</ul>
+<h4 id="a-3-ジルチアゼム塩酸塩非dhp-ca拮抗薬">A-3. ジルチアゼム塩酸塩（非DHP Ca拮抗薬）</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> ヘルベッサー注射用 10 / 50（田辺ファーマ＝旧田辺三菱）</li>
+<li><strong>適応・位置づけ：</strong> 上室性頻脈性不整脈のレートコントロール。<strong>β遮断が禁忌/不十分（喘息等）な例の代替</strong>。</li>
+<li><strong>希釈方法：</strong> 10mg または 50mg を <strong>5mL以上の生理食塩液またはブドウ糖注射液に用時溶解</strong>。</li>
+<li><strong>投与方法：</strong>
+<ul>
+<li>〈頻脈性不整脈（上室性）〉 1回 <strong>10mg を約3分間で緩徐静注</strong>（年齢・症状で適宜増減）。</li>
+<li>⚠️ 持続静注 <strong>5–15 µg/kg/分</strong> は添付文書上は〈手術時の異常高血圧／高血圧性緊急症〉の用法（<strong>不整脈レートコントロールには適応外</strong>）。上室性頻脈の承認用法は上記10mgボーラスのみ（不安定狭心症は1–5 µg/kg/分）。</li>
+</ul></li>
+<li><strong>注意：</strong> 左室機能低下例では陰性変力作用に注意。WPW併存AF/AFLは禁忌（9.1.6）。</li>
+</ul>
+<h4 id="a-4-ベラパミル塩酸塩非dhp-ca拮抗薬">A-4. ベラパミル塩酸塩（非DHP Ca拮抗薬）</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> ワソラン静注 5mg（エーザイ）</li>
+<li><strong>適応：</strong> 発作性上室頻拍（PSVT）、心房細動/粗動の頻脈、ベラパミル感受性VT。</li>
+<li><strong>希釈・投与方法：</strong> <strong>5mg を生理食塩液またはブドウ糖で希釈し、5分以上かけて緩徐静注</strong>（JCS 2020 表74）。</li>
+<li><strong>注意：</strong> <strong>LVEF ≤40% では避ける</strong>。β遮断薬との併用で高度徐脈/房室ブロックの危険。</li>
+</ul>
+<h4 id="a-5-ジゴキシンジギタリス">A-5. ジゴキシン（ジギタリス）</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> ジゴシン注 0.25mg（太陽ファルマ）／経口メチルジゴキシン＝ラニラピッド錠（中外製薬）</li>
+<li><strong>位置づけ：</strong> <strong>低心機能/心不全合併</strong>でβ・Ca拮抗薬による血圧低下が懸念される例のレートコントロール。作用発現が遅く単独では限定的。</li>
+<li><strong>投与方法（添文）：</strong>
+<ul>
+<li>急速飽和（飽和量 1.0–2.0mg）：<strong>1回 0.25–0.5mg を2–4時間ごとに静注</strong>し、十分な効果が得られるまで。</li>
+<li>維持：<strong>1日 0.25mg を静注</strong>。</li>
+</ul></li>
+<li><strong>注意：</strong> 腎機能低下・低K・甲状腺機能異常で中毒リスク。血中濃度モニタリング。</li>
+</ul>
+<h3 id="b-リズムコントロール薬">B. リズムコントロール薬</h3>
+<h4 id="b-1-アミオダロン塩酸塩-難治性vtvf術後不安定afの要">B-1. アミオダロン塩酸塩 ★難治性VT/VF・術後不安定AFの要</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> アンカロン注150（サノフィ／販売 大正製薬）、アンカロン錠100（同）。※ジェネリック「TE」＝トーアエイヨー。</li>
+<li><strong>重要な調製注意：</strong> <strong>5%ブドウ糖でのみ溶解。生理食塩液とは配合不可（沈殿）。</strong> 1日総投与量 <strong>≤1250mg</strong>、投与濃度 <strong>≤2.5mg/mL</strong>。専用の容量型持続注入ポンプを使用。</li>
+<li><strong>投与方法（添文・日本の承認用法）：</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>相</th>
+<th>レジメン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>初期急速（48hまで）</strong></td>
+<td>アミオダロン <strong>125mg（2.5mL）を5%ブドウ糖100mL</strong>に加え、<strong>600mL/時（10mL/分）で10分間</strong></td>
+</tr>
+<tr>
+<td><strong>負荷</strong></td>
+<td><strong>750mg（15mL）を5%ブドウ糖500mL</strong>に加え、<strong>33mL/時で6時間</strong></td>
+</tr>
+<tr>
+<td><strong>維持</strong></td>
+<td>続けて <strong>17mL/時</strong>（6時間負荷後33→17mL/時に変更、または750mg/500mLを17mL/時で24時間＝<strong>600mg/24時間</strong>）</td>
+</tr>
+<tr>
+<td><strong>追加投与</strong></td>
+<td>不安定VT/VF再発時、125mg/5%ブドウ糖100mL、600mL/時で10分</td>
+</tr>
+<tr>
+<td><strong>継続（3日以降）</strong></td>
+<td>750mg/5%ブドウ糖500mL、17mL/時（600mg/24時間）</td>
+</tr>
+<tr>
+<td><strong>心停止（除細動抵抗性VF/無脈性VT）</strong></td>
+<td><strong>300mg（6mL）または5mg/kg を5%ブドウ糖20mLに加えボーラス</strong>。持続時は150mg（3mL）または2.5mg/kgを5%ブドウ糖10mLで追加</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>経口切替（アンカロン錠）：</strong> 導入 400mg/日 → 維持 200mg/日。甲状腺・肺・肝・眼のモニタリング。</li>
+<li>参考：欧州ESC 2024の希釈表は「300mgを5%ブドウ糖250mLで30–60分、続いて900–1200mgを500–1000mLで24時間（中心静脈）」。<strong>ACLSの300mgボーラスとは異なる</strong>点に注意（日本添文の心停止用法は上表）。</li>
+</ul>
+<h4 id="b-2-ニフェカラント塩酸塩-日本独自の純粋ikr遮断薬">B-2. ニフェカラント塩酸塩 ★日本独自の純粋IKr遮断薬</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> シンビット静注用50mg（トーアエイヨー）</li>
+<li><strong>適応：</strong> <strong>電気的除細動抵抗性の生命に危険のあるVT/VF</strong>（術後electrical storm含む）。海外ガイドラインには無い日本固有の選択肢。β遮断作用や陰性変力作用がないのが特徴。</li>
+<li><strong>希釈方法：</strong> <strong>生理食塩液または5%ブドウ糖で溶解</strong>（5mg/mL）。溶解後は速やかに使用（24時間超過不可）。</li>
+<li><strong>投与方法（添文）：</strong> <strong>単回 0.3 mg/kg を5分間かけて心電図連続監視下に静注 → 維持 0.4 mg/kg/時</strong>で等速持続。</li>
+<li><strong>注意：</strong> <strong>QT延長・TdP</strong>に厳重注意（心電図連続監視必須）。アミオダロン等クラスIII/Iaとの併用は禁忌。</li>
+</ul>
+<h4 id="b-3-ピルシカイニド塩酸塩水和物-日本独自の純粋クラスic">B-3. ピルシカイニド塩酸塩水和物 ★日本独自の純粋クラスIc</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> サンリズム注射液50（第一三共）</li>
+<li><strong>適応・位置づけ：</strong> <strong>発作性AFの薬理学的除細動</strong>（器質的心疾患のない術後早期例）。海外ガイドラインに無い日本固有薬。</li>
+<li><strong>希釈・投与方法（添文）：</strong> <strong>生理食塩液または5%ブドウ糖で希釈</strong>し、血圧・心電図監視下に <strong>10分間かけて単回静注</strong>。用量は <strong>期外収縮 0.75 mg/kg、頻拍 1.0 mg/kg</strong>。</li>
+<li><strong>注意：</strong> <strong>腎排泄性</strong>のため腎機能低下例は減量。器質的心疾患・心不全例は催不整脈に注意（クラスIc）。</li>
+</ul>
+<h4 id="b-4-プロカインアミド塩酸塩クラスia">B-4. プロカインアミド塩酸塩（クラスIa）</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> アミサリン注 100mg / 200mg（アルフレッサファーマ）</li>
+<li><strong>適応：</strong> 血行動態安定のmonomorphic持続性VT、WPW併存AF、麻酔関連不整脈。</li>
+<li><strong>投与方法（JCS 2020 表74）：</strong> <strong>200–1000mg を 50–100 mg/分</strong>で緩徐静注。QRS幅・QT・血圧で中止基準を判断。</li>
+</ul>
+<h4 id="b-5-リドカイン塩酸塩クラスib">B-5. リドカイン塩酸塩（クラスIb）</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> 静注用キシロカイン 2%（サンドファーマ／サンド）</li>
+<li><strong>適応：</strong> 急性期（特に虚血性）VT/VFの第二選択・アミオダロン代替。</li>
+<li><strong>投与方法（JCS 2020 表74）：</strong> <strong>1–2 mg/kg（50–100mg）を1–2分で静注 → 1–2 mg/分持続</strong>（最大4 mg/分）。肝機能/低心拍出時は減量。</li>
+</ul>
+<h4 id="b-6-その他のリズムコントロール薬">B-6. その他のリズムコントロール薬</h4>
+<ul>
+<li><strong>ソタロール（β＋クラスIII）：</strong> ソタコール錠40/80mg（サンドファーマ／サンド）。⚠️ <strong>販売中止（経過措置満了2026-03）→代替＝ソタロール塩酸塩錠「TE」（トーアエイヨー）</strong>。生命に危険のあるVT/VF・AF。腎機能依存で漸増、QT監視下に入院導入。</li>
+<li><strong>ベプリジル（多チャネル遮断）：</strong> ベプリコール錠50/100mg（オルガノン）。<strong>日本特有</strong>。持続性/長期持続性AFのリズムコントロール（他剤抵抗例）。QT/TdP監視。</li>
+<li><strong>ジソピラミド（クラスIa）：</strong> リスモダンP静注50mg（クリニジェン）。⚠️ <strong>販売中止（2025-06）</strong>＝歴史的原典としてのみ。</li>
+</ul>
+<h3 id="c-電解質">C. 電解質</h3>
+<h4 id="c-1-硫酸マグネシウム">C-1. 硫酸マグネシウム</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> 硫酸Mg補正液 1mEq/mL（大塚製薬工場）／静注用マグネゾール・マグセント注（あすか製薬）</li>
+<li><strong>用途：</strong> <strong>TdP・難治性VF（ESC 2022：TdPに Class I, Level C）</strong>、低Mg補正、POAF予防のMg負荷（COR IIb系）。</li>
+<li><strong>投与方法（JCS 2020 表74）：</strong> TdPに <strong>1–2g を緩徐静注</strong>（血圧・心電図監視下）。</li>
+<li>⚠️ <strong>重要：いずれの製剤も不整脈は適応外</strong>（硫酸Mg補正液＝電解質補正、マグネゾール/マグセント＝産科適応のみ）。<strong>心臓領域での使用は適応外使用</strong>である旨を認識して用いる。</li>
+</ul>
+<h4 id="c-2-カリウム">C-2. カリウム</h4>
+<ul>
+<li>低K是正は催不整脈予防に重要（目標 K ≥4.0–4.5 mmol/L）。</li>
+<li>⚠️ ただし <strong>POAF予防目的のルーチンK補充は STS 2026：COR III(No Benefit), B-R</strong>（TIGHT-K試験）。</li>
+</ul>
+<h3 id="d-徐脈蘇生上室頻拍停止">D. 徐脈・蘇生・上室頻拍停止</h3>
+<h4 id="d-1-アトロピン硫酸塩水和物">D-1. アトロピン硫酸塩水和物</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> アトロピン硫酸塩注0.5mg「ニプロ」（ニプロ。旧「タナベ」は廃止）／アトロピン注0.05%シリンジ「テルモ」（テルモ）</li>
+<li><strong>用途：</strong> 迷走神経性/症候性徐脈・房室ブロックのブリッジ（ペーシング前/不全時）。</li>
+<li><strong>投与方法：</strong> <strong>0.5mg を静注</strong>、反復可（JCS 2020 表74）。※術後心停止時のルーチン使用はSTS 2017で非推奨。</li>
+</ul>
+<h4 id="d-2-l-イソプレナリン塩酸塩イソプロテレノール">D-2. l-イソプレナリン塩酸塩（イソプロテレノール）</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> プロタノールL注 0.2mg（興和）。⚠️ <strong>1mg製剤は販売中止→0.2mgを使用</strong>。</li>
+<li><strong>用途：</strong> アトロピン抵抗性徐脈・完全房室ブロックの心拍数維持、TdP予防のoverdrive（心拍数を上げる）。</li>
+<li><strong>希釈・投与方法：</strong> <strong>0.2–1.0mg を等張液200–500mLに溶解</strong>し、心拍数・心電図監視下に持続注入。JCS 2020：<strong>0.01–0.03 µg/kg/min</strong>。</li>
+</ul>
+<h4 id="d-3-アデノシン三リン酸二ナトリウム水和物atp">D-3. アデノシン三リン酸二ナトリウム水和物（ATP）</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> アデホス-Lコーワ注 20/40mg（興和）／トリノシンS注（製造＝アルフレッサファーマ、販売＝トーアエイヨー）</li>
+<li><strong>用途：</strong> <strong>PSVT（AVNRT/AVRT）の急速静注停止</strong>（海外adenosineの日本代替）。</li>
+<li><strong>投与方法（JCS 2020 表74）：</strong> <strong>10mg を1–2秒で急速ワンショット静注</strong>＋後押しフラッシュ、血圧・心電図監視下。</li>
+<li>⚠️ <strong>PSVTは添付文書上の適応外</strong>（承認適応は頭部外傷後遺症・心不全等）。</li>
+</ul>
+<h4 id="d-4-アドレナリンエピネフリン">D-4. アドレナリン（エピネフリン）</h4>
+<ul>
+<li><strong>商品名（製販元）：</strong> ボスミン注1mg（第一三共）／アドレナリン注0.1%シリンジ「テルモ」（テルモ）</li>
+<li><strong>用途：</strong> 心停止蘇生・術後昇圧。</li>
+<li>⚠️ <strong>術後心停止では STS 2017の「ルーチン投与回避・経験者の判断で少量50–300 µgのみ」原則</strong>に従う（一般ACLSの1mgボーラスとは異なる）。</li>
+</ul>
+<hr />
+<h2 id="第iv部-早見表">第IV部　早見表</h2>
+<h3 id="4-1-poaf予防--学会推奨-早見">4-1. POAF予防 — 学会推奨 早見</h3>
+<table>
+<thead>
+<tr>
+<th>介入</th>
+<th>STS 2026</th>
+<th>ESC/EACTS 2024</th>
+<th>ACC/AHA 2023</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>経口アミオダロン</td>
+<td><strong>I / B-R</strong></td>
+<td>I / A</td>
+<td>2a / B-R</td>
+</tr>
+<tr>
+<td>β遮断薬（周術期継続）</td>
+<td>IIa / B-R</td>
+<td>I / A（EACTS周術期）</td>
+<td>2a / B-R</td>
+</tr>
+<tr>
+<td>非DHP Ca拮抗薬</td>
+<td>IIb / C-LD</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>コルヒチン</td>
+<td>IIb / B-R</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>IV マグネシウム</td>
+<td>IIb / B-R</td>
+<td>—</td>
+<td>レート補助 2a / A</td>
+</tr>
+<tr>
+<td>後（左）心膜切開</td>
+<td><strong>IIa / B-R</strong></td>
+<td>IIa / B</td>
+<td>2a / B-R</td>
+</tr>
+<tr>
+<td>両心房ペーシング</td>
+<td>IIb / B-R</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>カリウム ルーチン補充</td>
+<td><strong>III(NB) / B-R</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-2-主要iv薬-希釈投与-早見日本添付文書表74">4-2. 主要IV薬 希釈・投与 早見（日本添付文書/表74）</h3>
+<table>
+<thead>
+<tr>
+<th>薬剤（商品名）</th>
+<th>溶解液</th>
+<th>希釈例</th>
+<th>代表的投与法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ランジオロール（オノアクト）</td>
+<td>生食等</td>
+<td>50mg→5mL(10mg/mL) / 50mL(1mg/mL)</td>
+<td>術後：0.06→0.02 mg/kg/min（不十分なら0.125→0.04）</td>
+</tr>
+<tr>
+<td>アミオダロン（アンカロン注）</td>
+<td><strong>5%ブドウ糖のみ（生食禁）</strong></td>
+<td>125mg/100mL, 750mg/500mL</td>
+<td>初期125mg/10分→負荷750mg/6h→維持600mg/24h。心停止300mg/20mLボーラス</td>
+</tr>
+<tr>
+<td>ニフェカラント（シンビット）</td>
+<td>生食 or 5%ブドウ糖</td>
+<td>5mg/mL</td>
+<td>0.3 mg/kg/5分→0.4 mg/kg/時</td>
+</tr>
+<tr>
+<td>ピルシカイニド（サンリズム）</td>
+<td>生食 or 5%ブドウ糖</td>
+<td>適宜</td>
+<td>0.75–1.0 mg/kg を10分</td>
+</tr>
+<tr>
+<td>ジルチアゼム（ヘルベッサー注）</td>
+<td>生食 or ブドウ糖</td>
+<td>10/50mgを5mL以上</td>
+<td>上室性頻脈：10mgを約3分（持続5–15 µg/kg/分は異常高血圧の用法＝不整脈には適応外）</td>
+</tr>
+<tr>
+<td>ベラパミル（ワソラン静注）</td>
+<td>生食 or ブドウ糖</td>
+<td>5mg</td>
+<td>5mgを5分以上で緩徐静注</td>
+</tr>
+<tr>
+<td>ジゴキシン（ジゴシン注）</td>
+<td>—</td>
+<td>—</td>
+<td>急速飽和0.25–0.5mg×2–4h毎／維持0.25mg/日</td>
+</tr>
+<tr>
+<td>リドカイン（キシロカイン）</td>
+<td>—</td>
+<td>—</td>
+<td>1–2 mg/kg静注→1–2 mg/分</td>
+</tr>
+<tr>
+<td>プロカインアミド（アミサリン）</td>
+<td>—</td>
+<td>—</td>
+<td>200–1000mgを50–100 mg/分</td>
+</tr>
+<tr>
+<td>マグネシウム（硫酸Mg補正液※適応外）</td>
+<td>—</td>
+<td>—</td>
+<td>TdPに1–2g緩徐静注</td>
+</tr>
+<tr>
+<td>ATP（アデホス）※PSVT適応外</td>
+<td>—</td>
+<td>—</td>
+<td>10mg急速ワンショット＋フラッシュ</td>
+</tr>
+<tr>
+<td>イソプレナリン（プロタノールL 0.2mg）</td>
+<td>等張液</td>
+<td>0.2–1.0mg/200–500mL</td>
+<td>0.01–0.03 µg/kg/min</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="出典注記">出典・注記</h2>
+<ul>
+<li><strong>発生率・推奨度：</strong> STS 2026 POAF GL、ESC/EACTS 2024 AF GL、ACC/AHA/ACCP/HRS 2023 AF GL、ESC 2022 VA-SCD GL、EACTS 2024周術期薬剤GL、STS 2017 CSU-ALS、JCS/JHRS 2020不整脈薬物治療GL（推奨・表74）、JCS/JHRS 2019非薬物GL、ESC 2021ペーシングGL、HRS/APHRS/LAHRS 2023生理的ペーシングGL。</li>
+<li><strong>薬剤希釈・投与方法：</strong> PMDA電子添文（ランジオロール／アミオダロンIV／ニフェカラント／ピルシカイニド／ジゴキシン／ジルチアゼム）、JCS/JHRS 2020 表74。</li>
+<li><strong>一次エビデンス：</strong> PASCAL、PLATON、Daoud 1997、PALACS、Miller 2005／Cook 2013、Cafaro 2023／Kowalik 2024、Floria 2024。</li>
+<li><strong>既存の関連文書：</strong> 術後心停止の詳細薬剤プロトコルは <code>CVCU_Emergency_Response/CVCU_Emergency_Response_Protocol.md</code>、外科的AF治療（Maze/PVI/LAA）は <code>AF_Surgery/AF_Surgery_Indications_Guideline_Comparison.md</code>。</li>
+<li>✅ <strong>COR/LOE・発生率・薬剤用量はfact-check実施済（2026-06-11、末尾callout）。</strong> ただし臨床使用前には最新添付文書での再確認を推奨。特に <strong>適応外使用（不整脈へのMg製剤、PSVTへのATP、ジルチアゼム持続静注）・販売中止（ソタコール、リスモダンP静注、プロタノールL注1mg）</strong> に留意。</li>
+</ul>
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:24px 0 20px;border-radius:4px;font-size:0.9rem;line-height:1.7;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.95rem;">✅ Fact check完了（2026-06-11）</div>
+<p>4ソースクラスタを並列照合（①POAF COR/LOE・発生率 ②POAF予防RCT実数 ③VT/VF・storm・TdP・術後心停止 ④薬剤用量・希釈）。主な訂正：</p>
+<ul>
+<li><strong>第II部8（術後心停止）：</strong> 3連続ショックを <strong>Class IIA → Class I, Level B</strong> に訂正（IIA/Bは「除細動のためECMを最大1分遅らせてよい」の別項の値だった）。</li>
+<li><strong>第III部・第IV部（ジルチアゼム）：</strong> 持続静注 5–15 µg/kg/分 は添付文書では〈異常高血圧／高血圧性緊急症〉の用法で、<strong>上室性頻脈のレートコントロールには適応外</strong>である旨を明記（承認用法は10mg/約3分ボーラスのみ）。</li>
+<li><strong>第II部1（予後）：</strong> 再発AF「5–8倍」を <strong>4–5倍/5年（ESC 2024）〜8倍/6年（EACTS 2024）</strong> に出典分割。</li>
+<li><strong>一致確認（訂正なし）：</strong> POAF推奨度（STS 2026／ESC・EACTS 2024／ACC・AHA 2023／EACTS周術期2024）の全COR/LOE、発生率・予後OR、RCT実数（PASCAL 34.3%→10% / PLATON 40%→10% / Daoud 53%→25% / PALACS 32%→17%・RR0.55 / Miller陽性・Cook陰性）、PMDA添付文書6剤＋JCS2020表74の希釈・投与量は<strong>すべて原典と一致</strong>。</li>
+</ul>
+</div>
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
+</body>
+</html>
