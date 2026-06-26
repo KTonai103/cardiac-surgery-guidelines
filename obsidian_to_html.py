@@ -750,6 +750,8 @@ def main():
          "Perioperative_Anticoagulation/Perioperative_Anticoagulation_Guidelines_Comparison.html"),
         ("Perioperative_Anticoagulation/Mechanical_Valve_Anticoagulation_INR_Targets.md",
          "Perioperative_Anticoagulation/Mechanical_Valve_Anticoagulation_INR_Targets.html"),
+        ("Perioperative_Anticoagulation/Bioprosthetic_Valve_Antithrombotic_Therapy.md",
+         "Perioperative_Anticoagulation/Bioprosthetic_Valve_Antithrombotic_Therapy.html"),
         ("MS_MV_Surgery/Atrial_MR_Definition_Summary.md",
          "MS_MV_Surgery/Atrial_MR_Definition_Summary.html"),
         ("Infective_Endocarditis/IE_Surgery_Guidelines_Comparison.md",

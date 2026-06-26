@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生体弁置換術後の抗血栓療法 — アスピリンのエビデンス</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5c5c5c;
+  --border: #d4d4d4;
+  --accent: #2c3e50;
+  --light-bg: #f7f8fa;
+  --header-bg: #2c3e50;
+  --header-fg: #ffffff;
+  --link: #34495e;
+  --jp-accent: #c0392b;
+  --us-accent: #2980b9;
+  --eu-accent: #27ae60;
+  --sidebar-w: 280px;
+  --sidebar-bg: #f4f6fa;
+  --sidebar-hover: #e4eaf2;
+  --sidebar-active: #d8e1ec;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Responsive vector graphics — SVG must scale without bitmapping on mobile */
+img, svg.flowchart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+svg.flowchart {
+  width: 100%;
+  max-width: 1100px;
+}
+figure.flowchart {
+  margin: 1.5em -16px;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+figure.flowchart svg {
+  min-width: 320px;
+}
+
+body {
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+main.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* Anchor offset so fixed headers don't hide target heading */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: 16px; }
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+  margin: 48px 0 12px;
+}
+
+h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 28px 0 8px;
+}
+
+h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 20px 0 6px;
+}
+
+p { margin: 8px 0; font-size: 0.88rem; }
+strong { color: var(--fg); }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+ul, ol {
+  padding-left: 24px;
+  margin: 8px 0;
+  font-size: 0.88rem;
+}
+
+li { margin-bottom: 4px; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 12px 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+thead th {
+  background: var(--header-bg);
+  color: var(--header-fg);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--light-bg);
+}
+
+tbody tr:nth-child(even) td { background-color: #fafbfc; }
+tbody tr:nth-child(even) td:first-child { background-color: #f0f1f3; }
+tbody tr:hover td { background-color: #eef1f5; }
+tbody tr:hover td:first-child { background-color: #e4e8ed; }
+
+/* Blockquotes (fallback for any not converted to callouts) */
+blockquote {
+  background: var(--light-bg);
+  border-left: 3px solid var(--border);
+  padding: 10px 16px;
+  margin: 12px 0 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+blockquote strong { color: var(--fg); }
+
+/* Highlights */
+mark {
+  background: #fff3cd;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Callout overrides - already inline styled, but ensure nested elements look right */
+.callout p { margin: 4px 0; }
+.callout ul, .callout ol { margin: 4px 0 4px 16px; }
+.callout table { font-size: 0.8rem; }
+
+/* Print */
+@media print {
+  body { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+/* ===== Sidebar (TOC) ===== */
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px 32px;
+  font-size: 0.82rem;
+  z-index: 100;
+}
+
+.sidebar-header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar .back-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.sidebar .back-link:hover { color: var(--accent); }
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li { margin: 0; padding: 0; }
+
+.toc a {
+  display: block;
+  padding: 5px 10px 5px 12px;
+  color: var(--fg);
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background: var(--sidebar-hover);
+  text-decoration: none;
+}
+
+.toc a.active {
+  border-left-color: var(--accent);
+  background: var(--sidebar-active);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.toc-l2 a { font-weight: 600; font-size: 0.83rem; }
+.toc-l3 a { padding-left: 26px; font-size: 0.78rem; color: #444; }
+.toc-l4 a { padding-left: 40px; font-size: 0.74rem; color: var(--muted); }
+
+/* Mobile toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 99;
+}
+
+/* Print */
+@media print {
+  .sidebar, .sidebar-toggle, .sidebar-backdrop { display: none !important; }
+  main.content { max-width: 100%; padding: 20px; }
+  table { font-size: 0.7rem; }
+  h2 { break-after: avoid; }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 2px 0 14px rgba(0,0,0,0.18);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar.open ~ .sidebar-backdrop { display: block; }
+  main.content { padding: 56px 24px 60px; }
+  .sidebar-toggle { display: block; }
+}
+
+@media (max-width: 768px) {
+  main.content { padding: 56px 16px 60px; font-size: 13px; }
+  h1 { font-size: 1.3rem; }
+  table { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="目次">
+  <div class="sidebar-header">
+    <a class="back-link" href="../index.html">← ガイドラインポータル</a>
+    <div class="sidebar-title">目次</div>
+  </div>
+  <ul class="toc">
+      <li class="toc-l2"><a href="#目次">目次</a></li>
+      <li class="toc-l2"><a href="#1-結論サマリー">1. 結論サマリー</a></li>
+      <li class="toc-l2"><a href="#2-part-i--各ガイドラインの推奨原典逐語">2. Part I — 各ガイドラインの推奨（原典逐語）</a></li>
+      <li class="toc-l3"><a href="#2-1-jp-jcs-2020-弁膜症治療ガイドライン">2-1. 🇯🇵 JCS 2020 弁膜症治療ガイドライン</a></li>
+      <li class="toc-l3"><a href="#2-2-us-accaha-2020-弁膜症ガイドライン">2-2. 🇺🇸 ACC/AHA 2020 弁膜症ガイドライン</a></li>
+      <li class="toc-l3"><a href="#2-3-european_union-esceacts-2025-弁膜症ガイドライン">2-3. 🇪🇺 ESC/EACTS 2025 弁膜症ガイドライン</a></li>
+      <li class="toc-l2"><a href="#3-part-ii--横断比較">3. Part II — 横断比較</a></li>
+      <li class="toc-l3"><a href="#3-1-外科的生体弁置換後アスピリン--横断表">3-1. 外科的生体弁置換後アスピリン — 横断表</a></li>
+      <li class="toc-l3"><a href="#3-2-注目すべき相違点">3-2. 注目すべき相違点</a></li>
+      <li class="toc-l2"><a href="#4-なぜエビデンスが弱いのか">4. なぜエビデンスが弱いのか</a></li>
+      <li class="toc-l2"><a href="#5-機械弁への上乗せアスピリン参考">5. 機械弁への上乗せアスピリン（参考）</a></li>
+      <li class="toc-l2"><a href="#6-実臨床での解釈日本人">6. 実臨床での解釈（日本人）</a></li>
+      <li class="toc-l2"><a href="#7-リポジトリ外の一次文献">7. リポジトリ外の一次文献</a></li>
+      <li class="toc-l2"><a href="#関連ノート">関連ノート</a></li>
+  </ul>
+</aside>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="目次の表示切替" aria-controls="sidebar">☰ 目次</button>
+
+<main class="content">
+<h1 id="生体弁置換術後の抗血栓療法--アスピリンのエビデンス">生体弁置換術後の抗血栓療法 — アスピリンのエビデンス</h1>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">本ノートの問い</div>
+<p><strong>「外科的生体弁置換後にルーチンでアスピリンを入れるのは、エビデンス的に妥当か？」</strong> 一次資料（リポジトリ内PDF）と逐語照合した3地域ガイドライン比較。 姉妹ノート：機械弁術後抗凝固療法・INR治療域（機械弁のINR目標・周術期管理）／術前抗凝固管理・ヘパリンブリッジング 各地域比較</p>
+</div>
+
+<hr />
+<h2 id="目次">目次</h2>
+<ol type="1">
+<li>#1. 結論サマリー</li>
+<li>#2. Part I — 各ガイドラインの推奨（原典逐語）</li>
+<li>#3. Part II — 横断比較</li>
+<li>#4. なぜエビデンスが弱いのか</li>
+<li>#5. 機械弁への上乗せアスピリン（参考）</li>
+<li>#6. 実臨床での解釈（日本人）</li>
+<li>#7. リポジトリ外の一次文献</li>
+<li>#関連ノート</li>
+</ol>
+<hr />
+<h2 id="1-結論サマリー">1. 結論サマリー</h2>
+
+<div class="callout" style="background:#e1f5fe;border-left:4px solid #00b0ff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00b0ff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">要点</div>
+<ul>
+<li>外科的生体弁置換後の<strong>ルーチンなアスピリンは、最良でも「やってもよい（弱い推奨）」レベル</strong>であり、脳卒中・死亡などのハードアウトカムを減らすという<strong>RCTエビデンスは存在しない</strong>。</li>
+<li>**エビデンスレベルは B-NR（非ランダム化）〜 C（専門家意見）**にとどまる。Class A の根拠は一つもない。</li>
+<li><strong>3地域で推奨が割れる</strong>：米国(ACC/AHA)が最も広く許容（IIa）、欧州(ESC)は最弱クラス（IIb/C）、<strong>日本(JCS)はそもそもルーチンのアスピリン推奨を持たない</strong>。</li>
+</ul>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>ガイドライン</th>
+<th>外科的生体弁(SAVR/MVR)への<strong>慢性期</strong>アスピリン</th>
+<th>クラス / レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🇯🇵 <strong>JCS 2020 弁膜症</strong>（表47）</td>
+<td><strong>該当推奨なし</strong>（術後&lt;3ヶ月のワルファリンのみ／以降は低リスクなら無治療）</td>
+<td>（ルーチンASA推奨なし）</td>
+</tr>
+<tr>
+<td>🇺🇸 <strong>ACC/AHA 2020 VHD</strong>（rec #6）</td>
+<td>全例で aspirin 75–100 mg/日 が "reasonable"</td>
+<td><strong>IIa / B-NR</strong></td>
+</tr>
+<tr>
+<td>🇪🇺 <strong>ESC/EACTS 2025 VHD</strong>（Rec Table 16）</td>
+<td>3ヶ月以降、生涯 low-dose ASA を "may be considered"</td>
+<td><strong>IIb / C</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-part-i--各ガイドラインの推奨原典逐語">2. Part I — 各ガイドラインの推奨（原典逐語）</h2>
+<h3 id="2-1-jp-jcs-2020-弁膜症治療ガイドライン">2-1. 🇯🇵 JCS 2020 弁膜症治療ガイドライン</h3>
+<p><em>JCS/JATS/JSVS/JSCS 2020 第11章 人工弁置換術後 p.93–94「表47 人工弁例に対する抗血栓療法の推奨とエビデンスレベル」／本文 Section 2.2.2</em></p>
+<p><strong>表47 — 生体弁の行（これがすべて）</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>INR目標</th>
+<th>クラス</th>
+<th>エビデンス</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>術後3ヵ月未満の症例に対するワルファリンによる抗凝固療法</td>
+<td><strong>2.0〜2.5</strong></td>
+<td><strong>IIa</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>TAVI後6ヵ月未満：アスピリン75〜100 mg ＋ クロピドグレル75 mg 併用投与後、アスピリンまたはクロピドグレル単剤投与の続行</td>
+<td>—</td>
+<td>IIa</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#ffebee;border-left:4px solid #ff5252;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff5252;font-weight:700;margin-bottom:4px;font-size:0.85rem;">JCSの生体弁セクションには「ルーチン／生涯アスピリン」の推奨行が存在しない</div>
+<p>表47の生体弁は上記<strong>2行のみ</strong>。2行目は<strong>TAVI限定</strong>であり、外科的生体弁の慢性期アスピリンを推奨する行はない。 本文（Section 2.2.2）の方針：</p>
+<ul>
+<li>生体弁植込み後3〜6ヵ月は血栓塞栓症リスクが高い → <strong>最低3ヵ月、出血リスクがなければ6ヵ月</strong>のワルファリン（PT-INR 2.0〜2.5）を推奨（<strong>推奨クラス IIa</strong>）</li>
+<li><strong>それ以降は、危険因子を持たない症例では抗凝固療法を行わない</strong></li>
+<li>血栓塞栓症の危険因子を合併する場合は、抗凝固療法（PT-INR 2.0〜2.5）の継続を考慮</li>
+</ul>
+</div>
+
+<p>→ つまり日本では「3〜6ヶ月ワルファリン → 低リスクなら無治療」が標準で、<strong>生体弁を理由としたアスピリンの継続投与は推奨されていない</strong>。</p>
+<h3 id="2-2-us-accaha-2020-弁膜症ガイドライン">2-2. 🇺🇸 ACC/AHA 2020 弁膜症ガイドライン</h3>
+<p><em>Otto CM, et al. 2020 ACC/AHA Guideline for the Management of Valvular Heart Disease. Circulation. 2021;143:e72–e227. §11.2「Recommendations for Antithrombotic Therapy for Prosthetic Valves」</em></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>推奨内容</th>
+<th>クラス</th>
+<th>レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td><strong>全ての外科的生体弁（SAVR/MVR）</strong>：他のOAC適応がなければ aspirin 75–100 mg/日 が <strong>reasonable</strong></td>
+<td><strong>2a</strong></td>
+<td><strong>B-NR</strong></td>
+</tr>
+<tr>
+<td>7</td>
+<td>外科的生体弁で出血低リスク：VKA INR 2.5、<strong>最低3ヶ月〜最長6ヶ月</strong> が reasonable</td>
+<td>2a</td>
+<td>B-NR</td>
+</tr>
+<tr>
+<td>5</td>
+<td>生体弁TAVI：他のOAC適応がなければ aspirin 75–100 mg/日 が reasonable</td>
+<td>2a</td>
+<td>B-R</td>
+</tr>
+<tr>
+<td>1</td>
+<td>機械弁：VKA による抗凝固を推奨</td>
+<td>1</td>
+<td><strong>A</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>機械弁 二葉弁/現行単傾斜弁AVR・リスク因子なし：VKA INR 2.5</td>
+<td>1</td>
+<td>B-NR</td>
+</tr>
+<tr>
+<td>4</td>
+<td>機械弁MVR：VKA INR 3.0</td>
+<td>1</td>
+<td>B-NR</td>
+</tr>
+<tr>
+<td>8</td>
+<td>機械弁SAVR/MVR で VKA管理中＋抗血小板適応あり：出血低リスク時に aspirin 75–100 mg 追加を考慮<strong>してもよい</strong></td>
+<td>2b</td>
+<td>B-R</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">#6（外科生体弁アスピリン IIa/B-NR）の本文根拠</div>
+<ul>
+<li>約2,500例の系統的レビュー／メタアナリシスで「単剤＞2剤（30日死亡・大出血で単剤が良好）」を示唆（抗血小板<strong>戦略間</strong>の比較）。</li>
+<li>僧帽弁位については明言：<strong>"There are no studies examining the long-term effects of antiplatelet agents in patients with bioprosthetic mitral valve … the beneficial effects seen with bioprosthetic aortic valves may apply to mitral valves, as well."</strong> → 僧帽弁生体弁のアスピリンは<strong>大動脈弁データからの外挿</strong>。</li>
+<li>LOE <strong>B-NR</strong>＝非ランダム化（観察研究ベース）。</li>
+</ul>
+</div>
+
+<h3 id="2-3-european_union-esceacts-2025-弁膜症ガイドライン">2-3. 🇪🇺 ESC/EACTS 2025 弁膜症ガイドライン</h3>
+<p><em>ESC/EACTS 2025 Guidelines for the management of valvular heart disease. Eur Heart J. 2025;46:4635. §14.3.2「Recommendation Table 16」</em></p>
+<p><strong>外科的生体弁で OAC適応がない 場合</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>クラス</th>
+<th>レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>大動脈BHV</strong> 植込後 最初3ヶ月：low-dose ASA (75–100 mg/日) <strong>または</strong> VKA を考慮</td>
+<td><strong>IIa</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td><strong>僧帽／三尖BHV</strong> 植込後 最初3ヶ月：<strong>VKA</strong>を考慮（※アスピリン単独のオプションなし）</td>
+<td><strong>IIa</strong></td>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>3ヶ月<strong>以降</strong>、大動脈または僧帽BHV：<strong>生涯 low-dose ASA (75–100 mg/日) を考慮してもよい</strong></td>
+<td><strong>IIb</strong></td>
+<td><strong>C</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>外科的生体弁で OAC適応がある 場合</strong></p>
+<table>
+<thead>
+<tr>
+<th>推奨内容</th>
+<th>クラス</th>
+<th>レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OAC適応がある外科BHVではOAC継続を推奨</td>
+<td>I</td>
+<td>B</td>
+</tr>
+<tr>
+<td>DOAC適応例ではBHV植込後のDOAC継続を考慮してもよい</td>
+<td>IIb</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ESCの立場（本文 §14.3.2.1 逐語）</div>
+<p><strong>"The optimal antithrombotic strategy early after surgical implantation of an aortic BHV remains controversial due to the lack of high-quality evidence. … A small RCT and a meta-analysis found that VKA treatment for 3 months significantly increased major bleeding compared with low-dose ASA, without reducing mortality or thromboembolism."</strong> → 「高質なエビデンスの欠如」を明言。小規模RCT/メタ解析は**「VKAはアスピリンより出血が多く死亡差なし」**を示しただけで、<strong>アスピリンがハードアウトカムを改善した証拠ではない</strong>。 ※ESCは大動脈BHVには早期アスピリンのオプションを認めるが、<strong>僧帽／三尖BHVにはアスピリン単独オプションを与えていない</strong>（VKAのみ）点が米国と異なる。</p>
+</div>
+
+<hr />
+<h2 id="3-part-ii--横断比較">3. Part II — 横断比較</h2>
+<h3 id="3-1-外科的生体弁置換後アスピリン--横断表">3-1. 外科的生体弁置換後アスピリン — 横断表</h3>
+<table>
+<thead>
+<tr>
+<th>局面</th>
+<th>🇯🇵 JCS 2020</th>
+<th>🇺🇸 ACC/AHA 2020</th>
+<th>🇪🇺 ESC/EACTS 2025</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>慢性期のルーチンASA</strong></td>
+<td><mark>推奨なし</mark>（低リスクは無治療）</td>
+<td><mark>reasonable</mark> <strong>IIa / B-NR</strong></td>
+<td><mark>may be considered</mark> <strong>IIb / C</strong></td>
+</tr>
+<tr>
+<td><strong>早期（〜3–6ヶ月）抗凝固</strong></td>
+<td>ワルファリン&lt;3ヶ月 INR 2.0–2.5（<strong>IIa/B</strong>）</td>
+<td>VKA INR 2.5 を3–6ヶ月（低出血リスク, <strong>2a/B-NR</strong>）</td>
+<td>大動脈：ASA <strong>or</strong> VKA（<strong>IIa/B</strong>）／僧帽・三尖：VKAのみ（<strong>IIa/B</strong>）</td>
+</tr>
+<tr>
+<td><strong>早期のASA単独オプション</strong></td>
+<td>なし</td>
+<td>あり（#6を早期から適用可）</td>
+<td><strong>大動脈BHVのみ</strong>あり／僧帽・三尖はなし</td>
+</tr>
+<tr>
+<td><strong>最高エビデンスレベル</strong></td>
+<td>B（早期VKA）</td>
+<td>B-NR</td>
+<td>B〜C</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-2-注目すべき相違点">3-2. 注目すべき相違点</h3>
+
+<div class="callout" style="background:#ede7f6;border-left:4px solid #7c4dff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#7c4dff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">3つの地域差</div>
+<ol type="1">
+<li><strong>日本が最も保守的</strong>：生体弁の慢性期アスピリン推奨を一切持たず、低リスク例は3〜6ヶ月のワルファリン後「無治療」。背景は<mark>日本人の出血リスクが高く塞栓症リスクが低い</mark>という疫学。</li>
+<li><strong>米国が最も広い</strong>：弁位を問わず（大動脈・僧帽とも）アスピリンを IIa で許容。ただし僧帽は外挿と自認。</li>
+<li><strong>欧州は中間で慎重</strong>：慢性期アスピリンは最弱クラス（IIb/C）、かつ早期のアスピリン単独は大動脈BHVに限定（僧帽・三尖はVKA必須）。</li>
+</ol>
+</div>
+
+<hr />
+<h2 id="4-なぜエビデンスが弱いのか">4. なぜエビデンスが弱いのか</h2>
+
+<div class="callout" style="background:#fff3e0;border-left:4px solid #ff9100;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#ff9100;font-weight:700;margin-bottom:4px;font-size:0.85rem;">エビデンスの本質</div>
+<ul>
+<li><strong>外科的生体弁置換後にアスピリンがハードアウトカム（脳卒中・死亡）を減らすことを示した質の高いRCTは存在しない。</strong> 推奨はすべて観察研究・登録データ・専門家意見・外挿に依拠する。</li>
+<li>ACC/AHA #6（IIa/B-NR）：観察研究＋<strong>僧帽弁は大動脈弁からの外挿</strong>（"no studies examining the long-term effects of antiplatelet agents in … bioprosthetic mitral valve"）。</li>
+<li>ESC（IIb/C）：本文で**"lack of high-quality evidence"**を明言。引用される小規模RCT/メタ解析は「VKA 3ヶ月はアスピリンより大出血が多く死亡差なし」＝<strong>アスピリン優越ではなく、VKAの不利</strong>を示したにすぎない。</li>
+<li>JCS：そもそも生体弁慢性期にアスピリンを位置づけていない。</li>
+<li><strong>唯一の Class A 推奨</strong>は「機械弁にVKA」（ACC/AHA #1, LOE A）であり、アスピリン関連はすべて B-NR / B-R / C にとどまる。</li>
+</ul>
+</div>
+
+<div class="callout" style="background:#e0f7f4;border-left:4px solid #00bfa5;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00bfa5;font-weight:700;margin-bottom:4px;font-size:0.85rem;">言い換えると</div>
+<p>「アスピリンを入れてはいけない」という強い証拠もない一方、「入れるべき」という強い証拠もない。<strong>弁を理由とした漫然投与を正当化するエビデンスは無い</strong>、というのが3ガイドライン共通の実像。</p>
+</div>
+
+<hr />
+<h2 id="5-機械弁への上乗せアスピリン参考">5. 機械弁への上乗せアスピリン（参考）</h2>
+<p>「弁置換」一般での誤解を避けるため、<strong>機械弁＋ワルファリンへのアスピリン上乗せ</strong>も近年は格下げされている点を併記する。</p>
+<table>
+<thead>
+<tr>
+<th>ガイドライン</th>
+<th>機械弁VKAへのアスピリン上乗せ</th>
+<th>クラス / レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🇺🇸 ACC/AHA 2020</td>
+<td>抗血小板の<strong>適応があり</strong>出血低リスクの時のみ追加可</td>
+<td><strong>2b / B-R</strong></td>
+</tr>
+<tr>
+<td>🇯🇵 JCS 2020</td>
+<td>ルーチン併用は<strong>推奨しない</strong>（日本人の出血リスク）／<strong>アスピリン単独投与＝Class III / B</strong></td>
+<td>III/B（単独）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">ACC/AHA本文</div>
+<p>「機械弁VKAへのアスピリン上乗せの旧推奨は、旧世代弁を多く含む<strong>数十年前の研究</strong>に基づく。2013年Cochraneでは血栓塞栓イベント・総死亡は減るが<strong>大出血が相殺的に増加</strong>し、含まれた試験の質は概して低い。個別化が必要。」</p>
+</div>
+
+<p>詳細は姉妹ノート Mechanical_Valve_Anticoagulation_INR_Targets を参照。</p>
+<hr />
+<h2 id="6-実臨床での解釈日本人">6. 実臨床での解釈（日本人）</h2>
+
+<div class="callout" style="background:#f1f8e9;border-left:4px solid #64dd17;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#64dd17;font-weight:700;margin-bottom:4px;font-size:0.85rem;">「同僚が生体弁後にアスピリンを入れている」をどう評価するか</div>
+<ul>
+<li><strong>ACC/AHA(IIa)に沿った許容される弱い選択</strong>ではあるが、<strong>JCS的にはルーチンでは非標準</strong>。ハードアウトカムでの裏づけはない。</li>
+<li>重要な切り分け：
+<ul>
+<li><strong>弁を理由としたアスピリン</strong> → 根拠は弱い（本ノートの主題）。</li>
+<li><strong>併存する動脈硬化／CAD等のための二次予防アスピリン</strong> → これは別個の確立した適応。各GLとも「他のOAC／抗血小板適応があれば別」と注記しており、この場合の継続は妥当。</li>
+</ul></li>
+<li>出血リスク（特に高齢・日本人）を踏まえると、<strong>弁単独を理由にした投与はJCSの立場では支持されにくい</strong>。投与するなら「なぜ入れるか（弁か・血管か）」を明確にするのが筋。</li>
+</ul>
+</div>
+
+<hr />
+<h2 id="7-リポジトリ外の一次文献">7. リポジトリ外の一次文献</h2>
+<p>ガイドライン・レベルの照合は本リポジトリ内で完結している。<strong>試験レベル</strong>まで掘る場合に有用な未収載文献（取得依頼候補）：</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>文献</th>
+<th>位置づけ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Brennan JM, et al. JACC 2012</strong></td>
+<td>Medicare観察研究（生体弁AVR後 aspirin vs warfarin vs 無治療）。ACC/AHA推奨の中核データ</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Mérie C, et al. JAMA 2012</strong></td>
+<td>デンマーク登録（生体弁AVR後ワルファリン中止と脳卒中／死亡）。ACC/AHA ref 20</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Rafiq S, et al.（生体弁AVR後 aspirin vs warfarin 3ヶ月 RCT）</strong></td>
+<td>ESCが言及する「small RCT」相当の一次論文</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>2023–2024 系統的レビュー／メタアナリシス</strong>（外科的生体弁AVR後の抗血栓療法）</td>
+<td>最新の統合評価</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>ENBALV trial, Circulation 2024</strong></td>
+<td>本邦の生体弁後エドキサバンRCT（DOAC文脈、アスピリンではないが日本のエビデンス動向）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">取得方法</div>
+<p>上記はいずれも本リポジトリ未収載。必要なものを指定いただければ取得方法を案内する。</p>
+</div>
+
+<hr />
+<h2 id="関連ノート">関連ノート</h2>
+<ul>
+<li>Mechanical_Valve_Anticoagulation_INR_Targets — 機械弁術後抗凝固療法・INR治療域（機械弁のVKA・周術期管理）</li>
+<li>Perioperative_Anticoagulation_Guidelines_Comparison — 術前抗凝固管理・ヘパリンブリッジング 各地域比較</li>
+<li>AS_AVR_Guidelines_Comparison — 大動脈弁狭窄症 AVR/TAVI（弁種選択の文脈）</li>
+</ul>
+<p><strong>本ノートの一次資料：</strong></p>
+<ul>
+<li>JCS/JATS/JSVS/JSCS 2020 弁膜症治療ガイドライン（日本語版）第11章 p.93–94 表47・Section 2.2.2 — <code>reference/Japan/Valvular_Heart_Disease/JCS_JATS_JSVS_JSCS_2020_弁膜症治療ガイドライン_JP.pdf</code></li>
+<li>ACC/AHA 2020 VHD（Circulation 2021;143:e72–e227）§11.2 — <code>reference/US/Valvular_Heart_Disease/ACC_AHA_2020_Valvular_Heart_Disease_Guidelines.pdf</code></li>
+<li>ESC/EACTS 2025 VHD（Eur Heart J 2025;46:4635）§14.3.2・Recommendation Table 16 — <code>reference/Europe/Valvular_Heart_Disease/ESC_EACTS_2025_Valvular_Heart_Disease_Guidelines.pdf</code></li>
+</ul>
+
+<div class="callout" style="background:#e8f0fe;border-left:4px solid #448aff;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#448aff;font-weight:700;margin-bottom:4px;font-size:0.85rem;">補足：JCS抗血栓療法ガイドライン（2020）は対象外</div>
+<p>一見関連しそうな「JCS 2020 抗血栓療法ガイドライン（冠動脈疾患患者における抗血栓療法）」は<strong>生体弁を一切扱っていない</strong>（機械弁の項のみ）。生体弁の抗血栓療法の日本の典拠は<strong>弁膜症ガイドラインの表47</strong>である点に注意。</p>
+</div>
+
+<hr />
+
+<div class="callout" style="background:#e8f5e9;border-left:4px solid #00c853;padding:12px 16px;margin:12px 0 20px;border-radius:4px;font-size:0.85rem;line-height:1.6;"><div class="callout-title" style="color:#00c853;font-weight:700;margin-bottom:4px;font-size:0.85rem;">✅ Fact check完了（2026年6月26日）</div>
+<p>本文書の推奨クラス・エビデンスレベル・原文引用を、原典PDF（JCS 2020 VHD 表47・Section 2.2.2／ACC/AHA 2020 VHD §11.2 prosthetic-valve表＋本文／ESC/EACTS 2025 VHD Recommendation Table 16・§14.3.2.1）と逐語照合（5エージェント独立抽出＋敵対的反証パス）し、全主張を確認済み。検証ハイライト：</p>
+<ul>
+<li><strong>ESC 2025 のアスピリン値（外科BHV慢性期 IIb/C）は2025年の値であることを確認</strong>（2021-vs-2025 2列表の左列〔2021〕との取り違えではない。本体Recommendation Table 16・lines 644–646で再確認）。</li>
+<li><strong>JCS 表47 生体弁に「ルーチン／生涯アスピリン」推奨行が無いことを確認</strong>（生体弁は「術後&lt;3ヶ月ワルファリン IIa/B」「TAVI抗血小板 IIa/C」の2行のみ）。</li>
+<li>ACC/AHA #6 = 2a/B-NR、僧帽弁の外挿明記、機械弁VKA上乗せ #8 = 2b/B-R、機械弁アスピリン単独 JCS = III/B — いずれも原典一致。</li>
+<li>ESC本文の "lack of high-quality evidence" と「VKA 3ヶ月＝アスピリンより大出血多・死亡差なし」を逐語確認。</li>
+</ul>
+</div>
+
+</main>
+</div>
+<script>
+(function () {
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+
+  function close() { sidebar.classList.remove('open'); }
+  function open() { sidebar.classList.add('open'); }
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  // Close sidebar after clicking a link on narrow screens
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 1024px)').matches) close();
+    });
+  });
+
+  // Active-link tracking via IntersectionObserver
+  var linkMap = new Map();
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    linkMap.set(id, a);
+  });
+
+  var headings = Array.prototype.slice.call(
+    document.querySelectorAll('main.content h2[id], main.content h3[id], main.content h4[id]')
+  );
+  if (!headings.length || !linkMap.size || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    // Pick the first visible heading in document order
+    var activeId = null;
+    for (var i = 0; i < headings.length; i++) {
+      if (visible.has(headings[i].id)) { activeId = headings[i].id; break; }
+    }
+    // Fallback: heading nearest above current scroll
+    if (!activeId) {
+      var y = window.scrollY + 100;
+      for (var j = headings.length - 1; j >= 0; j--) {
+        if (headings[j].getBoundingClientRect().top + window.scrollY <= y) {
+          activeId = headings[j].id;
+          break;
+        }
+      }
+    }
+    linkMap.forEach(function (a) { a.classList.remove('active'); });
+    if (activeId && linkMap.has(activeId)) {
+      var link = linkMap.get(activeId);
+      link.classList.add('active');
+      // Keep the active item visible inside the sidebar
+      var sRect = sidebar.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      if (lRect.top < sRect.top + 40 || lRect.bottom > sRect.bottom - 40) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
+</body>
+</html>
